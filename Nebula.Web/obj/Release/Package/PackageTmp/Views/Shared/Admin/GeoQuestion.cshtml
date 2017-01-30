@@ -1,0 +1,180 @@
+﻿@using Nebula.Web.Utils
+@model Nebula.Domain.ViewModels.Admin.Geo.GeoQuestionViewModel
+ 
+<form method="post" action="@Url.Action(Model.Action, Model.Controller)" id="cs-question-form">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.CategoryId)
+    
+        @if (Model.GeoFictionTextId != null)
+        {
+            @Html.HiddenFor(a => a.GeoFictionTextId)
+            @Html.HiddenFor(a => a.QuestionType)
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვა</label>
+            <div class="col-md-7">
+                <textarea name="Text" class="c-editor" id="ck-editor" style="max-width:280px;" required>@Html.Raw(Model.Text)</textarea>
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="answers" data-bind="foreach : answers">
+            <div class="form-group">
+                <label class="control-label col-md-2" data-bind="text : 'პასუხი ' + $root.numHelper($index())">  </label>
+                <div class="col-md-7">
+
+                    <input type="hidden" data-bind="attr : {value : Id, name :'Answers[' + $index()+'].Id'}" />
+
+                    <span class="X" data-bind="click : $root.removeAnswer.bind($data, {index : $index()})">X</span>
+                    <textarea data-bind="attr : {name :'Answers[' + $index()+'].Text',
+                                  Id : 'Answers[' + $index()+'].Text' }, html : Text" style="max-width: 280px;" required></textarea>
+                    <span style="">
+                        <label style="margin-top: 5px;">სწორია?</label>
+
+                        <input type="radio"
+                               class="answer-radio"
+                               data-bind="attr : {name :'Answers[' + $index()+'].IsCorrect', value : true}, css : { 'ans-checked'  : IsCorrect}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="add-answer" data-bind="click : addAnswer" type="button" value="პასუხის დამატება" class="btn btn-green" />
+            </div>
+        </div>
+        
+        @if(Model.CategoryId== 1 || Model.CategoryId == 2) {
+            <div class="form-group">
+                <label class="control-label col-md-2">კითხვის ტიპი : </label>
+                <div style="margin-left: 12px; margin-top: 5px;">
+                    <span style="margin: 5px;">
+
+                    <input type="radio" name="QuestionType" value="@Nebula.Domain.Entities.GeoQuestionType.ExerciseQuestion" class="question-checkbox" required @(Model.QuestionType == Nebula.Domain.Entities.GeoQuestionType.ExerciseQuestion ? "checked" : "") />
+
+                    სავარჯიშო
+                </span>
+                    <span style="margin: 5px;">
+
+                    <input type="radio" name="QuestionType" value="@Nebula.Domain.Entities.GeoQuestionType.CatQuestion" class="question-checkbox" required @(Model.QuestionType == Nebula.Domain.Entities.GeoQuestionType.CatQuestion ? "checked" : "") />
+
+                    კატი
+                </span>
+                    <span style="margin: 5px;">
+                    <input type="radio" name="QuestionType" value="@Nebula.Domain.Entities.GeoQuestionType.PostQuestion" class="question-checkbox" required @(Model.QuestionType == Nebula.Domain.Entities.GeoQuestionType.PostQuestion ? "checked" : "") />
+
+                    პოსტ ვიდეო
+                </span>
+                    @if (Model.CategoryId == 1)
+                    {
+                        <span style="margin: 5px;">
+                        <input type="radio" name="QuestionType" value="@Nebula.Domain.Entities.GeoQuestionType.PreQuestion" class="question-checkbox" required @(Model.QuestionType == Nebula.Domain.Entities.GeoQuestionType.PreQuestion ? "checked" : "") />
+
+                        პრე ვიდეო
+                    </span>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">სტუმრის კითხვა</label>
+                @Html.CheckBoxFor(model => model.IsFreeQuestion)
+                @*<input type="checkbox" value="@Model.IsFreeQuestion" name="IsFreeQuestion" class="question-checkbox" @(Model.IsFreeQuestion ? "checked" : "")/>*@
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">ბმული</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(a => a.VideoExplanationLink)
+                </div>
+            </div>
+        }
+        @if (Model.CategoryId == 1)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">ავტორები</label>
+                <div class="col-md-10">
+                    <select class="form-control valid" id="sAuthor">
+                        <option selected="selected">აირჩიე ავტორი</option>
+                        @foreach (var item in Model.Authors)
+                        {
+                            <option @(item.GeoAuthorWorks.Any(a => a.GeoAuthorWorkParts.Any(x => x.Id == Model.AuthorWorkPartId)) ? "selected" : "")
+                                    value="@item.Id">
+                                @item.AuthorName
+                            </option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">ნამუშევრები</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("AuthorWorkId",
+                        new SelectList(string.Empty, "Value", "Text"),
+                        "აირჩიე ნამუშევარი",
+                        new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">ნაწილები</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("AuthorWorkPartId",
+                        new SelectList(string.Empty, "Value", "Text"),
+                        "აირჩიე ნაწილი",
+                        new { @class = "form-control", required = "required" })
+                </div>
+            </div>
+        }
+        else if(Model.CategoryId==2)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">თეგები</label>
+                <div class="col-md-10">
+                    <select class="form-control valid" id="sTagId">
+                        <option selected="selected">აირჩიე თეგი</option>
+                        @foreach (var item in Model.Tags)
+                        {
+                            <option @(item.GeoGrammarSubTags.Any(a => a.Id == Model.SubTagId) ? "selected" : "")
+                                    value="@item.Id">
+                                @item.TagName
+                            </option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">ქვეთეგები</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("SubTagId",
+                        new SelectList(string.Empty, "Value", "Text"),
+                        "აირჩიე ქვეთეგი",
+                        new { @class = "form-control", required = "required" })
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div style="display:none;" id="json-data"
+     data-answers-json="@Model.Answers.ToJson()">
+</div>
+
+@Html.HiddenFor(a => a.AuthorWorkPartId, new { @id = "workPartId" })
+@Html.HiddenFor(a => a.SubTagId, new { @id = "tag" })
+

@@ -1,0 +1,50 @@
+﻿@model Nebula.Domain.Entities.GeoTextEditing
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>GeoTextEditing</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">ტექსტი შეცდომებით</label>
+            <div class="col-md-7">
+                <textarea name="IncorrectText" class="c-editor" id="ck-editor" style="max-width:280px;" required>@Html.Raw(Model.IncorrectText)</textarea>
+                @Html.ValidationMessageFor(model => model.IncorrectText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">ტექსტი შეცდომების გარეშე</label>
+            <div class="col-md-7">
+                <textarea name="CorrectText" class="c-editoro" id="ck-editoro" style="max-width:280px;" required>@Html.Raw(Model.CorrectText)</textarea>
+                @Html.ValidationMessageFor(model => model.CorrectText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    CKEDITOR.replace('ck-editoro');
+</script>

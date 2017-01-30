@@ -1,0 +1,107 @@
+﻿
+<div class="quiz cs-loading" style="display:none;">
+    <div class="container">
+        <!-- test heaad panel -->
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="@Url.Action("Index","All")"><span class="arrow-back"></span></a>
+                <span class="test" data-bind="text: 'ტესტი ' + quizIndex()">ტესტი </span>
+                <span class="verbal" data-bind="text : quizTypeText"></span>
+            </div>
+            <div class="col-sm-8">
+                <span class="tesTexts">პასუხები გაცემულია <span data-bind="text: userAnswersCount"></span>/40</span>
+                <span class="clock">
+                    <span class="timer"></span>
+                </span>
+                @*<button class="answerBut" id="ansbtn">პასუხების გადატანა</button>*@
+                <button class="answerBut finish" data-bind="click : confirmGameOver">დასრულება</button>
+                <button class="answerBut" id="formuls" data-bind="visible: quizTypeId() == 2">ფორმულები</button>
+            </div>
+        </div>
+        <!-- / test heaad panel -->
+
+        <div class="row">
+            <div class="col-sm-4 shadow-pnl">
+                <div class="fullHeight" data-bind="foreach: questionsByTag">
+                    <div class="testLeftNav">
+                        <div class="testLeftNavHeader">
+                            <h3 data-bind="text : tagName"></h3>
+                        </div>
+                        <div class="testsAswers" style="cursor:pointer;">
+                            <ol>
+                                <!-- ko if: hasMultipleQuestions -->
+                                <li data-bind="click : $root.getPiroba.bind($data, {pirobaIndex : $index()}),  css : { active : pirobaIndexer == $root.activeIndex() }"><a class="navigation-piroba">ტექსტი</a></li>
+                                <!-- /ko -->
+                                <!-- ko foreach: questions -->
+                                <li data-bind="click : $root.getQuestionByNum.bind($data, {index : index, questionId : id}),  css : { active : index == $root.activeIndex() }">
+                                    <a class="three-dot" data-bind="html : num + '. '+plainText" href="#"></a><span data-bind="text: answerL">ა</span>
+                                </li>
+                                <!-- /ko -->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8" id="math-jax-area">
+                <div class="QuizTest">
+                    <div class="QuizAnswers">
+                        <div class="piroba-nav" data-bind="visible : showPiroba()">
+                            <div class="quizAsk">
+                                <div data-bind="html : activePiroba() &&  activePiroba().piroba" class="active-question"></div>
+                                <div data-bind="foreach : activePiroba() && activePiroba().questions" style="margin-top:10px;">
+                                    <span style="cursor:pointer;" class="read-text-quiz" data-bind="text : num, click : $root.getQuestionByNum.bind($data, {index : index, questionId : id})"></span>
+                                </div>
+                            </div>
+                            @*<button  data-bind="click: fromPirobaToQuestions">შემდეგი</button>*@
+                        </div>
+
+                        <div class="question-nav" data-bind="visible : !showPiroba()">
+                            <div class="quizAsk">
+                                <span class="headerSp" data-bind="text : activeIndex() + startIndex() + '.' "></span>
+                                <div data-bind="html : activeQuestion() &&  activeQuestion().QuestionText" class="active-question"></div>
+                            </div>
+
+                            <div data-bind="foreach:  activeQuestion() && activeQuestion().answers" style="margin-top:20px;">
+                                <p style="cursor:pointer;" data-bind="click : $root.setAnswer.bind($data, {answerId : id, quizId : $root.quizId(), questionId : $root.activeQuestion().id, index : index})">
+
+                                    <span class="quizCats" data-bind="html: L, css : {selected : index == $root.activeAnswer()}"></span>
+                                    @*style : { color : isCorrect ? '#32CD32' : '#616161' }*@
+                                    <span data-bind="html:answerString" class="ans-span"></span>
+                                </p>
+                            </div>
+                            <button data-bind="visible : activeQuestion() && activeQuestion().hasMultipleQuestions, click : getPirobaFromQuestion.bind($data, {pirobaId : activeQuestion() && activeQuestion().pirobaId}) " style="background: #00ace0;">პირობის ნახვა</button>
+                            <button id="GoPrevQuiz" data-bind="click: getPrevQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasPreviousQuestion">წინა</button>
+                            <button id="GoNexQuiz" data-bind="click: getNextQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasNextQuestion ">შემდეგი</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+</div>
+
+<div class="quisp" style="display:none;">
+    <div class="quizpp">
+        <div class="clossepop"></div>
+        <div class="quzArea">
+            <p class="ffs" data-bind="html : activeQuestion() && activeQuestion().multipleQuestionsText">
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+<div class="pdfPopup">
+    <div class="rel"></div>
+    <div class="pdfHare">
+        <div class="closePdf"></div>
+        <div class="imgBlock">
+            <img id="zoom" src="~/Content/img/formul.jpg">
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Js/exam.js?v=9"></script>
+}
+
+  

@@ -1,0 +1,82 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IOrderedEnumerable<Nebula.Web.Controllers.Admin.UserScoreViewModel>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2 style="margin-top: 40px; margin-bottom: 25px;float: left;display: inline;">სულ <b>@Model.Count()</b></h2>
+
+
+@foreach (var user in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>სახელი გვარი</th>
+                    <th>username</th>
+                    <th>მობილური</th>
+                  
+                    <th>ელ.ფოსტა</th>
+
+
+                    <th>facebook link</th>
+                    <th>ქულა</th>
+                    <th>პროცენტი</th>
+                    <th>ლინკი</th>
+                    <th>წერილის გაგზავნა : </th>
+                </tr>
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(user.FacebookLink))
+                        {
+                            <a href="https://www.facebook.com/@user.FacebookLink" target="_blank">
+                                <img src="https://graph.facebook.com/@user.FacebookLink/picture?width=90&amp;height=90" />
+                            </a>
+                        }
+                    </td>
+
+                    <td>@user.FullName </td>
+                    <td>@user.UserName</td>
+                    <td>@user.Phone</td>
+                  
+                    <td>
+                        @if (!user.Email.StartsWith("defaultFb"))
+                        {
+                            <span>@user.Email</span>
+                        }
+                    </td>
+
+                    <td>
+                        @if (!string.IsNullOrEmpty(user.FacebookLink))
+                        {
+                            <a href="https://www.facebook.com/@user.FacebookLink" target="_blank">
+                                https://www.facebook.com/@user.FacebookLink
+                            </a>
+                        }
+
+                    </td>
+                    <td>@user.Score</td>
+                    <td>@Math.Round(user.Percent.GetValueOrDefault(), 2, MidpointRounding.AwayFromZero)</td>
+                    <td><a href="@Url.Action("AdminUserPanel", "User", new {userId = user.Id } )" target="_blank">დეტალური ინფორმაცია</a></td>
+                    <td>
+                @if (!user.Email.StartsWith("defaultFb"))
+                        {
+                    <a href="@Url.Action("SendEmailToUser", "AdminGetUserScores", new {userId = user.Id, percent = Math.Round(user.Percent.GetValueOrDefault(), 2, MidpointRounding.AwayFromZero), score = user.Score})" target="_blank">წერილის გაგზავნა</a>
+                       }
+                    </td>
+
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+}
+
+

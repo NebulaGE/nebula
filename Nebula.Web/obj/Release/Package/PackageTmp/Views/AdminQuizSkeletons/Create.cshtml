@@ -1,0 +1,66 @@
+﻿@model Nebula.Domain.Entities.QuizSkeleton
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>გამოცდის ჩონჩხი</h2> 
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="CSQuestionCategoryId" value="@ViewBag.CSQuestionCategoryId" />
+    <div class="form-horizontal"> 
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2">თეგი</label> 
+            <div class="col-md-10">
+                @Html.DropDownList("ModuleId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ModuleId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვების რაოდენობა</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuestionCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuestionCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">ნუმერაცია</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ordering, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ordering, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">პირობა?</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsTask)
+                    @Html.ValidationMessageFor(model => model.IsTask, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შექმნა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("უკან დაბრუნება", "Index", new { id = ViewBag.CSQuestionCategoryId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

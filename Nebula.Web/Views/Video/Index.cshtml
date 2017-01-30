@@ -1,0 +1,186 @@
+﻿
+<link href="~/Content/videojs.markers.min.css" rel="stylesheet" />
+<link href="~/Content/video-js.min.css" rel="stylesheet" />
+
+<style>
+       .disable-btn{
+       background: rgb(221, 221, 221) !important;
+       cursor:not-allowed;
+   }
+   .true, .false{
+cursor:pointer;
+   }
+</style>
+
+<div class="cs-loading" style="display:none;">
+    <div class="container">
+        
+        <!-- test heaad panel -->
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="@Url.Action("Index", "All")"><span class="arrow-back"></span></a>
+                <span class="verbal"></span>
+            </div>
+        </div>
+
+        <!-- / test heaad panel -->
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="leftOlPanel">
+                    <ul id="video-navigation" data-bind="foreach : tagsNavigation" >
+                        <li data-bind="css : { active : selected }, click : $root.moveToVideo.bind($data, { url :  url})">
+                            <!-- ko if: (!isPayed || $root.hasLicense()) && percent != -1 -->
+                            <span data-bind=" attr : {'data-progress' : percent}" class="background-by-progress"></span>
+                            <span class="percentageVideo" data-bind=" attr : { id : 'circles-'+ index}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                    <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 1 1 39.949302232260386 3.500035209108127 Z"></path>
+                                    <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 0 1 59.07174573163989 71.12103010421852 "></path>
+                                </svg>
+                                <span class="circles-integer"></span>
+                            </span>
+                            <a data-bind="text:name, attr :{ 'data-original-title' : name }" data-toggle="tooltip"></a>
+                            <!-- /ko -->
+
+                            <!-- ko if: (isPayed && !$root.hasLicense()) || percent == -1 -->
+                            <span data-bind="css : { block : !$root.hasLicense() && isPayed, video : !isPayed || $root.hasLicense() },
+                                             attr : { id : 'circles-'+ index }"></span>
+                            <a data-bind="text:name, attr :{ 'data-original-title' : name}" data-toggle="tooltip"></a>
+                            <!-- /ko -->
+                            @*<span class="cube" data-bind="text : videoCount"> </span>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <section class="forShad">
+                    <div class="sliderbar">
+                        <div class="sliderBarArea">
+                            <span class="goToPrev"></span>
+                            <span class="goToNext"></span>
+                            <div class="slideMove" data-bind="attr : {'data-countimage' : dataCountImg()}">
+                                <ul id="movingSlider" data-bind="foreach : videoNavigation">
+                                    <li data-bind="css : {active : selected}, 
+                                        click : $root.moveToVideo.bind($data, { url : U + 'Video/Index?videoId=' + id}), text:num "></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="SliderMean">
+                        <span data-bind="text: selectedVideoName"></span>
+                    </div>
+                </section>
+
+                <div data-bind="if : !exerciseType()">
+                    <section class="videoPlayer" style="position: relative; height: 363px;">
+                        <div id="alternate-video" data-bind="html : alternateLink" style="display: none;">
+
+                        </div>
+                        <div class="js-media-player" id="video-container">
+
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-string"></div>
+                            <ul class="answers"></ul>
+                        </div>
+
+                    </section>
+                    <section class="descc">
+                        <p>ვიდეოჩანაწერებში ილუსტრაციის სახით წარმოდგენილია შეფასებისა და გამოცდების ეროვნული ცენტრის მიერ ერთიან ეროვნულ გამოცდებზე გამოყენებული ამოცანები. </p>
+                    </section>
+                </div>
+
+                <div data-bind="if : exerciseType">
+                    <section class="videoPlayer examSQuiz">
+                        <!-- answers true/false -->
+                        <div class="testProgress" data-bind="foreach : progressBar">
+                            <span data-bind="css : { true :  $data == 'true', false : $data == 'false'},
+                                style : { cursor : !$root.historyNavigate()   ?  $data != 'default'  ? 'not-allowed' : 'auto' :  $data != 'default' ? 'pointer' : 'auto' },
+                                click :$root.historyNavigate() ? $data != 'default' ? $root.getQuestionByNum.bind($data, { index : $index}) : null : null">
+                            </span>
+                        </div>
+                        <!-- answers true/false -->
+                        <!-- quiz -->
+                        <div class="QuizTest Fr-video-qz">
+                            <div class="QuizAnswers" id="math-jax-area">
+                                <div class="quizAsk">
+                                    <h4 data-bind="html : activeQuestion() && activeQuestion().question"></h4>
+                                </div>
+                                <div data-bind="foreach : activeQuestion() && activeQuestion().answers" style="clear: both;">
+                                    <p style="cursor: pointer;" data-bind="click : $root.hasAnswered() ? null : $root.setAnswer.bind($data, {answerId : id})">
+                                        <span class="quizCats disable" data-bind="text : letter, css: { selected : id == $root.selectedAnswerId(), red : id == $root.incorrectAnswerId(), green : id == $root.correctAnswerId() }"> </span>
+                                        <span class="exercise-ans" data-bind="html : answer"></span>
+                                    </p>
+                                </div>
+
+                                <button id="GoNexQuiz" data-bind="visible : isNextBtnVisible, click  : !nextBtnDisable() ?  getQuizNextQuestion.bind($data, { question : activeQuestion()}) : null, 
+                                 css: { 'disable-btn' : nextBtnDisable() }">შემდეგი</button>
+                                <button data-bind="click : goToCurrentQuestion, visible : currentQuestionBtnVisible">მიმდინარე კითხვა</button>
+                                <button id="GoNexQuiz" data-bind="visible : isStartAgainBtnVisible, click : startAgain">ახლიდან დაწყება</button>
+
+                            </div>
+                        </div>
+                        <!-- quiz -->
+                    </section>
+
+                </div>
+
+                <button class="btn btn-link" data-bind="click : alternateVideo">ალტერნატიული ბმული</button>
+
+                @if (ViewBag.FbId != null)
+                {
+                    <div class="fb-comments" data-href="http://nebula.ge/Video/Index?videoId=@(ViewBag.FbId)" 
+                         data-numposts="5" data-width="100%"></div>
+                }
+
+            </div><!-- col-sm-7 -->
+        </div>
+        <!-- row -->
+    </div> 
+
+    <div id="mask"></div>
+
+    <div data-bind="if : !exerciseType()">
+        <div class="videoQuiz" >
+            <div class="rel"></div>
+            <div class="QuizArea">
+                <div class="testProgress" data-bind="foreach : progressBar">
+                    <span data-bind="css : { true :  $data == 'true', false : $data == 'false'} "></span>
+                </div>
+
+                <!-- <div class="closse"></div> -->
+                <div class="QuizTest Fr-video-qz">
+                    <div class="QuizAnswers" id="math-jax-area">
+                        <div class="quizAsk">
+                            <h2 id="question-str" data-bind="html: activeQuestion() && activeQuestion().question"></h2>
+                        </div>
+                        <div data-bind="foreach :  activeQuestion() && activeQuestion().answers">
+                            <p style="cursor:pointer;" data-bind="click : $root.hasAnswered() ? null  :  $root.setAnswer.bind($data, { answerId: id, questionId : $parent.questionId } )">
+                                <span class="quizCats" data-bind="text : letter, css: { selected : id == $root.selectedAnswerId(), red : id == $root.incorrectAnswerId(), green : id == $root.correctAnswerId() }"></span>
+                                <span data-bind="html : answer"></span>
+                            </p>
+                        </div>
+                         
+                        <button id="GoNexQuiz" data-bind="visible : isNextBtnVisible, click : getNextQuestion.bind($data, { question : activeQuestion()})">შემდეგი</button>
+                        <button id="GoNexQuiz" data-bind="visible : isFinishBtnVisible, click : closePopup">დახურვა</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <input type="hidden" id="VideoId" value="@ViewBag.VideoId" />
+    <input type="hidden" id="ModuleId" value="@ViewBag.ModuleId" />
+</div>
+
+    @section scripts{
+<script src="~/Scripts/circles.min.js"></script>
+<script src="~/Scripts/video.min.js"></script>
+<script src="~/Scripts/videojs-markers.min.js"></script>
+<script src="~/Js/video-page.js?v=10"></script> 
+    }
+
+
+

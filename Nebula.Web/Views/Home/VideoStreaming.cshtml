@@ -1,0 +1,20 @@
+﻿@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VideoStreaming</title>
+</head>
+<body>
+    <div> 
+        <video width="480" height="320" controls="controls" autoplay="autoplay">
+            <source src="/api/videostream?ext=mp4&filename=@Model" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>

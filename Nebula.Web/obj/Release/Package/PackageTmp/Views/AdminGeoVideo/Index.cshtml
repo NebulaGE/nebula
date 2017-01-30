@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.GeoVideo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ვიდეოები</h2>
+
+<p>
+    @Html.ActionLink("ახლის დამატება", "Manage", new { videoCategory = ViewBag.Id, workId= ViewBag.work })
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        სახელი
+    </tr>
+    <tr></tr>
+    </thead>
+    <tbody> 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                <td>
+                    @Html.ActionLink("რედაქტირება", "Manage", new { id = item.Id, workId = ViewBag.work, videoCategory = ViewBag.Id, }) |
+                    <form action="@Url.Action("Delete", "AdminGeoVideo")" method="post" style="display: inline;">
+                        <input type="hidden" name="work" value="@ViewBag.work" />
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@item.Id"/>
+                        <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath"/>
+                        <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')"/>
+                    </form>
+                    </td>  
+            </tr>
+        } 
+    </tbody>
+</table>

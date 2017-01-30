@@ -1,0 +1,402 @@
+﻿<script data-template-name="PAGE_WRAPPER" type="text/x-handlebars-template">
+    <div id="pre-result">
+        {{{pre_html}}}
+    </div>
+
+    <div id="offer-page">
+            <div id="offer-bg"></div>
+        <div style="text-align:center;">
+            <h3 id="offer-title" style="font-size:42px; margin-bottom:0;">
+                დააზღვიე ავტომობილი და დარგე ხე!<br /><span style="font-size:18px;">
+                    აქციის ფარგლებში თქვენი სახელით ბორჯომის ხეობაში ერთი ხე დაირგვება
+                </span>
+            </h3>
+
+        </div>
+        <hr class="horizontal-line" style="width:980px; margin-top:25px;" id="offer-wrapper-ln" />
+        <div class="offer-wrapper">
+
+
+            <div class="left-side brd-right">
+                <div class="left-side-down">
+                    <h3 style="margin-top:0;     font-size: 36px;  margin-top: 15px;" class="h3-txt">
+                        ჩაერთე აქციაში!
+                    </h3>
+                    <form id="reg-form" action="#" method="post">
+                        <input name="name" placeholder="სახელი / გვარი" class="cim-cim" style="margin :0; padding: 10px 25px;     font-size: 16px;
+    text-align: center;">
+                        <input name="phone" placeholder="5-XX-XXX-XXX" class="cim-cim" style="margin :0; margin-top:30px; padding: 10px 25px;    font-size: 16px;
+    text-align: center;" maxlength="12">
+                        <input name="user_data" value="" type="hidden">
+
+
+                        <div>
+                            <button id="registration-btn" class="offer-btn" type="button" style="margin-top:30px;"><span style="position: relative; top: 2px;">ჩაერთე აქციაში</span></button>
+                        </div>
+                    </form>
+                </div>
+                <hr class="horizontal-line" />
+                <div class="left-side-up">
+                    <h3>
+                      დააზღვიე აქციის ფარგლებში <br />უკეთესი ტარიფით
+                    </h3>
+                    <div id="circle-percent">
+                        <h3><span id="circle-prct"></span>
+                        </h3>
+                    </div>
+
+
+                    <button class="offer-btn" id="btn-rules"><span style="position: relative; top: 2px;">დაზღვევის პირობები</span></button>
+                </div>
+ 
+     
+
+            </div>
+            <div class="right-side brd-left">
+                <div id="right-side-info">
+
+
+                    @*<h3 style="margin-bottom:0; font-size:24px;">
+                        დააზღვიე ავტომობილი და
+                    </h3>*@
+                    <h3 style="font-size:36px; margin-top:15px; margin-bottom:0;" class="h3-txt">
+                        ...და  მიიღე ფასდაკლება!
+                    </h3>
+           
+                    <img src="@Url.Content("~")content/img/new-light4.png"  style="margin-top:40px;  position:relative; left:0; width:auto" class="offer-img img-frst"  />
+                    <img src="@Url.Content("~")content/img/forum2.png" style="margin:35px 0;" class="offer-img img-mrg" />
+                    <img src="@Url.Content("~")content/img/ita2.png" class="offer-img" />
+                    <img src="@Url.Content("~")content/img/deto2.png" style="margin-top:35px;" class="offer-img img-frst" />
+                </div>
+                <div id="right-side-rules" style="text-align:left;color:white;  display:none; margin-left:32px; ">
+                    <h3 style="font-size:24px;">აირჩიეთ საუკეთესო დაზღვევის პაკეტი თქვენი ავტომობილისთვის და დააზღვიეთ შემდეგი რისკებისგან:</h3>
+                    <div style="margin-left: 8px;">
+                        <p>✔	ავტოსაგზაო შემთხვევა</p>
+                        <p>✔	ქურდობა/ ძარცვა, ყაჩაღობა</p>
+                        <p>✔	ბოროტგანზრახული შემთხვევა</p>
+                        <p>✔	საგნების ვარდნა </p>
+                        <p>✔    მინების, სარკეების ცალკეული დაზიანება</p>
+                        <p>✔	სეტყვა, მიწისძვრა</p>
+                  
+                    </div>
+                    <h3 style="font-size:24px;">24 საათიანი ავტოასისტანსი</h3>
+
+                    <p><b style="font-style:italic;">მომსახურება ვრცელდება  თბილისი, მცხეთა, რუსთავი, ქუთაისი, ბათუმი, ფოთი</b></p>
+                    <div style="margin-left: 8px;">
+                        <p>✔	საბურავის გამოცვლა</p>
+                        <p>✔	საწვავის ადგილზე მიტანა (თუ საწვავი გზაში გამოგელევათ, ჩვენ ადგილზე მოგიტანთ 5 ლიტრს – მოტანის სერვისი უფასოა)</p>
+                        <p>✔	ევაკუატორის უფასო მომსახურება</p>
+                        <p>✔	ავტომობილის დაქოქვა სპეციალური ხელსაწყოთი</p>
+
+                    </div>
+
+                 
+                    <p>ავტოდაზღვევის მომსახურების ჯგუფის დახმარება, 24/7 :</p>
+                    <ul>
+                        <li>პროცედურული საკითხების მოგვარება (ურთიერთობა საპატრულოსთან, სადაზღვევოსთან და მესამე მხარესთან)</li>
+                        <li>მძღოლის და მგზავრების ტრანსპორტირება შემთხვევის ადგილიდან</li>
+                        <li>1000 ლარამდე ავტოზარალებს დარეგულირება ადგილზე. </li>
+                      
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div style="padding-bottom:20px;clear: both;padding-top: 33px; text-align:center;">
+                <button class="offer-btn load-car" style="clear:both;margin:auto;display:block;" id="load-car">
+                    <span style="position: relative; top: 2px;">ეკო-მართვის  წესები</span>
+                </button>
+                <img src="@Url.Content("~")content/img/down-arrow.png" class="load-car" style="cursor:pointer; margin-top:12px; width: auto !important;" />
+            </div>
+        </div>
+
+      
+    </div>
+
+    <div id="result" style="display:none;">
+        <div id="result-scroll">
+            <div id="top-result" class="container">
+                {{{top_html}}}
+            </div>
+            <div id="map-wrapper">
+                <div id="map" class="container">
+                    <div id="car-wrapper">
+                        <div id="car">
+                            <div id="car-img"></div>
+                        </div>
+                        <div id="map-img-1"></div>
+                        <div id="map-img-2"></div>
+                        <div id="map-img-3"></div>
+                        <div id="map-img-4"></div>
+                        <div id="map-img-5"></div>
+                        <div id="map-img-6"></div>
+
+                        <div id="text-0" class="text">ხეების დარგვის პარალელურად, შეგიძლია გარემოს დაცვის ეს 8 მარტივი წესიც დანერგო: </div>
+                        <div id="text-1" class="text">
+                            მანქანა ყოველთვის გამართული უნდა იყოს ტექნიკურად, რათა ძრავმა ეფექტურად იმუშაოს.
+                        </div>
+                        <div id="text-2" class="text">
+                            ძრავის ზეთი უნდა შეესაბამებოდეს მანქანის ტექნიკურ მონაცემებს. ასეთ პირობებში ძრავი შეუფერხებლად მუშაობს და საწვავსაც ოპტიმალურად მოიხმარს.
+                        </div>
+                        <div id="text-3" class="text">უნდა შევამოწმოთ საბურავებში წნევა, რადგან დაშვებულ საბურავებს გორვის დროს მეტი წინაღობა ექმნებათ ასფალტთან შეხებისას. მეტი წინაღობის გადალახვას კი მეტი საწვავი სჭირდება.</div>
+                        <div id="text-4" class="text">შეამოწმეთ, ხომ არ არის ავტომობილში ზედმეტი ტვირთი, რადგან მეტი სიმძიმის გადატანას მეტი საწვავი სჭირდება.</div>
+                        <div id="text-5" class="text">შევეცადოთ, ვაკონტროლოთ მოძრაობის სიჩქარე. მაღალ სიჩქარეზე მანქანა მეტ საწვავს მოიხმარს, მაგალითად 120 კმ/სთ-ით მოძრაობისას, ავტომობილი 10%-ით მეტ საწვავს მოიხმარს, ვიდრე 100 კმ/სთ-ით მოძრაობისას.</div>
+                        <div id="text-6" class="text">დილით მანქანის დაძვრისას არ არის საჭირო ძრავის დიდი ხნით გათბობა. დაძვრის შემდეგ, ნელი სვლის დროს ახალი თაობის მანქანების ძრავები თავისთავად თბება. </div>
+                        <div id="text-7" class="text">თუ საცობში მოხვდით და თვლით,რომ 3 წუთზე მეტი მოგიწევს დგომა, უმჯობესია ძრავა გამორთოთ. </div>
+                        <div id="text-8" class="text">ნუ ჩართავთ გათბობას და კონდიციონერს, თუ ამის აუცილებლობა არ არის.</div>
+                    </div>
+                </div>
+            </div>
+            <div id="bot-result">
+                <div class="container">{{{bot_html}}}</div>
+            </div>
+            <div id="footer-wrapper" class="{{footerClass}}">
+                <div id="footer" class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div style="text-align:center;padding: 90px 0;">
+                                <img src="@Url.Content("~/content/img/eko1.png")" style="width:400px;" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="  padding-top: 150px; color: #fff;">
+                                <h1 style=" font-size: 36px;">გახდი ეკოისტი - დარგე ხე!</h1>
+                                <div style="overflow: hidden;padding: 15px 0px;">
+                                    <div id="n-share">SHARE</div>
+                                    <div id="n-like">
+                                        <div class="fb-like"
+                                             data-href="https://www.facebook.com/GPIH.GE"
+                                             data-layout="button_count"
+                                             data-action="like"
+                                             data-show-faces="false"
+                                             data-share="false"></div>
+                                    </div>
+                                </div>
+                                <div style="font-size: 21px;font-family: M;">
+                                    გაუზიარე ეს რჩევები შენს მეგობარს @*და მიიღე
+                                    ეკოისტის მაისური GPI - სგან საჩუქრად!
+
+                                    საჩუქრის მისაღებად გაზიარებისას დათაგე GPI - ის გვერდი!*@
+                                </div>
+                                <div style="width:500px;">
+                                    <img src="@Url.Content("~/content/img/GPI-Holding-logo.png")" style=" margin-top: 15px; margin-right: 15px;" />
+                                    <img src="@Url.Content("~/content/img/road_logo_engGamchvirvale.png")" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script data-template-name="PRE" type="text/x-handlebars-template">
+    <div id="pre">
+        <h1 class="car-review-title">{{{title}}}</h1>
+        @*<h4>{{{desc}}}</h4>*@
+        <h5>{{{bot}}}</h5>
+        <div style="" class="car-review">
+            <img src="@Url.Content("~/content/img/car-{{type}}.png")" style="height:100%;" />
+            <div id="car-share" onclick="CarShare({{type}})" >SHARE</div>
+        </div>
+        <div id="pre-prog">
+            <div style="background:{{progLoader}}"  id="prog-loader"></div>
+        </div>
+    </div>
+</script>
+
+<script data-template-name="PAGE_1" type="text/x-handlebars-template">
+    <div id="page-1">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center" style="font-size: 50px; line-height: 50px;">{{{title}}}</h1>
+            </div>
+        </div>
+        <div id="ul-wrapper" class="row" style="display:none">
+            {{#each ul}}
+            <div class="col-md-3">
+                <div>
+                    <div>{{{this}}}</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div id="fade-step-2" class="row" style="display:none">
+            <div class="col-md-6">
+                <div id="reg-form-1">
+                    <h3 style="font-size: 28px;font-weight: bold;">
+                        დარეგისტრირდი ახლავე
+                    </h3>
+                    <div style="border-right:1px solid #c43f6d; min-height:444px;padding-right:60px;">
+                        <form id="reg-form" action="#" method="post">
+                            <input name="name" placeholder="სახელი / გვარი" class="cim-cim" />
+                            <input name="phone" placeholder="5-XX-XXX-XXX" class="cim-cim" />
+                            <input name="user_data" value="{{user_data}}" type="hidden" />
+                            <div>
+                                <button id="registration-btn" type="button" onclick="APP.events.onRegistrationClick()">რეგისტრაცია</button>
+
+                                <button type="button" class="pull-right" onclick="APP.events.onWinMoreClick()">გაიგე მეტი</button>
+                            </div>
+                        </form>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="padding-left:20px">
+                    <div id="win">
+                        <h3 style="font-size: 28px;font-weight: bold;">თამაშდება</h3>
+                        <div class="row" style="color:#fff;text-align:left">
+                            <div class="col-md-4">
+                                <img src="@Url.Content("~/content/img/icon2.png")" />
+                                <div style="margin-top: 23px">მთავარი პრიზი</div>
+                                <h3 style="margin:0;font-weight:bold">ამსტერდამი</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="@Url.Content("~/content/img/icon3.png")" />
+                                <div style="margin-top: 23px">ვიქენდი ყაზბეგში<br />ROOMS HOTEL</div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="@Url.Content("~/content/img/icon1.png")" />
+                                <h3 style="margin:0;font-weight:bold;padding-top: 25px;">სხვა უამრავი პრიზი</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="win-more">
+                        <div id="win-more-close" class="pull-right" onclick="APP.events.onWinMoreCloseClick()"></div>
+                        <h3>გაიგე მეტი</h3>
+                        <div style="height: 300px;overflow-y: scroll;">
+                            <div>
+                                ისარგებლეთ ჯი პი აი ავტო-დაზღვევით და მიიღეთ საუკეთესო მომსახურება: <br /><br />
+
+                                ადგილზე ანაზღაურების სერვისი (1000 ლარამდე ზარალის)<br />
+                                ავტომომსახურების ჯგუფი - მომსახურება 24/7<br />
+                                <ul>
+                                    <li>მომსახურების ჯგუფის გასვლა შემთხვევის ადგილზე;</li>
+                                    <li>ევაკუატორის უფასო მომსახურება</li>
+                                    <li>პროცედურული საკითხების მოგვარება (ურთიერთობა საპატრულოსთან, სადაზღვევოსთან და მესამე მხარესთან)</li>
+                                    <li>მძღოლის და მგზავრების ტრანსპორტირება შემთხვევის ადგილიდან</li>
+                                </ul>
+
+                                ავტოასისტანსი - 24/7<br />
+                                <ul>
+                                    <li>საბურავის გაბერვა/გამოცვლა</li>
+                                    <li>საწვავის ადგილზე მიტანა</li>
+                                    <li>უფასო ევაკუატორის მომსახურება</li>
+                                    <li>მანქანის დაქოქვა სპეციალური ხელსაწყოთი</li>
+                                </ul>
+
+                                გახდი ეკოისტი და ჩაერთე გათამაშებაში!<br />
+                                მოიგე:<br />
+                                <ul>
+                                    <li>ეკოტური ამსტერდამში</li>
+                                    <li>ეკოისტის თერმო ჭიქა</li>
+                                    <li>მანქანის USB დამტენი</li>
+                                    <li>მანქანის მტვერსასრუტი</li>
+                                    <li>კლუბი 71-ის ვაუჩერი</li>
+                                    <li>ველოსიპედი</li>
+                                    <li>უიქენდ საგზური ყაზბეგის სასტუმრო „რუმსში“</li>
+                                </ul>
+
+                                ჩვენთან ყოველი მეათე დაზღვეული მოგებულია! <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script data-template-name="PAGE_2" type="text/x-handlebars-template">
+    <div id="page-2">
+        <div style="height:50px"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">{{{title}}}</h1>
+            </div>
+        </div>
+        <div id="ul-wrapper" class="row">
+            {{#each ul}}
+            <div class="col-md-3" style="background:none">
+                <div>
+                    <div>{{{this}}}</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div style="padding-left:20px">
+                    <div>
+                        <h3 style="font-size: 38px;font-weight: bold;line-height: 40px;">
+                            დარეგისტრირდი ახლავე
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="win">
+                    <div id="reg-form-1">
+                        <div>
+                            <form id="reg-form" action="#" method="post">
+                                <input name="name" placeholder="სახელი / გვარი" />
+                                <input name="phone" placeholder="5-XX-XXX-XXX" />
+                                <input name="user_data" value="{{user_data}}" type="hidden" />
+                                <div>
+                                    <button id="registration-btn" type="button" onclick="APP.events.onRegistrationClick()">რეგისტრაცია</button>
+                                    <button type="button" class="pull-right" onclick="APP.events.onWinMoreClick()">გაიგე მეტი</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="win-more">
+                    <div id="win-more-close" class="pull-right" onclick="APP.events.onWinMoreCloseClick()"></div>
+                    <h3>გაიგე მეტი</h3>
+                    <div style="height: 200px;overflow-y: scroll;">
+                        <div>
+                            ისარგებლეთ ჯი პი აი ავტო-დაზღვევით და მიიღეთ საუკეთესო მომსახურება: <br /><br />
+
+                            ადგილზე ანაზღაურების სერვისი (1000 ლარამდე ზარალის)<br />
+                            ავტომომსახურების ჯგუფი - მომსახურება 24/7<br />
+                            <ul>
+                                <li>მომსახურების ჯგუფის გასვლა შემთხვევის ადგილზე;</li>
+                                <li>ევაკუატორის უფასო მომსახურება</li>
+                                <li>პროცედურული საკითხების მოგვარება (ურთიერთობა საპატრულოსთან, სადაზღვევოსთან და მესამე მხარესთან)</li>
+                                <li>მძღოლის და მგზავრების ტრანსპორტირება შემთხვევის ადგილიდან</li>
+                            </ul>
+
+                            ავტოასისტანსი - 24/7<br />
+                            <ul>
+                                <li>საბურავის გაბერვა/გამოცვლა</li>
+                                <li>საწვავის ადგილზე მიტანა</li>
+                                <li>უფასო ევაკუატორის მომსახურება</li>
+                                <li>მანქანის დაქოქვა სპეციალური ხელსაწყოთი</li>
+                            </ul>
+
+                            გახდი ეკოისტი და ჩაერთე გათამაშებაში!<br />
+                            მოიგე:<br />
+                            <ul>
+                                <li>ეკოტური ამსტერდამში</li>
+                                <li>ეკოისტის თერმო ჭიქა</li>
+                                <li>მანქანის USB დამტენი</li>
+                                <li>მანქანის მტვერსასრუტი</li>
+                                <li>კლუბი 71-ის ვაუჩერი</li>
+                                <li>ველოსიპედი</li>
+                                <li>უიქენდ საგზური ყაზბეგის სასტუმრო „რუმსში“</li>
+                            </ul>
+
+                            ჩვენთან ყოველი მეათე დაზღვეული მოგებულია! <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

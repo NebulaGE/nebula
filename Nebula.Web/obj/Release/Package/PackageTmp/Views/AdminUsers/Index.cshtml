@@ -1,0 +1,85 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Nebula.Domain.Entities.User>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+ 
+}
+
+<h2 style="margin-top: 40px; margin-bottom: 25px;float: left;display: inline;">სულ <b>@ViewBag.UsersCount</b></h2>
+
+<form action="@Url.Action("Index")" method="get">
+    <div style="margin-bottom:20px; clear:both; ">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">ძებნა</button>
+            </span>
+            <input name="search" type="text" class="form-control" placeholder="ძებნა...">
+        </div><!-- /input-group -->
+    </div>
+</form>
+@foreach (var user in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>სახელი გვარი</th>
+                    <th>username</th>
+                    <th>მობილური</th>
+                    <th>პირადი ნომერი</th>
+                    <th>ელ.ფოსტა</th>
+                   
+             
+                    <th>facebook link</th>
+                  <th>რეგისტრაციის თარიღი</th>
+                    <th>ბოლოს აქტიური</th>
+                    <th>პირადი ლინკი</th>
+                </tr>
+                <tr>
+                    <td>     @if (!string.IsNullOrEmpty(user.FacebookId))
+                        {
+                        <a href="https://www.facebook.com/@user.FacebookId" target="_blank">
+                            <img src="https://graph.facebook.com/@user.FacebookId/picture?width=90&amp;height=90" />
+                            </a>
+                            }
+</td>
+                 
+                    <td>@user.FirstName  @user.LastName</td>
+                    <td>@user.ExternalUserName</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.IdentificationNumber</td>
+                    <td>
+                    @if (!user.Email.StartsWith("defaultFb"))
+                    {
+                        <span>@user.Email</span>
+                    }
+                  </td>
+                  
+                    <td>
+                        @if (!string.IsNullOrEmpty(user.FacebookId))
+                        {
+                            <a href="https://www.facebook.com/@user.FacebookId" target="_blank">
+                                https://www.facebook.com/@user.FacebookId
+                            </a>
+                        }
+
+                    </td>
+              <td>@user.RegisterDate</td>
+                    <td>@user.LastLogin</td>
+           <td><a href="@Url.Action("AdminUserPanel", "User", new { userId = user.Id })" target="_blank">პირადი ლინკი</a></td>
+
+
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+}
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, search = ViewBag.Search }))
+

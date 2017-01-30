@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    #trees {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+    }
+
+    .hotspot {
+        position: absolute;
+        z-index: 1;
+    }
+    .car-wheel{
+    -webkit-transition: margin 3s; /* Safari */
+    transition: margin 3s;
+    }
+    .wheels-animation{
+     -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+    }
+       .wheels-animation-slow{
+     -webkit-animation:spin 2.5s linear infinite;
+    -moz-animation:spin 2.5s linear infinite;
+    animation:spin 2.5s linear infinite;
+    }
+          .wheels-animation-slower{
+     -webkit-animation:spin 3s linear infinite;
+    -moz-animation:spin 3s linear infinite;
+    animation:spin 3s linear infinite;
+    }
+    .car-wh{
+        display:none;
+    }
+
+    @@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+</style>
+<div id="car-wheel" style="display:none;">
+
+</div>
+<div id="trees">
+
+</div>
+<div id="first-page">
+    <div class="col pull-left">
+        @*<div id="man">
+                <img src="~/content/img/car-wheel.png" style="height:800px" />
+            </div>*@
+    </div>
+    <div class="col pull-right">
+        <div id="pages">
+            <div id="start-screen">
+                <div>
+                     <img src="~/content/img/xe-round.png" style="width:100%;" />
+                    <div style="text-align:center;margin-top:20px;">
+                        <button id="go" type="button" onclick="$('#page-nav > li:eq(1)').click()">იხილეთ ხის დარგვის მარტივი გზა</button>
+                        <div id="arrow-down"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="send-form" style="z-index:5;">
+                <div>
+                    <h1>
+                        გაიგე, რამდენი <br />
+                        ხის დარგვით <br />
+                        დააბალანსებ შენი <br />
+                        ავტომობილის გამონაბოლქვს.
+                    </h1>
+                    <h2>შეიყვანე მონაცემები</h2>
+                    <form id="form-1" action="@Url.Action("sendForm", "ajax")">
+                        <select name="type">
+                            <option value="">მანქანის ტიპი</option>
+                            <option value="1">ჯიპი</option>
+                            <option value="2">კუპე</option>
+                            <option value="3">სედანი</option>
+
+                        </select>
+                        @*<input name="make" placeholder="მარკა" class="autocomplete" />
+                            <select name="model">
+                                <option value="">მოდელი</option>
+                            </select>*@
+                        <select name="engine">
+                            <option value="">ძრავის მოცულობა</option>
+                            <option value="1">1500-მდე</option>
+                            <option value="2">1500 - 2500-მდე</option>
+
+                            <option value="3">2500 და მეტი</option>
+                        </select>
+                        <select name="year">
+                            <option value="">წელი</option>
+                            @for (int i = DateTime.Now.Year; i >= 1990; i--)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                        <select name="price">
+                            <option value="1">5000$-მდე</option>
+                            <option value="2">5000$ - 10000$-მდე</option>       
+                            <option value="3">10001$ - 20000$-მდე</option>
+                            <option value="4">20001$ - 35000$-მდე</option>
+                            <option value="5">35001$ - 50000$-მდე</option>
+                            <option value="6">50001$ - 100000$-მდე</option>
+                        </select>
+                        <div style="text-align:center">
+                            <button id="send-form-btn" type="button" style=" font-size: 16px;">გაგზავნა</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section global {
+    <div id="clouds-wrapper">
+        <ul id="clouds">
+            <li class="layer" data-depth="0.1">
+                <img id="cloud-bg" src="~/content/img/bg.jpg" width="1920" />
+            </li>
+            <li class="layer" data-depth="0.1">
+                <img id="cloud-1" src="~/content/img/cloud/1.png" width="251" />
+            </li>
+            <li class="layer" data-depth="0.2">
+                <img id="cloud-2" src="~/content/img/cloud/2.png" width="251" />
+            </li>
+            <li class="layer" data-depth="0.4">
+                <img id="cloud-3" src="~/content/img/cloud/3.png" width="298" />
+            </li>
+            <li class="layer" data-depth="0.6">
+                <img id="cloud-4" src="~/content/img/cloud/4.png" width="181" />
+            </li>
+            <li class="layer" data-depth="0.8">
+                <img id="cloud-5" src="~/content/img/cloud/5.png" width="376" />
+            </li>
+            <li class="layer" data-depth="1">
+                <img id="cloud-6" src="~/content/img/cloud/6.png" width="181" />
+            </li>
+            <li class="layer" data-depth="1">
+                <img id="cloud-7" src="~/content/img/cloud/7.png" width="325" />
+            </li>
+        </ul>
+    </div>
+}
+@section scripts{
+    <script>
+        //var widthCoef = 1920 / 85;
+        //var heightCoef = 1080 / 115;
+        //var width = $(document).width() / widthCoef;
+        //var height = $(document).height() / heightCoef;
+        //$('#treeX').css({ width: width + 'px' });
+        //$(window).resize(function () {
+        //     width = $(document).width() / widthCoef;
+        //     height = $(document).height() / heightCoef;
+        //     $('#treeX').css({ width: width + 'px'});
+        //});
+
+
+    </script>
+}

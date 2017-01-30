@@ -1,0 +1,126 @@
+﻿@model  Nebula.Domain.Entities.User
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Styles{
+    <link href="~/Content/assetsNew/css/payment.css" rel="stylesheet" />
+    <link href="~/Content/intlTelInput.css" rel="stylesheet" />
+}
+
+<div class="payment-main">
+    <div class="payment-visa-paybox" data-bind="with : CartViewModel">
+        <div class="payment-visa">
+            <form method="post" data-bind="submit : generateTransactionId">
+                <div class="text-visa">ბალანსის შევსება საბანკო ბარათით</div>
+                <button type="submit" class="buy-course1">
+                    <div class="text-buy-course" style="padding-top:0px;">შევსება</div>
+                </button>
+                <input placeholder="თანხა" name="price" onkeypress="return isNumber(event)"  style="float: right; width: 80px; height: 44px; padding-left: 10px; margin-top: 17px; margin-right: 8px;" />
+                <div class="visa-img"></div>
+            </form>
+        </div>
+        <div class="payment-paybox">
+            <div class="text-visa">ბალანსის შევსება PAYBOX-ით</div>
+            <a class="buy-course1">
+                <div class="text-buy-course">ვიდეო ინსტრუქცია</div>
+            </a>
+            <div class="paybox-img"></div>
+            <div class="border"></div>
+            <div class="circle-img" style="display : @(string.IsNullOrEmpty(Model.IdentificationNumber) ? "inline block;" : "none;")"></div>
+            <div class="agree-text-payment" style="display : @(string.IsNullOrEmpty(Model.IdentificationNumber) ? "inline block;" : "none;")">
+                თქვენი პირადი ნომერი არ ვიცით, ასე Paybox-იდან თანხას ვერ ჩარიცხავთ! პირველ რიგში, შეიყვანეთ პირადი ნომერი
+                @*<a href="/Home/About#wesebi da pirobebi" data-original-title="" title="">თქვენს პარამეტრებში</a>*@
+            </div>
+
+            <div class="circle-img" style="display : @(string.IsNullOrEmpty(Model.PhoneNumber) ? "inline block;" : "none;")">  </div>
+            <div class="agree-text-payment" style="display : @(string.IsNullOrEmpty(Model.PhoneNumber) ? "inline block;" : "none;")">
+                თქვენი მობილურის ნომერი არ ვიცით, ასე ბარათიდან თანხას ვერ ჩარიცხავთ! პირველ რიგში, შეიყვანეთ მობილურის ნომერი
+                @*<a href="/Home/About#wesebi da pirobebi" data-original-title="" title="">თქვენს პარამეტრებში</a>*@
+            </div>
+        </div>
+    </div>
+    <div class="balance">
+        <div class="balance-child">
+            <div class="recent-balance">
+                <div class="text-recent-balance">ამჟამინდელი ბალანსი:</div>
+                <div class="price-div">
+                    <div class="recent-balance-lari">@if (Model.Balance.ToString().Length > 2)
+                    {
+                        @Model.Balance.ToString().Insert(Model.Balance.ToString().Length - 2, ".");
+                    }else {<span>0</span>}₾</div>
+                </div>
+            </div>
+            <a href="@Url.Action("Index", "Payment")">
+                <div class="buy-nebula">
+                    <div class="text-buy-nebula">კურსების შეძენა </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="payment-video-info">
+        <div class="payment-video">
+            <div class="text-video-instruction">საბანკო ბარათით ბალანსის შევსების ვიდეოინსტრუქცია</div>
+            <video class="video-left" controls="">
+                <source src="assets/video/IntroductionNebula.mp4">
+            </video>
+            <div class="text-text">ვიდეო ინსტრუქციაში ასახულია ბალანსის შევსების პროცესი</div>
+        </div>
+        <div class="payment-info">
+            <div class="text-video-instruction">გადაამოწმეთ თქვენი მონაცემები</div>
+            <div class="social-inputs-left">
+                <form method="post" id="update-user-info-form">
+                    @Html.AntiForgeryToken()
+                    <input type="text" placeholder="სახელი" name="FirstName" class="geoKeyboard" id="update-firstname" value="@Model.FirstName">
+                    <input type="text" placeholder="გვარი" name="LastName" class="geoKeyboard" id="update-lastname" value="@Model.LastName">
+                    @if (Model.Email.StartsWith("defaultFb"))
+                    {
+                        <input type="email" placeholder="ელ. ფოსტა" name="Email" id="update-email">
+                    }
+                    else
+                    {
+                        <input type="email" placeholder="ელ. ფოსტა" name="Email" id="update-email" value="@Model.Email">
+                    }
+                    <input type="text" class="only-numbers"  maxlength="11" placeholder="პირადი ნომერი" name="IdentificationNumber" id="update-identification-number" value="@Model.IdentificationNumber">
+
+                    <label for="phone_number" class="input phone_number">
+                        <input type="tel" class="only-numbers" maxlength="9" placeholder="ტელეფონის ნომერი" name="PhoneNumber" id="update-phone" style="padding-left:60px;">
+                    </label>
+                    <button class="enter-button" id="update-info" type="submit">
+                        <div class="circle-filled-star">
+                            <div class="circle-star-enter"></div>
+                        </div>
+                        <div class="text-enter">განახლება</div>
+                    </button>
+                </form>
+                <div class="text-red" style="display : @(string.IsNullOrEmpty(Model.IdentificationNumber) ? "block;" : "none;")">თქვენ არ გაქვთ შეყვანილი პირადი ნომერი!</div>
+                <div class="text-red" style="display : @(string.IsNullOrEmpty(Model.PhoneNumber) ? "block;" : "none;")">თქვენ არ გაქვთ შეყვანილი ტელეფონის ნომერი!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="user-number" value="@Model.PhoneNumber" />
+
+<form method="post" action="https://securepay.ufc.ge/ecomm2/ClientHandler" id="tbc_pay_form" style="display:none;">
+    <input type="hidden" name="trans_id" id="trans_id" />
+    <input type="submit" name="submit" value="გადახდა" id="tbcpay-btn" />
+</form>
+
+<script>
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+@section phoneScripts{
+        <script src="~/Scripts/intlTelInput.min.js"></script>
+        <script src="~/Scripts/isValidNumber.js"></script>
+        <script src="~/Js/cart.js"></script>
+    }

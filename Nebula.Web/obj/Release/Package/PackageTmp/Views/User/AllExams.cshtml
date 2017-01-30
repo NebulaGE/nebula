@@ -1,0 +1,61 @@
+﻿
+@{
+ 
+}
+
+<div class="container ForScrollMarg">
+    <div class="row">
+        <div class="">
+            @Html.Partial("~/Views/Ajax/AllExams.cshtml")
+
+
+        </div>
+    </div>
+</div>
+
+
+        @section scripts{
+            <script>
+                pageLoading(true);
+               
+                function userQuizzesViewModel() {
+                    var self = this;
+                    self.correctAnswersCount = 0;
+                    self.incorrectAnswersCount = 0;
+                    self.examNum = 0;
+                    self.date = '';
+                    self.url = '';
+                }
+                function ExamsInfoViewModel() {
+                    var self = this;
+                    self.userQuizzes = ko.observableArray();
+                    $.getJSON(U + 'User/AllExamsData', function (response) {
+                        console.log(response.userQuizzes);
+                        $.each(response.userQuizzes, function (i, v) {
+                            var examNum = '';
+                            if(i+1 <=9){
+                                var examNum = '0' + (i + 1);
+                            }
+                          
+                            else {
+                                var examNum = i + 1;
+                            }
+                            var model = new userQuizzesViewModel();
+                            model.examNum = examNum;
+                            model.date = v.date;
+                            model.correctAnswersCount = v.correctAnswersCount;
+                            model.incorrectAnswersCount = v.incorrectAnswersCount;
+                            model.date = v.date;
+                            model.url = U + 'Exam/Result?quizId=' + v.id + '&returnUrl='+U+'User/AllExams';
+                            self.userQuizzes.push(model);
+
+                        });
+
+                    }).done(function () {
+                        pageLoading(false);
+                        collapseClick();
+                    })
+                }
+                ko.applyBindings(new ExamsInfoViewModel());
+            </script>
+        }

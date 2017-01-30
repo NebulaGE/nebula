@@ -1,0 +1,123 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+    Layout = null;
+}
+<style>
+    .dropdown-menu>li>a {
+
+        background: white;
+    }
+</style>
+
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "", style = "display:inline;" }))
+{
+    @Html.AntiForgeryToken()
+
+    <a href="javascript:document.getElementById('logoutForm').submit()">
+        <div class="logout-btn">
+        </div>
+    </a>
+}
+
+<div class="circle-news">
+    <a href="@Url.Action("Notifications", "User")">
+        <div class="number-news">@Model.Notifications.Count(m => !m.IsOpen)</div>
+    </a>
+</div>
+
+<div class="dropdown-user">
+    <button onclick="myFunction()" class="dropbtn">
+        <a href="@Url.Action("Panel", "User")">
+            @if (!string.IsNullOrEmpty(Model.ExternalUserName))
+            {
+                <span>@Model.ExternalUserName</span>
+            }
+            else
+            {
+                <span> @Model.FirstName  @Model.LastName</span>
+            }
+        </a>
+        <img src="~/Content/assetsNew/img/arrow-down.png" style="margin-left: 8px; margin-bottom: 3px"/> 
+    </button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="@Url.Action("Settings", "User")"> 
+            <span class="text">პარამეტრები</span>
+        </a>  
+        <a href="@Url.Action("Index", "PrivateBalance")">
+            <span class="text">პირადი ბალანსი</span>
+        </a> 
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+@*<a href="@Url.Action("Panel", "User")">
+        @if (!string.IsNullOrEmpty(Model.ExternalUserName))
+            {
+            <span>@Model.ExternalUserName</span>
+        }
+        else
+        {
+            <span> @Model.FirstName  @Model.LastName</span>
+        }
+    </a>
+
+     
+    <div class="circle-news">
+        <a href="@Url.Action("Notifications", "User")">
+            <div class="number-news" id="notification-count">@Model.Notifications.Count(m => !m.IsOpen)</div>
+        </a>
+    </div> 
+
+    <li class="dropdown navbarDropDown" id="settingsDropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <div id="prodIcon" class="dropDownIcon transitionForClickRotate"></div>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="@Url.Action("Settings", "User")">
+                        <span class="settings"></span>
+                        <span class="text">პარამეტრები</span>
+                    </a>
+                </li>
+                <li>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "", style = "display:inline;" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                            <span class="logout"></span>
+                            <span class="text">გამოსვლა</span>
+                        </a>
+                    }
+                </li>
+            </ul>
+</li>*@ 
+
+@*@if (!Model.HasLicense)
+    {
+        <li><a href="@Url.Action("index", "Payment")"><button class="BuyBut">კურსის ყიდვა</button></a></li>
+    }*@
+
+
+
+

@@ -1,0 +1,138 @@
+﻿@using Nebula.Domain.ViewModels.Web
+@model PaymentViewModel
+
+ @section Styles{
+    <link href="~/Content/assetsNew/css/packets.css" rel="stylesheet" />
+}
+
+
+<section class="packets-cont">
+    <h1 class="sr-only">Packets</h1>
+    <div class="packets">
+        <article class="first">
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost">200 <span class="lari">L</span></span>
+                    </div>
+                    <div class="td">
+                        <h1>ზოგადი უნარები</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                </ul>
+            </div>
+            <footer>
+                <form method="post" data-bind="submit : generateTransactionId" >
+                    <input type="hidden" name="Type" value="@PaymentType.CS" />
+                    <input type="submit" class="d_button" value="შეიძინე კურსი " />
+                    <a href="#" class="d_button d_button_soft">განვადება</a>
+                </form>
+                 
+            </footer>
+        </article>
+        <article>
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost">300 <span class="lari">L</span></span>
+                    </div>
+                    <div class="td">
+                        <h1>ქართული ენა და ლიტერატურა</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                </ul>
+            </div>
+            <footer>
+                <form method="post" data-bind="submit : generateTransactionId">
+                    <input type="hidden" name="Type" value="@PaymentType.Geo" />
+                    <input type="submit" class="d_button" value="შეიძინე კურსი " />
+                    <a href="#" class="d_button d_button_soft">განვადება</a>
+                </form>
+            </footer>
+        </article>
+        <article>
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost">200 <span class="lari">L</span></span>
+                    </div>
+                    <div class="td">
+                        <h1>ინგლისური და გრამატიკა</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                    <li>20 სავარჯიშოები</li>
+                </ul>
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>200-ზე მეტი ვიდეო გაკეთილი</li>
+                </ul>
+            </div>
+            <footer>
+                <form  method="post" data-bind="submit : generateTransactionId">
+                    <input type="hidden" name="Type" value="@PaymentType.Eng" />
+                    <input type="submit"  class="d_button" value="შეიძინე კურსი " />
+                    <a href="#" class="d_button d_button_soft">განვადება</a>
+                </form>
+            </footer>
+        </article>
+        <article class="last" style="display:none">
+            <header>
+                <h1>სამივე საგანი ერთად! 150 ლარი</h1>
+            </header>
+            <div class="content">
+                <a href="#" class="big-link"><span>ზოგადი უნარები</span></a>
+                <a href="#" class="big-link"><span>ქართული ენა და ლიტერატურა</span></a>
+                <a href="#" class="big-link"><span>ინგლისური და გრამატიკა</span></a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<form method="post" action="https://securepay.ufc.ge/ecomm2/ClientHandler" id="tbc_pay_form" style="display:none;">
+    <input type="hidden" name="trans_id" id="trans_id" />
+    <input type="submit" name="submit" value="გადახდა" id="tbcpay-btn" />
+</form>
+
+@section scripts{   
+<script src="~/Js/payment.js"></script>
+}

@@ -1,0 +1,123 @@
+﻿
+@section Styles{
+    <link href="~/Content/assetsNew/css/secondpage.css" rel="stylesheet" />
+    <link href="~/Content/assetsNew/css/nika-style.css" rel="stylesheet" />
+    
+}
+
+
+<body>
+<div class="main-div">
+    <a href="@Url.Action("Index", "CSMain")">
+        <div class="black-div">
+            <div class="arrow-back"></div>
+            <a href="@Url.Action("Index", "CSMain")">
+                <div class="text-back">უკან</div>
+            </a>
+            <div class="text-course-name">უნარების ვიდეოები</div>
+        </div>
+    </a>
+
+
+    <div class="course-div">
+        <!-- ko foreach : tagsNavigation -->
+        <div class="video-blocks" data-bind="click : $root.moveToVideo.bind($data, { url :  url}), css : { 'video-blocks-active' : selected }">
+            @*<div class="text-video-number" data-bind="text : subTags.length"></div>*@
+            <div class="cont-circle" data-bind="style : {'display' : needLicense ? 'none' : 'block'}">
+                <div class="c100  small" data-bind="css : 'p'+ percent">
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="circle-div" data-bind="style : {'display' : needLicense ? 'block' : 'none'}"><div class="lock-icon"></div></div>
+
+            <div class="arrow-right" data-bind="style : {'display' : needLicense ? 'none' : 'block'}"></div>
+            <div class="text-for-blocks" data-bind="text : name"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="main-background">
+        @Html.Partial("_BurgerMenu");
+        <div class="number-div">
+            <div class="next-videos prev">
+                <div class="arrow-previous"></div>
+            </div>
+            <div class="number-div-long">
+                <div class="number-divs" data-bind="foreach : videoNavigation">
+                    <div data-bind="css : { 'active-number' :  selected,  'passive-number'  : !selected }">
+                        <div class="numbers" data-bind="click : $root.moveToVideo.bind($data, { url : U + 'CSVideo/Index?videoId=' + id}), text:num "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="next-videos next">
+                <div class="arrow"></div>
+            </div>
+        </div>
+
+        <div class="cont-video-numbers" data-bind="style : { display : exerciseType() ? 'none' : 'block' }">
+            <div class="video-player-div">
+                <div id="video-container" data-bind="html : alternateLink"></div>
+                @*<video class="video" controls="">
+                            <source src="assets/video/Metallica.mp4">
+                        </video>*@
+            </div>
+            @*<div class="text-under-video" data-bind="text : video() && video().name"></div>*@
+        </div>
+
+        <div class="question-main-div" style="display: none" data-bind="style : { display : !exerciseType() ? 'none' : 'block' }">
+            <div data-bind="with : exerciseViewModel">
+                @Html.Partial("_ExerciseCommonPartial", 1)
+            </div>
+        </div>
+    </div>
+
+    <div class="save-link-div" data-bind="style : { display : !exerciseType() ? 'block' : 'none' }">
+        <div class="nebula-link">
+            <div class="link-icon"></div>
+            <a class="text-link" href="facebook.com">facebook.com/davit.ghlonti/profile</a>
+        </div>
+        <button id="save">
+            <div class="save-icon"></div>
+            <div id="text-save">შენახვა</div>
+        </button>
+        <button id="mistake">
+            <div class="mistake-icon"></div>
+            <div id="text-mistake">შეცდომაა?</div>
+        </button>
+    </div>
+
+    @*<div class="progress-main-div" data-bind="with : exerciseViewModel, style : {'display' : exerciseType() ? 'block' :'none'}">
+                @Html.Partial("_ExerciseMoveNavigation")
+            </div>*@
+
+    <div class="progress-main-div" data-bind="with : exerciseViewModel, style : {'display' : !exerciseType() ? 'block' :'none'}">
+
+    </div>
+
+    <div class="fb-main-div">
+    </div>
+
+</div>
+
+    @if (ViewBag.NeedsLicense)
+    {
+        @Html.Partial("_FooterPartial", 1)
+    }
+
+    <input type="hidden" id="VideoId" value="@ViewBag.VideoId" />
+    <input type="hidden" id="tagId" value="@ViewBag.TagId" />
+
+    @section scripts{
+        <script src="~/Js/common/exercise-common.js"></script>
+        <script src="~/Scripts/circles.min.js"></script>
+        <script src="~/Scripts/video.min.js"></script>
+        <script src="~/Scripts/videojs-markers.min.js"></script>
+        <script src="~/Js/cs/video.js"></script>
+        <script src="~/Content/assetsNew/js/my.js"></script>
+    }
+</body>
+
+

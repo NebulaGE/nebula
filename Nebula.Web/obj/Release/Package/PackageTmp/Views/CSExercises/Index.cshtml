@@ -1,0 +1,57 @@
+﻿@model Nebula.Domain.ViewModels.Web.ExerciseUrlViewModel
+
+@section Styles{
+
+    <link href="~/Content/assetsNew/css/test.css" rel="stylesheet" />
+    <link href="~/Content/assetsNew/css/nika-style.css" rel="stylesheet" />
+}
+
+
+<input type="hidden" id="type-id" value="@Model.Type" />
+
+<div class="main-div">
+    <div class="black-div">
+        <a href="@Url.Action("Index", "CSMain")">
+            <div class="arrow-back"></div>
+            <div class="text-back">უკან</div>
+        </a>
+        <div class="text-course-name">უნარების სავარჯიშოები</div>
+    </div>
+    <div class="main-background" data-bind="with : navigationViewModel">
+        @Html.Partial("_ExerciseCommonNavigationPartial")
+
+        <div class="question-main-div" data-bind="with : exerciseViewModel">
+            <div data-bind="visible : !showTask()">
+                @Html.Partial("_ExerciseCommonPartial", 3)
+            </div>
+
+            <div class="text-question-div1" data-bind="style : {display : showTask() ? 'block' : 'none'}">
+                <div class="text-question2" data-bind="html : task() &&  task().text">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="progress-main-div" data-bind="with : navigationViewModel.exerciseViewModel">
+
+        <div class="progress-div-child1" data-bind="style : {display : showTask() ? 'block' : 'none'}, foreach : questions">
+            <span style="cursor: pointer;">
+                <div class="circle-page-nation" data-bind="text : $index() + 1,
+                  click : $parent.getTaskQuestionByIndex.bind($data, {index : $index()})"></div>
+            </span>
+        </div>
+    </div>
+    <div class="fb-main-div">
+    </div>
+</div>
+@if (ViewBag.NeedsLicense)
+{
+    @Html.Partial("_FooterPartial", 1)
+}
+
+
+
+@section scripts{
+    <script src="~/Js/common/exercise-common.js"></script>
+    <script src="~/Js/common/exercise-navigation-common.js"></script>
+    <script src="~/Js/cs/exercise.js"></script>
+}

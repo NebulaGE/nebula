@@ -1,0 +1,200 @@
+﻿<link href="~/Content/video-js.min.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "About";
+}
+
+<style>
+.aboutCont .navlist ul li.selected {
+    height: 65px;
+    padding-top: 20px;
+    background: #00ace0;
+    width: 110%;
+    -webkit-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+}
+    .aboutCont .navlist ul li.selected a{
+            color: #fff;
+    }
+    .about-payment-butoni{
+        margin-top:40px;
+    }
+    @@media (max-width: 768px){
+	.aboutCont .navlist ul li.selected {
+    height: 65px;
+    padding-top: 20px;
+    background: #00ace0;
+    width: 100%;
+    -webkit-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    }
+}
+  @@media (min-width: 768px){
+	.aboutCont .navlist ul li.selected {
+    height: 65px;
+    padding-top: 20px;
+    background: #00ace0;
+    width: 110%;
+    -webkit-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.3);
+    } 
+
+    #promo-video{
+        display:none;
+    }
+}
+</style>
+
+<div class="container aboutCont">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="navlist">
+                <ul class="about-nav" data-bind="foreach : navigation">
+                    <li data-bind="click : $root.getNavObj.bind($data , { ind : $index() }), css : { selected : $index() == $root.activeIndex()}">
+                        <a class="nav-title" data-bind="text : navTitle,attr : {href : '#' + latinTitle  }"></a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="col-sm-8">
+                <div class="textAbout">
+                    <h2 id="title" data-bind="text : activeTitle"></h2>
+                    <div class="texts" id="text" >
+                        <div data-bind="html : activeText"> 
+                        </div>
+                        <div id="promo-video">
+                            <video poster="~/content/img/post.png" controls class="video-js vjs-default-skin promo-video" id="promo-video-vid" data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                                <source src="~/content/Videos/PROMO Nebula NEW.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+ 
+
+@section scripts{
+    <script src="~/Scripts/video.min.js"></script>
+    <script>
+        var jsonData = @Html.Raw(ViewBag.Model);
+        var hash = window.location.hash.substr(1);
+      
+        function navTitle(title){
+            switch(title){
+                case "რა არის ნებულა":
+                    title = "ra aris nebula";
+                    break;
+                case "10 000 ლარი":
+                    title = "10 000 lari";
+                    break;
+                case "წესები და პირობები":
+                    title = "wesebi da pirobebi";
+                    break;
+                case "დაგვიკავშირდით":
+                    title = "dagvikavshirdit";
+                    break;
+            }
+            return title;
+        }
+
+        function aboutViewModel() {
+            var self = this;
+            self.activeIndex = ko.observable(0);
+            self.navigation = ko.observableArray();
+            self.activeTitle = ko.observable();
+            self.activeText = ko.observable();
+        
+            var i = 0;
+            var player = videojs('promo-video-vid');
+            var html = '<div class="texts">'+
+             '<p>მოგვწერეთ <a href="https://www.facebook.com/nebula.ge" target="_blank">Facebook</a>-ზე'+
+              ' ან გამოაგზავნეთ შეტყობინება</p>'+
+              ' <form id="contact-form">'+
+                '<input type="text" placeholder="ელ.ფოსტა"  id="contact-email" name="email"/>'+
+                '<textarea placeholder="შეტყობინება" id="contact-text" name="text"></textarea>'+
+                '<button class="sub" type="submit" id="contact-send">გაგზავნა</button>'+
+                '</div></form>';
+
+            var videoHtml =  '<div> <video controls  data-setup=\'{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }\'' +
+                              'class="video-js vjs-default-skin promo-video" > ' +
+                '<source src="'+U+'Content/Videos/PROMO Nebula NEW.mp4"  type="video/mp4">'+
+                '</video></div>';
+
+            ko.utils.arrayForEach(jsonData, function (item) {
+                if(item.NavTitle == 'დაგვიკავშირდით'){
+                    self.navigation().push({
+                        navTitle: item.NavTitle,
+                        title: 'კონტაქტის ფორმა',
+                        text : html,
+                        ind : i,
+                        latinTitle : navTitle(item.NavTitle)
+                    });
+                } else{    
+                    if(i == 0){
+                        $('#promo-video').show();
+                      
+                    } else{
+                        $('#promo-video').hide();
+                    }
+                    self.navigation().push({
+                        navTitle: item.NavTitle,
+                        title: item.Title,
+                        text : item.Text,
+                        ind : i,
+                        latinTitle : navTitle(item.NavTitle)
+                    });
+                }
+                i++;
+            }); 
+
+            var navObj = $.grep(self.navigation(), function(item){
+                return item.latinTitle == hash;
+            });
+
+            if(hash == 'ra aris nebula'){
+                $('#promo-video').show();
+            } else{
+                $('#promo-video').hide();
+            }
+
+            if(!navObj[0]){
+                $('#promo-video').show();
+                self.activeTitle(jsonData[0].Title);
+                self.activeText(jsonData[0].Text);
+            } else{              
+                self.activeTitle(navObj[0].title);
+                self.activeText(navObj[0].text);
+                self.activeIndex(navObj[0].ind);
+            }
+
+            self.getNavObj = function (item) {
+                var obj = self.navigation()[item.ind];    
+                location.hash = obj.latinTitle;
+            }
+
+            window.onhashchange = function () {
+                player.pause();
+                var hash =  window.location.hash.substr(1);
+                if(hash == 'ra aris nebula'){
+                    $('#promo-video').show();
+                } else{
+                    $('#promo-video').hide();
+                }
+                var navObj =   $.grep(self.navigation(), function(item){
+                    return item.latinTitle == hash;
+                });
+   
+                if(navObj[0]){
+                    self.activeIndex(navObj[0].ind);
+                    var obj = self.navigation()[navObj[0].ind];
+                    self.activeTitle(navObj[0].title);
+                    self.activeText(navObj[0].text);
+                }
+            }
+        }
+        ko.applyBindings(new aboutViewModel());
+    </script>
+}

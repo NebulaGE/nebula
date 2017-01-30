@@ -1,0 +1,86 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+   
+}
+<link href="~/Content/intlTelInput.css" rel="stylesheet" />
+<style>
+    .mainPack .defaultCont input {
+
+    float: left;
+}
+    .intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel] {
+    padding-right: 6px;
+    padding-left: 52px;
+    margin-left: 0;
+    width: calc(100%/3 - 16px);
+    height: 55px;
+    border: 1px solid #eceff1;
+    outline: none;
+    float: left;
+}
+      .disable-btn{
+           cursor:not-allowed;
+           background: rgb(184, 179, 179) !important
+       }
+
+      .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+</style>
+<div class="container for-mr ForScrollMarg">
+    <div class="mainPack">
+        <form id="social-ifno-form">
+            <div class="defaultCont">
+                <div class="rows">
+                    <input type="text" placeholder="სახელი" id="soc-firstname" value="@Model.FirstName" name="FirstName" />
+                    <input type="text" placeholder="გვარი" id="soc-lastname" value="@Model.LastName" name="LastName" />
+                    <input type="tel" placeholder="ტელეფონის ნომერი" id="soc-phone" name="PhoneNumber" />
+                </div>
+                <div class="rows">
+                   
+                    <input type="text" placeholder="პირადი ნომერი" id="soc-identification-number" name="PhoneNumber" />
+                    <label>პირადობის დამადასტურებელი დოკუმენტის ასლი(სურათი ან pdf)</label>
+                    <div class="fileUpload btn btn-primary">
+
+                        <span>ატვირთვა</span>
+                        <input type="file" class="upload" />
+                    </div>
+                    <input class="checkbox" checked="" type="checkbox" >
+                    <span class="aggr">თანახმა ვარ მოიპოვოთ სსიპ სოციალური მომსახურების სააგენტოსგან ჩემ 
+                    შესახებ "სოციალურად დაუცველი ოაჯხების მონაცემთა ერთიან ბაზაში" 
+                    მინიჭებული სარეიტინგო ქულა</span>
+
+                </div>
+                <div class="rows">
+                    <textarea placeholder="რატომ გსურთ დაფინანსების მიღება" id="soc-text" name="SocialText">@Model.SocialText</textarea>
+                </div>
+                <div class="rows">
+                    <button type="submit" class="disable-btn">განცხადების შევსება</button>
+                </div>
+            </div>
+        </form>
+    
+    </div>
+</div>
+
+<input type="hidden" id="user-number" value="@Model.PhoneNumber" />
+
+@section phoneScripts{
+    <script src="~/Scripts/intlTelInput.min.js"></script>
+    <script src="~/Scripts/isValidNumber.js"></script>
+
+}

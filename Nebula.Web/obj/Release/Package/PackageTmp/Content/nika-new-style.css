@@ -1,0 +1,19 @@
+﻿.video-pre-blocks-unarebi{
+    cursor:pointer;
+}
+.three-dot{
+       display:inline-block;
+    width:180px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+.answer-div{
+    cursor:pointer;
+}
+
+  .variants-selected{
+     background-color: #6b77e3 !important;
+      border: none !important;
+
+  }

@@ -1,0 +1,105 @@
+﻿@model Nebula.Domain.ViewModels.Web.NewsViewModel
+
+<link href="~/Content/assetsNew/css/news.css" rel="stylesheet"/>
+
+@{
+    int i = 0;
+}
+
+@functions{
+    string MonthHelper(int k)
+    {
+        switch (k)
+        {
+            case 1:
+                return "იანვარი";
+
+            case 2:
+                return "თებერვალი";
+
+            case 3:
+                return "მარტი";
+
+            case 4:
+                return "აპრილი";
+
+            case 5:
+                return "მაისი";
+            case 6:
+                return "ივნისი";
+
+            case 7:
+                return "ივლისი";
+
+            case 8:
+                return "აგვისტო";
+
+            case 9:
+                return "სექტემბერი";
+
+            case 10:
+                return "ოქტომბერი";
+            case 11:
+                return "ნოემბერი";
+
+            case 12:
+                return "დეკემბერი";
+        }
+        return "";
+    }
+}
+
+<div class="black-div">
+    <a href="@Url.Action("Index", "Home")">
+        <div class="arrow-back"></div>
+        <div class="text-back">უკან</div>
+    </a>
+    <div class="text-course-name">სიახლეები</div>
+</div>
+<div class="background-under-news"></div>
+<div class="main-container-news">
+    <div class="container-news-left">
+        <div class="news-button">
+            <div class="news-text">სიახლეები</div>
+        </div>
+        <div class="all-text-div">
+            <div class="title-text">@Model.CurrentNews.Title</div>
+            <div class="date-cont">
+                <div class="logo-date-name"></div>
+                <div class="text-date">@Model.CurrentNews.Date.Day @MonthHelper(Model.CurrentNews.Date.Month)</div>
+            </div>
+            <div class="name-cont">
+                <div class="logo-date-name"></div>
+                <div class="text-name">@Model.CurrentNews.Author</div>
+            </div>
+            <div class="text-large">
+                @Html.Raw(Model.CurrentNews.Text)
+            </div>
+        </div>
+    </div>
+    <div class="container-news-right">
+        @foreach(var news in Model.NavigationNews)
+        {
+         i++;
+        <div class="news-right-cont" style="@(i==1 ? "margin-top: 0px" : "")">
+            <div class="news-right-cont-child">
+                <div class="news-button1">
+                    <div class="news-text">სიახლეები</div>
+                </div>
+                <div class="date-cont1">
+                    <div class="logo-date-name"></div>
+                    <div class="text-date">@news.Date.Day @MonthHelper(news.Date.Month)</div>
+                </div>
+                <div class="text-for-news-long">@news.Title</div>
+            </div>
+            <div class="view-more-div">
+                <a  href="@Url.Action("News", new { id = news.Id })">
+                    <div class="view-more">სრულად ნახვა</div>
+                    <div class="image-for-view-more"></div>
+                </a>
+            </div>
+        </div> 
+        }
+    </div>
+</div>
+

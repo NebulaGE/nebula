@@ -1,0 +1,165 @@
+﻿@model Nebula.Domain.Entities.Video
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+   
+}
+@section scripts{
+
+
+@Scripts.Render("~/bundles/jqueryval")
+
+}
+<h3>ვიდეოს რედაქტირება</h3>
+
+<form method="post" action="@Url.Action("EditVideo")" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Model.Name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.FileName)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TagId, "ModuleId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("tagId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TagId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+   
+ 
+        <div class="form-group">
+            <label class="control-label col-md-2">ფაილის შეცვლა</label>
+            <div class="col-md-2">
+                <span class="btn btn-default btn-file">
+                    <input type="file" name="VideoFile">
+                </span>
+                @if (Model.CSTag.IsPayed)
+                {
+                    <video id="test_video" controls preload="none" class="video-js vjs-default-skin" width="300">
+                        <source src="~/Content/payed-videos/@Model.FileName" type="video/mp4">
+                    </video>
+                }
+                else
+                {
+                    <video id="test_video" controls preload="none" class="video-js vjs-default-skin" width="300">
+                        <source src="~/Content/Videos/@Model.FileName" type="video/mp4">
+
+                    </video>
+                }
+              
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Numeration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Numeration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Numeration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlterneteLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AlterneteLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AlterneteLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<table class="table" style="margin-top:30px;">
+    <tr>
+
+     
+        <th>
+            წამი
+        </th>
+        <th>
+            კითხვების რაოდენობა
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model.VideoParts)
+    {
+        <tr>
+         
+ 
+            <td>@item.Second</td>
+            <td>@item.Questions.Count()</td>
+            <td>
+                @Html.ActionLink("Edit", "EditVideoPart", new { id = item.Id }) |
+
+                <form action="@Url.Action("DeleteVideoPart")" method="post" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+     
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')" />
+                </form>
+      
+               
+            </td>
+        </tr>
+    }
+    </table>
+    <h3>ვიდეო ნაწილის დამატება</h3>
+    <form method="post" id="question-form">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="VideoId" value="@Model.Id" />
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+  
+
+            <div class="form-group">
+
+                <label class="control-label col-md-2">წამი</label>
+
+                <div class="col-md-8">
+                    <input type="number" class="form-control" name="Second" required />
+
+                </div>
+            </div>
+
+      
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="დამატება" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <div>
+        @Html.ActionLink("უკან დაბრუნება", "Index", new
+        {
+            ModuleId = Model.TagId 
+        })
+    </div>
+

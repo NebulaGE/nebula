@@ -1,0 +1,177 @@
+﻿
+@*<script src="~/Content/assetsNew/js/my.js"></script>*@<style>
+    .jconfirm-scrollpane .container{
+        margin: auto;
+        max-width:600px;
+    }
+     
+     .btn-loader {
+         width: 52px;
+         right: 7px;
+         top: 3px;
+         position: absolute;
+         display: none;
+     }
+    #register-errors {
+        color:red;  
+        font-size:12px; 
+        display:none;
+    }
+    #register-success{
+        color:green; 
+        font-size:12px; 
+        display:none;
+    }
+    .upload-pdf-popup{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        width: 700px;
+        height: 500px;
+        z-index: 100;
+        background: white;
+        display:none;
+    }
+    .mask{
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0, 0.5);
+        z-index:99;
+        display:none;
+    }
+    .pdf-loader, .upload-pdf-loader{
+        width: 52px;
+        right: 7px;
+        top: 3px;
+        visibility:hidden;
+   
+    }
+    .forgot-pass-header{
+        display:none;
+    }
+
+</style>
+<link href="~/Content/assetsNew/css/enter.css" rel="stylesheet" />
+
+<div class="container-reg-enter">
+    <div class="text-avtorizacia1">ავტორიზაცია</div>
+    <div class="text-registracia">რეგისტრაცია</div>
+    <div class="container-enter">
+        <div class="container-reg-enter-child">
+            <div class="text-avtorizacia"><b>ავტორიზაცია</b></div>
+            @using (Html.BeginForm("ExternalLogin", "Account"))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" class="returnUrl" name="ReturnUrl" />
+                <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+
+                <button class="facebook-enter"  id="Facebook" value="Facebook" type="submit" name="provider">
+                    <div class="circle-filled-fb">
+                        <div class="fb-logo"></div>
+                    </div> 
+                    <div class="text-fb-G-enter">
+                        Facebook შესვლა
+                    </div>
+                </button>
+            }
+           
+            @using (Html.BeginForm("ExternalLogin", "Account"))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" class="returnUrl" name="ReturnUrl" />
+                <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+                <button class="G-enter"  id="Google" value="Google" type="submit" name="provider">
+                    <div class="circle-filled-G">
+                        <div class="G-logo"></div>
+                    </div> 
+                    <div class="text-fb-G-enter">
+                        Google+ შესვლა
+                    </div>
+                </button>
+            }
+            <div class="border-left"></div>
+            <div class="text-or">ან</div>
+            <div class="border-right"></div>
+            <form id="login-form">
+                @Html.AntiForgeryToken()
+                <input type="email" name="Email" id="l-email" placeholder="ელ.ფოსტა" style="margin-top: 40px;">
+                <input type="password" name="Password" id="l-password" placeholder="პაროლი" style="margin-top: 20px;">
+                <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+                <button class="enter-button" id="login" type="submit">
+                    <div class="circle-filled-star">
+                        <div class="circle-star-enter"></div>
+                    </div>
+                    <div  class="text-enter">შესვლა</div>
+                    <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style="top: 49px;" />
+                </button>
+            </form>
+        </div>
+    </div>
+
+    @*<div class="container-reg">
+        <div class="container-reg-enter-child">
+            <div class="text-avtorizacia"><b>რეგისტრაცია</b></div>
+            <form class="form-rg forms" id="register-form">
+                @Html.AntiForgeryToken()
+                <input type="text" name="FirstName" id="r-firstname" placeholder="სახელი" class="name-reg">
+                <input type="text" name="LastName" id="r-lastname" placeholder="გვარი" class="surname-reg">
+                <input type="text" name="Email" id="r-email" placeholder="ელ.ფოსტა" style="margin-top: 20px;">
+                <input type="password" name="Password" id="r-password" placeholder="პაროლი" style="margin-top: 20px;">
+                <input type="password" name="ConfirmPassword" id="r-confirmpassword" placeholder="გაიმეორეთ პაროლი" style="margin-top: 20px;">
+                <div class="agree-rules-div">
+                    <input class="checkbox" checked="" type="checkbox" id="register-checkbox">
+                    <div class="agree-text">ვეთანხმები ნებულას <a href="@Url.Content("~")Home/About#wesebi da pirobebi">წესებს</a></div>
+                </div>
+                <button class="reg-button" id="registration" type="submit">
+                    <div class="circle-filled-star"style="margin-left: -95px;">
+                        <div class="circle-star-enter"></div>
+                    </div>
+                    <div class="text-reg">რეგისტრაცია</div>
+                    <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style="top:15px;" />
+                </button>
+            </form>
+        </div>
+    </div>*@
+</div>
+
+<!-- წარმატებული რეგისტრაცია -->
+
+
+@*<div class="MainRegSuc">
+    <div class="succPage allcenter">
+        <div class="closse"></div>
+        <div class="SuccLogo"></div>
+        <h2>თქვენ წარმათებით გაიარეთ რეგისტრაცია</h2>
+    </div>
+</div>*@
+ @*წარმატებული რეგისტრაცია*@ 
+
+<!--pdf upload popup-->
+<div class="pdf_vers popup-main" style="display: none;">
+    <div class="rel"></div>
+    <div class="fulpage popup-text">
+        <div class="pdfcls"></div>
+        <div class="fullpgArea">
+            <p>ნებულას საშუალებით თქვენ შეძლებთ მოემზადოთ ზოგადი უნარების გამოცდისთვის. უყუროთ ვიდეო გაკვეთილებს და ისარგებლოთ ანალიტიკური ალგორითმით, რომელიც თქვენი სასწავლო პროცესის ოპტიმიზაციის ხარჯზე თქვენი მომზადების დონეს საგრძნობლად გაზრდის.</p>
+            <p>
+                ანალიტიკური ალგორითმისთვის მონაცემების მისაწოდებლად თქვენ უნდა მოახვედროთ სისტემის თქვენთვის გამოყოფილ სივრცეში სსიპ შეფასებისა და გამოცდების ეროვნული ცენტრის მიერ 2005-2015 წლებში ერთიან ეროვნულ გამოცდებზე გამოყენებული ზოგადი უნარების ტესტები.
+            </p>
+            <p>თქვენს ინტერნეტ ბრაუზერს თქვენი ნებართვით საძიებო სისტემის მეშვეობით შეუძლია მოიძიოს ინტერნეტში და ჩაგიტვირთოთ სისტემის თქვენთვის განკუთვნილ სივრცეში.</p>
+            <button id="load-pdf">თანახმა ვარ</button>
+            <p style="position:relative;">ან ატვირთეთ თქვენი კომპიუტერის მეხსიერებიდან <a id="pdf-lnk" style="cursor:pointer;">ამ ბმულის </a>მეშვეობით .pdf ფორმატში. <img src="~/Content/img/loadingIcon.gif" class="upload-pdf-loader" style="position:absolute;" /></p>
+            <div id="pdf-result"></div>
+        </div>
+    </div>
+</div>
+
+<!--pdf upload popup-->
+<form method="post" id="upload-pdfs-form" style="display:none;">
+    <input type="file" name="pdfs" multiple id="pdfs" />
+    <input type="submit" id="upload-pdfs-btn" />
+</form> 
+

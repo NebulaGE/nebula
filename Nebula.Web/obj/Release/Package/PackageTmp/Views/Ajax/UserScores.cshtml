@@ -1,0 +1,79 @@
+﻿<div class="jumbotron prgoressJumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row" data-bind="foreach: new Array(resultViewhelper())">
+                    <div class="col-sm-4">
+                        <div class="progress">
+                            <div class="progress-bar background-by-progress progress-bar-striped active" data-bind="style : { width : $root.scores()[$index()] &&  $root.scores()[$index()].percent + '%' }, 
+                           attr : { 'data-progress' : $root.scores()[$index()] &&  $root.scores()[$index()].percent}">
+                            </div>
+                        </div>
+                        <div class="progres-desc">
+
+                            <span class="text" data-bind="text :  $root.scores()[$index()] &&  $root.scores()[$index()].module"></span>
+                            <p data-bind="text : $root.scores()[$index()] &&  $root.scores()[$index()].percent + '%'"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row" data-bind="foreach: new Array(resultViewhelper())">
+                    <div class="col-sm-4">
+                        <div class="progress">
+                            <div class="progress-bar background-by-progress progress-bar-striped active" data-bind="style : { width : $root.scores()[$index()+3] &&  $root.scores()[$index()+3].percent + '%' }, 
+                          attr : { 'data-progress' : $root.scores()[$index()+3] &&  $root.scores()[$index()+3].percent}">
+                            </div>
+                        </div>
+                        <div class="progres-desc">
+
+                            <span class="text" data-bind="text :  $root.scores()[$index()+3] &&  $root.scores()[$index()+3].module"></span>
+                            <p data-bind="text : $root.scores()[$index()+3] &&  $root.scores()[$index()+3].percent + '%'"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="progress">
+                            <div class="progress-bar background-by-progress progress-bar-striped active" data-bind="style : { width : $root.scores()[6] &&  $root.scores()[6].percent + '%' }, 
+                          attr : { 'data-progress' : $root.scores()[6] &&  $root.scores()[6].percent}">
+                            </div>
+                        </div>
+                        <div class="progres-desc">
+
+                            <span class="text" data-bind="text :  $root.scores()[6] &&  $root.scores()[6].module"></span>
+                            <p data-bind="text : $root.scores()[6] &&  $root.scores()[6].percent + '%'"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="progress">
+                            <div class="progress-bar background-by-progress progress-bar-striped active" data-bind="style : { width : $root.scores()[7] &&  $root.scores()[7].percent + '%' }, 
+                            attr : { 'data-progress' : $root.scores()[7] &&  $root.scores()[7].percent}">
+                            </div>
+                        </div>
+                        <div class="progres-desc">
+
+                            <span class="text" data-bind="text :  $root.scores()[7] &&  $root.scores()[7].module"></span>
+                            <p data-bind="text : $root.scores()[7] &&  $root.scores()[7].percent + '%'"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="progress">
+                            <div class="progress-bar background-by-progress progress-bar-striped active" data-bind="style : { width : expectedPercent() + '%'},
+                           attr : { 'data-progress' : expectedPercent()}">
+                            </div>
+                        </div><div class="progres-desc">
+
+                            <span class="text mainProgres" data-bind="text: expectedScore() + '/80'"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

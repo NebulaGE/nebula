@@ -1,0 +1,222 @@
+﻿ 
+<style>
+    .btn-loader{
+        width:52px; 
+        right: 7px; 
+        top:3px; 
+        position:absolute; 
+        display:none;
+    }
+    #register-errors {
+        color:red;  
+        font-size:12px; 
+        display:none;
+    }
+    #register-success{
+        color:green; 
+        font-size:12px; 
+        display:none;
+    }
+    .upload-pdf-popup{
+          position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 700px;
+    height: 500px;
+    z-index: 100;
+    background: white;
+      display:none;
+    }
+    .mask{
+            top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.5);
+    z-index:99;
+    display:none;
+    }
+    .pdf-loader, .upload-pdf-loader{
+     width: 52px;
+    right: 7px;
+    top: 3px;
+    visibility:hidden;
+   
+    }
+    .forgot-pass-header{
+        display:none;
+    }
+ 
+</style>
+
+
+<div class="mainReg" >
+    <div class="rel"></div>
+    <div class="mainregistration allcenter">
+        <div class="closse"></div>
+
+        <div class="regPage firstBr">
+            <div class="mainRegPage">
+                <div class="headers">
+                    <span id="aut-form" class="first">ავტორიზაცია</span>
+                    <!-- ავტორიზაციის ფორმა -->                                   
+                    <div class="aut-rg forms">
+                        @using (Html.BeginForm("ExternalLogin", "Account"))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" class="returnUrl" name="ReturnUrl" />
+                            <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+                            <button class="fb-login" id="Facebook" value="Facebook" type="submit" name="provider">
+                                FACEBOOK შესვლა
+                            </button>
+
+                        }
+                        @using (Html.BeginForm("ExternalLogin", "Account"))
+                        {
+                            @Html.AntiForgeryToken()
+   
+                            <input type="hidden" class="returnUrl" name="ReturnUrl" />
+                            <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+                            
+                            <button class="google-login" id="Google" value="Google" type="submit" name="provider">
+                                Google+ შესვლა
+                            </button>
+
+                        }
+                        <span>ან</span>
+                        <form id="login-form">
+                            @Html.AntiForgeryToken()
+                            <input type="email" name="Email" id="l-email" placeholder="ელ/ფოსტა">
+                            <input type="password" name="Password" id="l-password" placeholder="პაროლი" />
+                            <a class="resetpass" href="#"  id="forgot-password-al">დაგავიწყდათ პაროლი?</a>
+                            <input type="hidden" class="show-pdf-inp" name="showPdf" value="false" />
+                            <div style="position:relative; height:0;">
+                                <button id="login">შესვლა</button>
+                                <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style="top: 49px;" />
+                            </div>
+                        </form>
+                    </div>
+                    <!-- ავტორიზაციის ფორმა -->
+                </div>
+            </div>
+        </div>
+
+        <div class="regPage">
+            <div class="closse"></div>
+            <div class="mainRegPage">
+                <div class="headers reg-header">
+                    <span id="reg-form" class="last">რეგისტრაცია</span>
+                    <!-- რეგისტრაციის ფორმა -->
+                    <form class="form-rg forms" id="register-form">
+                        @Html.AntiForgeryToken()
+                        <input type="text" class="geoKeyboard mrgn" name="FirstName" id="r-firstname" placeholder="სახელი" style="width:49%; float:left;">
+                        <input type="text" class="geoKeyboard mrgn" name="LastName"  id="r-lastname"  placeholder="გვარი" style="width:49%; margin-left:2%;">
+                        <input type="text" class="mrgn" name="Email" id="r-email" placeholder="ელ.ფოსტა">
+                        <input type="password" class="mrgn" name="Password" id="r-password" placeholder="პაროლი">
+                      
+                        <input type="password" class="mrgn" name="ConfirmPassword" id="r-confirmpassword" placeholder="გაიმეორეთ პაროლი">
+                        <div class="agree">
+                            <input class="checkbox" checked="" type="checkbox" id="register-checkbox">
+                            <span class="aggr" style="cursor: auto;">ვეთანხმები ნებულას <a href="@Url.Content("~")Home/About#wesebi da pirobebi">წესებს</a></span>
+                        </div>
+                         
+                        <div style="position:relative;">
+                            <button id="registration" type="submit" >რეგისტრაცია</button>
+                            <img src="~/Content/img/loadingIcon.gif" class="btn-loader"  style="top:15px;"/>
+                        </div>
+                    </form>
+                    <!-- რეგისტრაციის ფორმა -->
+                </div>
+
+                <div class="headers forgot-pass-header">
+                    <span id="reg-form" class="last">დაგავიწყდა პაროლი?</span>
+                    <!-- რეგისტრაციის ფორმა -->
+                    <form class="form-rg forms" id="fg-send-form">
+                        @Html.AntiForgeryToken()
+                                               
+                        <input type="text" class="mrgn" name="Email" id="fg-send-email" placeholder="ელ.ფოსტა">
+                                                          
+                        <div style="position:relative;">
+                            <button id="fg-send-submit" type="submit" class="mrgn">გაგზავნა</button>
+                            <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style="top:15px;" />
+                        </div>
+                    </form>
+                    <!-- რეგისტრაციის ფორმა -->
+                </div>
+            </div>
+        </div> 
+    </div>
+
+</div>
+<!-- რეგისტრაცია -->
+
+
+<div class="forgot-password" style="display:none;">
+    <div class="rel"></div>
+    <div class="mainregistration allcenter">
+        <div class="closse"></div>
+   
+        <div class="regPage">
+            <div class="closse"></div>
+            <div class="mainRegPage">
+                <div class="headers">
+                    <span id="reg-form" class="last">პაროლის აღდგენა</span>
+                 
+                    <form class="form-rg forms" id="forgot-password-form">
+                        @Html.AntiForgeryToken()                  
+                        <input type="email" class="mrgn" name="Email" id="forgot-password-emal" placeholder="ელ.ფოსტა">
+                        <input type="password" class="mrgn" name="Password" id="forgot-password-password" placeholder="პაროლი">
+                        <input type="password" class="mrgn" name="ConfirmPassword" id="forgot-password-password-re" placeholder="გაიმეორეთ პაროლი">
+                        <input type="hidden" name="Code" value="@TempData["Code"]" />
+                        <div style="position:relative;">
+                            <button id="forgot-password-submit" type="submit" class="mrgn">დადასტურება</button>
+                            <img src="~/Content/img/loadingIcon.gif" class="btn-loader" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- წარმატებული რეგისტრაცია -->
+
+
+<div class="MainRegSuc">
+    <div class="succPage allcenter">
+        <div class="closse"></div>
+        <div class="SuccLogo"></div>
+        <h2>თქვენ წარმათებით გაიარეთ რეგისტრაცია</h2>
+    </div>
+</div>
+<!-- წარმატებული რეგისტრაცია -->
+
+
+<!--pdf upload popup--> 
+<div class="pdf_vers" style="display: none;">
+    <div class="rel"></div>
+    <div class="fulpage">
+        <div class="pdfcls"></div>
+        <div class="fullpgArea">
+            <p>ნებულას საშუალებით თქვენ შეძლებთ მოემზადოთ ზოგადი უნარების გამოცდისთვის. უყუროთ ვიდეო გაკვეთილებს და ისარგებლოთ ანალიტიკური ალგორითმით, რომელიც თქვენი სასწავლო პროცესის ოპტიმიზაციის ხარჯზე თქვენი მომზადების დონეს საგრძნობლად გაზრდის.</p>
+            <p>
+                ანალიტიკური ალგორითმისთვის მონაცემების მისაწოდებლად თქვენ უნდა მოახვედროთ სისტემის თქვენთვის გამოყოფილ სივრცეში სსიპ შეფასებისა და გამოცდების ეროვნული ცენტრის მიერ 2005-2015 წლებში ერთიან ეროვნულ გამოცდებზე გამოყენებული ზოგადი უნარების ტესტები.
+            </p>
+            <p>თქვენს ინტერნეტ ბრაუზერს თქვენი ნებართვით საძიებო სისტემის მეშვეობით შეუძლია მოიძიოს ინტერნეტში და ჩაგიტვირთოთ სისტემის თქვენთვის განკუთვნილ სივრცეში.</p>
+            <button id="load-pdf">თანახმა ვარ</button>
+            <p style="position:relative;">ან ატვირთეთ თქვენი კომპიუტერის მეხსიერებიდან <a id="pdf-lnk" style="cursor:pointer;">ამ ბმულის </a>მეშვეობით .pdf ფორმატში. <img src="~/Content/img/loadingIcon.gif" class="upload-pdf-loader" style="position:absolute;" /></p>
+            <div id="pdf-result"></div>
+        </div> 
+    </div>
+</div>
+
+
+<!--pdf upload popup-->
+<form method="post" id="upload-pdfs-form" style="display:none;">
+
+    <input type="file" name="pdfs" multiple id="pdfs" />
+    <input type="submit" id="upload-pdfs-btn" />
+
+</form>

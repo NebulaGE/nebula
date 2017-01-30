@@ -1,0 +1,370 @@
+﻿<link href="~/Content/assetsNew/css/main.css" rel="stylesheet" />
+@model  Nebula.Domain.ViewModels.Web.HomePageNewsViewModel
+
+@{
+    ViewBag.Title = "Nebula";
+}
+
+@{
+    int i = 0;
+}
+
+@functions{
+    string MonthHelper(int k)
+    {
+        switch (k)
+        {
+            case 1:
+                return "იანვარი";
+
+            case 2:
+                return "თებერვალი";
+
+            case 3:
+                return "მარტი";
+
+            case 4:
+                return "აპრილი";
+
+            case 5:
+                return "მაისი";
+            case 6:
+                return "ივნისი";
+
+            case 7:
+                return "ივლისი";
+
+            case 8:
+                return "აგვისტო";
+
+            case 9:
+                return "სექტემბერი";
+
+            case 10:
+                return "ოქტომბერი";
+            case 11:
+                return "ნოემბერი";
+
+            case 12:
+                return "დეკემბერი"; 
+        }
+        return "";
+    }
+}
+
+<style>
+    #video-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        z-index: 13;
+    }
+
+    #video-popup-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 12;
+        display: none;
+    }
+
+    #video-popup-close {
+        width: 31px;
+        height: 31px;
+        background: url('/Content/img/svg/closse.svg');
+        cursor: pointer;
+        position: absolute;
+        margin-top: -46px;
+        z-index: 13;
+        right: 0;
+    }
+
+    #video-popup-file {
+        z-index: 13;
+        width: 581px;
+    }
+
+    .ads-bar {
+        margin-top: 30px;
+    }
+
+        .ads-bar::after {
+            content: '';
+            display: block;
+            clear: both;
+            width: 0;
+            height: 0;
+        }
+</style>
+    <div class="container-main-slider">
+        <div class="container-slider">
+            <div class="slider">
+                <div class="image-slider"></div>
+                <button class="text-nebula-div">
+                    <div class="text-nebula">ნებულა</div>
+                </button>
+                <div class="text-exam">მოემზადე ერთიანი ეროვნული გამოცდებისთვის</div>
+                <div class="unarebi-div">
+                    <div class="text-zogadi-unarebi">სიახლე ზოგადი უნარების კურსში</div>
+                    <div class="border-unarebi"></div>
+                    <div class="text-kursebi">ზოგადი უნარების კურსს ყოველთვიურად დაემატება 240 ახალი სავარჯიშო და ამავე სავარჯიშოების ვიდეო-ახსნები.</div>
+                    <a class="ufaso-kursebi-div" href="@Url.Action("Index", "CSMain")">
+                        <div class="text-ufaso-kursebi" >უფასო ვერსია</div>
+                    </a> 
+                    <a class="kursis-shedzena-div auth-require-page-click" data-val="@Url.Action("Index", "Payment")" >
+                        <div class="text-ufaso-kursebi">კურსის შეძენა</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="message-div">
+                <div class="circle-div"></div>
+                <img class="circle-inner-image" src="~/Content/assetsNew/img/text.png">
+                <div class="text-social">ნებულა და ფონდი “ღია საზოგადოება საქართველო” წარმოგიდგენთ სოციალურ პროგრამას. 
+                    ნებულას ყველა კურსი უფასოა სოციალურად დაუცველი, დევნილი და მრავალშვილიანი ოჯახის წარმომადგენელი აბიტურიენტებისთვის. 
+                    გამოგვიგზავნეთ განაცხადი და მიიღეთ კურსები უფასოდ 3 დღის განმავლობაში</div>
+                <a href="@Url.Action("SocialProgram","Home")" class="ganacxadi">
+                    <button class="circle-div-fill">
+                        <div class="text-ganacxadi">განაცხადი</div>
+                    </button>
+                </a>
+            </div>
+
+            <div class="container-programs">
+                <div class="program">
+                    <div class="background">
+                        <div class="text-program">ქართული ენა და ლიტერატურა</div>
+                    </div>
+                    <div class="text-program1">ათასობით სავარჯიშო, ვიდეოგაკვეთილები, საატესტატო და ეროვნული გამოცდის მოდულები, დიაგნოსტიკური ალგორითმი და პირადი გამსწორებელი, რომელიც თქვენს თემებს შეაფასებს.</div>  
+                    <a href="@Url.Action("Index", "GeoMain")">
+                        <button class="ufaso-versia-div" >
+                            <div class="text-ufaso-kursebi1">შესვლა</div>
+                        </button>
+                    </a>
+                </div>
+                <div class="program">
+                    <div class="background">
+                        <div class="text-program">ზოგადი  უნარები</div>
+                    </div>
+                    <div class="text-program1">ჩვენი დაცდილი და წარმატებული კურსი: ვიდეოგაკვეთილები ყველა თეორიულ საკითხზე, გამოცდის სიმულაცია, უამრავი სავარჯიშო და ჭკვიანი ალგორითმი, რომელიც ხვდება, რა არ იცი.</div>
+                    <a href="@Url.Action("Index", "CSMain")">
+                        <button class="ufaso-versia-div">
+                            <div class="text-ufaso-kursebi1" >შესვლა</div>
+                        </button>
+                    </a>
+                </div>
+                <div class="program">
+                    <div class="background">
+                        <div class="text-program">ინგლისურის საგამოცდო კურსი</div>
+                    </div>
+                    <div class="text-program1" >კურსი შექმნილია უახლესი, 2017 წლის საგამოცდო ფორმატის მიხედვით.
+                        საუკეთესო მოსამზადებელი პროგრამა მათთვის, ვისაც აქვს საბაზისო ცოდნა ინგლისურ ენაში და გამოცდაზე არცერთი ქულის დაკარგვა არ სურს.</div> 
+                    <a href="@Url.Action("Index", "GeoMain")">
+                        <button class="ufaso-versia-div" style="opacity: 0.4; cursor:not-allowed" >
+                            <div class="text-ufaso-kursebi1">მალე</div>
+                        </button>
+                    </a>
+                </div>
+                <div class="program">
+                    <div class="program1-child">
+                        <div class="circle1">
+                            <div class="arrow-right"></div>
+                        </div>
+                        <div class="text-what-is-nebula">ვიდეოსიახლე</div>
+                        <div class="circle-play-video">
+                            <div class="arrow-play-video"></div>
+                        </div>
+                        <video class="video-left" controls >
+                            <source src="~/Content/Videos/NebulaIntroduction.mp4" >
+                        </video>
+                        <div class="view-more-text">ჯერ არასდროს შობილა კურსი ასე სასურველი!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-main-users">
+        <div class="container-users-left">
+            <div class="container-user-blocks">
+                <div class="user-pre-blocks">
+                    <div class="sunset-div">
+                        <a href="@Url.Action("News", new {id = Model.Blogs[0].Id})">
+                            <div class="rounded-button">
+                                <div class="text-sunset">გაიგე მეტი</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="training-test">
+                        <div class="text-training-test">@Model.Blogs[0].Title</div>
+                    </div>
+                </div>
+                <div class="user-pre-blocks">
+                    <div class="forest-div">
+                        <a href="@Url.Action("News", new {id = Model.Blogs[1].Id})">
+                            <div class="rounded-button2">
+                                <div class="text-sunset">გაიგე მეტი</div>
+                            </div>
+                        </a>
+                        </div>
+                        <div class="training-test">
+                            <div class="text-training-test">@Model.Blogs[1].Title</div>
+                        </div>
+                    </div> 
+                    <div class="user-pre-blocks">
+                        <div class="sunrise-div">
+                            <a href="@Url.Action("News", new {id = Model.Blogs[2].Id})">
+                                <div class="rounded-button2">
+                                    <div class="text-sunset">გაიგე მეტი</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="training-test">
+                            <div class="text-training-test">@Model.Blogs[2].Title</div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        <div class="container-users-right">
+            <div class="container-right-news">
+                @foreach (var news in Model.Tweets)
+                {
+                    i++;
+                    <div class="news-right-cont" style="@(i<3 ? "margin-top: 0px" : "")">
+                        <div class="news-right-cont-child">
+                            <div class="news-button1">
+                                <div class="news-text">სიახლეები</div>
+                            </div>
+                            <div class="date-cont1">
+                                <div class="logo-date-name"></div>
+                                <div class="text-date">@news.Date.Day @MonthHelper(news.Date.Month)</div>
+                            </div>
+                            <div class="text-for-news-long">@news.Title</div>
+                        </div>
+                        <div class="view-more-div">
+                            <a  href="@Url.Action("News", new {id = news.Id})">
+                                <div class="view-more">სრულად ნახვა</div>
+                                <div class="image-for-view-more"></div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="other-news">
+                    <a  href="@Url.Action("News")">
+                        <div class="other-news-text">სხვა სიახლეები</div>
+                        <div class="arrow-purple"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <div class="footer-background"></div>
+    <div class="container-footer">
+        <div class="nebul-logo"></div>
+        <div class="solid-border" style="margin-left: 3.2%; margin-top: 42px;"></div>
+        <ul> 
+            <li class="fb-logoo">
+                <a href="https://www.facebook.com/nebula.ge/">
+                    <div class="text-logos">Facebook</div>
+                </a>
+            </li> 
+            <li class="twitter-logoo">
+                <div class="text-logos">Twitter</div></li>
+            <li class="google-logoo">
+                <div class="text-logos">Google</div></li>
+        </ul>
+        <div class="solid-border" style="margin-left: 1%; margin-top: 42px;"></div>
+        <ul>
+            <li><a class="text-logos1" href="@Url.Action("Index", "Home")">მთავარი</a></li>
+            <li><a class="text-logos1" href="@Url.Action("Index", "GeoMain")" >კურსები</a></li>
+            <li><a class="text-logos1" href="@Url.Action("About", "Home")">ჩვენ შესახებ</a></li>
+            <li><a class="text-logos1" href="@Url.Action("News")">სიახლეები</a></li>
+        </ul>
+        <div class="solid-border" style="margin-top: 42px; height:73px;"></div>
+        <ul>
+            <li><a class="text-logos1 auth-require-page-click">ავტორიზაცია</a></li>
+            <li><a class="text-logos1" href="@Url.Action("Register","Account")" >რეგისტრაცია</a></li>
+            <li><a class="text-logos1" href="@Url.Action("About", "Home")">კონტაქტი</a></li>
+        </ul>
+    </div>
+    <div class="container-logos">
+        <div class="leavingstone-logo"></div>
+        <div class="bankofgeorgia-logo"></div>
+    </div>
+</footer>
+
+@if (ViewBag.Video != null)
+{
+    <a class="bla-1" id="ee" href="@ViewBag.Video"></a>
+}
+
+@section scripts{
+    <script src="~/Scripts/video.min.js"></script>
+    <script>
+
+        @*if (videoPath) {
+            $("#video-popup-file").html(
+                  ' <video controls  data-setup=\'{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }\'' +
+                      'class="video-js vjs-default-skin"> ' +
+                    '<source src="' + U + 'Content/explentation-videos/' + videoPath + '" type="video/mp4"></source>' +
+                  '</video>');
+            $('#video-popup-container').fadeIn();
+        }
+        $('#video-popup-file').click(function (e) {
+            e.stopPropagation();
+        });
+
+        $('#video-popup-close, #video-popup-container').click(function () {
+            $('#video-popup-container').remove();
+        });*@
+
+        var competitionId = '@ViewBag.Competition';
+        if (competitionId) {
+            $('.true-answer').fadeIn();
+
+            $('#competition-phone')
+                .keydown(function (e) {
+                    var key = e.charCode || e.keyCode || 0;
+                    var $phone = $(this);
+
+                    // Auto-format- do not expose the mask as the user begins to type
+                    if (key !== 8 && key !== 9) {
+                        if ($phone.val().length === 3) {
+                            $phone.val($phone.val() + ' ');
+                        }
+                        if ($phone.val().length === 7) {
+                            $phone.val($phone.val() + ' ');
+                        }
+                    }
+
+                    // Allow numeric (and tab, backspace, delete) keys only
+                    return (key == 8 ||
+                        key == 9 ||
+                        key == 46 ||
+                        (key >= 48 && key <= 57) ||
+                        (key >= 96 && key <= 105));
+                })
+                .bind('focus click',
+                    function () {
+                        $phone = $(this);
+                        var val = $phone.val();
+                        $phone.val('').val(val); // Ensure cursor remains at the end
+
+                    });
+
+            $('.close-true-answer').click(function () {
+                $('.true-answer').fadeOut();
+            });
+        }
+
+        
+    </script>
+}

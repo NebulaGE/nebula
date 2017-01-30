@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.TeacherStudent>
+@{
+ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="teacher_in_contianer">
+    <div class="teacher_in_area">
+        <h1>მასწავლებლები</h1>
+        @foreach (var teachStudent in Model)
+        {
+         
+            <div class="teacher_in">
+                <div class="teacher_name_bar">
+                    <span class="circle"></span>
+                    <a href="#" data-original-title="" title="">@teachStudent.Teacher.FirstName @teachStudent.Teacher.LastName</a>
+                    <span class="text">გამატებთ </span>
+                </div>
+                <div class="close_bar">
+                    <form >
+                        <input value="@teachStudent.TeacherId"  type="hidden" class="teacherId" />
+                        <button class="agree" >დადასტურება</button>
+                    </form>
+                    <form >
+                         <input value="@teachStudent.TeacherId" type="hidden" class="teacherId" />
+                         <button class="clos_buton" >X</button>
+                    </form>
+                  </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+@section scripts{
+    <script>
+        $('.clos_buton').on('click', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var teacherId = $this.prev('.teacherId').val();
+            $.post(U + 'Teacher/Remove', { teacherId: teacherId }, function (response) {
+                if (response.success) {
+                    alert('ოპერაცია წარმატებით განხორციელდა');
+                    $this.parents('.teacher_in').remove();
+                } else {
+                    alert('მოხდა სისტემური შეცდომა');
+                }
+            });
+        });
+
+        $('.agree').on('click', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var teacherId = $this.prev('.teacherId').val();
+            
+            $.post(U + 'Teacher/Confirm', { teacherId: teacherId }, function (response) {
+                if (response.success) {
+                    alert('ოპერაცია წარმატებით განხორციელდა');
+                    $this.removeClass('agree').addClass('disable').text('დამატებულია');
+                } else {
+                    alert('მოხდა სისტემური შეცდომა');
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <script>window.U = '@Url.Content("~")'</script>
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://cdn.ckeditor.com/4.5.7/standard-all/ckeditor.js"></script>
+    <script src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- Vendor CSS -->
+    <link href="~/Content/admin/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet" />
+    <link href="~/Content/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    @RenderSection("css", required: false)
+
+    <!-- CSS -->
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/fancybox/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/app.min.1.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/app.min.2.css" rel="stylesheet" />
+</head>
+
+<body class="sw-toggled">
+    <header id="header">
+        <ul class="header-inner">
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <li class="logo hidden-xs">
+                <a href="index.html">Material Admin</a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="top-menu">
+                    <li id="top-search">
+                        <a class="tm-search" href=""></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Top Search Content -->
+        <div id="top-search-wrap">
+            <input type="text">
+            <i id="top-search-close">&times;</i>
+        </div>
+    </header>
+
+    <section id="main">
+        <aside id="sidebar">
+            <div class="sidebar-inner c-overflow">
+                <div class="profile-menu">
+                    <a href="">
+                        <div class="profile-info">
+                            @User.Identity.Name
+                            <i class="zmdi zmdi-arrow-drop-down"></i>
+                        </div>
+                    </a>
+
+                    <ul class="main-menu" style="display: none;">
+                        <li>
+                            <a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
+                        </li>
+                        @Html.Partial("_AdminLoginPartial")
+                    </ul>
+                </div>
+                <ul class="main-menu">
+                    <li class="sub-menu">
+                        <a href="">უნარები</a>
+                        <ul>
+                            <li class="sub-menu">
+                                <a href="">ვერბალური ნაწილის კითხვები</a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "AdminCSQuestions", new {id = 1}, null)">კითხვები</a></li>
+                                    <li><a href="@Url.Action("Index", "AdminPirobebi", new {id = 1}, null)">პირობა კითხვებით</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="">მათემატიკური ნაწილის კითხვები</a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "AdminCSQuestions", new {id = 2}, null)">კითხვები</a></li>
+                                    <li><a href="@Url.Action("Index", "AdminPirobebi", new {id = 2}, null)">პირობა კითხვებით</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="">გამოცდის ჩონჩხი</a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "AdminQuizSkeletons", new {id = 1}, null)">ვერბალური ნაწილი</a></li>
+                                    <li><a href="@Url.Action("Index", "AdminQuizSkeletons", new {id = 2}, null)">მათემატიკური ნაწილი</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="">თეგები</a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "AdminCSTags")">თეგები</a></li>
+                                    <li><a href="@Url.Action("Index", "AdminTaggingHierarchies")">თეგები(მშობელი, შვილი)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("VideoTypes", "AdminVideos")"> ვიდეოები</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "AdminCSModules")"> მოდულები</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "AdminTeachers")"> მასწავლებლები</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "AdminQuestionInfoes")"> წელი-ვარიანტი</a>
+                            </li>
+                        </ul>
+                        <hr />
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="">ქართული</a>
+                        <ul>
+                            <li class="sub-menu">
+                                <a href="">ლიტერატურა</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoQuestion", new {id = 1}, null)">კითხვები</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoAuthors")"> ავტორები</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoAuthorWorks")"> ნაწარმოებები</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoAuthorWorkParts")"> ნაწარმოების ნაწილები</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Work", "AdminGeoVideo",new {category=1})"> ვიდეოები</a>
+                                    </li>
+                                </ul>
+                            <li class="sub-menu">
+                                <a href="">გრამატიკა</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoQuestion", new {id = 2}, null)">კითხვები</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoGrammarTags")"> თეგები მშობელი</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "AdminGeoGrammarSubTags")"> თეგები შვილი</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Work", "AdminGeoVideo",new {category=2})"> ვიდეოები</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="">გამოცდა</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Index","AdminGeoTextEditings")">ტექსტის რედაქტირება</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","AdminGeoEssays")">არგუმენტირებული ესე</a>
+                                    </li>
+                                    <li class="sub-menu">
+                                    <a href="">წაკითხულის გააზრება და მხატვრული ტექსტის ანალიზი</a>
+                                        <ul>
+                                            <li>
+                                                <a href="@Url.Action("Index","AdminGeoTextAnalisys", new { category = 1 })">პოეზია</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Index","AdminGeoTextAnalisys", new { category= 2 } )">პროზა</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <hr />
+                            <li>
+                                <a href="@Url.Action("VideoTypes", "AdminVideos")"> ვიდეოები</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="@Url.Action("Index", "AdminAboutNebula")"> ნებულას შესახებ</a></li>
+                    <li><a href="@Url.Action("Index", "AdminUsers")"> users</a></li>
+                    <li><a href="@Url.Action("Index", "AdminGetUserScores")"> ქულები</a></li>
+
+                    <li class="sub-menu">
+                        <a href="">ტრანზაქციები</a>
+                        <ul>
+                            <li><a href="@Url.Action("TBCTransactions", "AdminTransactions")">TBC</a></li>
+                            <li><a href="@Url.Action("NovaTransactions", "AdminTransactions")">NOVA</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="@Url.Action("Index", "AdminCupons")"> კუპონები</a></li>
+                    <li><a href="@Url.Action("Index", "AdminExplantationVideos")"> ასახსნელი ვიდეოები</a></li>
+                    <li><a href="@Url.Action("Index", "AdminCompetitions")"> გათამაშებები</a></li>
+                    <li><a href="@Url.Action("Index", "AdminSocialUsers")"> social users</a></li>
+                    <li><a href="@Url.Action("Index", "AdminSocialService")"> social service</a></li>
+                    <li><a href="@Url.Action("Index", "AdminNews")">სიახლეები</a></li>
+                    <li><a href="@Url.Action("Index", "AdminGetDataToWordFile")"> მონაცემების ამოღება</a></li>
+
+                    <li class="sub-menu">
+                        <a href=""> სტატისტიკა</a>
+                        <ul>
+                            <li><a href="@Url.Action("UserScorePercentsByTag", "AdminGetUserScores", new { isExam = true }, null)">გამოცდის</a></li>
+                            <li><a href="@Url.Action("UserScorePercentsByTag", "AdminGetUserScores")">სავარჯიშოების</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <section id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </section>
+    </section>
+
+    <footer id="footer">
+        Copyright &copy; @DateTime.Now.Year Leavingstone
+    </footer>
+
+
+    <div id="raodenobrivi-shedarebis-porma" style="display:none;">
+        <table style="width:600px;border-spacing: 0;" class="raodenobrivi-table">
+            <tbody>
+                <tr>
+                    <td style="text-align:center;border:1px solid black; width:250px;">A</td>
+                    <td style="text-align:center;border:1px solid black; width:250px;">B</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="padding:10px 15px; border:1px solid black; width:600px;margin-top:15px;">
+            <div style="width:270px;display: inline-block;border: 1px solid black;vertical-align: middle;" class="table-p">
+                <p style="font-size: 15px; text-align:center;"></p>
+            </div>
+
+            <div style="width:270px; margin-left:20px; text-align:center;display: inline-block;border: 1px solid black; vertical-align: middle;" class="table-p">
+                <p style="font-size: 15px; text-align:center;"></p>
+            </div>
+        </div>
+
+    </div>
+    <div id="analogebis-porma" style="display:none;">
+        <p><strong>სიტყვა1 : სიტყვა2</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>სიტყვა3 :</strong></p>
+    </div>
+    <div class="mask"></div>
+    <script>
+        setInterval(function () {
+            $.get(U + 'home/asd');
+        }, 200000);
+    </script>
+    <script src="~/Content/admin/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/admin/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/admin/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/Content/admin/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="~/Content/admin/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="~/Content/admin/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="~/Scripts/knockout.js"></script>
+    <script src="~/Js/admin.js"></script>
+    <script src="~/Content/admin/js/functions.js"></script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    @RenderSection("scripts", required: false)
+
+
+    @*<script src="~/Content/admin/js/demo.js"></script>*@
+</body>
+</html>

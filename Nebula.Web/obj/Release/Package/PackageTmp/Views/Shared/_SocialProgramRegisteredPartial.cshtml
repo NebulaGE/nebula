@@ -1,0 +1,35 @@
+﻿@model Nebula.Domain.Entities.User
+
+<div class="social-ganacxadis-forma">
+    <div class="social-inputs">
+        <div class="social-inputs-left">
+            <input type="text" placeholder="სახელი" value="@Model.FirstName" name="FirstName" id="social-firstname">
+            <input type="text" value="@Model.LastName" name="LastName" placeholder="გვარი" id = "social-lastname">
+            <input type="text" value="@Model.IdentificationNumber" name="IdentificationNumber"  id = "social-identity" class="only-numbers"  maxlength="11" placeholder="პირადი ნომერი">
+            <input type="text" value="@Model.PhoneNumber" name="PhoneNumber" id="social-phone"  class="only-numbers" maxlength="9" placeholder="ტელეფონის ნომერი" >
+        </div>
+        <div class="social-inputs-right">
+            <textarea class="reason-input" placeholder="რის საფუძვლეზე ითხოვთ სრული კურსის დაფინანსებას?" id = "social-text" name="SocialText">@Model.SocialText</textarea>
+            <div class="agree-rules-div">
+                <input class="checkbox" checked="" type="checkbox" id="social-checkbox" autocomplete="off">
+                <div class="agree-text">
+                    ვეთანხმები ნებულას <a href="/Home/About#wesebi da pirobebi" data-original-title="" title="">წესებს</a>
+                </div>
+            </div>
+        </div>
+        <div class="agree-rules-div" style="margin-top: 20px;">
+            <div class="text-piradoba">ატვირთე პირადობის დამადასტურებელი დოკუმენტის ასლი(სურათი ან pdf)</div>
+            <div class="buy-course1">
+                <input type="file" style="display: none" name="UserFile" id="social-file" />
+                <div class="text-buy-course" id="uploadId">ატვირთვა</div>
+            </div>
+        </div>
+        <button class="enter-button"  id="social-submit" type="submit">
+            <div class="circle-filled-star">
+                <div class="circle-star-enter"></div>
+            </div>
+            <div class="text-enter">დადასტურება</div>
+            <img src="/Content/img/loadingIcon.gif" class="btn-loader" style="top: 49px;">
+        </button>
+    </div>
+</div>

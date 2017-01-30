@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACB949C5-9A78-4B1D-8319-18AA86B70D5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nebula.Domain</RootNamespace>
+    <AssemblyName>Nebula.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\BaseRepository.cs" />
+    <Compile Include="Abstract\IDbContextNebula.cs" />
+    <Compile Include="Concrete\FakeDbSet.cs" />
+    <Compile Include="Concrete\NebulaDbContext.cs" />
+    <Compile Include="Entities\AboutNebula.cs" />
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\BookCode.cs" />
+    <Compile Include="Entities\GeoAuthorWorkPart.cs" />
+    <Compile Include="Entities\GeoAuthorWork.cs" />
+    <Compile Include="Entities\Competition.cs" />
+    <Compile Include="Entities\CSQuestion.cs" />
+    <Compile Include="Entities\CSQuestionCategory.cs" />
+    <Compile Include="Entities\CSQuiz.cs" />
+    <Compile Include="Entities\CSUserQuizzes.cs" />
+    <Compile Include="Entities\Cupon.cs" />
+    <Compile Include="Entities\EndOfTheDay.cs" />
+    <Compile Include="Entities\GeoAnswer.cs" />
+    <Compile Include="Entities\GeoAuthor.cs" />
+    <Compile Include="Entities\GeoEssay.cs" />
+    <Compile Include="Entities\GeoFictionText.cs" />
+    <Compile Include="Entities\GeoGrammarTag.cs" />
+    <Compile Include="Entities\GeoGrammarSubTag.cs" />
+    <Compile Include="Entities\GeoQuestion.cs" />
+    <Compile Include="Entities\GeoVideo.cs" />
+    <Compile Include="Entities\Module.cs" />
+    <Compile Include="Entities\ExamType.cs" />
+    <Compile Include="Entities\ExplantationVideo.cs" />
+    <Compile Include="Entities\FailTransaction.cs" />
+    <Compile Include="Entities\FinishedTask.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\LastOpenExerciseQuestion.cs" />
+    <Compile Include="Entities\MathQuiz.cs" />
+    <Compile Include="Entities\News.cs" />
+    <Compile Include="Entities\Notification.cs" />
+    <Compile Include="Entities\NovaPaymentHistory.cs" />
+    <Compile Include="Entities\Pocket.cs" />
+    <Compile Include="Entities\CSQuestionInfo.cs" />
+    <Compile Include="Entities\QuestionsForBook.cs" />
+    <Compile Include="Entities\QuestionTag.cs" />
+    <Compile Include="Entities\QuizSkeleton.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\TaggingHierarchy.cs" />
+    <Compile Include="Entities\Condition.cs" />
+    <Compile Include="Entities\Teacher.cs" />
+    <Compile Include="Entities\TeacherStudent.cs" />
+    <Compile Include="Entities\GeoTextEditing.cs" />
+    <Compile Include="Entities\TimeUserQuestion.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserAnswer.cs" />
+    <Compile Include="Entities\UserCupon.cs" />
+    <Compile Include="Entities\UserCuponTry.cs" />
+    <Compile Include="Entities\GeoUserAnswer.cs" />
+    <Compile Include="Entities\GeoUserExam.cs" />
+    <Compile Include="Entities\UserLicense.cs" />
+    <Compile Include="Entities\UserProfile.cs" />
+    <Compile Include="Entities\UserQuizSchedule.cs" />
+    <Compile Include="Entities\VerbalQuiz.cs" />
+    <Compile Include="Entities\Video.cs" />
+    <Compile Include="Entities\VideoExercise.cs" />
+    <Compile Include="Entities\VideoPart.cs" />
+    <Compile Include="EntityConfigurations\AnswerConfig.cs" />
+    <Compile Include="EntityConfigurations\CSQuestionCategoryConfig.cs" />
+    <Compile Include="EntityConfigurations\CSQuestionConfig.cs" />
+    <Compile Include="EntityConfigurations\CSQuizConfig.cs" />
+    <Compile Include="EntityConfigurations\CuponConfig.cs" />
+    <Compile Include="EntityConfigurations\ExamTagConfig.cs" />
+    <Compile Include="EntityConfigurations\ExamTypeConfig.cs" />
+    <Compile Include="EntityConfigurations\FinishedExercisePirobaConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoAnswerConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoAuthorWorkConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoAuthorWorkPartConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoFictionTextConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoGrammarSubTagConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoQuestionConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoUserExamConfig.cs" />
+    <Compile Include="EntityConfigurations\GeoVideoConfig.cs" />
+    <Compile Include="EntityConfigurations\NotificationConfig.cs" />
+    <Compile Include="EntityConfigurations\NovaPaymentHistoryConfig.cs" />
+    <Compile Include="EntityConfigurations\TagConfig.cs" />
+    <Compile Include="EntityConfigurations\TaskWithMultipleQuestionConfig.cs" />
+    <Compile Include="EntityConfigurations\TeacherStudentConfig.cs" />
+    <Compile Include="EntityConfigurations\UserGeoAnswerConfig.cs" />
+    <Compile Include="EntityConfigurations\UserLicenseConfig.cs" />
+    <Compile Include="EntityConfigurations\UserQuizesConfig.cs" />
+    <Compile Include="EntityConfigurations\UserQuizScheduleConfig.cs" />
+    <Compile Include="EntityConfigurations\VideoConfig.cs" />
+    <Compile Include="EntityConfigurations\VideoPartConfig.cs" />
+    <Compile Include="GeneralRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="olddb\CSQuestion.cs">
+      <DependentUpon>OldDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="olddb\OldDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OldDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="olddb\OldDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OldDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="olddb\OldDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OldDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="olddb\TaskWithMultipleQuestion.cs">
+      <DependentUpon>OldDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AboutNebulaRepo.cs" />
+    <Compile Include="Repositories\AnswerRepo.cs" />
+    <Compile Include="Repositories\BookCodeRepo.cs" />
+    <Compile Include="Repositories\CompetitionRepo.cs" />
+    <Compile Include="Repositories\ConditionRepo.cs" />
+    <Compile Include="Repositories\CSQuestionInfoRepo.cs" />
+    <Compile Include="Repositories\CSQuestionCategoryRepo.cs" />
+    <Compile Include="Repositories\CSQuestionRepo.cs" />
+    <Compile Include="Repositories\CSQuizRepo.cs" />
+    <Compile Include="Repositories\CSUserQuizzesRepo.cs" />
+    <Compile Include="Repositories\CuponRepo.cs" />
+    <Compile Include="Repositories\EndOfTheDayRepo.cs" />
+    <Compile Include="Repositories\ExamTypeRepo.cs" />
+    <Compile Include="Repositories\ExplantationVideoRepo.cs" />
+    <Compile Include="Repositories\FailTransactionRepo.cs" />
+    <Compile Include="Repositories\FinishedTaskRepo.cs" />
+    <Compile Include="Repositories\GeoAnswerRepo.cs" />
+    <Compile Include="Repositories\GeoAuthorRepo.cs" />
+    <Compile Include="Repositories\GeoAuthorWorkPartRepo.cs" />
+    <Compile Include="Repositories\GeoAuthorWorkRepo.cs" />
+    <Compile Include="Repositories\GeoEssayRepo.cs" />
+    <Compile Include="Repositories\GeoFictionTextRepo.cs" />
+    <Compile Include="Repositories\GeoGrammarTagRepo.cs" />
+    <Compile Include="Repositories\GeoGrammarSubTagRepo.cs" />
+    <Compile Include="Repositories\GeoQuestionRepo.cs" />
+    <Compile Include="Repositories\GeoTextEditingRepo.cs" />
+    <Compile Include="Repositories\GeoUserExamRepo.cs" />
+    <Compile Include="Repositories\GeoVideoRepo.cs" />
+    <Compile Include="Repositories\ImageRepo.cs" />
+    <Compile Include="Repositories\LastOpenExerciseQuestionRepo.cs" />
+    <Compile Include="Repositories\MathQuizRepo.cs" />
+    <Compile Include="Repositories\ModuleRepo.cs" />
+    <Compile Include="Repositories\NewsRepo.cs" />
+    <Compile Include="Repositories\NotificationRepo.cs" />
+    <Compile Include="Repositories\NovaPaymentHistoryRepo.cs" />
+    <Compile Include="Repositories\PocketRepo.cs" />
+    <Compile Include="Repositories\QuestionTagRepo.cs" />
+    <Compile Include="Repositories\QuizSkeletonRepo.cs" />
+    <Compile Include="Repositories\TaggingHierarchyRepo.cs" />
+    <Compile Include="Repositories\TagRepo.cs" />
+    <Compile Include="Repositories\TeacherRepo.cs" />
+    <Compile Include="Repositories\TeacherStudentRepo.cs" />
+    <Compile Include="Repositories\TimeUserQuestionRepo.cs" />
+    <Compile Include="Repositories\UserAnswerRepo.cs" />
+    <Compile Include="Repositories\UserCuponRepo.cs" />
+    <Compile Include="Repositories\UserCuponTryRepo.cs" />
+    <Compile Include="Repositories\UserGeoAnswerRepo.cs" />
+    <Compile Include="Repositories\UserLicenseRepo.cs" />
+    <Compile Include="Repositories\UserQuizScheduleRepo.cs" />
+    <Compile Include="Repositories\UserRepo.cs" />
+    <Compile Include="Repositories\VerbalQuizRepo.cs" />
+    <Compile Include="Repositories\VideoExerciseRepo.cs" />
+    <Compile Include="Repositories\VideoPartRepo.cs" />
+    <Compile Include="Repositories\VideoRepo.cs" />
+    <Compile Include="Utils\Config.cs" />
+    <Compile Include="ViewModels\Admin\CS\ConditionRelatedQuestionsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CS\ConditionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AnswerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CS\CSQuestionInfoViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CS\CSQuestionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CS\CSTagViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Geo\GeoFictionTextViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Geo\GeoQuestionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CS\ModuleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Geo\GeoVideoTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Geo\GeoVideoViewModel.cs" />
+    <Compile Include="ViewModels\Web\HomePageNewsViewModel.cs" />
+    <Compile Include="ViewModels\Web\CS\CSMainPageViewModel.cs" />
+    <Compile Include="ViewModels\Web\ExerciseUrlViewModel.cs" />
+    <Compile Include="ViewModels\Web\Geo\GeoExamViewModel.cs" />
+    <Compile Include="ViewModels\Web\Geo\GeoFinishedExamViewModel.cs" />
+    <Compile Include="ViewModels\Web\Geo\GeoMainPageViewModel.cs" />
+    <Compile Include="ViewModels\Web\NewsNavigationViewModel.cs" />
+    <Compile Include="ViewModels\Web\NewsViewModel.cs" />
+    <Compile Include="ViewModels\Web\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\Web\SocialProgramViewModel.cs" />
+    <Compile Include="ViewModels\Web\SocialViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="olddb\OldDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OldDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="olddb\OldDb.edmx.diagram">
+      <DependentUpon>OldDb.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="olddb\OldDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OldDb.edmx</DependentUpon>
+      <LastGenOutput>OldDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="olddb\OldDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OldDb.edmx</DependentUpon>
+      <LastGenOutput>OldDb.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

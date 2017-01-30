@@ -1,0 +1,28 @@
+﻿<div class="row artboardpanel">
+    <div data-bind="foreach: userQuizzes">
+        <a data-bind="attr : { href : url }">
+            <div class="col-sm-4 forMarg">
+                <div class="artBoard">
+                    <div class="leftBlock">
+                        <p class="firstpar" data-bind="text : examNum"></p>
+                        <p class="secpar">გამოცდა</p>
+                    </div>
+                    <div class="rightBlock">
+                        <div class="two-bl">
+                            <div class="firstBlock">
+                                <span class="CountTrueAnswer" data-bind="text: correctAnswersCount"></span>
+                                <span class="TrueAnswer">სწორი პასუხი</span>
+                            </div>
+                            <div class="secBlock">
+                                <span class="FalseeAnswer" data-bind="text : date"></span>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="BlueBlock"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+

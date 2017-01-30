@@ -1,0 +1,38 @@
+﻿@section Styles{
+
+    <link href="~/Content/assetsNew/css/test.css" rel="stylesheet" />
+    <link href="~/Content/assetsNew/css/nika-style.css" rel="stylesheet" />
+}
+
+
+<div class="main-div">
+    <div class="black-div">
+        <a href="@Url.Action("Index", "GeoMain")">
+            <div class="arrow-back"></div>
+            <div class="text-back">უკან</div>
+        </a>
+        <div class="text-course-name">გრამატიკის სავარჯიშოები</div>
+    </div>
+    <div class="main-background" data-bind="with : navigationViewModel">
+        @Html.Partial("_ExerciseCommonNavigationPartial")
+
+        <div class="question-main-div" data-bind="with : exerciseViewModel">
+            @Html.Partial("_ExerciseCommonPartial",2)
+        </div>
+    </div>
+    
+    @*<div class="progress-main-div" data-bind="with : navigationViewModel.exerciseViewModel">
+        @Html.Partial("_ExerciseMoveNavigation")
+    </div>*@
+    <div class="fb-main-div"></div>
+</div>
+
+
+@Html.Partial("_FooterPartial",2)
+
+@section scripts{
+    <script src="~/Js/common/exercise-common.js"></script>
+    <script src="~/Js/common/exercise-navigation-common.js"></script>
+    <script src="~/Js/geo/grammar-exercise.js"></script>
+     
+}

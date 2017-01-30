@@ -1,0 +1,608 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout_Mobile.cshtml";
+}
+<style>
+    #circle-percent h3 {
+    line-height: 195px;
+    font-size:28px;
+}
+</style>
+<script>$('#body').removeAttr('style')</script>
+<div id="nav-content" class="hh">
+    <div id="nav-nav">
+        <div id="nav-nav-tree"></div>
+        <div id="nav-nav-close"></div>
+    </div>
+    <div>
+        <div id="nav-ul-wrapper" class="">
+            <div class="h170"></div>
+            <ul id="nav-ul">
+                <li class="active nav-li" data-id="5">აქციის შესახებ</li>
+                <li class="nav-li" data-id="1">ხეების სარგებელი</li>
+                <li class="nav-li" data-id="2">ეკოისტები</li>
+                <li class="nav-li" data-id="3">ჰაერის დაბინძურება</li>
+                <li class="nav-li" data-id="44">როგორ დავზოგოთ საწვავი</li>
+                <li class="nav-li" data-id="4">კონტაქტი</li>
+            </ul>
+            <div id="m-fb-2">
+                <div id="m-nav-share"></div>
+                <div style="font-size: 40px;font-family: M;opacity:.5">გაზიარება</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="li-0" style="text-align:justify; display:none; " class="text-mrg">
+
+        დაბინძურებული ჰაერის პრობლემის მწვავედ საჩვენებლად, გადავწყვიტეთ თბილისის მძღოლებისთვის საკომუნიკაციო ქვითრები დაგვერიგებინა. საქარე მინაზე დატოვებული ქვითარი ერთი შეხედვით საჯარიმო ქვითრის ასოციაციას ტოვებდა და მკითხველს ჩვენს ვებ-გვერდზე შემოსვლისკენ უბიძგებდა.  ინსტრუქციის მიხედვით,  “დაჯარიმებული” მძღოლი ნაკისრ ვალდებულებებს ამავე ვებ-გვერდზე შეიტყობდა.
+        <br />
+        აქ შემოსულ მომხმარებელს კი ჯერ ჰაერის დაბინძურების შესახებ მწვავე ფაქტებს ვაჩვენებთ, ხოლო შემდეგ - 8 მარტივი წესის დაცვისკენ მოვუწოდებთ, რომელთა გათვალისწინებაც მნიშვნელოვნად გააუმჯობესებს  ჰაერს.
+        <br />
+        გარდა ამისა, ჯი პი აი ჰოლდინგის წამახალისებელი აქცია განსაკუთრებულ პირობებსა და უნიკალურ გათამაშებას სთავაზობს ეკომეგობრულ მძღოლებს.
+    </div>
+
+    <div id="li-1" style="text-align:justify" class="text-mrg">
+        <p>ხე - მეტაფორულად თუ ვიტყვით - ჩვენი ფილტვებია. ის, რისი საშუალებითაც ვსუნთქავთ. რეალურად, სწორედ ხეს შეუძლია უზრუნველყოს ჩვენ გარშემო არსებული ჰაერის სისუფთავე, რის გამოც ხის დარგვა ჩვენ ჰაერივით გვჭირდება. რა თქმა უნდა, მტკიცება იმისა, რომ ხე სასარგებლოა, აქსიომის ხელმეორედ დამტკიცების ტოლფასია. თუმცა, ზოგჯერ ზუსტი რაოდენობრივი თუ თვისობრივი მონაცემები მაინც არის საჭირო იმისათვის, რომ არამხოლოდ ხის სარგებლიანობაში დავრწმუნდეთ, მისი დარგვის სურვილიც გაგვიჩნდეს:</p>
+
+        <p>1. შენობების სიახლოვეს არსებულ ხეებს შეუძლიათ 30% შეამცირონ ჰაერის კონდიციონერის საჭიროება. სტრატეგიულად სწორ ადგილზე დარგულ მოზრდილ ხეს კი შეუძლია ჩაანაცვლოს ჰაერის კონდიციონერის მიერ გაწეული 20 საათიანი „შრომა“ ათი ოთახისათვის.</p>
+
+        <p>2. ერთ ხეს შეუძლია წელიწადში 120 კილოგრამი ჟანგბადის გამომუშავება. ეს ნიშნავს იმას, რომ ორი მოზრდილი ხე გამოიმუშავებს იმ რაოდენობის ჟანგბადს, რაც ოთხკაციანი ოჯახის სუნთქვისათვის არის საჭირო.</p>
+
+        <p>3. არსებობის განმავლობაში ხე შთანთქავს ერთ ტონამდე ნახშირბადის დიოქსიდს.</p>
+
+        <p>4. ხეები ამცირებენ ეროზიას. ასევე ტემპერატურას - სიცხის დროს.</p>
+
+        <p>5. ხის დარგვა დღემდე რჩება ატმოსფეროში ნახშირორჟანგის შემცირების ყველაზე იაფ და ეფექტურ საშუალებად.</p>
+
+        <p>იმ შემთხვევაში თუკი თქვენი მანქანა აკმაყოფილებს ეკომეგობრულობის კრიტერიუმებს და დასაშვები ნორმის გამონაბოლქვს გამოყოფს, მანქანის დაზღვევის შემდეგ თქვენ ავტომატურად ერთვებით გათამაშებაში და გეძლევათ შანსი, მოიგოთ:</p>
+
+        <p><strong>წყარო:</strong> <a href="http://www.savatree.com/tree-facts.html" target="_blank">http://www.savatree.com/tree-facts.html</a></p>
+    </div>
+
+    <div id="li-2" style="text-align:justify" class="text-mrg">
+
+       
+        <p>ჩვენ ეკოისტები ვართ! ადამიანები, რომლებიც ვზრუნავთ და ვუფრთხილდებით გარემოს.</p>
+
+        <p>საქართველოში ჰაერის დაბინძურების დონე კრიტიკულ ზღვარს ცდება, რაც უამრავ დაავადებას იწვევს. სწორედ ამიტომ, დღეს ეგოიზმის დრო აღარ არის. გარემოზე ზრუნვა პირველ რიგში საკუთარ თავზე და ჯანმრთელობაზე ზრუნვაა. </p>
+
+        <p>გარემოს საკუთარი მიზნებისთვის “მოხმარება” მხოლოდ მოკლევადიან კომფორტს თუ მოგვიტანს, საბოლოოდ კი ისევ ჩვენ მოგვიწევს დაბინძურებული, მავნე ნივთიერებებით გაჟღენთილი ჰაერის სუნთქვა.</p>
+        <p>დღეს ეკოიზმი ერთადერთი გზაა ეგოზე, ჩვენ თავზე ზრუნვისთვის. დროა, გავიხედოთ ჩვენი ფანჯრებისა და ავტომობილების მიღმა და შევეცადოთ, მარტივი ქმედებებით შევცვალოთ არსებული სიტუაცია.</p>
+
+        <p>ნუ იქნები ეგოისტი. გახდი ეკოისტი!</p>
+
+        <p>გაუზიარე ეს ინფორმაცია მეგობრებს და მიიღე საჩუქრად ეკოისტის მაისური ჯიპიაისგან. </p>
+
+    </div>
+
+    <div id="li-3" style="text-align:justify" class="text-mrg">
+
+      
+        <p><strong>ჰაერის დაბინძურება </strong></p>
+
+        <p>ჰაერის დაბინძურება საქართველოში ერთ-ერთი უმნიშვნელოვანესი პრობლემაა საზოგადოების ჯანმრთელობისთვის. ჰაერის დაბინძურება საქართველოს მოქალაქეების სიცოცხლეს 12 თვეზე მეტი დროით ამცირებს და იწვევს ყოველწლიურად 40,000-ზე მეტი ადამიანის სიკვდილს ყოფილ საბჭოთა კავშირის სივრცეში. მიუხედევად ბევრი საბედისწერო შემთხვევისა, კვლევებმა აჩვენა, რომ თბილისში ჰაერის დაბინძურება არის სისხლძარღვებისა და ქრონიკული დაავადებების ერთ-ერთი უმთავრესი მიზეზი, მაგალითად, როგორიცაა ასთმა, დერმატიტი და სხვა; </p>
+
+        <p><strong>რა გავლენას ახდენს საგზაო მოძრაობა ჰაერის დაბინძურებაზე</strong></p>
+        <p>
+            საქართველოში ჰაერის მთავარი დამაბინძურებელი არის საგზაო მოძრაობა, რომელიც შეადგენს ჰაერის დაბინძურების 71 %-ს. ავტოტრანსპორტი ავრცელებს 200-ზე მეტ მავნე დამაბინძურებელს, რომელთაგანაც ყველაზე გავრცელებულია: ნახშირბადის ოქსიდი, ნახშირწყალბადები (აქროლადი ორგანული ნაერთები და მეთანი), აზოტის ოქსიდი, გოგირდის დიოქსიდი, ჭვარტლი, ბენზოფილინი და ნახშირბადის დიოქსიდი. ასევე, საქართველოში საგზაო მოძრაობა ჰაერს მნიშვნელოვნად აბინძურებს, რადგან:
+            საქართველოში მანქანების უმეტესობა 10 -ზე მეტი წლის არის (90 %).
+        </p>
+        <p>
+            ბევრ მანქანას აქვს ტექნიკური პრობლემები, რაც კიდევ უფრო ზრდის დამაბინძურებელი ნივთირებების გამოყოფას ჰაერში.
+            საწვავის ხარისხი დაბალია, საგზაო სივრცე უფრო მცირეა გზებზე მოძრავი მანქანების რაოდენობასთან შედარებით.
+            საზოგადოებრივი ტრანსპორტი მოუხერხებელია (არაკომფორტულია), და არის არასაკმარისი როადენობით.
+        </p>
+
+
+    </div>
+
+    <div id="li-4" class="text-mrg">
+        <form id="con-form">
+            <input name="name" placeholder="სახელი" />
+            <input type="email" name="email" placeholder="ელ.ფოსტა" />
+            <textarea name="msg" placeholder="მესიჯი" style="  background: none;
+  border-radius: 45px;
+  padding: 10px 24px;
+  width: 100%;
+  margin-top: 7px;
+  min-height: 152px;
+  font-size: 36px;"></textarea>
+            <span style="  padding-left: 30px;
+  line-height: 67px;
+  font-size: 24px;">ცხელი ხაზი: 2505111</span>
+            <button id="con-form-btn" type="button">გაგზავნა</button>
+        </form>
+    </div>
+    <div id="li-5" style="text-align:justify; display:block;" class="text-mrg">
+
+        <p><strong>ჯიპიაი ჰოლდინგის საზაფხულო აქცია! </strong></p>
+
+        <p>
+            დააზღვიეთ ავტომობილი და დარგეთ ხე!
+            ჯიპიაი ჰოლდინგის ეკოკამპანია გრძელდება. საქართველოში ჰაერის დაბინძურების დონე კრიტიკულ ზღვარს ცდება, რაც უამრავ დაავადებას იწვევს. სწორედ ამიტომ, დღეს ეგოიზმის დრო აღარ არის. გარემოზე ზრუნვა პირველ რიგში საკუთარ თავზე და ჯანმრთელობაზე ზრუნვაა. ეკოისტები ამჯერად ხეების დასარგავად ერთიანდებიან. აქციის ფარგლებში თითოეული დაზღვეული ავტომობილის სახელით (სად) ერთი ხე დაირგვება.
+            დეტალური ინფორმაცია ხეების შესახებ იხ. ვებ გვერდზე <a href="http://www.treepex.com/" target="_blank">www.treepex.com</a>.
+            ეკოკამპანიის წახალისების მიზნით, აქციის პერიოდში დაზღვეული  ავტომობილების მფლობელები მიიღებენ სპეციალურ შეღავათიან ტარიფს 2,8%-დან და საჩუქრად ფასდაკლების ბარათებს სხვადასხვა ქსელში.
+            ლოგოები
+            აქცია გრძელდება  2016 წლის 1 ივნისიდან – 30 ივნისის ჩათვლით.
+        </p>
+
+
+
+
+
+    </div>
+</div>
+
+<div id="nav-wrapper" class="page-2-remove" style="display:none">
+    <div>
+        <a href="@Url.Action("index","mobile")" id="home-btn"></a>
+        <div id="nav-btn"></div>
+    </div>
+</div>
+
+
+
+<div id="page-1" class="page hh">
+    @*<div id="loader">
+        <h3 id="loader-count">0%</h3>
+        <div>
+            <img src="@Url.Content("~/content/img/loader.gif")" />
+        </div>
+        <h4 style="margin-top:-10px">საქართველოში ყოველ მე-5 შემთხვევაში გარდაცვალების მიზეზი გარემოს დაბინძურებაა.</h4>
+    </div>*@
+
+
+    <div id="loader-wrapper">
+        <div id="loader-back">
+
+            <h3 class="percent before-load">ჰაერის დაბინძურების   </h3>
+            <h3 class="percent" style="margin-top: -160px; margin-right: 15px;"><span id="percent-number">0</span>%</h3>
+            <div id="loader-text" class="before-load">
+                <h3 style="font-size: 25px; line-height:normal;">
+                    გამოწვეულია ავტომობილის გამონაბოლქვით<br />
+                    <span id="after-loader-text" style="display:none;"></span>
+                </h3>
+            </div>
+        </div>
+
+
+        <div id="loader-img-color-wrapper" class="before-load" style="display:none;">
+            <div id="loader-img-fg-color"></div>
+            <div id="loader-img-color"></div>
+        </div>
+    </div>
+</div>
+
+<div id="page-2" class="page hh" style="display:none">
+    <div>
+        <div style="padding-top: 690px">
+            <a href="javascript:START()" class="btn">იხილეთ დაკისრებული ვალდებულებები</a>
+        </div>
+    </div>
+</div>
+
+<div id="page-3" class="page h" style="display:none">
+    <div>
+        <h4 style="text-align:center;margin-left: -30px;margin-right: -30px;">გაიგე რამდენს აბინძურებ შენ</h4>
+        <div style="margin:0 -30px">
+            <form id="form-1" action="/ajax/sendForm">
+               @*<input name="make" placeholder="მარკა" class="autocomplete" data-x="2">*@
+                @*<input name="model" placeholder="მოდელი" class="autocomplete" data-x="1">*@
+				     <select name="type">
+					         <option value="">მანქანის ტიპი</option>
+                            <option value="1">ჯიპი</option>
+                            <option value="2">კუპე</option>
+                            <option value="3">სედანი</option>
+
+                        </select>
+                <select name="engine">
+                    <option value="">ძრავის მოცულობა</option>
+                    <option value="1">1500-მდე</option>
+                    <option value="2">1500 - 2500-მდე</option>
+                    <option value="3">2500 და მეტი</option>
+                </select>
+                <select name="year">
+                    <option value="">წელი</option>
+                    @for (int i = DateTime.Now.Year; i >= 1990; i--)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+                <select name="price">
+                    <option value="1">5000$-მდე</option>
+                    <option value="2">5000$ - 10000$-მდე</option>
+                    <option value="3">10001$ - 20000$-მდე</option>
+                    <option value="4">20001$ - 35000$-მდე</option>
+                    <option value="5">35001$ - 50000$-მდე</option>
+                    <option value="6">50001$ - 100000$-მდე</option>
+                </select>
+                <div style="text-align: center;margin: 10px 0;width: 100%;">
+                    <button id="send-form-btn" class="btn" type="button">გაგზავნა</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="page-4" class="page h" style="display:none">
+    <div style="text-align:center;font-family:M">
+        <h5 style="margin-top: 80px;font-size: 30px; line-height: 40px;" id="result-status">
+       
+        </h5>
+    
+        <div style="margin-top:40px" id="result-img">
+         
+        </div>
+        <div style="padding-top: 70px">
+  
+            @*<img src="~/content/img/co-loader2.png" />*@
+            <img src="~/content/img/m-co-green.png" />
+        </div>
+    </div>
+</div>
+<div id="page-5" class="page h" style="display:none">
+    <div style="text-align:center;font-family:M">
+        <h5 style="margin-top: 40px;font-size: 30px; line-height: 40px;">
+            ავტომობილი ეკომავნეა!
+        </h5>
+        <div style="font-size: 21px;margin: 31px -30px 0;">
+            აღნიშნული ავტომანქანა გამართულ მდგომარეობაშიც ჭარბად
+            გამოყოფს ტოქსიკურ ნივთიერებებს.
+            <br /><br />
+            სამწუხაროდ, თუ საბედნიეროდ ამის<br />გამო არავინ დაგაჯარიმებს, თუმცა<br />არსებობს გარკვეული წესები,<br />რომელთა დაცვაც მნიშვნელოვნად შეამცირებს შენი<br />მანქანის მიერ ჰაერის დაბინძურებას.
+        </div>
+        <div style="height:160px;margin-top:40px">
+            <img src="~/content/img/m-car-2.png" />
+        </div>
+        <div style="padding-top: 70px">
+            <img src="~/content/img/m-co.png" />
+        </div>
+    </div>
+</div>
+
+<div id="results">
+    <div id="result-1" class="page h" style="display:none; margin-top:20px;">
+        <div style="font-family:M">
+            <div style="text-align:center;">
+                <h3 id="offer-title" style="font-size: 36px;line-height: 36px;margin-bottom:0;">
+                    დააზღვიე ავტომობილი და დარგე ხე!
+                </h3>
+                <div style="font-size: 24px;margin-top: 0;text-align:center;margin-top: 5;margin-top: 9px;margin-bottom: 20px;">
+
+                    აქციის ფარგლებში თქვენი სახელით ბორჯომის ხეობაში ერთი ხე დაირგვება
+
+                </div>
+            </div>
+            <hr class="horizontal-line" />
+            <div style="height:40px;"></div>
+       
+            <div style="font-size: 30px;margin-top: 0; text-align:center">
+             
+                დააზღვიე აქციის ფარგლებში  <br />უკეთესი ტარიფით
+              
+            </div>
+        
+                <div id="circle-percent" style="font-size:30px;">
+                    <h3><span id="circle-prct"></span></h3>
+                </div>
+   
+            <div class="left-side-down">
+                <h3 style="margin-top:0; font-size:30px;">
+                    ჩაერთე აქციაში!
+                </h3>
+                <form id="reg-form"  method="post">
+                    <input name="name" placeholder="სახელი / გვარი"  class="inp">
+                    <input name="phone" placeholder="5-XX-XXX-XXX" class="inp" maxlength="12" >
+                    <input name="user_data" value="" type="hidden">
+
+
+                    <div>
+                        <button id="registration-btn" class="btn" style="margin-top:10px;" >ჩაერთე აქციაში</button>
+                    </div>
+                </form>
+            </div>
+            <br />
+            <div class="btns" style=" padding-bottom: 30px;">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+            <hr class="horizontal-line" />
+            <div style="height:40px;"></div>
+            <div style="text-align:center;">
+
+
+                <h3 style="font-size: 30px; line-height:34px;">
+                    ...და მიიღე ფასდაკლება!
+                </h3>
+             
+
+                <img src="@Url.Content("~")content/img/new-light2.png" style="margin-top:40px;" />
+                <img src="@Url.Content("~")content/img/forum2.png" style="margin:35px 0;" />
+                <img src="@Url.Content("~")content/img/ita2.png" />
+                <img src="@Url.Content("~")content/img/deto2.png" style="margin-top:35px;" />
+            </div>
+        </div>
+    </div>
+
+    <div id="result-2" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                ასეთ ავტომობილებს, ჯიპიაი ჰოლდინგი წამახალისებელ პირობებს სთავაზობს:
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <img src="~/content/img/m-green-icon.png" />
+            </div>
+            <ul id="m-p">
+                <li>15% ფასდაკლება ავტოდაზღვევაზე</li>
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+                <li>სიტიპარკის ერთ წლიანი ვაუჩერი</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="result-3" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                გაეცანი ჯიპიაი ჰოლდინგის წამახალისებელ სპეციალურ პირობებს
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <img src="~/content/img/m-green-icon.png" />
+            </div>
+            <ul id="m-p">
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="result-4" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                გაეცანი ჯიპიაი ჰოლდინგის წამახალისებელ სპეციალურ პირობებს
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <img src="~/content/img/m-green-icon.png" />
+            </div>
+            <ul id="m-p">
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div id="result-5" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                ასეთ ავტომობილებს, ჯიპიაი ჰოლდინგი წამახალისებელ პირობებს სთავაზობს:
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <img src="~/content/img/m-green-icon.png" />
+            </div>
+            <ul id="m-p">
+                <li>სპეციალური შეთავაზება ავტოდაზღვევაზე</li>
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div id="result-6" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                დააზღვიე აქციის ფარგლებში
+                უკეთესი ტარიფით
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <div id="circle-percent">
+                    <h3><span id="circle-prct"></span></h3>
+                </div>
+            </div>
+            <ul id="m-p">
+                <li>სპეციალური შეთავაზება ავტოდაზღვევაზე</li>
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div id="result-7" class="page h" style="display:none">
+        <div style="font-family:M">
+            <div style="font-size: 30px;margin-top: 31px;text-align:center">
+                ასეთ ავტომობილებს, ჯიპიაი ჰოლდინგი წამახალისებელ პირობებს სთავაზობს:
+            </div>
+            <div style="height:160px;margin-top:40px;text-align:center">
+                <img src="~/content/img/m-green-icon.png" />
+            </div>
+            <ul id="m-p">
+                <li>ვიანორის 50% ფასდაკლების ვაუჩერი</li>
+                <li>გამონაბოლქვის შემოწმება დაბინძურების ხარისხზე - უფასოდ!</li>
+            </ul>
+            <br />
+            <div class="btns">
+                <div class="more-btn">გაიგე მეტი</div>
+                @*<div class="reg-btn">დარეგისტრირდი</div>*@
+                <div id="m-fb" class="m-fb">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="page-6" class="page h" style="display:none">
+    <div>
+        <div>
+            <div class="close-btn-1-wrapper">
+                <div class="close-btn-1"></div>
+            </div>
+            <br />
+            ისარგებლეთ ჯი პი აი ავტო-დაზღვევით და მიიღეთ საუკეთესო მომსახურება: <br /><br />
+
+            ადგილზე ანაზღაურების სერვისი (1000 ლარამდე ზარალის)<br />
+            ავტომომსახურების ჯგუფი - მომსახურება 24/7<br />
+            <ul>
+                <li>მომსახურების ჯგუფის გასვლა შემთხვევის ადგილზე;</li>
+                <li>ევაკუატორის უფასო მომსახურება</li>
+                <li>პროცედურული საკითხების მოგვარება (ურთიერთობა საპატრულოსთან, სადაზღვევოსთან და მესამე მხარესთან)</li>
+                <li>მძღოლის და მგზავრების ტრანსპორტირება შემთხვევის ადგილიდან</li>
+            </ul>
+
+            ავტოასისტანსი - 24/7<br />
+            <ul>
+                <li>საბურავის გაბერვა/გამოცვლა</li>
+                <li>საწვავის ადგილზე მიტანა</li>
+                <li>უფასო ევაკუატორის მომსახურება</li>
+                <li>მანქანის დაქოქვა სპეციალური ხელსაწყოთი</li>
+            </ul>
+
+            გახდი ეკოისტი და ჩაერთე გათამაშებაში!<br />
+            მოიგე:<br />
+            <ul>
+                <li>ეკოტური ამსტერდამში</li>
+                <li>ეკოისტის თერმო ჭიქა</li>
+                <li>მანქანის USB დამტენი</li>
+                <li>მანქანის მტვერსასრუტი</li>
+                <li>კლუბი 71-ის ვაუჩერი</li>
+                <li>ველოსიპედი</li>
+                <li>უიქენდ საგზური ყაზბეგის სასტუმრო „რუმსში“</li>
+            </ul>
+
+            ჩვენთან ყოველი მეათე დაზღვეული მოგებულია! <br />
+        </div>
+    </div>
+</div>
+
+<div id="page-7" class="page h" style="display:none">
+    <div>
+        <div class="close-btn-1-wrapper">
+            <div class="close-btn-1"></div>
+        </div>
+        <h4 style="text-align:center">დარეგისტრირდი ახლავე</h4>
+        <div style="margin:0 -30px">
+            <form id="reg-form">
+                <input name="name" placeholder="სახელი / გვარი" />
+                <input name="phone" placeholder="5-XX-XXX-XXX" />
+                <input name="user_data" value="" type="hidden" />
+                <div style="text-align: center;margin: 10px 0;width: 100%;">
+                    <button id="reg-form-btn" class="btn" type="button" style="line-height: 80px; font-size: 24px;font-family:M">გაგზავნა</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="page-8" class="page h" style="display:none">
+    <div style="text-align:center">
+        <div id="n-m-top" style="font-size: 34px;font-family: M; display:none">წესი</div>
+        <h1 id="n-m">8</h1>
+        <div id="n-m-bot" style="font-size: 34px;font-family: M;">წესი</div>
+        <div id="n-m-wrapper">
+            <div id="n-m-scroll">
+                <div style="display:block">
+                    <div>
+                        ავტომობილით ჰაერის დაბინძურებისთვის არავინ დაგაჯარიმებს. თუმცა, პრობლემა მართლაც მწვავეა და ქმედებას მოითხოვს. ყველა ჩვენგანის ვალია, დავიცვათ გარემო და 8 მარტივი წესი:
+                    </div>
+                </div>
+                <div>
+                    <div>მანქანა ყოველთვის გამართული უნდა იყოს ტექნიკურად, რათა ძრავამ ეფექტურად იმუშაოს.</div>
+                </div>
+                <div>
+                    <div>ძრავის ზეთი უნდა შეესაბამებოდეს მანქანის ტექნიკურ მონაცემებს. ასეთ პირობებში ძრავი შეუფერხებლად მუშაობს და საწვავსაც ოპტიმალურად მოიხმარს.</div>
+                </div>
+                <div>
+                    <div>უნდა შევამოწმოთ საბურავებში წნევა, რადგან დაშვებულ საბურავებს გორვის დროს მეტი წინაღობა ექმნებათ ასფალტთან შეხებისას. მეტი წინაღობის გადალახვას კი მეტი საწვავი სჭირდება.</div>
+                </div>
+                <div>
+                    <div>შეამოწმეთ,ხომ არ არის ავტომობილში ზედმეტი ტვირთი, რადგან მეტი სიმძიმის გადატანას მეტი საწვავი სჭირდება.</div>
+                </div>
+                <div>
+                    <div>შევეცადოთ ვაკონტროლოთ მოძრაობის სიჩქარე. მაღალ სიჩქარეზე მანქანა მეტ საწვავს მოიხმარს, მაგალითად 120 კმ/სთ-ითმოძრაობისას, ავტომობილი 10%-ით მეტ საწვავს მოიხმარს, ვიდრე 100 კმ/სთ მოძრაობისას.</div>
+                </div>
+                <div>
+                    <div>დილით მანქანის დაძვრისას არ არის საჭირო ძრავის დიდი ხნით გათბობა. დაძვრის შემდეგ, ნელი სვლის დროს ახალი თაობის მანქანების ძრავები თავისთავად თბება.</div>
+                </div>
+                <div>
+                    <div>თუ საცობში მოხვდით და თვლით,რომ 3 წუთზე მეტი მოგვიწევს დგომა, უმჯობესია ძრავა გამოვრთოთ.</div>
+                </div>
+                <div>
+                    <div>ნუ ჩართავთ გათბობას და კონდიციონერს, თუ ამის აუცილებლობა არ არის.</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <ul id="n-m-nav">
+                <li class="active">
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="page-9" class="page h" style="display:none">
+    <h1 style="font-family: M;font-size: 50px;text-align: center;margin-top:0">გახდი ეკოისტი!</h1>
+    <div id="m-shirt">
+        <img src="~/content/img/m-shirt.png" />
+    </div>
+    <div style="font-family: M;font-size: 20px;text-align: center;">
+        გაუზიარე ეს რჩევები შენს მეგობარს @*და მიიღე ეკოისტის მაისური GPI - სგან საჩუქრად!
+        <br />
+        <br />
+        საჩუქრის მისაღებად გაზიარებისას დათაგე GPI - ის გვერდი!*@
+    </div>
+    <div>
+        <br />
+        <div id="m-nav-share-2"></div>
+    </div>
+</div>

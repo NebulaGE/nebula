@@ -1,0 +1,247 @@
+﻿@using Nebula.Domain.Entities
+@model Nebula.Web.Models.ViewModels.VideoPartExerciseViewModel
+@{
+    ViewBag.Title = "EditVideoPart";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+
+@Scripts.Render("~/bundles/jqueryval")
+
+}
+
+<h3>ვიდეო ნაწილის რედაქტირება</h3>
+@Html.Partial("_AddImagesPartial")
+
+@if (Model.Video != null)
+{
+    <form method="post" action="@Url.Action("EditVideo")" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>@Model.Video.Name</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Video.Id)
+            @Html.HiddenFor(model => model.Video.IsExerciseType)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Video.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Video.Name, new { htmlAttributes = new { @class = "form-control" } })
+             
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Video.TagId, "TagId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TagId", null, htmlAttributes: new { @class = "form-control" })
+           
+                </div>
+            </div> 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Video.Numeration, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Video.Numeration, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Video.Numeration, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="შენახვა" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+}
+else
+{
+    <form method="post" action="@Url.Action("EditPart", "AdminVideos")">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.VideoPart.Id" />
+        <input type="hidden" name="VideoId" value="@Model.VideoPart.VideoId" />
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+            <div class="form-group">
+
+                <label class="control-label col-md-2">წამი</label>
+
+                <div class="col-md-8">
+                    <input type="number" class="form-control" name="Second" required value="@Model.VideoPart.Second" />
+
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="შენახვა" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+
+<h3>კითხვები</h3>
+
+<table class="table" style="margin-top:30px;">
+    <tr>
+        <th>
+            კითხვა
+        </th>
+
+  
+   
+        <th>
+
+        </th>
+    </tr>
+@if (Model.Video != null)
+{
+    foreach (var item in Model.Video.QuizQuestions)
+    {
+        <tr>
+            <td>@Html.Raw(item.QuestionText)</td>
+
+            <td>
+                @Html.ActionLink("რედაქტირება", "EditVideoPartQuestion", new { id = item.Id }) |
+
+                <form action="@Url.Action("Delete", "AdminCSQuestions")" method="post" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="returnUrl" value="@(Request.Url.AbsolutePath)?isExerType=true" />
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')" />
+                </form>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    foreach (var item in Model.VideoPart.Questions)
+    {
+        <tr>
+            <td>@Html.Raw(item.QuestionText)</td>
+
+            <td>
+                @Html.ActionLink("რედაქტირება", "EditVideoPartQuestion", new { id = item.Id }) |
+                <form action="@Url.Action("Delete", "AdminCSQuestions")" method="post" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath" />
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')" />
+                </form>
+            </td>
+        </tr>
+    }
+}
+  
+</table>
+<h3>კითხვის დამატება</h3>
+<hr />
+<form method="post" id="question-form" >
+    @Html.AntiForgeryToken()
+    @if (Model.Video != null)
+    {
+        <input type="hidden" name="VideoId" value="@Model.Video.Id" />
+    }
+    else
+    {
+        <input type="hidden" name="VideoPartId" value="@Model.VideoPart.Id" />
+    }
+    
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="form-group">
+
+            <label class="control-label col-md-2">კითხვა</label>
+
+            <div class="col-md-8">
+                <textarea name="QuestionText" class="c-editor" id="ck-editor" style="max-width:280px;"></textarea>
+
+
+            </div>
+        </div>
+        <div class="answers">
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="add-answer" type="button" value="პასუხის დამატება" class="btn btn-green" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2">
+                <div style="margin-left:12px;">
+                    @if (Model.Video != null)
+                    {
+                        foreach (var CSTag in ViewBag.Tags as IEnumerable<CSTag>)
+                        {
+                            <span style="margin:5px;">
+                                @if (CSTag.Id == Model.Video.TagId)
+                                {
+                                    <input id="CSTag" type="radio" value="@CSTag.Id" name="ModuleId" class="question-checkbox" checked="checked" /> @CSTag.Name
+                                }
+                                else
+                                {
+                                    <input id="CSTag" type="radio" value="@CSTag.Id" name="ModuleId" class="question-checkbox" /> @CSTag.Name
+                                }
+                            </span>
+                        }
+                    }
+                    else
+                    {
+                        foreach (var CSTag in ViewBag.Tags as IEnumerable<CSTag>)
+                        {
+                        <span style="margin:5px;">
+                            @if (CSTag.Id == Model.VideoPart.Video.TagId)
+                            {
+                                <input id="CSTag" type="radio" value="@CSTag.Id" name="ModuleId" class="question-checkbox" checked="checked" /> @CSTag.Name
+                            }
+                            else
+                            {
+                                <input id="CSTag" type="radio" value="@CSTag.Id" name="ModuleId" class="question-checkbox" /> @CSTag.Name
+                            }
+                        </span>
+                    }
+                    }
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="დამატება" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (Model.Video == null)
+{
+@Html.ActionLink("უკან დაბრუნება", "Edit", new { id = Model.VideoPart.VideoId })
+}
+else
+{
+@Html.ActionLink("უკან დაბრუნება", "Index", new
+{
+    ModuleId = Model.Video.TagId 
+})
+}

@@ -1,0 +1,53 @@
+﻿	body,html{
+		margin: 0px;
+		padding: 0px;
+	}
+	#loader-cont{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		    background: rgba(255,255,255, 0.5);
+        top:0;
+	}
+	
+	#loader-cont .iconbar{
+		position: relative;
+		top:50%;
+	    left: 50%;
+	    margin-right:-50%;
+	    transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+	    width: 100px;
+	    height: 100px;
+	    background: transparent;
+	}
+	#loader-cont .iconbar .loader-icon{
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#loader-cont .iconbar .loader-icon_1{
+		background: url('img/loader/a.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_2{
+		background: url('img/loader/apple.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_3{
+		background: url('img/loader/book.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_4{
+		background: url('img/loader/calc.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_5{
+		background: url('img/loader/colb.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_6{
+		background: url('img/loader/laptop.svg')center no-repeat;
+	}
+	#loader-cont .iconbar .loader-icon_7{
+		background: url('img/loader/uknow.svg')center no-repeat;
+	}

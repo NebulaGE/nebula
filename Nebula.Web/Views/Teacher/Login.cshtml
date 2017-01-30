@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+<nav class="navigation">
+    <a class="TeachLogo" href="#"></a>
+</nav>
+<div class="swicherBl">
+    <div class="teachCont">
+        <button id="teachAut" class="aut active">ავტორიზაცია</button>
+        <button id="teachReg" class="reg">რეგისტრაცია</button>
+    </div>
+</div>
+
+<div class="teachCont mrgTp autFade active">
+    <div class="IconUser"></div>
+    <div class="loginBar">
+        <form id="teacher-log">
+            <input class="user geoKeyboard" placeholder="სახელი" id="teacher-log-firstname" name="FirstName" type="text">
+            <input class="user geoKeyboard" placeholder="გვარი" id="teacher-log-lastname" type="text" name="LastName">
+            <input class="pass" placeholder="პაროლი" id="teacher-log-password" name="Password" type="password">
+            <button class="teachAutBuT" id="teacher-log-submit" type="submit">ავტორიზაცია</button>          
+      </form>
+</div>
+</div>
+
+
+               
+<div class="teachCont mrgTp regFade">
+    <div class="IconUserReg"></div>
+    <div class="loginBar">
+        <form id="teacher-reg">
+            <input class="user geoKeyboard teachForHover" placeholder="სახელი" id="teacher-firstname" name="FirstName" type="text">
+            <input class="user geoKeyboard teachForHover" placeholder="გვარი" id="teacher-lastname" type="text" name="LastName">
+            <input class="user teachForHover" placeholder="ელ.ფოსტა" id="teacher-email" type="text" name="Email">
+            <input class="user teachForHover" placeholder="ტელეფონი" id="teacher-phone" type="text" name="PhoneNumber" maxlength="11">
+            <input class="user teachForHover" placeholder="პირადი ნომერი" id="teacher-identity" name="IdentificationNumber" type="text" maxlength="11">
+            <input class="user teachForHover" placeholder="პაროლი" id="teacher-password" name="Password" type="password">
+            <input class="pass teachForHover" placeholder="გაიმეორეთ პაროლი" id="teacher-re-password" type="password">
+            <button class="registrationTeach" type="submit" id="teacher-reg-submit">რეგისტრაცია</button>
+
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+
+        $('#teacher-phone')
+            .keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                $phone = $(this);
+
+                // Auto-format- do not expose the mask as the user begins to type
+                if (key !== 8 && key !== 9) {
+                    if ($phone.val().length === 3) {
+                        $phone.val($phone.val() + ' ');
+                    }
+                    if ($phone.val().length === 7) {
+                        $phone.val($phone.val() + ' ');
+                    }
+
+                }
+
+                // Allow numeric (and tab, backspace, delete) keys only
+                return (key == 8 ||
+                        key == 9 ||
+                        key == 46 ||
+                        (key >= 48 && key <= 57) ||
+                        (key >= 96 && key <= 105));
+            })
+
+            .bind('focus click', function () {
+                $phone = $(this);
+                var val = $phone.val();
+                $phone.val('').val(val); // Ensure cursor remains at the end
+
+            });
+    </script>
+}

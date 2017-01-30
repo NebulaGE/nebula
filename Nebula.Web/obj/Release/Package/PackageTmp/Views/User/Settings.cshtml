@@ -1,0 +1,58 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/intlTelInput.css" rel="stylesheet" />
+
+<link href="~/Content/assetsNew/css/redaqtireba.css" rel="stylesheet"/>
+
+<section class="profile_edit" style="margin-top:70px">
+    <div class="cont profile_edit_header">
+        <a  href="@Url.Action("Index", "CSMain")" class="back_link"><span class="arrow-left"></span> უკან</a>
+        <h2>პროფილის რედაქტირება</h2>
+    </div>
+    <div class="cont cont-parent">
+        <section class="cont-half inputs">
+            <h3 class="title">განახლება</h3>
+
+            <form method="post" id="update-user-info-form" >
+                @Html.AntiForgeryToken()
+                <input type="text" placeholder="სახელი" name="FirstName" class="geoKeyboard" id="update-firstname" value="@Model.FirstName">
+                <input type="text" placeholder="გვარი" name="LastName" class="geoKeyboard" id="update-lastname" value="@Model.LastName">
+                @if (Model.Email.StartsWith("defaultFb")) {
+                    <input type="email" placeholder="ელ. ფოსტა" name="Email" id="update-email">
+                } else {
+                    <input type="email" placeholder="ელ. ფოსტა" name="Email" id="update-email" value="@Model.Email">
+                }
+
+                <input type="text" placeholder="პირადი ნომერი" name="IdentificationNumber" class="only-numbers"  maxlength="11" id="update-identification-number" value="@Model.IdentificationNumber">
+                <label for="phone_number" class="input phone_number">
+                    <input type="tel" class="only-numbers" maxlength="9" placeholder="ტელეფონის ნომერი" name="PhoneNumber" id="update-phone">
+                </label>
+                <button class="button-with-star" id="update-info" type="submit">დადასტურება</button>
+            </form>
+        </section>
+
+
+
+        @if (Model.FacebookId == null && Model.GoogleId == null) {
+            <section class="cont-half inputs">
+                <h3 class="title">პაროლის რედაქტირება</h3>
+                <form id="change-password-form">
+                    @Html.AntiForgeryToken()
+                    <input type="password" name="OldPassword" placeholder="ძველი პაროლი" id="current-password">
+                    <input type="password" name="NewPassword" placeholder="ახალი პაროლი" id="new-password">
+                    <input type="password" name="ConfirmPassword" placeholder="გაიმეორეთ პაროლი" id="confirm-password">
+                    <button class="button-with-star" id="update-pass" type="submit">დადასტურება</button>
+                </form>
+            </section> 
+        }
+    </div>
+</section>
+<input type="hidden" id="user-number" value="@Model.PhoneNumber" />
+@section phoneScripts{
+    <script src="~/Scripts/intlTelInput.min.js"></script>
+    <script src="~/Scripts/isValidNumber.js"></script>
+}
+

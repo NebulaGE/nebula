@@ -1,0 +1,43 @@
+﻿@model LeavingStone.GPI.Ecoist.Models.Registrations[]
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rex</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="padding:0 15px">
+    <h1> Hello, My name is Rex, Just Rex! and your IP is: @Request.UserHostAddress</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Date</td>
+            <td>Data</td>
+        </tr>  
+        @foreach (var item in Model)
+        {
+         <tr>
+             <td>@item.Id</td>
+             <td>@item.Name</td>
+             <td>@item.Phone</td>
+             <td>@item.CreateDate</td>
+             <td>@item.UserData</td>
+         </tr>   
+        }
+    </table>
+</body>
+</html>

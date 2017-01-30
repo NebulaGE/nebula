@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-confirm.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div> 
+        <button class="example1 btn btn-primary">example alert</button>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-confirm.min.js"></script>
+    <script>
+        $('.example1').on('click', function () {
+            $.alert({
+                title: 'Alert!',
+                content: 'Simple alert!'
+            });
+        });
+   
+    </script>
+</body>
+</html>

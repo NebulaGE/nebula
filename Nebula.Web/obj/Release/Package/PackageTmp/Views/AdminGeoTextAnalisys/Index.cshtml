@@ -1,0 +1,76 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Nebula.Domain.Entities.GeoFictionText>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int i = 1;
+    byte l = 0;
+    byte x = 0;
+}
+
+<p>
+    @Html.ActionLink("ახლის დამატება", "Manage", new { categoryId = ViewBag.CatId })
+</p>
+
+<table class="table">
+    <tr>
+        <th>ტექსტი</th>
+        <th>სათაური</th>
+        <th>თემის ტიპი</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <button class="show-content btn btn-default">კთხვის ნახვა</button>
+                <div class="quest" style="display: none;">
+                    <h4>კითხვა:</h4>
+                    @Html.Raw(item.Text)
+                    <hr/>
+                    <h4>კითხვები : </h4>
+
+                    @foreach (var answer in item.Questions)
+                    {
+                        <div>  @Html.Raw(answer.Text)</div>
+                    }
+                </div>
+            </td>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                @if (item.ThemeType == Nebula.Domain.Entities.GeoThemeType.Poetry)
+                {
+                    <span>პოეზია</span>
+                }
+                else
+                {
+                    <span>პროზა</span>
+                }
+            </td>
+        
+            <td>
+                @Html.ActionLink("რედაქტირება", "Manage", new { id = item.Id, categoryId = ViewBag.CatId }) |
+                <form action="@Url.Action("Delete", "AdminGeoTextEditings")" method="post" style="display: inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath" />
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action(
+    "Index",
+    new
+    {
+        page,
+        id = ViewBag.Id,
+    }))

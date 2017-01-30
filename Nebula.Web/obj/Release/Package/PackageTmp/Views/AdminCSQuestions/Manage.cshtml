@@ -1,0 +1,10 @@
+﻿@model Nebula.Domain.ViewModels.Admin.CS.CSQuestionViewModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@Html.Partial("_AddImagesPartial")
+<br/>
+@Html.Partial("Admin/CSQuestion", Model)
+

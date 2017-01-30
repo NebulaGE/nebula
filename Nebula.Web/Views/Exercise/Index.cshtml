@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Exercises";
+}
+<style>
+    .current-answer{
+        display:none;
+    }
+   .disable-btn{
+       background: rgb(221, 221, 221) !important;
+       cursor:not-allowed;
+   }
+   .true, .false{
+cursor:pointer;
+   }
+
+</style>
+<div class="container" style="display:none;" id="exercise-ld">
+    <!-- test heaad panel -->
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="@Url.Action("Index","All")"><span class="arrow-back"></span></a>
+    
+    
+        </div>
+        <div class="col-sm-8">
+            <div class="testProgress" data-bind="foreach : progressBar">
+                <span data-bind="css : { true :  $data == 'true', false : $data == 'false'}, 
+                                style : { cursor : !$root.historyNavigate()   ?  $data != 'default'  ? 'not-allowed' : 'auto' :  $data != 'default' ? 'pointer' : 'auto' },
+                                click : $root.historyNavigate() ? $data != 'default' ? $root.isPiroba() ?  $root.getPirobaQuestion.bind($data, { index : $index() }) :   $root.getQuestionByNum.bind($data, { index : $index}) : null : null">
+                </span>
+            </div>
+      
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+
+            <div class="ExamsLeftNav">
+                <div class="headerTx">
+                    <h2 data-bind="text : type() + ' სავარჯიშოები'"></h2>
+                </div>
+     
+                <ul data-bind="foreach : exercises">
+                    <li style="cursor:pointer;" class="" data-bind="click : $root.changeHash.bind($data, { ModuleId : ModuleId }), css : { active : $root.ModuleId() == ModuleId }"><a data-bind="text : name, attr: { href: url }"></a><div class="car-quest" data-bind="text : userAnswersCount()+'/' + questionCount"></div></li>        
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-8 cs-loading">
+            <div class="ExamsRightQuiz">
+                <div class="QuizTest">
+                    <div class="QuizAnswers" id="math-jax-area"  >
+
+
+                        <div id="piroba-nav" data-bind="if : isPiroba">
+                            <div class="quizAsk">
+                                <button data-bind="visible: startNewPiroba(), click : newPiroba">ახლი პირობა</button>
+
+                           
+                                <div data-bind="html : piroba() && piroba().text" class="active-question"> </div>
+                                <div data-bind="foreach : piroba() && piroba().questions" style="margin-top:10px;">
+                               
+                                    <span style="cursor:pointer;" class="read-text-quiz" data-bind="text : $index()+1, click : $root.getPirobaQuestion.bind($data, { index : $index() })"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="question-nav">
+                            <div class="quizAsk">
+                                <span class="headerSp" data-bind="text : activeIndex() + 1"></span>
+                                <div data-bind="html : activeQuestion() && activeQuestion().QuestionText" class="active-question">@*ჩამოთვლილთაგან რომელია შეუძლებელი, თუ ეს პირობა სრულდება*@ </div>
+                            </div>
+
+                            <div data-bind="foreach : activeQuestion() && activeQuestion().answers" style="margin-top:20px;" class="answers-cont">
+                                <p style="cursor:pointer;" data-bind="click : $root.hasAnswered() ? null : $root.setAnswer.bind($data, {answerId : id})" class="ms-point">
+                                    <span class="quizCats disable" data-bind="text : L, css: { selected : id == $root.selectedAnswerId(), red : id == $root.incorrectAsnwerId(), green : id == $root.correctAnswerId() }"> </span>
+                                    <span data-bind="html : answerString"  class="ans-span"></span>
+                                </p>
+                            </div>
+
+                            <div data-bind="visible : isPiroba() && !isEmpty()">
+                                <button data-bind="click : goBackToPiroba" style="background: #00ace0;">პირობის ნახვა</button>
+                                <button id="GoPrevQuiz" data-bind="visible: hasPreviousQuestion, click : getPirobaPrevQuestion.bind($data, { index : activeIndex() }) ">წინა</button>
+                                <button id="GoNexQuiz" data-bind="visible: hasNextQuestion , click : getPirobaNextQuestion.bind($data, { index : activeIndex() })">შემდეგი</button>
+                                <button data-bind="visible: startNewPiroba(), click : newPiroba">ახალი პირობა</button>
+                            
+                            </div>
+                            <div data-bind="visible : isPiroba() && isEmpty()">
+                                <button data-bind="click : reset, visible : resetBtn">ახლიდან დაწყება</button>
+                            </div>
+
+                            <div data-bind="visible : !isPiroba()">
+                                @*<div class="current-answer">
+                                    <div class="quizAsk">
+                                        <span class="quizCats green" data-bind="text : correctAnswer() && correctAnswer().L"></span>
+                                        <span class="trueAnswer trueAnswerFromExer"> სწორი პასუხი </span>
+                                        @*<p class="true" data-bind="html : correctAnswer() && correctAnswer().answerString"></p>
+                                    </div>*@
+                                <button data-bind="visible : nextButtonVisible, click :  !nextBtnDisable() ?  getNextQuestion : null,  css: { 'disable-btn' : nextBtnDisable() }">შემდეგი</button>
+                                <button data-bind="click : goToCurrentQuestion, visible : currentQuestionBtnVisible">მიმდინარე კითხვა</button>
+                                <button data-bind="click : newTest, visible : newTestVisible">ახალი ტესტის დაწყება</button>
+                                <button data-bind="click : reset, visible : resetBtn">ახლიდან დაწყება</button>
+                                @*</div>*@
+                            </div>
+                     
+                        </div>
+                     
+                    </div>
+                </div>
+                            
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+<script src="~/Js/exercise.js?v=9"></script>
+}

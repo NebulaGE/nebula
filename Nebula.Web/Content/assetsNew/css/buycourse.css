@@ -1,0 +1,542 @@
+body {
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.video-blocks > a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+}
+
+/*main-div-buy-courses */
+
+.main-div-buy-courses {
+    min-height: 750px;
+    width: 1530px;
+    margin: auto;
+    /* background-color: white; */
+    position: relative;
+    margin-top: 115px;
+}
+
+.top-div {
+    width: 100%;
+    min-height: 70px;
+    background-image: url('../img/Layer-1-copy-2.png');
+}
+
+.buy-course-nebula {
+    width: 527px;
+    height: 35px;
+    margin-left: 50px;
+    padding-top: 17px;
+    display: inline-block;
+}
+
+.text-buy-course {
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+.text-name {
+    font-size: 22px;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px;
+    font-family: "bpg_excelsior_dejavu_2010";
+}
+
+.buy-course {
+    width: 145px;
+    height: 35px;
+    background-color: #8a6eff;
+    display: inline-block;
+    margin-left: 29px;
+    border-radius: 2px;
+}
+
+.select-course-div {
+    width: 443px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 18px;
+    float: right;
+    margin-right: 2%;
+}
+
+
+.items {
+    width: 132px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 12px;
+    /* float: right; */
+    cursor:pointer;
+}
+
+a .items:hover{
+    background-color:#8a6eff;
+}
+
+a .text-items:hover{
+    border:none;
+    border-radius:2px;
+}
+
+.active-circle {
+    height: 12px;
+    widows: 12px;
+    width: 12px;
+    border: 1px solid;
+    border-radius: 12px;
+    color: white;
+    position: absolute;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.point {
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.text-items {
+    font-size: 14px;
+    color: white;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    border: 1px solid;
+    width: 131px;
+    height: 26px;
+    padding-top: 9px;
+    border-radius: 1px;
+}
+
+.notactive {
+     color: rgba(255, 255, 255, 0.29);
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    font-size:14px;
+    border: 1px solid;
+    width: 131px;
+    height: 26px;
+    padding-top: 9px;
+    border-radius: 1px;
+
+}
+
+.main-div-courses {
+    width: 100%;
+    min-height: 514px;
+    overflow: hidden;
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 3px 4px 20px 6px rgba(0,0,0,0.05);
+}
+
+.video-lessons-buy {
+    width: 505px;
+    min-height: 514px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    /* background-color: green; */
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    border-right: 1px solid;
+    border-color: #f7f7f7;
+    /* margin-bottom: 15px; */
+}
+
+.video-lessons-buy-child {
+    width: 290px;
+    height: 280px;
+}
+
+.user-logos-video {
+    width: 47px;
+    height: 37px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 98px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.user-logos-trainings {
+    width: 35px;
+    height: 47px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 98px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.user-logos-exam {
+    width: 36px;
+    height: 46px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 98px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.text-cont {
+    margin-left: 6.5%;
+    margin-top: 30px;
+    width: 72%;
+    position: relative;
+    display: inline-block;
+}
+
+.text-logo {
+    font-size: 17px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    /* vertical-align: top; */
+    display: inline-block;
+    margin-top: 69px;
+    margin-left: 22px;
+}
+
+.text-logo1 {
+    position: relative;
+    padding-top: 20px;
+    font-size: 16px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: gray;
+    margin: auto;
+    line-height: 23px;
+    width: 314px;
+    /* text-align: center; */
+    /* margin-left: 3px; */
+}
+
+.video-blocks {
+    height: 70px;
+    width: 296px;
+    margin: auto;
+    margin-top: 27px;
+    background-color: white;
+    box-shadow: 3px 4px 20px 6px rgba(0,0,0,0.05);
+    position: relative;
+    cursor: pointer;
+}
+
+    .video-blocks:hover,
+    .video-blocks-first:hover {
+        background: #c7b1fb;
+        background: -webkit-linear-gradient(-90deg, #b456ff, #5cb1ff);
+        background: -o-linear-gradient(-90deg, #b456ff, #5cb1ff);
+        background: -moz-linear-gradient(-90deg, #b456ff, #5cb1ff);
+        background: linear-gradient(-90deg, #b456ff, #5cb1ff);
+    }
+
+.circle1 {
+    background: #666;
+    width: 35px;
+    height: 35px;
+    -moz-border-radius: 17.5px;
+    -webkit-border-radius: 17.5px;
+    border-radius: 17.5px;
+    position: relative;
+    display: inline-block;
+    background-color: #907aff;
+    margin-left: 21px;
+    margin-top: 18px;
+}
+
+.arrow-right {
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid white;
+    margin-left: 15px;
+    margin-top: 12px;
+    /* position: absolute; */
+}
+
+.text-for-blocks {
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: gray;
+    width: 73%;
+    vertical-align: top;
+    margin-top: 27px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-decoration:none;
+}
+
+.video-blocks:hover .text-for-blocks,
+.video-blocks-first:hover .text-for-blocks,
+.video-blocks:hover .text-video-length,
+.video-blocks-first:hover .text-video-length {
+    color: white;
+}
+
+.message-div {
+    min-height: 50px;
+    width: 100%;
+    margin-top: 41px;
+    background-color: white;
+    box-shadow: 3px 4px 20px 6px rgba(0,0,0,0.05);
+}
+
+.circle-div {
+    height: 20px;
+    width: 20px;
+    border: solid 1px;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 19px;
+    color: gray;
+    display: inline-block;
+}
+
+.circle-inner-image {
+    margin-top: 21px;
+    margin-left: 26px;
+}
+
+.text-social {
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: gray;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 36px;
+    width: 82%;
+    margin-top: 17px;
+}
+
+.buy-course1 {
+    width: 145px;
+    height: 35px;
+    background-color: #8a6eff;
+    display: inline-block;
+    float: right;
+    margin-top: 7px;
+    border-radius: 2px;
+    margin-right:7px;
+}
+
+@font-face {
+    font-family: "bpg_excelsior_dejavu_2010";
+    src: url("bpg_excelsior_dejavu_2010.eot");
+    src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("bpg_excelsior_dejavu_2010.woff") format("woff"), url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media(max-width: 1550px){
+
+    .buy-course-nebula{
+    width: 444px;
+    margin-left: 30px;
+    }
+  .video-lessons-buy{
+    width:423px;
+  }
+  .main-div-buy-courses{
+    width: 1280px;
+    margin-bottom: 53px;
+  }
+  .select-course-div{
+    margin-left: 0%;
+    float: right;
+  }
+  .text-social{
+    width: 61%;
+    margin-top: 9px;
+  }
+  .user-logos-video{
+    margin-left: 67px;
+  }
+  .user-logos-trainings{
+    margin-left: 67px;
+  }
+  .user-logos-exam{
+    margin-left: 67px;
+  }
+
+  .text-name{
+    font-size: 20px;
+  }
+  .buy-course{
+      margin-left:5px;
+      width:120px;
+  }
+}
+
+@media(max-width: 1350px){
+  .video-lessons-buy{
+    width: 32.9%;
+  }
+  .main-div-buy-courses{
+    width: 93%;
+  }
+  .video-blocks{
+    width: 74%;
+  }
+  .text-logo1{
+    width: 75%;
+    font-size: 14px;
+  }
+  .user-logos-video{
+    margin-left: 13%;
+  }
+  .text-logo{
+    font-size:16px;
+  }
+  .user-logos-trainings{
+    margin-left:13%;
+  }
+  .user-logos-exam{
+    margin-left:13%;
+  }
+}
+
+/* */
+
+@media(max-width:1150px){
+  .text-for-blocks{
+    font-size:13px;
+  }
+  .text-logo{
+    font-size:15px
+  }
+}
+
+@media(max-width: 1020px){
+
+  .video-lessons-buy{
+    width: 49.2%;
+    margin-bottom: 20px;
+    border:none;
+  }
+  .select-course-div{
+    margin: auto;
+    float: none;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 25px;
+    width: 452px;
+    height:50px;
+  }
+  .buy-course-nebula{
+    margin-left: 50%;
+    transform: translate(-50%);
+    width:38%;
+
+  }
+  .text-name{
+      font-size:18px;
+  }
+
+} 
+
+@media(max-width: 700px){
+  .video-lessons-buy{
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%);
+    border: none;
+    margin-bottom: 30px;
+  }
+  .text-social{
+    width: 45%;
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 500px){
+
+
+  .text-name{
+
+font-size: 15px;
+
+padding-top: 6px;
+
+}
+  .buy-course{
+
+margin-left: 10px;
+
+}
+  .select-course-div{
+
+width: 320px;
+
+}
+  .items{
+
+margin-left: 3px;
+
+width: 101px;
+
+}
+  .text-items{
+
+font-size: 12px;
+
+vertical-align: top;
+
+padding-top: 2px;
+
+}
+
+    .notactive{
+
+font-size: 12px;
+
+vertical-align: top;
+
+padding-top: 2px;
+
+}
+}
+
+@media(max-width: 420px){
+  .main-div-buy-courses{
+    width: 100%;
+  }
+  .video-lessons-buy{
+    width: 98%;
+  }
+
+  .buy-course1{
+    width: 118px;
+  }
+  .text-buy-course{
+    font-size: 11px;
+  }
+}

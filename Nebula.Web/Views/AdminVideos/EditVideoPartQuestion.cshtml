@@ -1,0 +1,122 @@
+﻿@using Nebula.Domain.Entities
+@model Nebula.Domain.Entities.CSQuestion
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int i = 0;
+    int startIndex = Model.Answers.Count();
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    for(k = 0; k <i ; k++){
+        CKEDITOR.replace('Answer' + k, {
+            extraPlugins: 'mathjax',
+            mathJaxLib: 'http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML'
+        });
+    }
+
+    </script>
+   
+}
+<h2>კითხვის დამატება</h2>
+@Html.Partial("_AddImagesPartial")
+@using (Html.BeginForm())
+{
+ 
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(q => q.VideoPartId)
+    @Html.HiddenFor(q => q.VideoId)
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+       
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვა</label>
+            <div class="col-md-7">
+                <textarea name="QuestionText" class="c-editor" id="ck-editor" style="max-width:280px;">@Html.Raw(Model.QuestionText)</textarea>
+                @*@Html.EditorFor(model => model.QuestionText, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.QuestionText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="answers">
+            @foreach (var answer in Model.Answers)
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-2">პასუხი </label>
+                    <div class="col-md-7">
+                        <input type="hidden" name="hiddenAns@(i)" value="@answer.Id" />
+                        <textarea name="Answer@(i)" class="c-editor" style="max-width:280px;">@Html.Raw(answer.AnswerString)</textarea>
+                        <span style="">
+                            <label style="margin-top:5px;">სწორია?</label>
+                            @if (answer.IsCorrect)
+                            {
+                                <input type="radio" value="@i" name="IsCorrect" class="question-checkbox" checked />
+                            }
+                            else
+                            {
+                                <input type="radio" value="@i" name="IsCorrect" class="question-checkbox" />
+                            }
+
+                        </span>
+                    </div>
+                </div>
+                            { i++; }
+            }
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="add-answer" type="button" value="პასუხის დამატება" class="btn btn-green" />
+            </div>
+        </div>
+         
+        <div class="form-group">
+            <label class="control-label col-md-2">აირჩიე თეგი : </label>
+            <div style="margin-left:12px; margin-top:5px;">
+                @foreach (var CSTag in ViewBag.Tags as IEnumerable<CSTag>)
+                {
+                    <span style="margin:5px;">
+                        @if (Model.QuestionTags.Any(t => t.TagId == CSTag.Id))
+                        {
+                            <input id="CSTag" type="radio" value="@CSTag.Id" name="tagId" class="question-checkbox" checked /> @CSTag.Name
+                        }
+                        else
+                        {
+                            <input id="CSTag" type="radio" value="@CSTag.Id" name="tagId" class="question-checkbox" /> @CSTag.Name
+                        }
+
+                   
+                    </span>
+                }
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<input type="hidden" id="startIndex" value="@startIndex" />
+<div>
+    @Html.ActionLink("უკან დაბრუნება", "EditVideoPart", new { id = Model.VideoPartId == null ? Model.VideoId : Model.VideoPartId, isExerType = Model.VideoId == null ? false : true })
+</div>
+
+
+

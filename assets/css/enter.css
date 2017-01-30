@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+}
+
+.container-reg-enter{
+	width: 1070px;
+	height: 670px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 36px -1px rgba(0,0,0,0.05);
+}
+
+.container-enter{
+	width: 535px;
+	height: 670px;
+	position: relative;
+	display: inline-block;
+	float: left;
+	box-shadow: 0px 0px 36px -1px rgba(0,0,0,0.05);
+}
+
+.container-reg{
+	width: 535px;
+	height: 670px;
+	position: relative;
+	display: inline-block;
+}
+.container-reg-enter-child{
+	width: 360px;
+	height: 540px;
+	margin: auto;
+	margin-top: 57px;
+}
+
+.text-avtorizacia{
+	font-size: 22px;
+	font-family: "bpg_excelsior_caps_dejavu_2010";
+	text-align: center;
+}
+
+.facebook-enter{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	margin-top: 73px;
+	box-shadow: 0px 2px 19px 2px rgba(0,0,0,0.05);
+	border-radius: 2px;
+}
+
+.G-enter{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	margin-top: 17px;
+	box-shadow: 0px 2px 19px 2px rgba(0,0,0,0.05);
+	border-radius: 2px;
+}
+
+.circle-filled-fb {
+  background: #407be6;
+  width: 35px;
+  height: 35px;
+  -moz-border-radius: 17.5px;
+  -webkit-border-radius: 17.5px;
+  border-radius: 17.5px;
+  margin-left: 13px;
+  margin-top: 7px;
+  position: relative;
+  display: inline-block;
+}
+
+.fb-logo{
+	width: 7px;
+	height: 14px;
+	background-image: url("../img/fb-logoo.png");
+	margin-left: 14px;
+	margin-top: 10px;
+}
+
+.text-fb-G-enter{
+	font-family: "bpg_excelsior_dejavu_2010";
+	font-size: 14px;
+	color: #ababab;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 14px;
+	margin-left: 18%;
+	cursor: pointer;
+}
+
+
+
+.circle-filled-G {
+  background: #f76767;
+  width: 35px;
+  height: 35px;
+  -moz-border-radius: 17.5px;
+  -webkit-border-radius: 17.5px;
+  border-radius: 17.5px;
+  margin-left: 13px;
+  margin-top: 7px;
+  position: relative;
+  display: inline-block;
+}
+
+.G-logo{
+	width: 18px;
+	height: 12px;
+	background-image: url("../img/google+-logo.png");
+	margin-top: 11px;
+	margin-left: 9px;
+}
+
+.border-left{
+	border-bottom: 1px solid;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	margin-left: 19px;
+	margin-top: 50px;
+	vertical-align: top;
+	color: #e7e7e7;
+}
+
+.text-or{
+	text-align: center;
+	font-size: 18px;
+	font-family: "bpg_excelsior_caps_dejavu_2010";
+	position: relative;
+	display: inline-block;
+	margin-right: 45px;
+	margin-left: 45px;
+	color: #ababab;
+	margin-top: 39px;
+}
+
+.border-right{
+	border-bottom: 1px solid;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	color: #e7e7e7;
+	vertical-align: top;
+	margin-top: 50px;
+}
+
+
+
+input{
+	width: 100%;
+	height: 50px;
+	margin-top: 40px;
+	border: none;
+	padding: 0;
+	background-color: #f7f7f7;
+	border-radius: 2px;
+	padding-left: 25px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.enter-button{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	margin-top: 31px;
+	border-radius: 2px;
+	box-shadow: 0px 2px 19px 2px rgba(0,0,0,0.05);
+}
+
+
+.circle-filled-star {
+  background: #666;
+  width: 35px;
+  height: 35px;
+  -moz-border-radius: 17.5px;
+  -webkit-border-radius: 17.5px;
+  border-radius: 17.5px;
+  background-color: #6b77e3;
+  margin-left: 13px;
+  margin-top: 7px;
+  position: relative;
+  display: inline-block;
+}
+
+.circle-star{
+	width: 15px;
+	height: 14px;
+	background-image: url("../img/star1.png");
+	position: absolute;
+	margin-left: 9px;
+	margin-top: 9px;
+	/* position: relative; */
+}
+
+.text-enter{
+	text-align: center;
+	font-size: 15px;
+	font-family: "bpg_excelsior_dejavu_2010";
+	position: relative;
+	display: inline-block;
+	color: gray;
+	vertical-align: top;
+	margin-top: 14px;
+	margin-left: 26%;
+	cursor: pointer;
+}
+
+.name-reg{
+	width: 170px;
+	height: 50px;
+	margin-top: 72px;
+	border: none;
+	padding: 0;
+	background-color: #f7f7f7;
+	border-radius: 2px;
+	position: relative;
+	display: inline-block;
+	padding-left: 25px;
+}
+
+.surname-reg{
+	width: 170px;
+	height: 50px;
+	margin-top: 72px;
+	border: none;
+	padding: 0;
+	background-color: #f7f7f7;
+	border-radius: 2px;
+	margin-left: 16px;
+	position: relative;
+	display: inline-block;
+	padding-left: 25px;
+}
+
+.agree-rules-div{
+	width: 100%;
+	height: 48px;
+	border: 1px solid;
+	color: #e7e7e7;
+	margin-top: 20px;
+	border-radius: 2px;
+}
+
+.checkbox{
+	height: 13px;
+    vertical-align: top;
+    /* margin: auto; */
+    margin-top: 17px;
+    margin-left: 6%;
+    width: 15px;
+    position: relative;
+    display: inline-block;
+}
+.agree-text{
+	font-family: "bpg_excelsior_dejavu_2010";
+	font-size: 14px;
+	color: #a7a7a7;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 14px;
+	margin-left: 12%;
+}
+
+.reg-button{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	margin-top: 40px;
+	border-radius: 2px;
+	box-shadow: 0px 2px 19px 2px rgba(0,0,0,0.05);
+}
+
+.text-reg{
+	text-align: center;
+	font-size: 15px;
+	font-family: "bpg_excelsior_dejavu_2010";
+	position: relative;
+	display: inline-block;
+	color: gray;
+	vertical-align: top;
+	margin-top: 14px;
+	margin-left: 26%;
+	cursor: pointer;
+}
+
+@font-face {
+  font-family: "bpg_excelsior_dejavu_2010";
+    src: url("bpg_excelsior_dejavu_2010.eot");
+    src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("bpg_excelsior_dejavu_2010.woff") format("woff"), url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "bpg_excelsior_caps_dejavu_2010";
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

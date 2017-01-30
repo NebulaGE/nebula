@@ -1,0 +1,307 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/intlTelInput.css" rel="stylesheet" />
+<style>
+    .intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel] {
+        padding-right: 6px;
+        padding-left: 52px;
+        margin-left: 0;
+    }
+
+    .disable-btn {
+        cursor: not-allowed;
+        background: rgb(184, 179, 179) !important;
+    }
+
+    @@media (min-width: 764px) {
+        .mainPacks {
+            margin: 20px auto;
+            -webkit-box-shadow: 12px 12px 118px -25px rgba(0,0,0,0.75);
+            -moz-box-shadow: 12px 12px 118px -25px rgba(0,0,0,0.75);
+            box-shadow: 12px 12px 118px -25px rgba(0,0,0,0.75);
+        }
+    }
+
+    #tbc-pay-submit {
+        background: no-repeat url('/Content/img/visa-icon.png') #00ace0;
+        background-position: 10px center;
+    }
+
+    #nova-pay-submit {
+        background: no-repeat url('/Content/img/paybox-icon.png') #f1aa28;
+        background-position: 10px center;
+    }
+
+    #nova-rules li {
+        cursor: auto;
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 20px;
+        font-family: dejavu;
+    }
+
+    #nova-rules {
+        list-style-image: url('/Content/img/list-style-img.png');
+    }
+
+    .nova-pay-popup .fulpage {
+        max-width: 720px;
+        min-height: 507px;
+    }
+
+    #activate-cupon {
+        width: 45%;
+        background: white;
+        color: #ababab;
+        font-size: 12px;
+        border-bottom: 2px solid #eceff1;
+        border-right: 2px solid #eceff1;
+        border-top: 2px solid #eceff1;
+        background: url('/Content/img/right-arr.png') no-repeat;
+        background-position: right 10px center;
+        text-align: center;
+    }
+
+    #cupon-code {
+        width: 55%;
+        float: left;
+    }
+
+    .clearfix:after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .lari {
+        font-family: lari;
+    }
+</style>
+
+<div class="container for-mr ForScrollMarg">
+
+
+
+    <div class="mainPacks clearfix" style="height:auto !important;">
+        <div class="buyPack">
+            <div class="buyPacket">
+
+                <h2>პაკეტის შეძენა</h2>
+                <p style="font-family:dejavu; cursor:pointer;" class="btn-link" id="sale-lnk">კუპონის კოდის შეყვანა</p>
+                <div id="cupon-wrapper" style="display:none;">
+                    <input type="text" placeholder="შეიყვანეთ კოდი" id="cupon-code" />
+                    <button style="" id="activate-cupon">გაგზავნა</button>
+                </div>
+
+                <div class="texts" style="padding-top:15px;">
+                    <span class="key">ფასი</span>
+                    <span class="value" style="padding-left:10px !important;">
+                        <span id="price-ss">@ViewBag.Price</span> ლარი @*<i class="lari lari-normal" style="">a</i>*@
+                        <span id="left-hours-ss">
+
+                        </span>
+
+                    </span>
+                </div>
+
+                <div class="texts" style="">
+                    <span class="key">ვადა</span>
+                    <span class="value" style="padding-left:10px !important;">01.08.2017</span>
+                </div>
+
+                <form id="payment-form">
+
+
+                    <input type="text" placeholder="სახელი" name="FirstName" class="geoKeyboard" id="payment-firstname" value="@Model.FirstName" />
+                    <input type="text" placeholder="გვარი" name="LastName" class="geoKeyboard" id="payment-lastname" value="@Model.LastName" />
+                    @if (Model.Email.StartsWith("defaultFb"))
+                    {
+                        <input type="text" placeholder="ელ.ფოსტა" name="Email" id="payment-email" />
+                    }
+                    else
+                    {
+                        <input type="text" placeholder="ელ.ფოსტა" name="Email" id="payment-email" value="@Model.Email" />
+                    }
+
+                    <input placeholder="პირადი ნომერი" id="payment-identification" name="IdentificationNumber" value="@Model.IdentificationNumber" />
+                    <input placeholder="ტელეფონი" id="payment-phone-number" name="PhoneNumber" type="tel" />
+
+
+                    <div style="position:relative;">
+                        <button class="blue" id="tbc-pay-submit">ბარათით გადახდა</button>
+                        <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style=" top 10px; right -2px;" />
+                    </div>
+                    <div style="position:relative;">
+                        <button class="yellow" id="nova-pay-submit">PAYBOX-ით გადახდა</button>
+                        <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style=" top 10px; right -2px;" />
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="socialPack">
+            <div class="socialPackets">
+                <h2>სოციალური პროგრამა</h2>
+                <div class="paragraps">
+
+
+                    <p>თუ აბიტურიენტი ან მისი ოჯახი სარგებლობს სოციალურად დაუცველის სტატუსით, ან მატერიალური მდგომარეობის გამო არ შეუძლიათ Nebula.ge-ზე მომზადების საფასურის გადახდა, შეუძლიათ მოემზადონ უფასოდ. ამისათვის უნდა შეავსონ განაცხადი.</p>
+                    <p>                    შევსებული განაცხადი განიხილება 5 (ხუთი) სამუშაო დღის ვადაში და დადებითი პასუხის შემთხვევაში ავტომატურად მიენიჭება აბიტურიენტს უფლება მოიხმაროს Nebula.ge-ის სრული ფუნქციონალი.</p>
+                </div>
+                <a href="@Url.Action("SocialProgram", "Home" )"><button>მალე</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="nova-pay-popup" style="display none;">
+    <div class="rel"></div>
+    <div class="fulpage">
+        <div class="pdfcls"></div>
+        <div class="fullpgArea">
+            <h3 style="font-family: 'bpg-nino-mtavruli-bold';">PAYBOX-ით გადახდა</h3>
+            <div style="width: 490px; margin:auto;">
+
+                <ul id="nova-rules">
+                    <li>გადახდა შესაძლებელია PAYBOX-ის ნებისმიერი აპარატიდან.</li>
+                    <li>მოძებნეთ ნებულა;  სხვადასხვა  /  განათლება  /  ნებულა</li>
+                    <li>შეიყვანეთ თქვენი საიდენტიფიკაციო კოდი: <span id="id-nmb"> </span>  </li>
+                    <li>შეაცურეთ 100 ლარი</li>
+                </ul>
+            </div>
+
+            <button id="nova-agree" style=" width 400px; ">გასაგებია</button>
+
+        </div>
+
+    </div>
+</div>
+
+<form method="post" action="https://securepay.ufc.ge/ecomm2/ClientHandler" id="transaction_form" style="display:none;">
+    <input type="hidden" name="trans_id" id="trans_id" />
+    <input type="submit" name="submit" value="გადახდა" id="tbcpay-btn" />
+</form>
+
+<input type="hidden" id="user-number" value="@Model.PhoneNumber" />
+
+@section phoneScripts{
+    <script src="~/Scripts/intlTelInput.min.js"></script>
+    <script src="~/Scripts/isValidNumber.js"></script>
+
+}
+@section scripts{
+    <script>
+        var timer2;
+        $('#activate-cupon').on('click', function () {
+            var $this = $(this);
+
+            $this.prop('disabled', true);
+            var str = "";
+
+            if (!$('#cupon-code').val() || !$.trim($('#cupon-code').val())) {
+                str = "კოდის შეყვანა სავალდებულოა"
+                $.alert({
+                    title: '',
+                    content: str,
+                    confirmButton: 'დახურვა',
+                    columnClass: 'col-md-4 col-md-offset-4'
+                });
+                $this.prop('disabled', false);
+                return false;
+            }
+            $.post(U + 'payment/addcupon', { cuponCode: $('#cupon-code').val() }, function (resp) {
+
+                if (resp.success) {
+
+                    var leftSeconds = resp.leftSeconds;
+                    str = "გილოცავთ, კოდი წარმატებით გააქტიურდა!";
+
+                    $('#price-ss').html(resp.price);
+                    if (timer2)
+                        clearInterval(timer2);
+                    if (leftSeconds) {
+                        var timer = setInterval(function () {
+                            $('#left-hours-ss').html(' (' + getTime(leftSeconds) + ') ');
+                            leftSeconds--;
+                            if (leftSeconds <= 0) {
+                                clearInterval(timer);
+                                $('#price-ss').html('100');
+                            }
+                        }, 1000);
+                    }
+
+
+                    $.alert({
+                        title: '',
+                        content: str,
+                        confirmButton: 'დახურვა',
+                        columnClass: 'col-md-4 col-md-offset-4'
+                    });
+                } else if (resp.error) {
+                    str = resp.error;
+                    $.alert({
+                        title: '',
+                        content: str,
+                        confirmButton: 'დახურვა',
+                        columnClass: 'col-md-4 col-md-offset-4'
+                    });
+                } else if (resp.absoluteCourse) {
+                    $.alert({
+                        title: '',
+                        content: 'გილოცავთ, კოდი წარმატებით გააქტიურდა!',
+                        confirmButton: 'დახურვა',
+                        columnClass: 'col-md-4 col-md-offset-4',
+                        confirm: function () {
+                            location.href = U + 'All';
+                        }
+                    });
+
+                }
+            }).done(function () {
+
+                $this.prop('disabled', false);
+            });
+        });
+        var leftSeconds = parseFloat('@ViewBag.LeftSeconds');
+
+
+        if (leftSeconds) {
+          timer2 =   setInterval(function () {
+                $('#left-hours-ss').html(' (' + getTime(leftSeconds) + ') ');
+                leftSeconds--;
+                if (leftSeconds <= 0) {
+                    clearInterval(timer);
+                    $('#price-ss').html('100');
+                }
+            }, 1000);
+        }
+        function getTime(seconds) {
+            var hour = Math.floor(seconds / 3600);
+            var minute = Math.floor(seconds / 60) - (hour * 60);
+            var second = Math.floor(seconds) - (hour * 60 * 60) - (minute * 60);
+            var remain = returnTImeFormat(hour, ':') + returnTImeFormat(minute, ':') + returnTImeFormat(second, '');
+            return remain;
+        }
+        function returnTImeFormat(time, word) {
+
+            if (time.toString().length < 2) {
+                return '<span class="timer-in"> 0' + time +'  <span class="time-word">' + word + '</span></span>';
+            }
+            return '<span class="timer-in"> ' + time +'   <span class="time-word">' + word + '</span></span>';
+        }
+        $('#nova-agree').on('click', function () {
+            $('.nova-pay-popup').fadeOut();
+        });
+        $('#sale-lnk').on('click', function () {
+            $(this).hide();
+            $('#cupon-wrapper').fadeIn();
+        })
+
+    </script>
+}

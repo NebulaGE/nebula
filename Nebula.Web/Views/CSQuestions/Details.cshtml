@@ -1,0 +1,50 @@
+﻿@model ExamsTraining.Models.Enteties.CSQuestion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CSQuestion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskWithMultipleChoice.TaskText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskWithMultipleChoice.TaskText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorrectAnswerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorrectAnswerId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

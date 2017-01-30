@@ -1,0 +1,29 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Nebula.Domain.Entities.CSQuestion>
+@{
+  
+}
+<div class="container">
+@foreach (var question in Model)
+    {
+<div id="question-nav " class="well">
+ 
+        <div class="quizAsk">
+
+            <div  class="active-question">@Html.Raw(question.QuestionText)</div>
+        </div>
+
+    <div  style="margin-top:20px;" class="answers-cont">
+        @foreach (var answer in question.Answers)
+        {
+            <p style="cursor:pointer;" class="ms-point">
+                <span class="ans-span">@Html.Raw(answer.AnswerString)</span>
+            </p>
+        }
+    </div>
+</div>
+    }
+    @Html.PagedListPager(Model, page => Url.Action("AllQuestions", new { page }))
+    </div>
+

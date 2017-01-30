@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="nebulaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CSQuestions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionString" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CorrectAnswerId" Type="int" Nullable="false" />
+          <Property Name="ExamTagId" Type="int" />
+          <Property Name="TaskWithMultipleQuestionId" Type="int" />
+          <Property Name="VideoId" Type="int" />
+          <Property Name="VideoPartId" Type="int" />
+          <Property Name="IsExamQuestion" Type="bit" Nullable="false" />
+          <Property Name="IsExerciseQuestion" Type="bit" Nullable="false" />
+          <Property Name="AnswersCaption" Type="nvarchar(max)" />
+          <Property Name="IsWordAnalog" Type="bit" Nullable="false" />
+          <Property Name="Num" Type="int" />
+          <Property Name="QuestionInfoId" Type="int" />
+          <Property Name="IsVideoQuestion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskWithMultipleQuestions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskText" Type="nvarchar(max)" />
+          <Property Name="TagId" Type="int" />
+          <Property Name="IsExamPiroba" Type="bit" Nullable="false" />
+          <Property Name="IsExercisePiroba" Type="bit" Nullable="false" />
+          <Property Name="QuestionInfoId" Type="int" />
+          <Property Name="Num" Type="int" />
+          <Property Name="IsVideoPiroba" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+          <End Role="TaskWithMultipleQuestions" Type="Self.TaskWithMultipleQuestions" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CSQuestions" Type="Self.CSQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskWithMultipleQuestions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CSQuestions">
+              <PropertyRef Name="TaskWithMultipleQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nebulaModelStoreContainer">
+          <EntitySet Name="CSQuestions" EntityType="Self.CSQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskWithMultipleQuestions" EntityType="Self.TaskWithMultipleQuestions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId" Association="Self.FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+            <End Role="TaskWithMultipleQuestions" EntitySet="TaskWithMultipleQuestions" />
+            <End Role="CSQuestions" EntitySet="CSQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nebulaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TaskWithMultipleQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TagId" Type="Int32" />
+          <Property Name="IsExamPiroba" Type="Boolean" Nullable="false" />
+          <Property Name="IsExercisePiroba" Type="Boolean" Nullable="false" />
+          <Property Name="QuestionInfoId" Type="Int32" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="IsVideoPiroba" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CSQuestions" Relationship="nebulaModel.FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId" FromRole="TaskWithMultipleQuestion" ToRole="CSQuestion" />
+        </EntityType>
+        <EntityContainer Name="nebulaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TaskWithMultipleQuestions" EntityType="Self.TaskWithMultipleQuestion" />
+          <EntitySet Name="CSQuestions" EntityType="nebulaModel.CSQuestion" />
+          <AssociationSet Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId" Association="nebulaModel.FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+            <End Role="TaskWithMultipleQuestion" EntitySet="TaskWithMultipleQuestions" />
+            <End Role="CSQuestion" EntitySet="CSQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CSQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorrectAnswerId" Type="Int32" Nullable="false" />
+          <Property Name="ExamTagId" Type="Int32" />
+          <Property Name="TaskWithMultipleQuestionId" Type="Int32" />
+          <Property Name="VideoId" Type="Int32" />
+          <Property Name="VideoPartId" Type="Int32" />
+          <Property Name="IsExamQuestion" Type="Boolean" Nullable="false" />
+          <Property Name="IsExerciseQuestion" Type="Boolean" Nullable="false" />
+          <Property Name="AnswersCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsWordAnalog" Type="Boolean" Nullable="false" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="QuestionInfoId" Type="Int32" />
+          <Property Name="IsVideoQuestion" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TaskWithMultipleQuestion" Relationship="nebulaModel.FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId" FromRole="CSQuestion" ToRole="TaskWithMultipleQuestion" />
+        </EntityType>
+        <Association Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+          <End Type="nebulaModel.TaskWithMultipleQuestion" Role="TaskWithMultipleQuestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="nebulaModel.CSQuestion" Role="CSQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskWithMultipleQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CSQuestion">
+              <PropertyRef Name="TaskWithMultipleQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nebulaModelStoreContainer" CdmEntityContainer="nebulaEntities">
+          <EntitySetMapping Name="TaskWithMultipleQuestions">
+            <EntityTypeMapping TypeName="nebulaModel.TaskWithMultipleQuestion">
+              <MappingFragment StoreEntitySet="TaskWithMultipleQuestions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TaskText" ColumnName="TaskText" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="IsExamPiroba" ColumnName="IsExamPiroba" />
+                <ScalarProperty Name="IsExercisePiroba" ColumnName="IsExercisePiroba" />
+                <ScalarProperty Name="QuestionInfoId" ColumnName="QuestionInfoId" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="IsVideoPiroba" ColumnName="IsVideoPiroba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSQuestions">
+            <EntityTypeMapping TypeName="nebulaModel.CSQuestion">
+              <MappingFragment StoreEntitySet="CSQuestions">
+                <ScalarProperty Name="IsVideoQuestion" ColumnName="IsVideoQuestion" />
+                <ScalarProperty Name="QuestionInfoId" ColumnName="QuestionInfoId" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="IsWordAnalog" ColumnName="IsWordAnalog" />
+                <ScalarProperty Name="AnswersCaption" ColumnName="AnswersCaption" />
+                <ScalarProperty Name="IsExerciseQuestion" ColumnName="IsExerciseQuestion" />
+                <ScalarProperty Name="IsExamQuestion" ColumnName="IsExamQuestion" />
+                <ScalarProperty Name="VideoPartId" ColumnName="VideoPartId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="TaskWithMultipleQuestionId" ColumnName="TaskWithMultipleQuestionId" />
+                <ScalarProperty Name="ExamTagId" ColumnName="ExamTagId" />
+                <ScalarProperty Name="CorrectAnswerId" ColumnName="CorrectAnswerId" />
+                <ScalarProperty Name="QuestionString" ColumnName="QuestionString" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

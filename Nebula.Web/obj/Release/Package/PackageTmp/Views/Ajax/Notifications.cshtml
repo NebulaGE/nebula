@@ -1,0 +1,9 @@
+﻿
+@{
+    Layout = null;
+}
+@if (ViewBag.NotificationCount > 0)
+{
+  <a href="@Url.Action("Notifications", "User")" class="userCircle">@ViewBag.NotificationCount</a>
+}
+

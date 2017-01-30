@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Nebula.Web.Controllers.MyStudentsViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<form id="logoutForm" method="post" style="display:none" action="@Url.Action("Logout")">
+    <input type="submit" />
+</form>
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <span class="TextTT">გამოსვლა</span>
+                        <span class="LogOutRedSvg"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<div class="tableJumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="searchbar">
+                    <span class="searchIc"></span>
+                    <input maxlength="11" class="searchIn" type="text" placeholder="მოძებნე სტუდენტი" id="student-identity" style="color:black;" />
+                </div>
+            </div>
+            <div class="col-sm-6"></div>
+            <div class="col-sm-2">
+                <button class="addTeacherBut" id="add">
+                    <span class="text">დამატება</span>
+                    <span class="plus"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="headers">
+                <span class="profile"></span>
+                <span class="name">სახელი,გვარი</span>
+                <span class="idNum">პირადი ნომერი</span>
+                <span class="currentNumber">მოსალოდნელი ქულა</span>
+                <span class="lastNubmer">ბოლო გამოცდაზე მიღებული ქულა</span>
+            </div>
+        @foreach (var student in Model)
+        {
+            <div class="content">
+                <span class="profile">
+                    <img src="https://lh3.ggpht.com/tnqKE-Zf2fznAWE0H7BXIbeMMeZDDdIGr2tTfJeQOTq87QXbA_tJQMR7m6I9BehfbnNC=w300">
+                </span>
+                <div class="values">
+                    <div class="name">@student.FullName</div>
+                    <div class="idNum"># @student.IdentificationNumber</div>
+                    <div class="currentNumber">
+                        <span class="icon"></span>
+                        <span class="text">@student.ExcpectedScore</span>
+                    </div>
+                    <div class="lastNubmer">
+                        <span class="green_icon"></span>
+                        <span class="green_text">@student.LastExamScore</span>
+                        <span class="teachClose"></span>
+                    </div>
+                </div>
+            </div>
+        }
+            @*<div data-bind="foreach : students">
+                <div class="content">
+                    <span class="profile">
+                        <img src="https://lh3.ggpht.com/tnqKE-Zf2fznAWE0H7BXIbeMMeZDDdIGr2tTfJeQOTq87QXbA_tJQMR7m6I9BehfbnNC=w300">
+                    </span>
+                    <div class="values">
+                        <div class="name" data-bind="text : name"></div>
+                        <div class="idNum" data-bind="text: '#' + identity"> </div>
+                        <div class="currentNumber">
+                            <span class="icon"></span>
+                            <span class="text" data-bind="text : exceptScore"></span>
+                        </div>
+                        <div class="lastNubmer">
+                            <span class="green_icon"></span>
+                            <span class="green_text" data-bind="text : lastScore"></span>
+                            <span class="teachClose"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        
+   
+ 
+        </div>
+    </div>
+</div>
+    
+
+      @section scripts{
+    <script>
+    
+        function teacherViewModel(){
+            var self = this;
+            self.students = ko.observableArray();
+            $('#add').on('click', function (e) {
+                var $identity = $('#student-identity').val();
+                if ($identity.length != 11) {
+                    $.alert({
+                        title: '',
+                        content: 'გთხოვთ სწორად შეიყვანოთ პირადობის ნომერი',
+                        confirmButton: 'დახურვა',
+                        columnClass: 'col-md-4 col-md-offset-4'
+                    });
+                    return false;
+                }
+                var re = new RegExp('^[0-9]+$');
+                if (!re.test($identity)) {
+                    $.alert({
+                        title: '',
+                        content: 'გთხოვთ სწორად შეიყვანოთ პირადობის ნომერი',
+                        confirmButton: 'დახურვა',
+                        columnClass: 'col-md-4 col-md-offset-4'
+                    });
+                    return false;
+                }
+
+                $.post(U + 'Teacher/SendInvitation', { identificationNumber: $identity }, function (response) {
+              
+                        $.alert({
+                            title: '',
+                            content: response,
+                            confirmButton: 'დახურვა',
+                            columnClass: 'col-md-4 col-md-offset-4'
+                        });
+                  
+             
+                });
+
+
+            });
+        }
+            
+         
+        ko.applyBindings(new teacherViewModel());
+       
+
+    </script>
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.ExplantationVideo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>share link</th>
+        <th></th>
+    </tr> 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td><a href="http://nebula.ge/home/index?videoId=@item.Id" target="_blank">
+                     http://nebula.ge/home/index?videoId=@item.Id
+            </a>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+      
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+} 
+</table>

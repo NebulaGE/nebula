@@ -1,0 +1,31 @@
+﻿@model IOrderedEnumerable<Nebula.Web.Controllers.Admin.UserAnswersPercentJson>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+        <table class="table table-bordered">
+
+            <tr>           
+                <th>მოდული</th>
+                <th>სულ გაცემული პასუხების რაოდენობა</th>
+                <th>სწორი</th>
+                <th>პროცენტი</th>               
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td><a href="@Url.Action("UserScorePercnetsByQuestionTag", new { isExam = ViewBag.IsExam, moduleId = item.ModuleId})" target="_blank">@item.tagName</a></td>
+                        <td>@item.count</td>
+                        <td>@item.correctAnswersCount</td>
+                        <td>@item.percent</td>
+                    </tr>
+                
+
+
+            }
+        </table>
+

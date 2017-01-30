@@ -1,0 +1,27 @@
+﻿@if (Request.IsAuthenticated)
+{
+    @Html.Action("GetCurrentUser", "Ajax") 
+}
+else
+{
+    <button class="enter">
+        <div class="text-registration-enter" id="enterBut">შესვლა</div>
+    </button>
+    <a href="@Url.Action("Register","Account")">
+        <button class="registration">
+            <div class="text-registration-enter" @*id="reg-form"*@ >რეგისტრაცია</div>
+        </button>
+    </a>
+        @*<li>
+                <a href="@Url.Action("Login", "Teacher")" target="_blank" style="padding: 0; margin: 0;">
+                    <div class="enter">
+                        <button class="buyForTeachers">
+                            <span class="icon"></span>
+                            <span class="text">მასწავლებლებისათვის</span>
+                        </button>
+                    </div>
+                </a>
+            </li>*@
+}
+
+

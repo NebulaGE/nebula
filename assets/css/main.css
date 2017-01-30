@@ -1,0 +1,1061 @@
+body {
+    margin: 0;
+}
+header {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+.header-items {
+    width: 79.7%;
+    height: 70px;
+    position: relative;
+    margin: auto;
+    margin-top: 19px;
+}
+.nebula-logo {
+    width: 56px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 10px;
+}
+.header-items ul {
+    list-style-type: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    width: 43%;
+    padding-top: 6px;
+}
+.circle {
+    background: #666;
+    width: 3px;
+    height: 3px;
+    -moz-border-radius: 1.5px;
+    -webkit-border-radius: 1.5px;
+    border-radius: 1.5px;
+    position: relative;
+    display: inline-block;
+    margin-top: 7px;
+}
+.header-items li {
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    float: left;
+    text-align: right;
+    color: gray;
+    margin-left: 2%;
+}
+.registration {
+    width: 145px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    margin-top: 11px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: gray;
+    border-radius: 3px;
+}
+.enter {
+    width: 100px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    margin-top: 11px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    border-radius: 3px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+}
+.text-registration-enter {
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    padding-top: 7px;
+    height: 35px;
+color:white;
+cursor: pointer;
+outline: none;
+border:none;
+}
+
+.registration .text-registration-enter{
+    color: gray;
+}
+.registration:hover {
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+}
+
+
+.text-registration-enter:hover {
+    color: white;
+}
+.container-main-slider {
+    height: 910px;
+    width: 100%;
+    background-color: #f7f7f7;
+    position: relative;
+}
+.container-slider {
+    height: 820px;
+    width: 79.7%;
+    position: relative;
+    margin: auto;
+    padding-top: 30px;
+}
+.slider {
+    height: 350px;
+    width: 100%;
+}
+.image-slider {
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    z-index: 1;
+}
+.text-nebula-div {
+    height: 30px;
+    width: 115px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    position: absolute;
+    z-index: 2;
+    margin-top: 75px;
+    margin-left: 8.4%;
+    border: none;
+    cursor: pointer;
+}
+.text-nebula {
+    font-size: 14px;
+    color: white;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 2px;
+    /* border: none; */
+}
+.text-exam {
+    font-size: 26px;
+    color: white;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    position: absolute;
+    width: 375px;
+    z-index: 2;
+    margin-left: 8.4%;
+    margin-top: 130px;
+}
+.unarebi-div {
+    height: 210px;
+    width: 580px;
+    background-color: white;
+    float: right;
+    position: relative;
+    z-index: 2;
+    margin-right: 9.8%;
+    margin-top: 60px;
+    border-radius: 3px;
+}
+.text-zogadi-unarebi {
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 20px;
+}
+.border-unarebi {
+    border: solid 1px;
+    color: #f0eff3;
+    margin-top: 22px;
+}
+.text-kursebi {
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    padding-top: 28px;
+    color: gray;
+}
+.ufaso-kursebi-div {
+    width: 230px;
+    height: 40px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    margin-top: 28px;
+    margin-left: 50px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.text-ufaso-kursebi {
+    font-size: 13px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+    padding-top: 3px;
+}
+.kursis-shedzena-div {
+    width: 230px;
+    height: 40px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -o-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -moz-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: linear-gradient(-90deg, #b158ff, #5ab2ff);
+    margin-top: 28px;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.message-div {
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+    background-color: white;
+}
+.circle-div {
+    height: 20px;
+    width: 20px;
+    border: solid 1px;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 19px;
+    color: gray;
+    display: inline-block;
+}
+.circle-inner-image {
+    margin-top: 21px;
+    margin-left: 26px;
+}
+.text-social {
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: gray;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 18px;
+    width: 82%;
+    margin-top: 17px;
+
+}
+.circle-div-fill {
+    float: right;
+    margin-right: 18px;
+    margin-top: 15px;
+    display: inline-block;
+}
+.container-programs {
+    width: 102%;
+    height: 390px;
+    margin-left: -1.55%;
+}
+.program {
+    width: 23.2%;
+    height: 360px;
+    background-color: white;
+    position: relative;
+    display: inline-block;
+    margin-left: 1.5%;
+    vertical-align: top;
+    margin-top: 30px;
+    border-radius: 2px;
+}
+.program1 {
+    width: 23.2%;
+    height: 360px;
+    position: relative;
+    display: inline-block;
+    margin-left: 1.5%;
+    vertical-align: top;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.program1-child{
+    height: 320px;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.circle1 {
+    width: 38px;
+    height: 38px;
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    border-radius: 19px;
+    position: relative;
+    display: inline-block;
+    background: white;
+    -moz-box-shadow: 0px 0px 35px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 35px -5px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-right {
+    background-image: url("../img/star1.svg");
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    margin: auto;
+    margin-top: 11px;
+}
+
+.text-what-is-nebula {
+    font-size: 20px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 7px;
+    padding-left: 14px;
+}
+
+.video-left{
+    width: 300px;
+    height: 150px;
+    background-image: url("../img/Layer-14.png");
+    margin-top: 28px;
+}
+
+.view-more-text{
+    font-family: "bpg_excelsior_dejavu_2010";
+    margin-top: 33px;
+    font-size: 13.5px;
+    color: gray;
+    font-family: "bpg_excelsior_dejavu_2010";
+    margin-top: 33px;
+    line-height: 22px;
+}
+
+.circle-play-video {
+    width: 60px;
+    height: 60px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    background: white;
+    position: absolute;
+    margin-top: 45px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.arrow-play-video {
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 19px solid #8a68ff;
+    margin-left: 25px;
+    margin-top: 17px;
+}
+.background {
+    height: 120px;
+    background-image: url("../img/background.png");
+}
+.text-program {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    padding-top: 24px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    width: 76%;
+    margin: auto;
+}
+.text-program1 {
+    font-size: 15px;
+    color: gray;
+    padding-top: 48px;
+    padding-left: 12%;
+    font-family: "bpg_excelsior_dejavu_2010";
+    width: 83%;
+}
+.ufaso-versia-div {
+    width: 78%;
+    height: 45px;
+    margin-top: 45px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    /* margin: auto; */
+    margin-top: 45px;
+    border-radius: 2px;
+    border: none;
+    left: 50%;
+    transform: translate(15%);
+    cursor: pointer;
+}
+.text-ufaso-versia {
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 16px;
+}
+
+
+.container-main-users {
+    height: 1030px;
+    width: 100%;
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 59px -25px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+.container-users-left {
+    height: 1030px;
+    width: 50%;
+    /* -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3); */
+    
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 37px -24px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    z-index: 5;
+    overflow: hidden;
+    position: absolute;
+    background-color: white;
+}
+.nebula-svg {
+    height: 21px;
+    width: 136px;
+    background-image: url("../img/nebula.svg");
+    margin-left: 20.1%;
+    margin-top: 130px;
+    position: absolute;
+}
+.text-about-nebula {
+    font-size: 16px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: gray;
+    width: 600px;
+    margin-left: 20.1%;
+    padding-top: 192px;
+    width: 62%;
+}
+.container-user-blocks {
+    width: 65.3%;
+    height: 550px;
+    margin-left: 20.1%;
+    margin-top: 78px;
+}
+.user-pre-blocks {
+    height: 165px;
+    width: 100%;
+    background-color: white;
+    margin-top: 26px;
+    -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+.user-logos {
+    width: 47px;
+    height: 37px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 45px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.user-logos1 {
+    width: 35px;
+    height: 47px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 45px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.user-logos2 {
+    width: 36px;
+    height: 46px;
+    position: relative;
+    margin-top: 60px;
+    margin-left: 45px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.text-cont {
+    margin-left: 6.5%;
+    margin-top: 30px;
+    width: 72%;
+    position: relative;
+    display: inline-block;
+}
+.text-logo {
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    vertical-align: top;
+}
+.text-logo1 {
+    position: relative;
+    padding-top: 20px;
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: gray;
+    line-height: 23px;
+}
+.user-circles {
+    position: absolute;
+    z-index: 50;
+    height: 640px;
+    width: 640px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 214px;
+    z-index: 4;
+}
+.user-circle {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 636px;
+    width: 636px;
+}
+.user-circles1 {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 510px;
+    width: 510px;
+    left: 50%;
+    transform: translate(12%);
+    margin-top: 62px;
+}
+.user-circles2 {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 382px;
+    width: 382px;
+    transition: translate(33%);
+    transform: translate(16%);
+    margin-top: 64px;
+}
+.user-circles3 {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 256px;
+    width: 256px;
+    transform: translate(23%);
+    margin-top: 64px;
+}
+.container-users-right {
+    width: 50%;
+    height: 1030px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 50%;
+}
+.container-authorithation {
+    height: 380px;
+    width: 38%;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    margin-left: 42.5%;
+    margin-top: 310px;
+    -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+.text-authorithation {
+    font-size: 18px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 46px;
+}
+.text-ready {
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    color: gray;
+}
+.social-div {
+    width: 63%;
+    height: 45px;
+    background: #9775f5;
+    background: -webkit-linear-gradient(-90deg, #7a70f9, #9775f5);
+    background: -o-linear-gradient(-90deg, #7a70f9, #9775f5);
+    background: -moz-linear-gradient(-90deg, #7a70f9, #9775f5);
+    background: linear-gradient(-90deg, #7a70f9, #9775f5);
+    margin-top: 28px;
+    border-radius: 2px;
+    border-radius: 2px;
+    left: 50%;
+    transform: translate(29%,-50%);
+    border: none;
+    cursor: pointer;
+}
+.facebook-logo {
+    height: 19px;
+    width: 9px;
+    background-image: url("../img/fb.svg");
+    margin-left: 19px;
+    margin-top: 1px;
+    position: absolute;
+}
+
+
+
+.googleplus-logo {
+    height: 15px;
+    width: 23px;
+    background-image: url("../img/Google.svg");
+    margin-left: 19px;
+    margin-top: 2px;
+    position: absolute;
+}
+.text-social1 {
+    text-align: center;
+    padding-top: 1px;
+    font-size: 15px;
+    color: #a1a1f9;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+}
+
+.social-div:hover{
+    background: #9775f5;
+    background: -webkit-linear-gradient(-90deg, #b257ff, #9775f5);
+    background: -o-linear-gradient(-90deg, #7a70f9, #9775f5);
+    background: -moz-linear-gradient(-90deg, #7a70f9, #9775f5);
+    background: linear-gradient(-90deg, #b356ff, #5cb1ff);
+}
+
+.social-div:hover .text-social1 {
+    color: white;
+}
+
+.social-div:hover svg .st0{
+    fill:white !important;
+    
+}
+
+
+
+.user-ccircles {
+    height: 25vw;
+    width: 25vw;
+    float: right;
+    z-index: 4;
+    margin-top: 177px;
+}
+.user-ccircle {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 25vw;
+    width: 25vw;
+    left: 50%;
+    transform: translate(-10%);
+}
+.user-ccircles1 {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 20vw;
+    width: 20vw;
+    left: 50%;
+    transform: translate(12%);
+    margin-top: 2.5vw;
+}
+.user-ccircles2 {
+    background: #fff;
+    border: 0.5px solid #dedede;
+    border-radius: 100%;
+    height: 15vw;
+    width: 15vw;
+    transition: translate(33%);
+    transform: translate(16%);
+    margin-top: 2.5vw;
+}
+.user-ccircles3 {
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 100%;
+    height: 10vw;
+    width: 10vw;
+    transform: translate(23%);
+    margin-top: 2.5vw;
+}
+.circle-star {
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    position: absolute;
+    background-color: white;
+    z-index: 20;
+    margin-top: 484px;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+}
+.image-star {
+    width: 43px;
+    height: 42px;
+    background-image: url("../img/star.png");
+    margin-left: 29px;
+    margin-top: 29px;
+}
+.circle-users {
+    height: 56px;
+    width: 56px;
+    -moz-border-radius: 56px;
+    -webkit-border-radius: 56px;
+    border-radius: 56px;
+    color: white;
+    -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 5000;
+    border: 3px solid;
+}
+footer {
+    width: 100%;
+    height: 280px;
+}
+.container-footer {
+    width: 65%;
+    height: 160px;
+    /* margin: auto; */
+    /* margin-top: 120px; */
+    /* position: absolute; */
+    
+    left: 9%;
+    display: inline-block;
+    position: relative;
+    padding-top: 104px;
+}
+.footer-background {
+    background-image: url("../img/footer.png");
+    width: 100%;
+    height: 312px;
+    position: absolute;
+    background-position: -16px 0px;
+    margin-top: 28px;
+}
+.nebul-logo {
+    width: 56px;
+    height: 40px;
+    background-image: url("../img/nebul-logo.svg");
+    margin-left: 5%;
+    margin-top: 0px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 43px;
+}
+.solid-border {
+    height: 110px;
+    border-left: 1px solid;
+    color: #3549a0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.container-footer ul {
+    list-style-type: none;
+    height: 120px;
+    width: 150px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 33px;
+}
+.container-logos li {
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+}
+.fb-logoo {
+    width: 8px;
+    height: 19px;
+    background-image: url("../img/fb.png");
+    margin-top: -7px;
+    margin-left: -13px;
+}
+.twitter-logoo {
+    width: 19px;
+    height: 15px;
+    background-image: url("../img/twiter.png");
+    margin-top: 16px;
+    margin-left: -13px;
+}
+.google-logoo {
+    width: 23px;
+    height: 15px;
+    background-image: url("../img/google+.png");
+    margin-top: 16px;
+    margin-left: -13px;
+}
+.text-logos {
+    margin-left: 28px;
+    margin-top: 21px;
+    color: white;
+}
+.text-logos1 {
+    margin-left: -15px;
+    margin-top: 6px;
+    color: white;
+}
+.container-logos {
+    width: 340px;
+    position: relative;
+    display: inline-block;
+    margin-left: 6%;
+    vertical-align: top;
+    margin-top: 166px;
+}
+.leavingstone-logo {
+    width: 83px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    /* float: right; */
+    
+    background-image: url("../img/leavingstone.png");
+    /* margin-top: 58px; */
+    /* margin-right: 3.5%; */
+    /* padding-top: 44px; */
+    /* margin-left: 6%; */
+}
+.bankofgeorgia-logo {
+    width: 178px;
+    height: 37px;
+    display: inline-block;
+    position: relative;
+    /* float: right; */
+    
+    background-image: url("../img/bankofgeorgia.png");
+    /* margin-top: 58px; */
+    
+    margin-left: 6%;
+}
+@font-face {
+    font-family: "bpg_excelsior_dejavu_2010";
+    src: url("bpg_excelsior_dejavu_2010.eot");
+    src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"),
+    url("bpg_excelsior_dejavu_2010.woff") format("woff"),
+    url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), 
+    url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), 
+    url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), 
+    url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), 
+    url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@media(max-width: 1674px) {
+    .text-social {
+        margin-top: 10px;
+    }
+    .container-authorithation{
+    width: 310px;
+}
+.user-ccircles{
+    display: none;
+}
+}
+@media(max-width: 1500px) {
+    .unarebi-div {
+        margin-right: 1%;
+    }
+    .header-items ul {
+        left: 40%;
+    }
+    .user-pre-blocks{
+        width: 450px;
+    }
+    .text-logo{
+        font-size: 15px;
+    }
+    .text-logo1{
+        font-size: 13px;
+    }
+    .container-authorithation{
+        width: 310px;
+        margin-left: 53.5%;
+    }
+}
+@media(max-width: 1400px) {
+    .container-main-slider {
+        height: 1270px;
+    }
+    .program {
+        width: 36.2%;
+        left: 50%;
+        transform: translate(-108%);
+    }
+    .program1 {
+        width: 36.2%;
+        left: 50%;
+        transform: translate(-108%);
+    }
+}
+@media(max-width: 1280px){
+    .container-authorithation{
+        display: none;
+    }
+    .user-circles{
+        left: 0%;
+        transform: translate(0%);
+        margin-left: 320px;
+    }
+    .circle-star{
+        left: 0%;
+        transform: translate(0%);
+        margin-left: 592px;
+    }
+     .container-users-left{
+        width: 641px;
+     }
+}
+
+@media(max-width: 1250px) {
+    .header-items {
+        width: 97%;
+    }
+    .container-slider {
+        width: 97%;
+    }
+    .container-logos {
+        margin: auto;
+        margin-top: 20px;
+        display: block;
+    }
+    .container-footer {
+        display: block;
+        left: 0%;
+        padding-top: 75px;
+        margin: auto;
+    }
+    .bankofgeorgia-logo {
+        margin-left: 15%;
+    }
+    .container-footer ul {
+        width: 120px;
+    }
+    @media(max-width: 1050px) {
+        .program {
+            width: 325px;
+        }
+        .program1 {
+            width: 325px;
+        }
+        .border-unarebi {
+            display: none;
+        }
+        .text-kursebi {
+            display: none;
+        }
+        .unarebi-div {
+            width: 370px;
+        }
+        .ufaso-kursebi-div {
+            margin-left: 0px;
+            display: block;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .kursis-shedzena-div {
+            margin-left: 0px;
+            display: block;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .header-items ul {
+            left: 30%;
+        }
+        .header-items li {
+            font-size: 13px;
+        }
+        .container-footer {
+            width: 630px;
+        }
+
+
+        @media(max-width: 1000px){
+            .container-users-left {
+    width: 100%;
+}
+            .user-pre-blocks{
+        width: 100%;
+    }
+        .user-circles{
+            display: none;
+        }
+        .circle-star{
+            display: none;
+        }
+        }
+
+        @media(max-width: 870px) {
+            .header-items ul {
+                width: 49%;
+                left: 26%;
+            }
+            .text-nebula-div {
+                margin-left: 4%;
+            }
+            .text-exam {
+                margin-left: 4%;
+            }
+
+            @media(max-width: 760px) {
+                .user-pre-blocks{
+        width: 470px;}
+        .container-user-blocks {
+            width: 470px;
+            margin: auto;
+                margin-top: 78px;
+    }
+            }

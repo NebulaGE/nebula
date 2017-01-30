@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.CSTag>
+@{
+    ViewBag.Title = "VideoTypes";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>VideoTypes</h2>
+
+@foreach (var tag in Model)
+{
+    <p><a href="@Url.Action("Index", new { tagId = tag.Id })">@tag.Name (ვიდეოები)</a></p>
+}

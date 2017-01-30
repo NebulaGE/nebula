@@ -1,0 +1,264 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head prefix="og: http://ogp.me/ns#">
+    <meta name="viewport" content="width=device-width" />
+    <title>გაიგე რამდენად აბინძურებს შენი მანქანა ჰაერს!</title>
+    <meta property="og:title" content="გაიგე რამდენად აბინძურებს შენი მანქანა ჰაერს!" />
+    <meta property="og:image" content="http://ecoist.ge/content/img/share-footer.png" />
+    <meta property="og:description" content="თბილისში ჰაერის დაბინძურების 85% ავტომობილების გამონაბოლქვითაა გამოწვეული. იგივე მონაცემი საქართველოს მაშტაბით 71%-ია." />
+    <link href="~/content/img/16x16.png" rel="shortcut icon" />
+    <script>var U = '@Url.Content("~/")';</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    @Styles.Render("~/content/css")
+    <style>
+        #registration-btn {
+            width: 100%;
+        }
+
+        #aa {
+            color: #fff;
+            line-height: 28px;
+            border-radius: 25px;
+            background: none;
+            padding: 10px 20px;
+            outline: none;
+            margin: 25px auto;
+            opacity: 1;
+            background-color: #d23269;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            width: 300px;
+            clear: both;
+            margin-top: 64px;
+        }
+
+            #aa:hover {
+                opacity: 1;
+            }
+
+        .offer-wrapper {
+            max-width: 980px;
+            margin: auto;
+        }
+
+        .left-side {
+            width: 50%;
+            border-right: 1px solid #d23269;
+            float: left;
+            margin: auto;
+        }
+
+        .left-side-up {
+            text-align: center;
+        }
+
+            .left-side-up h3 {
+                font-size: 24px;
+            }
+
+        #circle-percent {
+            background: url('../content/img/percent-circle.png') no-repeat;
+            text-align: center;
+            width: 195px;
+            height: 195px;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+            #circle-percent h3 {
+                line-height: 195px;
+            }
+
+        .left-side-down {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .horizontal-line {
+            border-top: 1px solid #d23269;
+            width: 440px;
+            margin: 40px auto;
+        }
+
+        .right-side {
+            width: 50%;
+            text-align: center;
+            float: right;
+        }
+
+        .offer-btn {
+            font-family: M;
+            font-size: 16px;
+            border: none;
+            background-color: #d23269;
+            opacity: 1;
+            margin: 0;
+            width: 300px;
+            font-size: 17px;
+        }
+
+        @@media (max-width:980px) {
+            .left-side {
+                width: 100%;
+            }
+
+            .right-side {
+                width: 100%;
+            }
+
+            #offer-title {
+                line-height: 35px;
+            }
+        }
+
+        @@media(max-width:490px) {
+            .offer-wrapper img {
+                width: 90%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="offer-page">
+        <div style="text-align:center;">
+            <h3 id="offer-title" style="font-size:42px; margin-bottom:0;">
+                დააზღვიე ავტომობილი და დარგე ხე!<br /><span style="font-size:18px;">
+                    აქციის ფარგლებში თქვენი სახელით ბორჯომის ხეობაში ერთი ხე დაირგვება
+                </span>
+            </h3>
+
+        </div>
+        <hr class="horizontal-line" style="width:980px; margin-top:25px;" />
+        <div class="offer-wrapper">
+
+
+            <div class="left-side">
+                <div class="left-side-up">
+                    <h3>
+                        აქციის ფარგლებში თქვენს <br />ავტომობილს დააზღვევთ
+                    </h3>
+                    <div id="circle-percent">
+                        <h3>2,8%-დან</h3>
+                    </div>
+
+
+                    <button class="offer-btn">დაზღვევის პირობები</button>
+                </div>
+                <hr class="horizontal-line" />
+                <div class="left-side-down">
+                    <h3 style="margin-top:0;">
+                        დაინტერესდი დაზღვევით?
+                    </h3>
+                    <form id="reg-form" action="#" method="post">
+                        <input name="name" placeholder="სახელი / გვარი" class="cim-cim" style="margin :0; padding: 10px 25px;     font-size: 16px;
+    text-align: center;">
+                        <input name="phone" placeholder="5-XX-XXX-XXX" class="cim-cim" style="margin :0; margin-top:30px; padding: 10px 25px;    font-size: 16px;
+    text-align: center;">
+                        <input name="user_data" value="" type="hidden">
+                        <div>
+                            <button id="registration-btn" class="offer-btn" type="button" style="margin-top:30px;">ჩაერთე აქციაში</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="right-side">
+                <h3 style="margin-bottom:0; font-size:24px;">
+                    დააზღვიე ავტომობილი და
+                </h3>
+                <h3 style="font-size:36px; margin-top:15px; margin-bottom:0;">
+                    მიიღე ფასდაკლება!
+                </h3>
+                <hr class="horizontal-line" />
+                <img src="~/content/img/new-light.png" />
+                <img src="~/content/img/forum.png" style="margin:5px 0;" />
+                <img src="~/content/img/ita.png" />
+                <img src="~/content/img/deto.png" style="margin-top:5px;" />
+            </div>
+
+
+
+
+        </div>
+
+
+        <button class="offer-btn" style="clear:both; margin:auto; position:relative; top:64px; display:block;">გაიგე მეტი</button>
+    </div>
+    <script>
+        $('#registration-btn').on('click', function () {
+
+            var val = $('input[name="phone"]').val();
+
+            if (!(/^\d-?\d{2}-?\d{3}-?\d{3}/.test(val))) {
+                alert('ტელეფონი მიუთითეთ სწორად');
+                return false;
+            }
+
+
+
+            ga('send', 'event', { eventCategory: 'Form', eventAction: 'Submit', eventLabel: 'Submit' });
+            $.post(U + 'ajax/registration', $('#reg-form').serialize(), function (success) {
+                if (success) {
+
+                    window._fbq.push(['track', '6026315666788', { 'value': '0.00', 'currency': 'USD' }]);
+                    $('#reg-form').html('<h3>გმადლობთ,<br>ეკოპოლისის განაცხადი მიღებულია. დეტალებისთვის, ჩვენი აგენტი დაგიკავშირდება. <br><br>გისურვებთ ბედნიერ დღეს!</h3>');
+                } else {
+                    alert('გთხოვ, შეიყვანო მონაცემები');
+                }
+            }, 'json');
+        });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-62136744-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Google Code for Remarketing Tag -->
+    <!--------------------------------------------------
+    Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+    --------------------------------------------------->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 951399981;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/951399981/?value=0&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+    <script>
+        (function () {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+        })();
+        window._fbq = window._fbq || [];
+    </script>
+</body>
+</html>

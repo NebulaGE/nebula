@@ -1,0 +1,33 @@
+﻿
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div class="reg-back-div">
+    <div class="backwards">უკან</div>
+    <div class="text-avtorizacia" style="padding-top:26px;"><b>რეგისტრაცია</b></div>
+</div>
+<div class="registration-div">
+        <div class="container-reg-enter-child">
+
+            <form class="form-rg forms" id="register-form">
+                @Html.AntiForgeryToken()
+                <input type="text" name="FirstName" id="r-firstname" placeholder="სახელი" class="name-reg">
+                <input type="text" name="LastName" id="r-lastname" placeholder="გვარი" class="surname-reg">
+                <input type="text" name="Email" id="r-email" placeholder="ელ.ფოსტა" style="margin-top: 20px;">
+                <input type="password" name="Password" id="r-password" placeholder="პაროლი" style="margin-top: 20px;">
+                <input type="password" name="ConfirmPassword" id="r-confirmpassword" placeholder="გაიმეორეთ პაროლი" style="margin-top: 20px;">
+                <div class="agree-rules-div">
+                    <input class="checkbox" checked="" type="checkbox" id="register-checkbox">
+                    <div class="agree-text">ვეთანხმები ნებულას <a href="@Url.Content("~")Home/About#wesebi da pirobebi">წესებს</a></div>
+                </div>
+                <button class="reg-button" id="registration" type="submit">
+                    <div class="circle-filled-star" style="margin-left: -95px;">
+                        <div class="circle-star-enter"></div>
+                    </div>
+                    <div class="text-reg">რეგისტრაცია</div>
+                    <img src="~/Content/img/loadingIcon.gif" class="btn-loader" style="top:15px;" />
+                </button>
+            </form>
+        </div>
+</div>

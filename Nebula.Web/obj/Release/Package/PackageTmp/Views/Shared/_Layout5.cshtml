@@ -1,0 +1,282 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script>window.U = '@Url.Content("~")'</script>
+
+    <title>Nebula - მოემზადე ერთიანი ეროვნული გამოცდებისთვის! 	</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="http://nebula.ge/content/img/svg/favicon.png">
+    @if (IsSectionDefined("Meta"))
+    {
+        @RenderSection("Meta")
+    }
+    else
+    {
+        <meta name="description" content="ნებულას საშუალებით თქვენ შეძლებთ მოემზადოთ ზოგადი უნარების გამოცდისთვის. ერთიანი ეროვნული გამოცდების ტესტები, სავარჯიშოები, თეორიული მასალა და პასუხები.">
+        <meta name="keywords" content="ზოგადი უნარები,ერთიანი ეროვნული გამოცდები,gamocdebis erovnuli centri,zogadi unarebi,ზოგადი უნარების ტესტები,zogadi unarebis testebi,erovnuli gamocdebi,ზოგადი უნარების ტესტი">
+        <meta property="og:title" content="ინოვაციური პლატფორმა აბიტურიენტებისთვის!" />
+        <meta property="og:description" content="მოემზადე ზოგადი უნარების გამოცდისთვის და მოიგე 10 000 ლარი. ამომწურავი ვიდეო-გაკვეთილები, კომფორტული სავარჯიშო გარემო და ინოვაციური ანალიტიკური ალგორითმი." />
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="http://nebula.ge/content/img/post.png">
+        <meta property="og:url" content="http://nebula.ge/" />
+    }
+
+    @Styles.Render("~/Content/mainCss")
+
+    <style>
+        .forget-password {
+            padding-left: 10px;
+            border: 1px solid rgb(238, 238, 238);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (Request.IsAuthenticated)
+                {
+                    <a class="navbar-brand" href="@Url.Action("Index", "All")"></a>
+                }
+                else
+                {
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"></a>
+                }
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("About", "Home")">ნებულას შესახებ</a></li>
+
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+
+    </nav>
+    @if (ViewBag.IsMobile != null)
+    {
+        <div class="col-sm-12">
+            <div class="messageForRowsPage">
+                <p class="MessageParagrap">
+
+                    <span class="danger"></span>
+                    <span class="text">მობილური ვერსია სატესტო რეჟიმშია! გირჩევთ ისარგებლოთ კომპიუტერის ბრაუზერით.</span>
+
+                </p>
+            </div>
+        </div>
+    }
+
+    @RenderBody()
+
+
+    @Html.Partial("_RegisterFormPartial")
+    <input type="hidden" id="return-url" value="@Request.Url.AbsolutePath" />
+    <!-- loader -->
+
+    <div id="loader-cont" style="display:none;">
+        <div class="iconbar">
+            <span class="loader-icon loader-icon_1" style="display:block;"></span>
+            <span class="loader-icon loader-icon_2"></span>
+            <span class="loader-icon loader-icon_3"></span>
+            <span class="loader-icon loader-icon_4"></span>
+            <span class="loader-icon loader-icon_5"></span>
+            <span class="loader-icon loader-icon_6"></span>
+            <span class="loader-icon loader-icon_7"></span>
+        </div>
+    </div>
+  
+    <!-- icons -->
+    <div class="absicons">
+        <a href="https://www.facebook.com/nebula.ge" target="_blank">
+            <span class="fb">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="125 -125.9 266.9 266.9" style="enable-background:new 125 -125.9 266.9 266.9;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0 {
+                            fill: #3C5A99;
+                        }
+
+                        .st1 {
+                            fill: #FFFFFF;
+                        }
+                    </style>
+                    <path id="Blue_1_" class="st0" d="M373.1,136.4c7.9,0,14.2-6.4,14.2-14.2v-229.3c0-7.9-6.4-14.2-14.2-14.2H143.8
+                      c-7.9,0-14.2,6.4-14.2,14.2v229.3c0,7.9,6.4,14.2,14.2,14.2H373.1z" />
+                    <path id="f" class="st1" d="M275.4,117V17.1h33.5l5-38.9h-38.5v-24.8c0-11.3,3.1-18.9,19.3-18.9l20.6,0v-34.8
+                      c-3.6-0.5-15.8-1.5-30-1.5c-29.7,0-50,18.1-50,51.4v28.7h-33.6v38.9h33.6V117H275.4z" />
+                    </svg>
+                         </span>
+                            </a>
+                            <a href="@Url.Content("~")Home/About#dagvikavshirdit">
+                                <span class="contact">
+                                    <svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="4 -1.1 24 18.1"
+                                         style="enable-background:new 4 -1.1 24 18.1;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0 {
+                            fill: #FFFFFF;
+                        }
+                    </style>
+                    <title></title>
+                    <desc></desc>
+                    <g id="miu">
+                                    <g id="Artboard-1" transform="translate(-251.000000, -335.000000)">
+                                    <g id="slice" transform="translate(215.000000, 119.000000)">
+                        </g>
+                                    <path id="common-email-envelope-mail-glyph" class="st0" d="M277.3,351h-20.6l0,0l7.3-7.3l3,2.3l3-2.3L277.3,351z M278,350.3
+                          v-12.8l0,0l-7.2,5.5L278,350.3z M256,350.3v-12.8l7.2,5.5L256,350.3L256,350.3z M278,336.3V335h-22v1.3l11,8.4L278,336.3z" />
+                      </g>
+                    </g>
+                    </svg>
+                                </span>
+                            </a>
+    </div>
+    <!-- icons -->
+
+
+    <div class="FrodDropAllBlock"></div>
+
+
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+
+    @RenderSection("phoneScripts", required: false)
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    @Scripts.Render("~/bundles/mainJs")
+
+    <div id="fb-root"></div>
+    <script>
+
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=579191162230603";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        (function () {
+            var tempDataReturnUrl = '@TempData["ReturnUrl"]';
+            if (tempDataReturnUrl) {
+                $('#return-url').val(tempDataReturnUrl);
+                $('.returnUrl').val(tempDataReturnUrl);
+            }
+            var tempData = '@TempData["show-login-form"]';
+            if (tempData) {
+                $('.mainReg').fadeIn();
+                showLoginForm();
+            }
+
+            var externalLoginTempData = '@TempData["external-login-confirmation"]';
+            if (externalLoginTempData) {
+                $('.mainReg').fadeIn();
+                $('.register-form, #aut-form, #reg-form,.login-form').hide();
+                $('#email-confirm-form').show();
+            }
+
+            var externalLoginErrors = '@Html.Raw(TempData["errors"])';
+            if (externalLoginErrors) {
+                var externalLoginErrosTempData = JSON.parse(externalLoginErrors);
+
+                if (externalLoginErrosTempData) {
+                    if (externalLoginErrosTempData.length) {
+                        var errorString = '<div style="text-align:center;">';
+                        $.each(externalLoginErrosTempData, function (i, v) {
+                            errorString += '<p class="error-class">' + v + '</p>';
+                        });
+                        errorString += '</div>';
+
+                        $.alert({
+                            title: '',
+                            content: errorString,
+                            confirmButton: 'დახურვა',
+                            columnClass: 'col-md-4 col-md-offset-4'
+                        });
+                    }
+
+                }
+            }
+
+            var pdfTempData = '@TempData["show-pdf-popup"]';
+            if (pdfTempData) {
+                showPdfPopup(true);
+            }
+
+            var transactionSuccess = '@TempData["transaction-success"]';
+
+            if (transactionSuccess) {
+
+                $.alert({
+                    title: 'გილოცავთ!',
+                    content: 'ტრანზაქცია წარმატებით განხორციელდა',
+                    confirmButton: 'დახურვა',
+                    columnClass: 'col-md-4 col-md-offset-4'
+                });
+            }
+
+            var transactionError = '@TempData["transaction-error"]';
+            if (transactionError) {
+                var err = 'სამწუხაროდ ტრანზაქცია ვერ განხორციელდა, გთხოვთ მოგვწერეთ ელ.ფოსტაზე : info@nebula.ge ან  <a href="https://www.facebook.com/nebula.ge" target="_blank">Facebook-ზე</a>';
+                $.alert({
+                    title: '',
+                    content: err,
+                    confirmButton: 'დახურვა',
+                    columnClass: 'col-md-4 col-md-offset-4'
+                });
+            }
+
+            var licenseTempData = '@TempData["already-has-license"]';
+            if (licenseTempData) {
+                $.alert({
+                    title: '',
+                    content: 'თქვენ უკვე შეძენილი გაქვთ ლიცენზია',
+                    confirmButton: 'დახურვა',
+                    columnClass: 'col-md-4 col-md-offset-4'
+                });
+            }
+
+            var forgotPasswordTempData = '@TempData["Code"]';
+            if (forgotPasswordTempData) {
+                $('.forgot-password').fadeIn();
+            }
+
+        })();
+
+         
+
+        setInterval(function () {
+            $.get(U + 'home/asd');
+        }, 200000);
+         
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-75760788-1', 'auto');
+        ga('send', 'pageview');
+		
+	
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

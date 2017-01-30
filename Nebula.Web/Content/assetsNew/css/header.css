@@ -1,0 +1,432 @@
+a {
+    text-decoration:none;
+}
+
+
+header {
+    width: 100%;
+    height: 100px;
+    overflow: visible;
+    background-color: white;
+}
+
+.registration {
+    width: 145px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    margin-top: 11px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: gray;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    margin-right:10px;
+}
+
+.enter {
+    width: 100px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    margin-top: 11px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    border-radius: 3px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.text-registration-enter {
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    padding-top: 7px;
+    height: 35px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.registration:hover {
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    color: white;
+}
+
+.header-items {
+    width: 79.7%;
+    height: 70px;
+    position: relative;
+    margin: auto;
+    padding-top: 19px;
+}
+
+.nebula-logo {
+    width: 56px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.header-items ul {
+    list-style-type: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    width: 43%;
+    padding-top: 6px;
+}
+
+.circle {
+    background: #666;
+    width: 3px;
+    height: 3px;
+    -moz-border-radius: 1.5px;
+    -webkit-border-radius: 1.5px;
+    border-radius: 1.5px;
+    position: relative;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.header-items li {
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    float: left;
+    text-align: right;
+    color: gray;
+    margin-left: 2%;
+}
+
+.header-items li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dropdown-user a {
+    text-decoration: none;
+    color: inherit;
+}
+/* dropdown for users */
+
+.dropbtn {
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: #a0a0a0;
+    cursor: pointer;
+    height: 35px;
+    min-width: 160px;
+    margin-top: 10px;
+    background-color: white;
+    border: none;
+    border-color: #f1f1f1;
+    border-radius: 2px;
+    outline:none;
+}
+
+.dropdown-user {
+    position: relative;
+    float: right;
+    margin-right: 2%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    margin-top: -5px;
+    width: 25px;
+    background-color: #f9f9f9;
+    min-width: 165px;
+    z-index: 10;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+    .dropdown-content a {
+            padding: 7px 20px;
+            text-decoration: none;
+            display: block;
+            color: #a0a0a0;
+            z-index: 1000000;
+            /* POSITION: ABSOLUTE; */
+            z-index: 1000000000000000;
+    }
+
+.dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* user logout and news */
+
+.circle-news {
+    background: #666;
+    width: 35px;
+    height: 35px;
+    -moz-border-radius: 17.5px;
+    -webkit-border-radius: 17.5px;
+    border-radius: 35px;
+    background-color: #6b77e3;
+    position: relative;
+    float: right;
+    margin-top: 13px;
+    margin-right: 2.1%;
+}
+
+.number-news {
+    text-align: center;
+    margin-top: 9px;
+    color: white;
+}
+
+.logout-btn {
+    width: 15px;
+    height: 19px;
+    background-image: url("../img/logout.png");
+    position: relative;
+    float: right;
+    margin-top: 22px;
+}
+.next-button{
+    cursor:pointer;
+}
+.video-pre-blocks-unarebi{
+    cursor:pointer;
+}
+.video-blocks-qartuli{
+    cursor:pointer;
+}
+.popup-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    z-index: 50;
+}
+
+.popup-text{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.burger-menu-header{
+    width: 35px;
+    height: 30px;
+    /* display: inline-block; */
+    /* float: right; */
+    margin-right: 33px;
+    /* margin-top: 15px; */
+    cursor: pointer;
+    position:relative; 
+    float:right;
+    margin-top:15px;
+    display: none;
+    z-index:1200;
+  }
+
+  .burger-line-top-header{
+    width: 35px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+  }
+  .burger-line-middle-header{
+    width: 35px;
+    height: 3px;
+    border-radius: 2px;
+    margin-top: 11px;
+    background-color: black;
+  }
+  .burger-line-bottom-header{
+    width: 35px;
+    height: 3px;
+    border-radius: 2px;
+    margin-top: 11px;
+    background-color: black;
+  }
+
+  .burger-div{
+      width:280px;
+      height:500px;
+      /* float:right; */
+      display:none;
+      position: absolute;
+      background-color: white;
+      margin-left: 62%;
+      z-index: 5;
+  }
+
+  .list-toggle{
+      display:block !important;
+  }
+
+
+
+@media(max-width: 1500px) {
+
+    .header-items ul {
+        left: 40%;
+    }
+
+        .header-items {
+        width: 86%;
+    }
+}
+
+
+@media(max-width: 1250px) {
+    .header-items {
+        width: 98%;
+    }
+}
+
+@media(max-width: 1050px) {
+
+    .header-items ul {
+        left: 30%;
+    }
+
+    .header-items li {
+        font-size: 13px;
+    }
+
+    .container-footer {
+        width: 630px;
+    }
+}
+
+
+@media(max-width: 870px) {
+    .header-items ul {
+        width: 49%;
+        left: 26%;
+    }
+}
+
+@media(max-width: 750px) {
+    .header-items ul {
+        position: absolute;
+        right: -6px !important;
+        left: initial !important;
+        transform: initial;
+        /* right: 0; */
+        margin: 0;
+        padding: 0;
+        width: 40%;
+        background: #fff;
+        z-index: 999;
+        height: 390px;
+        top: 81px;
+    }
+    .enter{
+        display:none;
+        position: absolute;
+        float: right;
+        margin-left: 81%;
+        margin-top: 178px;
+        z-index: 1002;
+    }
+    .registration{
+        display:none;
+        position: absolute;
+        float: right;
+        margin-left: 74%;
+        margin-top: 228px;
+        z-index: 1000;
+        background: #c7b1fb;
+        background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+        background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+        background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+        background: linear-gradient(-90deg, #8538ff, #8c7aff);
+        color: white;
+    }
+      .dropdown-user{
+        display:none;
+    }
+    .circle-news{
+        display:none;
+    }
+    .logout-btn{
+        display:none;
+    }
+     .burger-menu-header{
+        display: block;
+      }
+     .nebula-logo{
+         margin-left:30px;
+     }
+     .circle{
+         display:none;
+     }
+     .header-items li{
+    float: initial;
+    text-align: right;
+    margin-top: 20px;
+    font-size: 15px;
+    margin-right: 38px;
+     }
+
+     .header-items ul{
+         width:220px !important;
+         display:none;
+     }
+}
+
+@media(max-width: 600px){
+    .enter{
+        margin-left:75%;
+    }
+    .registration{
+        margin-left:67%;
+    }
+}
+
+
+@media(max-width: 480px){
+    .enter{
+        margin-left:67%;
+    }
+    .registration{
+        margin-left:59%;
+    }
+}
+
+@media(max-width: 400px){
+    .enter{
+        margin-left:61%;
+    }
+    .registration{
+        margin-left:48%;
+    }
+}
+
+
+

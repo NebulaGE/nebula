@@ -1,0 +1,30 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+    ViewBag.Title = "BuyBtn";
+    Layout = null;
+}
+
+@if (ViewBag.Id == 1)
+{
+    <div class="text-name">ქართული ენა და ლიტერატურა</div>
+    if (Model == null || !Model.HasGeoLicense)
+    {
+        <a href="@Url.Action("Index", "Payment")">
+            <div class="buy-course">
+                <div class="text-buy-course">კურსის შეძენა</div>
+            </div>
+        </a>
+    } 
+}
+else
+{
+    <div class="text-name">ზოგადი უნარები</div>
+    if (Model == null || !Model.HasLicense)
+    {
+        <a href="@Url.Action("Index", "Payment")">
+            <div class="buy-course">
+                <div class="text-buy-course">კურსის შეძენა</div>
+            </div>
+        </a>
+    }
+}

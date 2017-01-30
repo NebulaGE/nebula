@@ -1,0 +1,195 @@
+﻿@using Nebula.Domain.ViewModels.Web
+@model PaymentViewModel
+
+@section Styles{
+    <link href="~/Content/assetsNew/css/packets.css" rel="stylesheet" />
+<link href="~/Content/assetsNew/css/sale.css" rel="stylesheet" /> 
+}
+
+<section class="packets-cont" data-bind="with : CartViewModel">
+    <h1 class="sr-only">Packets</h1>
+    <div class="packets">
+        <article class="first">
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost">@Model.CsPrice.ToString().Insert(Model.CsPrice.ToString().Length-2,".") <span class="lari">L</span></span>
+                    </div>
+                    <div class="td">
+                        <h1>ზოგადი უნარები</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>ამომწურავი თეორიული ვიდეომასალა</li>
+                    <li>ტესტთან მუშაობის ტექნიკები</li>
+                </ul>
+                <span class="ok">სავარჯიშოები</span>
+                <ul>
+                    <li>1800+ საგამოცდო სავარჯიშო</li>
+                    <li>240 ახალი საავტორო ამოცანა ყოველთვიურად</li>
+                </ul>
+                <span class="ok">გამოცდის სიმულაცია</span>
+                <ul>
+                    <li>რეალურ გამოცდასთან მაქსიმალურად მიახლოებული გარემო</li>
+                    <li>ხელოვნური ინტელექტი: მოსწავლეების სუსტი მხარეების დიაგნოსტიკა</li>
+                </ul>
+            </div>
+            <footer>
+         @*       <form method="post" data-bind="submit : generateTransactionId">  *@
+                    <input type="hidden" name="Type" value="@PaymentType.CS" />
+                    <input type="submit" style="cursor:pointer;margin-top:24px" class="d_button" value="მინდა " data-bind="click : addToCart.bind($data, { p : 3 })"/>
+                    @*<a href="#" class="d_button d_button_soft">განვადება</a>*@ 
+            </footer>
+        </article>
+        <article>
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost">@Model.GeoPrice.ToString().Insert(Model.GeoPrice.ToString().Length - 2, ".")<span class="lari">L</span></span>
+                    </div>
+                    <div class="td">
+                        <h1>ქართული ენა და ლიტერატურა</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>მხატვრული ტექსტების ამომწურავი ანალიზი</li>
+                    <li>ქართული ენის გრამატიკა ახსნილი მოკლედ და გასაგებად</li>
+                </ul>
+                <span class="ok">სავარჯიშოები</span>
+                <ul>
+                    <li>1000+ მეტი კითხვა</li>
+                    <li>300 ახალი საავტორო კითხვა ყოველთვიურად</li>
+                </ul>
+                <span class="ok">გამოცდის სიმულაცია</span>
+                <ul>
+                    <li>ერთიან ეროვნულ გამოცდასთან მაქსიმალურად მიახლოებული გარემო</li>
+                    @*<li>საატესტატო გამოცდის სიმულაცია ტესტის გართულების ალგორითმით</li>*@
+                    <li>ხელოვნური ინტელექტი: მოსწავლეების სუსტი მხარეების დიაგნოსტიკა</li>
+                </ul>
+            </div>
+            <footer> 
+                    <input type="hidden" name="Type" value="@PaymentType.Geo" />
+                    <input type="submit" style="cursor:pointer;margin-top:24px" class="d_button" value="მინდა " data-bind="click : addToCart.bind($data, { p : 1 })" />
+                    @*<a href="#" class="d_button d_button_soft">განვადება</a>*@ 
+            </footer>
+        </article>
+        <article>
+            <header class="table">
+                <div class="tr">
+                    <div class="td">
+                        <span class="cost" style="color: white;">მალე </span>
+                    </div>
+                    <div class="td">
+                        <h1>ინგლისურის საგამოცდო კურსი</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <span class="ok">ვიდეო გაკვეთილები</span>
+                <ul>
+                    <li>შედგენილი 2017 წლის საგამოცდო სტანდარტით</li>
+                    <li>აუცილებელი (და არა ზედმეტი) თეორიული მასალა</li>
+                </ul>
+                <span class="ok">სავარჯიშოები</span>
+                <ul>
+                    <li>ტესტის ფორმატის სავარჯიშოები</li>
+                    <li>ვიდეოგაკვეთილების დავალებები</li>
+                </ul>
+                <span class="ok">გამოცდის სიმულაცია</span>
+                <ul>
+                    <li>ერთადერთი საგამოცდო გარემო, რომელიც ითვალისწინებს ახალ, 2017 წლის ფორმატს.</li>
+                    <li>ხელოვნური ინტელექტი: მოსწავლეების სუსტი მხარეების დიაგნოსტიკა.</li>
+                </ul>
+            </div>
+
+            <footer>
+                <input type="submit" style="cursor: not-allowed; opacity:0.3;margin-top:24px" class="d_button" value="მალე "/>
+                @*<a href="#" class="d_button d_button_soft">განვადება</a>*@
+
+            </footer>
+        </article>
+
+            <div class="sale-main-div">
+                <div class="text-selected-courses">არჩეული კურსები</div>
+                <div class="sale-child-div">
+                    <div class="empty-cart" data-bind="visible  : !csSelected() && !geoSelected()">
+                        <div class="course-choice">აირჩიეთ სასურველი კურსი</div>
+                    </div>
+                    <div style="height:276px;">
+                        <div class="sale-course-div" data-bind="style : { display : csSelected() ? 'block' : 'none' }">
+                            <div class="sale-course">
+                                <div class="circle-main" data-bind="click : removeFromCart.bind($data, { p : 3 })">
+                                    <div class="circle-inner"></div>
+                                </div>
+                                <div class="text-items" style="padding-top: 39px;">ზოგადი უნარები</div>
+                            </div>
+                            <div class="sale-lari">
+                                <div class="text-lari" style="text-decoration:line-through;padding-top:12px;" data-bind="visible : csPriceSaled(), html : csPriceString"></div>
+                                <div class="text-lari" data-bind="html : csPriceAfterSaleString "></div>
+                            </div>
+                        </div>
+                        <div class="sale-course-div" data-bind="style : { display : geoSelected() ? 'block' : 'none' }">
+                            <div class="sale-course">
+                                <div class="circle-main" data-bind="click : removeFromCart.bind($data, { p : 1 })">
+                                    <div class="circle-inner"></div>
+                                </div>
+                                <div class="text-items">ქართული ენა და ლიტერატურა</div>
+                            </div>
+                            <div class="sale-lari">
+                                <div class="text-lari" style="text-decoration:line-through;padding-top:12px;" data-bind="visible : geoPriceSaled(), html : geoPriceString"></div>
+                                <div class="text-lari" data-bind="html : geoPriceAfterSaleString"></div>
+                            </div>
+                        </div>
+                        <div class="sale-course-div">
+                            <div class="sale-course">
+                                <div class="circle-main">
+                                    <div class="circle-inner"></div>
+                                </div>
+                                <div class="text-items">ინგლისურის საგამოცდო კურსი</div>
+                            </div>
+                            <div class="sale-lari">
+                                <div class="text-lari" style="text-decoration:line-through;padding-top:12px;">@Model.EngPrice₾</div>
+                                <div class="text-lari">@Model.EngPrice₾</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sale-code">
+                        <input type="text" placeholder="კუპონის კოდი" data-bind="value : coupon">
+                        <button data-bind="click : checkCoupon">
+                            <div class="button-text">შეყვანა</div>
+                        </button>
+                        <div class="correct">
+                            <div class="correct-icon"></div>
+                        </div>
+                        <div class="wrong">
+                            <div class="wrong-icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sum-div">
+                    <div class="sum-price">ჯამური ფასი:</div>
+                    @*<div class="text-lari" style="margin-left:60px;text-decoration: line-through;">₾</div>*@
+                    <div class="sum-lari-div">
+                        <div class="text-lari" style="padding-top: 21px; margin-left: 12px;" data-bind="html: totalString"> </div>  
+                    </div>
+                </div>
+                <button class="buycourse-button" data-bind="click : activateCourses, style : { 'cursor' : !csSelected() && !geoSelected() ? 'not-allowed' : 'pointer' }">
+                    <div class="button-text" >შეძენა</div>
+                </button>
+                <button class="ganvadeba-button" style="display: none">
+                    <div class="button-text gray">განვადება</div>
+                </button>
+            </div>
+    </div>
+</section>
+ 
+
+@section scripts{
+    <script src="~/Js/cart.js"></script>
+}

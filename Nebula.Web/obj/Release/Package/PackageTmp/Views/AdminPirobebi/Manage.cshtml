@@ -1,0 +1,166 @@
+﻿@model Nebula.Domain.ViewModels.Admin.CS.ConditionViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .question-checkbox {
+        position: relative;
+        top: 2px;
+        margin-left: 5px;
+    }
+</style>
+
+<h2>პირობა :</h2>
+@Html.Partial("_AddImagesPartial")
+<form method="post" action="@Url.Action("Save" , "AdminPirobebi")">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.CategoryId)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">პირობის ტექსტი</label>
+
+            <div class="col-md-10">
+                <div class="col-md-7">
+                    <textarea name="Text" class="c-editor" id="ck-editor2" style="max-width:280px;">@Html.Raw(Model.Text)</textarea>
+                </div>
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">აირჩიე მოდული : </label>
+            <div style="margin-left:12px; margin-top:5px;">
+                @foreach (var module in Model.Modules)
+                {
+                    <span style="margin:5px;">
+
+                        <input id="ModuleId" name="ModuleId" type="radio" value="@module.Id" class="question-checkbox" @(Model.ModuleId == module.Id ? "checked" : "") />
+                        @module.Name
+                    </span>
+                }
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვის ტიპი : </label>
+            <div style="margin-left:12px; margin-top:5px;">
+
+                <span style="margin: 5px;">
+
+                    <input type="radio" name="Type" value="@Nebula.Domain.Entities.TaskType.IsExamTask" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.TaskType.IsExamTask ? "checked" : "") />
+
+                    საგამოცდო
+                </span>
+
+                <span style="margin: 5px;">
+
+                    <input type="radio" name="Type" value="@Nebula.Domain.Entities.TaskType.IsExerciseTask" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.TaskType.IsExerciseTask ? "checked" : "") />
+
+                    სავარჯიშო
+                </span>
+           
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">აირჩიე წელი ვარიანტი : </label>
+            <div class="col-md-10">
+                <select name="InfoId" class="form-control">
+                    @foreach (var info in Model.Infos)
+                    {
+                        <option @(info.Id == Model.InfoId ? "selected" : "" ) value="@info.Id">@info.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვის რიგითი ნომერი : </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QueueNumber, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">სტუმრის კითხვა</label>
+            @Html.CheckBoxFor(model => model.GuestCondition)
+            @*<input type="checkbox" value="@Model.IsFreeQuestion" name="IsFreeQuestion" class="question-checkbox" @(Model.IsFreeQuestion ? "checked" : "")/>*@
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<hr />
+<h3>არსებული კითხვები</h3>
+<table class="table" style="margin-top:30px;">
+    <tr>
+        <th>
+            მოდული
+        </th>
+        <th>
+            კითხვა
+        </th>
+        <th>
+            საგამოცდო კითხვა
+        </th>
+        <th>
+            სავარჯიშო კითხვა
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Questions)
+    {
+        <tr>
+            <td>@item.Module</td>
+            <td>@Html.Raw(item.Text)</td>
+            <td>
+                <input type="checkbox" disabled="disabled" class="check-box" @(item.Type == Nebula.Domain.Entities.CSQuestionType.ExamQuestion ? "checked" : "") />
+            <td>
+                <input type="checkbox" disabled="disabled" class="check-box" @(item.Type == Nebula.Domain.Entities.CSQuestionType.ExerciseQuestion ? "checked" : "") />
+            <td></td>
+            <td>
+                @Html.ActionLink("რედაქტირება", "ManageQuestion", new { categoryId = Model.CategoryId, questionId = item.Id }) |
+                <form action="@Url.Action("Delete", "AdminCSQuestions")" method="post" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath" />
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')" />
+                </form>
+
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+@if (Model.Id != 0)
+{
+    <h3>კითხვის დამატება</h3>
+    @Html.Partial("Admin/CSQuestion", Model.QuestionCreateViewModel,  new ViewDataDictionary())
+}
+ 
+<div>
+    @Html.ActionLink("უკან დაბრუნება", "Index", new { id = Model.CategoryId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

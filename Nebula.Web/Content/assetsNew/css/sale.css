@@ -1,0 +1,289 @@
+body{
+    background-color: #f7f7f7;
+}
+
+.sale-main-div{
+    width: 360px;
+    min-height: 640px;
+    background-color: white;
+    display:inline-block;
+    margin-left:1%;
+}
+
+.sale-child-div{
+    height: 330px;
+    width: 300px;
+    border:1px solid;
+    border-color: #f4f4f4;
+    margin: auto;
+    margin-top: 48px;
+}
+
+.sale-course-div{
+    height: 92px;
+    width: 100%;
+    border-bottom: 1px solid;
+    border-color: #f4f4f4;
+    display: none;
+}
+
+.sale-course{
+    width: 208px;
+    height: 100%;
+    float: left;
+}
+
+.sale-code{
+    height: 50px;
+    width: 100%;
+}
+
+.sale-lari{
+    height: 100%;
+    width: 88px;
+    border-left: 1px solid;
+    border-color: #f4f4f4;
+    float: right;    
+}
+
+.text-selected-courses{
+    font-size: 22px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 46px;
+}
+
+.sum-div{
+    height: 92px;
+    width: 300px;
+    margin: auto;
+    margin-top: 13px;
+}
+
+.sum-price{
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    padding-top: 37px;
+    float: left;
+}
+
+.sum-lari-div{
+    height: 60px;
+    width: 82px;
+    float: right;
+    margin-top: 16px;
+    -webkit-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    -moz-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.85);
+}
+
+.buycourse-button{
+    width: 300px;
+    height: 46px;
+    border:none;
+    outline: none;
+    background-color: #8474fb;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.button-text{
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+}
+
+.ganvadeba-button{
+    width: 300px;
+    height: 44px;
+    border:1px solid;
+    border-color:  #f4f4f4;
+    background-color: white;
+    margin-top: 15px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.button-text.gray{
+    color: #909090;
+}
+
+.circle-main{
+    height: 20px;
+    width: 20px;
+    border:1px solid #d6d6d6;
+    border-radius: 20px;
+    margin-top: 37px;
+    margin-left: 17px;
+    display: inline-block;
+    cursor:pointer;
+}
+
+.circle-inner{
+    height: 8px;
+    width:8px;
+    background-image: url("../img/circlex.png");
+    margin-left: 6px;
+    margin-top:6px;
+}
+
+.circle-green{
+    margin-top: 37px;
+    margin-left: 17px;
+    height: 21px;
+    width: 21px;
+    background-image: url("../img/circlee.svg");
+    display: inline-block;
+}
+
+.text-items{
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    padding-top: 32px;
+    display: inline-block;
+    width: 75%;
+    margin-left: 9px;
+    vertical-align: top;
+}
+
+.text-lari{
+    font-size: 16px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    padding-top: 38px;
+    margin-left: 14px;
+    display:inline-block;
+    position:absolute;
+}
+.sale-code input{
+    width: 55%;
+    height: 50px;
+    border: none;
+    background-color: white;
+    padding-left: 15px;
+    font-size: 13px;
+    box-sizing: border-box;
+    font-family: "bpg_excelsior_dejavu_2010";
+    outline: none;
+    color: #c5c5c5;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:0px;
+ }
+
+ .sale-code button{
+    width: 95px;
+    height: 30px;
+    background-color: white;
+    margin-top: 11px;
+    margin-left: 1.5%;
+    background-color: #8474fb;
+    position: absolute;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+ }
+
+.correct{
+    width: 95px;
+    height: 30px;
+    background-color: white;
+    margin-top: 11px;
+    margin-left: 1.5%;
+    background-color: #84df7a;
+    display: inline-block;
+    position: absolute;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    display: none;
+
+}
+
+.correct-icon{
+    background-image: url("../img/correctpng.png");
+    width: 19px;
+    height: 17px;
+    margin: auto;
+    margin-top: 6px;
+}
+
+.wrong{
+    width: 95px;
+    height: 30px;
+    background-color: white;
+    margin-top: 11px;
+    margin-left: 1.5%;
+    background-color: #e0505a;
+    display: inline-block;
+    position: absolute;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    display: none;
+}
+
+.wrong-icon{
+    background-image: url("../img/wrongsvg.svg");
+    width: 9px;
+    height: 9px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.empty-cart{
+    height: 0px;
+    width: 100%;
+    /*border-bottom: 1px solid;*/
+    border-color: #f4f4f4;
+}
+
+.course-choice{
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: white;
+    color: #c5c5c5;
+    text-align: center;
+    padding-top: 20px;
+}
+
+button .button-text{
+    font-size: 13px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    color: white;
+}
+
+@font-face {
+    font-family: "bpg_excelsior_dejavu_2010";
+    src: url("bpg_excelsior_dejavu_2010.eot");
+    src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("bpg_excelsior_dejavu_2010.woff") format("woff"), url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 1500px) {
+    .sale-main-div {
+        width: 310px;
+        min-height: 640px;
+        background-color: white;
+        display: inline-block;
+        margin-left: 0.5%;
+    }
+
+}

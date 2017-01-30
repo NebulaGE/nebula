@@ -1,0 +1,92 @@
+﻿@model Nebula.Domain.Entities.User
+@{
+    ViewBag.Title = "OldSettings";
+}
+
+<link href="~/Content/intlTelInput.css" rel="stylesheet" />
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="@Url.Action("Index", "All")"><span class="arrow-back"></span></a>
+            <span class="test">რედაქტირება</span>
+            <span class="verbal">პროფილი</span>
+        </div>
+    </div>
+    <div class="row two-cl">
+
+        @if (Model.FacebookId == null && Model.GoogleId == null) {
+            <div class="freeBarArea">
+                <div class="changePass">
+                    <h2>პაროლის შეცვლა</h2>
+                    <form id="change-password-form">
+                        @Html.AntiForgeryToken()
+                        <input type="password" placeholder="ძველი პაროლი" name="OldPassword" id="current-password">
+                        <input type="password" placeholder="ახალი პაროლი" name="NewPassword" id="new-password">
+                        <input type="password" placeholder="გაიმეორეთ პაროლი" id="confirm-password" name="ConfirmPassword">
+                        <div style="position:relative;">
+                            <button id="update-pass" type="submit">განახლება</button>
+                            <img src="~/Content/img/loadingIcon.gif" class="btn-loader" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+
+        <div class="PremiumBarArea">
+            <div class="changePass">
+                <h2>განახლება</h2>
+
+                <form method="post" id="update-user-info-form">
+                    @Html.AntiForgeryToken()
+
+
+
+                    <div class="infoInput">
+                        <input type="text" placeholder="სახელი" name="FirstName" class="geoKeyboard" id="update-firstname" value="@Model.FirstName">
+
+                    </div>
+
+                    <div class="infoInput">
+                        <input type="text" placeholder="გვარი" name="LastName" class="geoKeyboard" id="update-lastname" value="@Model.LastName">
+
+                    </div>
+
+                    <div class="infoInput">
+
+                        @if (Model.Email.StartsWith("defaultFb")) {
+                            <input type="text" placeholder="ელ.ფოსტა" name="Email" id="update-email">
+                        } else {
+                            <input type="text" placeholder="ელ.ფოსტა" name="Email" id="update-email" value="@Model.Email">
+                        }
+
+
+                    </div>
+
+                    <div class="infoInput">
+                        <input type="text" placeholder="პირადი ნომერი" name="IdentificationNumber" id="update-identification-number" value="@Model.IdentificationNumber">
+
+                    </div>
+
+                    <div style="margin-top:20px;">
+                        <input type="tel" placeholder="ტელეფონის ნომერი" name="PhoneNumber" id="update-phone" />
+                    </div>
+
+
+                    <div style="position:relative;">
+                        <button id="update-info" type="submit">განახლება</button>
+                        <img src="~/Content/img/loadingIcon.gif" class="btn-loader" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" id="user-number" value="@Model.PhoneNumber" />
+@section phoneScripts{
+    <script src="~/Scripts/intlTelInput.min.js"></script>
+    <script src="~/Scripts/isValidNumber.js"></script>
+}

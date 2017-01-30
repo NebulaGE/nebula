@@ -1,0 +1,54 @@
+﻿@model IOrderedEnumerable<Nebula.Web.Controllers.Admin.UserAnswersPercentJson>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    @foreach (var question in Model)
+    {
+        <div id="question-nav " class="well">
+
+            <div class="quizAsk">
+
+                <div class="active-question">@Html.Raw(question.Question.QuestionText)</div>
+            </div>
+
+            <div style="margin-top:20px;" class="answers-cont">
+                @foreach (var answer in question.Question.Answers)
+                {
+                    <p style="cursor:pointer;" class="ms-point">
+                        @if (answer.IsCorrect)
+                        {
+                            <span class="ans-span"><b>@Html.Raw(answer.AnswerString)</b></span>
+                        }
+                        else
+                        {
+                            <span class="ans-span">@Html.Raw(answer.AnswerString)</span>
+                        }
+                
+                    </p>
+                }
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>სულ პასუხების რაოდენობა</th>
+                        <th>სწორი პასუხების რაოდენობა</th>
+                        <th>პროცენტი</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @question.count
+                        </td>
+                        <td>
+                            @question.correctAnswersCount
+                        </td>
+                        <td>
+                            @question.percent %
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+
+</div>

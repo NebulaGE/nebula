@@ -1,0 +1,26 @@
+﻿
+<div class="test-main-div">
+    <div class="test-blocks">
+        <div class="circle-filled-test">
+            <div class="test-svg">
+            </div>
+        </div>
+        <div class="text-for-test-blocks" data-bind="text : containerName"></div>
+    </div>
+    <div data-bind="foreach : navigations">
+        
+        <div class="test-blocks" data-bind="click : $parent.navChange.bind($data, {id : id}), css : activeClass()" style="cursor: pointer;">
+
+            <div class="text-test-number" data-bind="text : userAnswersCount() + '/' +questionsCount "></div>
+            @*<div class="cont-circle">
+                <div class="c100 p78 small">
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="text-for-test-blocks" data-bind="text : name"></div>
+        </div>
+    </div>
+</div>

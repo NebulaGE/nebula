@@ -1,0 +1,370 @@
+﻿@{
+
+}
+<style>
+    #chartContainer{
+        height: 300px;
+        width:100%;
+    }
+    .not-allowed{
+        cursor:not-allowed !important;
+    }
+</style>
+
+
+<div class="container for-mr cs-loading" style="display:none; padding-bottom:15px;">
+    <div class="col-sm-12" data-bind="visible: showSample() != null">
+        <div class="messageForRowsPage">
+            <p class="MessageParagrap">
+
+                <span class="danger"></span>
+                <span class="text">ყურადღებით - დაახლოებით ასეთი იქნება თქვენი ანალიტიკის გვერდი. თუ გსურთ ანალიტიკური ალგორითმით სარგებლობა, შეიძინეთ სრული კურსი</span>
+                <a href="@Url.Action("Index", "Payment")"><button class="buy">კურსის ყიდვა</button></a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-4">
+            <div class="userArea">
+                <div class="userPic">
+                   
+                    <img  data-bind="attr : { src : iconSrc }">
+                  
+                </div>
+                <span data-bind="text : fullName"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div id="chartContainer" style="height: 300px; width: 100%; display:none;" >
+            </div>
+        
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-8" style="padding-left: 0px;">
+                    <div class="useroabenelsparagraps">
+                        <h2>შეტყობინებები</h2>
+
+                        <div data-bind="foreach : notifications" >
+                   
+
+                            <div class="user-par transition">
+                                <div class="forClickAn transitionForClickRotate">
+                                    <p data-bind="html : text">
+
+                                    </p>
+                                </div>
+                                <span class="colapsee">
+                                    <span class="transitionForClickRotate whit-dw"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                      
+
+                        <p data-bind="visible : notifications().length == 0">შეტყობინებები ცარიელია</p>
+                        <a href="@Url.Action("Notifications", "User")" data-bind="visible : notifications().length > 0" style="margin-top:15px;"> <button>ყველა შეტყობინება</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="allexam">
+
+                <h2>ტესტები</h2>
+                <div class="row artboardpanel">
+
+
+                    <div data-bind="foreach: userQuizzes">
+
+                        <a data-bind="attr : { href :  $root.showSample() != null ? '#' : url  }, css : { 'not-allowed' : $root.showSample() != null }">
+                            <div class="col-sm-4">
+                                <div class="artBoard" style="margin-top:0;">
+                                    <div class="leftBlock">
+                                        <p class="firstpar" data-bind="text : examNum"></p>
+                                        <p class="secpar">გამოცდა</p>
+                                    </div>
+                                    <div class="rightBlock">
+                                        <div class="two-bl">
+                                            <div class="firstBlock">
+                                                <span class="CountTrueAnswer" data-bind="text: correctAnswersCount"></span>
+                                                <span class="TrueAnswer">სწორი პასუხი</span>
+                                            </div>
+                                            <div class="secBlock">
+                                                <span class="FalseeAnswer" data-bind="text : date"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="BlueBlock"></div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <p  data-bind="visible: userQuizzes().length == 0" >გამოცდა არ გაქვთ გაკეთებული</p>
+                <a href="@Url.Action("AllExams", "User")" data-bind="visible: userQuizzes().length >0,
+                                                                     css : { 'not-allowed' : showSample() != null},
+                                                                     attr : { href : showSample() != null ? '#' : U + 'User/AllExams' }"><button style="margin-left:0;" data-bind="css : { 'not-allowed' : showSample() != null}">ყველა ტესტი</button></a>
+            </div>
+        </div>
+
+        <!-- video bar area -->
+
+        <div class="row">
+            <div class="all-exs-bl">
+                <h2 class="theor-exams">თეორიული სავარჯიშოები</h2>
+                <div class="col-sm-6">
+                    <div class="leftOlPanel" data-bind="visible : firstThreeVideos().length > 0 ">
+                        <ul data-bind="foreach: firstThreeVideos">
+
+
+                            <li data-bind="click : $root.goToVideo.bind($data, {id : id})">
+                                <!-- ko if: !isPayed || $root.hasLicense() -->
+                                <span data-bind=" attr : {'data-progress' : percent}" class="background-by-progress"></span>
+                                <span class="percentageVideo" data-bind=" attr : { id : 'circles-'+ index}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                        <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 1 1 39.949302232260386 3.500035209108127 Z"></path>
+                                        <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 0 1 59.07174573163989 71.12103010421852 "></path>
+                                    </svg>
+                                    <span class="circles-integer"></span>
+                                </span>
+
+                                <a data-bind="text : name"></a>
+                                <!-- /ko -->
+
+                                <!-- ko if: isPayed && !$root.hasLicense() -->
+                                <span data-bind="css : {  'block' : isPayed,  }, attr : { id : 'circles-'+ index }"></span>
+                                <a data-bind="text : name"></a>
+                                <!-- /ko -->
+                             
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="leftOlPanel" data-bind="visible : firstThreeVideos().length > 0 ">
+                        <ul data-bind="foreach: secondThreeVideos">
+                            <li data-bind="click : $root.goToVideo.bind($data, {id : id})">
+                                <!-- ko if: !isPayed || $root.hasLicense() -->
+                                <span  data-bind=" attr : {'data-progress' : percent}" class="background-by-progress"></span>
+                                <span class="percentageVideo" data-bind=" attr : { id : 'circles-'+ index}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                        <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 1 1 39.949302232260386 3.500035209108127 Z"></path>
+                                        <path class="background-by-progress" stroke-width="7" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 0 1 59.07174573163989 71.12103010421852 "></path>
+                                    </svg>
+                                    <span class="circles-integer"></span>
+                                </span>
+
+                                <a data-bind="text : name"></a>
+                                <!-- /ko -->
+                                <!-- ko if: isPayed && !$root.hasLicense() -->
+                                <span data-bind="css : {  'block' : isPayed,  }, attr : { id : 'circles-'+ index }"></span>
+                                <a data-bind="text : name"></a>
+                                <!-- /ko -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p data-bind="visible: firstThreeVideos().length == 0" style="margin-left:15px;">სტატისტიკისთვის გასათვალისწინებელი არცერთი გამოცდა არ გაქვთ გაკეთებული </p>
+            <a href="@Url.Action("index", "video", new { ModuleId = 1 })"><button class="all-tero-ts" style="margin-left:15px;">ყველა თეორიული ტესტი</button></a>
+        </div>
+        <!-- video bar area -->
+    </div>
+
+
+</div>
+
+   @Html.Partial("~/Views/Ajax/UserScores.cshtml")
+
+    <!-- tests area -->
+
+        @section scripts{
+<script src="~/Scripts/canvasjs.min.js"></script>
+<script src="~/Scripts/circles.min.js"></script>
+<script>
+                pageLoading(true);
+                    
+                    function userQuizzesViewModel() {
+                        var self = this;
+                        self.correctAnswersCount = 0;
+                        self.incorrectAnswersCount = 0;
+                        self.examNum = 0;
+                        self.date = '';
+                        self.url = '';
+                    }
+                    function userPanlenViewModel() {
+                        var self = this;
+                        self.fullName = ko.observable('');
+                        self.showSample = ko.observable(null);
+                        self.facebookId = ko.observable(null);
+                        self.iconSrc = ko.observable(U + 'Content/img/user.png')
+                        self.hasLicense = ko.observable(false);
+                        self.scores = ko.observableArray();
+                        self.expectedScore = ko.observable();
+                        self.expectedPercent = ko.observable();
+                        self.resultViewhelper = ko.observable(3);
+                        self.notifications = ko.observableArray();
+                        self.userQuizzes = ko.observableArray();
+                        circles = [];
+                        self.color = ['#BEE3F7', '#45AEEA'];
+                        self.firstThreeVideos = ko.observableArray();
+                        self.secondThreeVideos = ko.observableArray();
+
+                        self.goToVideo = function (item) {
+                            location = U + 'video/index?ModuleId=' + item.id;
+                        }
+                      
+                        $.getJSON(U + 'User/UserPanelData', function (response) {
+
+                  
+                            self.showSample(response.showSample);
+                            if (response.showSample) {
+                                self.fullName("სახელი გვარი");
+                            } else {
+                                self.fullName(response.fullName);
+                            }
+                            if (response.facebookId)
+                                self.iconSrc("https://graph.facebook.com/"+response.facebookId+"/picture?width=90&amp;height=90");
+
+                            self.facebookId(response.facebookId);
+                          
+                            $.each(response.userQuizzes, function (i, v) {
+                                var examNum = '0' + (i + 1);
+
+                                var model = new userQuizzesViewModel();
+                                model.examNum = examNum;
+                                model.date = v.date;
+                                model.correctAnswersCount = v.correctAnswersCount;
+                                model.incorrectAnswersCount = v.incorrectAnswersCount;
+                                model.date = v.date;
+                                model.url = U + 'Exam/Result?quizId=' + v.id + '&returnUrl=' + U + 'User/Panel';
+                                self.userQuizzes.push(model);
+
+                            });
+
+                            ko.utils.arrayForEach(response.verbalResult, function (item) {
+                                self.scores.push({ module: item.module, percent: Math.round(item.percent) });
+                            });
+                         
+                            ko.utils.arrayForEach(response.mathResult, function (item) {
+                                self.scores.push({ module: item.module, percent: Math.round(item.percent) });
+                            });
+
+                            self.expectedScore(Math.round(response.expectedScore));
+
+                            self.expectedPercent(Math.round(self.expectedScore() / 80 * 100));
+
+                            self.hasLicense(response.hasLicense);
+
+                            $.each(response.finalResult, function (i, v) {
+                                if (i <= 2) {
+                                    self.firstThreeVideos.push({ name: v.name, id: v.id, percent: Math.round(v.percent), isPayed : v.isPayed, index : i });
+                                } else {
+                                    self.secondThreeVideos.push({ name: v.name, id: v.id, percent: Math.round(v.percent), isPayed: v.isPayed, index : i });
+                                }
+
+                                if (!v.isPayed || response.hasLicense) {
+                                    var child = document.getElementById('circles-' + i);
+
+                                    circles.push(Circles.create({
+                                        id: child.id,
+                                        value: v.percent,
+                                        radius: 30,
+                                        width: 5,
+                                        colors: self.color
+                                    }));
+                                }
+                             
+                            });
+
+                            console.log('notifications', response.notifications);
+                            
+                            self.notifications(response.notifications);
+                            
+                            setTimeout(function () {
+                                var dataPoints = [];
+                                if (response.userQuizzesChart.length) {
+                                    var interval = response.userQuizzesChart.length;
+                                    $('#chartContainer').show();
+                                    $.each(response.userQuizzesChart, function (i, v) {
+                                       
+                                        //ex   { x: new Date(2016, 02, 2), y: 36 },
+                                        //if (v.month < 10)
+                                        //    v.month = (parseInt('0' + v.month, 10));
+                                     
+                                        console.log('year', v.year);
+                                        console.log('day', v.day);
+                                        console.log('month', v.month);
+                                        dataPoints.push({ x: new Date(v.year, v.month, v.day), y: v.score });
+                                        
+                                 
+
+                                    });
+                                    console.log('datapoints', dataPoints);
+                                    CanvasJS.addCultureInfo("ka",
+                                            {
+                                                        
+                                                shortMonths: ["იანვარი", "თებერვალი", "მარტი", "აპრილი", "მაისი", "ივნისი", "ივლისი", "აგვისტო", "სექტემბერი", "ოქტომბერი"
+                                                    , "ნოემბერი", "დეკემბერი"]
+
+                                            });
+                                    var chart = new CanvasJS.Chart("chartContainer",
+                                         {
+                                             culture: "ka",
+
+                                             title: {
+                                                 text: "ყველა გამოცდა"
+                                             },
+                                             axisY: {
+                                                 title: "ქულა",
+                                                 
+                                             },
+                                             axisX: {
+                                                 valueFormatString: "DD-MMM",
+                                                 labelAngle: -50,
+                                                 interval: 1
+                                             },
+                                             data: [
+                                             {
+                                                 type: "line",
+
+                                                 dataPoints: dataPoints
+                                             }
+                                             ]
+                                         });
+
+                                    chart.render();
+                                }
+                            }, 500);
+
+
+                        }).done(function () {
+                           
+                            initPlayButtonsColor();
+                            collapseClick();
+                            pageLoading(false);
+                        });
+
+
+                      
+
+
+
+                    }
+
+                 
+            
+                    ko.applyBindings(new userPanlenViewModel());
+                
+            </script>
+}

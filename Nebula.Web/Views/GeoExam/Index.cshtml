@@ -1,0 +1,307 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/assetsNew/css/test.css" rel="stylesheet" />
+<script src="http://cdn.ckeditor.com/4.5.7/standard-all/ckeditor.js"></script>
+
+<div class="main-div">
+    <a href="@Url.Action("Index", "GeoMain")">
+        <div class="black-div">
+            <div class="arrow-back"></div>
+            <div class="text-back" data-bind="text : 'ტესტი '+ testNumber()"></div>
+            <div class="text-course-name-qartuli">ქართული</div>
+            <span class="clock">
+                <span class="timer"></span>
+            </span>
+            <button class="end" style="height:30px;padding-top:0px;" data-bind="click : confirmGameOver">დასრულება</button>
+        </div>
+    </a>
+
+    <div class="main-background">
+        <div class="burger-menu-video">
+            <div class="burger-line-top-video"></div>
+            <div class="burger-line-middle-video"></div>
+            <div class="burger-line-bottom-video"></div>
+        </div>
+        <div class="test-main-div1">
+            <div class="video-blocks-qartuli" data-bind="click : goToTextEditing">
+                <div class="text-for-blocks-qartuli">ტექსტის რედაქტირება</div>
+            </div>
+            <div class="video-blocks-qartuli" data-bind="click : goToEssay" >
+                <div class="text-for-blocks-qartuli">არგუმენტირებული ესე</div>
+            </div>
+      
+            @*<div class="video-blocks-qartuli">
+                <div class="text-for-blocks-qartuli">წაკითხულის გააზრება</div>
+            </div>*@
+            <div class="video-blocks-qartuli" id="slide-toggle-poetry" >
+                <div class="text-for-blocks-qartuli">წაკითხულის გააზრება I</div>
+            </div>
+            <div id="poetry-content" style="display:none;">
+                <div class="video-pre-blocks-unarebi" data-bind="click : goToPoetry">
+                    <div class="text-proza-poezia">ტექსტი</div>
+                </div>
+
+                <div data-bind="foreach :poetry() && poetry().questions ">
+                    <div class="video-pre-blocks-unarebi" data-bind="click : $root.goToPoetryQuestion.bind($data, {index : $index()})">
+                        <div class="text-pre-video-length-unarebi" data-bind="text : ($index() + 1) + '.'"></div>
+                        <div class="text-for-pre-blocks-unarebi three-dot" data-bind="text : plainText"></div>
+                        <div class="pre-circle-went-unarebi"><div class="numbers-right-went-unarebi" data-bind="text : answerLetter">?</div></div>
+                    </div>
+
+                </div>
+
+                @*<div class="video-pre-blocks-unarebi" data-bind="click : goToPoetryTheme">
+                    <div class="text-proza-poezia">თემა</div>
+                </div>*@
+            </div>
+
+            <div class="video-blocks-qartuli" id="slide-toggle-prose" >
+                <div class="text-for-blocks-qartuli">წაკითხულის გააზრება II</div>
+            </div>
+            <div id="prose-content" style="display:none;">
+                <div class="video-pre-blocks-unarebi" data-bind="click : goToProse">
+                    <div class="text-proza-poezia">ტექსტი</div>
+                </div>
+                <div data-bind="foreach :prose() && prose().questions ">
+                    <div class="video-pre-blocks-unarebi" data-bind="click :
+                $root.goToProseQuestion.bind($data, {index : $index()})">
+                        <div class="text-pre-video-length-unarebi" data-bind="text : ($index() + 1 ) + '.'"></div>
+                        <div class="text-for-pre-blocks-unarebi three-dot" data-bind="text : plainText"></div>
+                        <div class="pre-circle-went-unarebi"><div class="numbers-right-went-unarebi" data-bind="text : answerLetter">?</div></div>
+                    </div>
+                </div>
+                @*<div class="video-pre-blocks-unarebi" data-bind="click : goToProseTheme">
+                    <div class="text-proza-poezia">თემა</div>
+                </div>*@
+            </div>
+            @*<div class="video-blocks-qartuli">
+                <div class="text-for-blocks-qartuli">მხატვრული ტექტის ანალიზი</div>
+            </div>*@
+       
+            <div class="video-blocks-qartuli" data-bind="click : goToUserTheme">
+                <div class="text-for-blocks-qartuli">მხატვრული ტექსტის ანალიზი</div>
+            </div>
+
+        </div>
+        <div class="question-main-div">
+
+           @* TEXT EDITING*@
+            <div data-bind="style : {'display' :  activePart() =='textEditing' ? 'block' : 'none'}">
+                <div class="text-div-gramatika" >
+                    <div class="text-gramatika" data-bind="html : textEditing() &&  textEditing().text">ორთაჭალა თბილისის ძველი უბანია.</div>
+                </div>
+
+                <textarea id="text-editing" name="textediting" class="text-input-gramatika"></textarea>
+            </div>
+      
+
+            @*END  TEXT EDITING*@
+
+            @* Essay*@
+            <div data-bind="style : {'display' :  activePart() =='essay' ? 'block' : 'none'}">
+
+
+                <div class="text-div-gramatika"  >
+                    <div class="text-gramatika" data-bind="html : essay() &&  essay().text"></div>
+                </div>
+                <textarea id="essay" name="essay" class="text-input-gramatika" 
+                          data-bind="html : essay() &&  essay().userText" ></textarea>
+            </div>
+            @*END  Essay*@
+
+
+
+
+
+            @* User theme*@
+            <div data-bind="style : {'display' :  activePart() =='userTheme' ? 'block' : 'none'}">
+
+               
+
+                <div class="text-div-gramatika" >
+                    <h3 style="text-align:center;">აირჩიეთ ორი თემიდან ერთ-ერთი</h3>
+                    <div class="text-gramatika" data-bind="with : poetry">
+                        <p data-bind="html : point1"></p>
+                        <p data-bind="html : point2"></p>
+                        <p data-bind="html : point3"></p>
+                    </div>
+                    <hr />
+                    <div class="text-gramatika" data-bind="with : prose">
+                        <p data-bind="html : point1"></p>
+                        <p data-bind="html : point2"></p>
+                        <p data-bind="html : point3"></p>
+                    </div>
+                </div>
+             
+          
+                <textarea id="user-theme" name="userTheme" class="text-input-gramatika"></textarea>
+            </div>
+            @*END  User theme*@
+
+            @* Poetry  Active Question *@
+            <div data-bind="style : {'display' :  activePart() =='poetry' && poetry() && !poetry().showText() ? 'block' : 'none'}" >
+                <div data-bind="with : poetry() && poetry().activeQuestion">
+                    <div class="question-div">
+                        <div class="text-question-div">
+                            <div class="text-question1" data-bind="html : text"></div>
+                        </div>
+                    </div>
+                    <div class="answers-div" data-bind="foreach : answers">
+                        <div class="answer-div" data-bind="click : $root.setAnswer.bind($data, {id : id})">
+                            <div class="variants" data-bind="css : {'variants-selected' : id == $parent.userAnswerid()}">
+                                <div 
+
+                                     data-bind="text : utils.getLetterByIndex($index()),
+                                     css : {'variant-char-white' : id == $parent.userAnswerid() , 
+                                      'variant-char-gray' : id != $parent.userAnswerid() }"></div>
+                            </div>
+                            <div class="text-answer1" data-bind="html : text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* End Poetry Active Question*@
+
+            @* Prose Active Question*@
+            <div data-bind="style : {'display' :  activePart() =='prose' && prose() && !prose().showText() ? 'block' : 'none'}">
+                <div data-bind="with : prose() && prose().activeQuestion">
+                    <div class="question-div">
+                        <div class="text-question-div">
+                            <div class="text-question1" data-bind="html : text"></div>
+                        </div>
+                    </div>
+                    <div class="answers-div" data-bind="foreach : answers">
+                        <div class="answer-div" data-bind="click : $root.setAnswer.bind($data, {id : id})" >
+                            <div class="variants" data-bind="css : {'variants-selected' : id == $parent.userAnswerid()}">
+                                <div class="variant-char-gray"
+                                     data-bind="text : utils.getLetterByIndex($index()),css : {'variant-char-white' : id == $parent.userAnswerid()}"></div>
+                            </div>
+                            <div class="text-answer1" data-bind="html : text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* End Prose Question*@
+
+
+            @* Poetry Text*@
+              <div class="text-question-div1" data-bind="style : {'display' :  activePart()  == 'poetry' && poetry() && poetry().showText() ? 'block' : 'none'}">
+                <div class="text-question2" >
+                    <h3 style="text-align:center;" data-bind="html : poetry() &&  poetry().title"></h3>
+                    <div data-bind="html : poetry() &&  poetry().text"></div>
+                </div>
+            </div>
+            @* End Poetry Text*@
+
+            @* Prose Text*@
+            <div class="text-question-div1"  data-bind="style : {'display' :  activePart() =='prose' && prose() && prose().showText() ? 'block' : 'none'}">
+                <div class="text-question2" >
+                    <h3 style="text-align:center;" data-bind="html : prose() &&  prose().title"></h3>
+                    <div data-bind="html : prose() &&  prose().text"></div>
+                </div>
+            </div>
+            @* End Prose Text*@
+
+        
+
+
+        </div>
+    </div>
+    <div class="progress-main-div">
+        @*Poetry question navigation*@
+        <div class="progress-div-child" style="margin-top:22px;margin-right:14.7%;" data-bind="style : {'display' :  activePart() =='poetry' && poetry() && !poetry().showText() ? 'block' : 'none'}">
+            <button class="next-button1"
+                        data-bind="click : letPoetryNext() ?   getPoetryNextQuestion : null,
+                          style : {'cursor' : letPoetryNext() ? 'pointer' : 'not-allowed'} ">
+                    <div class="text-previuos-next2">შემდეგი</div>
+                </button>
+                <button class="previous-button1" data-bind="click : letPoetryPrev() ?   getPoetryPrevQuestion : null,
+                          style : {'cursor' : letPoetryPrev() ? 'pointer' : 'not-allowed'} ">
+                    <div class="text-previuos-next2">წინა</div>
+                </button>
+            <button class="view-text" data-bind="click : showPoetryText">
+                <div class="text-previuos-next1">პირობის ნახვა</div>
+            </button>
+        </div>
+        @*End Poetry question navigation*@
+
+        @*Prose question navigation*@
+        <div class="progress-div-child" data-bind="style : {'display' :  activePart() =='prose' && prose() && !prose().showText() ? 'block' : 'none'}">
+            <button class="next-button1"
+                         data-bind="click : letProseNext() ?   $root.getProseNextQuestion : null,
+                          style : {'cursor' : letProseNext() ? 'pointer' : 'not-allowed'} ">
+                    <div class="text-previuos-next2" >შემდეგი</div>
+                </button>
+                <button class="previous-button1"  data-bind="click : letProsePrev() ?   getProsePrevQuestion : null,
+                          style : {'cursor' : letProsePrev() ? 'pointer' : 'not-allowed'} ">
+                    <div class="text-previuos-next2">წინა</div>
+                </button>
+            <button class="view-text" data-bind="click : showProseText">
+                <div class="text-previuos-next1">პირობის ნახვა</div>
+            </button>
+        </div>
+        @*End Prose question navigation*@
+
+
+        @*Prose text navigation*@
+        <div class="progress-div-child1"
+             data-bind="style : {'display' :  activePart() =='prose' && prose() && prose().showText() ? 'block' : 'none'},
+            foreach : prose() && prose().questions  ">
+            <a href="javascript;" data-bind="click : $root.goToProseQuestion.bind($data, {index : $index()}), text : ($index() + 1) + '.'"></a>
+        </div>
+
+        @*END Poetry text navigation*@
+
+        @*Prose text navigation*@
+        <div class="progress-div-child1"
+             data-bind="style : {'display' :  activePart() =='poetry' && poetry() && poetry().showText() ? 'block' : 'none'},
+            foreach : poetry() && poetry().questions  ">
+            <a href="javascript;" >
+                <div class="circle-page-nation" data-bind="click : $root.goToPoetryQuestion.bind($data, {index : $index()}), text : ($index() + 1)">
+                </div>
+            </a>
+        </div>
+
+        @*END Prose text navigation*@
+
+        @*Prose text saves*@
+        <div class="progress-div-child-save" data-bind="style : {'display' :  activePart() =='textEditing' ? 'block' : 'none'}">
+            <button class="save-text" data-bind="click : saveTextEditing">
+                <div class="text-previuos-next1">შენახვა</div>
+            </button>
+        </div>
+
+        <div class="progress-div-child-save" data-bind="style : {'display' :  activePart() =='essay' ? 'block' : 'none'}">
+            <button class="save-text" data-bind="click : saveEssay">
+                <div class="text-previuos-next1">შენახვა</div>
+            </button>
+        </div>
+
+  
+
+
+        <div class="progress-div-child-save" data-bind="style : {'display' :  activePart() =='userTheme' ? 'block' : 'none'}">
+            <button class="save-text" data-bind="click : saveUserTheme">
+                <div class="text-previuos-next1">შენახვა</div>
+            </button>
+        </div>
+
+        @*Prose text saves*@
+    </div> 
+</div>
+
+
+<div class="fb-main-div">
+    <img src="assets/img/fb-comments.png" class="fb-comments">
+</div>
+
+
+
+@*@Html.Partial("_FooterPartial", 2)*@
+
+@section scripts{
+<script src="~/Js/geo/exam.js"></script>
+}
+

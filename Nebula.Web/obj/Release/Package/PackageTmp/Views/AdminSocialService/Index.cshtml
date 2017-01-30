@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+  <input type="text" name="privateNumber" class="form-control" style="display:inline;"  id="pvt-number"/>
+  <input type="submit" class="btn btn-default" value="ძებნა" id="soc-search" />
+<div id="rs">
+
+</div>
+@section scripts{
+    <script> 
+        $('#soc-search').on('click', function () {
+            $.getJSON(U + 'AdminSocialService/GetSocialData', { privateNumber: $('#pvt-number').val() }, function (r) {
+                var html = '<p> isInRange : ' + r.isInRange + '</p>' +
+                           '<p> privateNumber : ' + r.privateNumber + '</p>' +
+                           '<p> resultStatusCode : ' + r.resultStatusCode + '</p>' +
+                           '<p> resultStatusDescription : ' + r.resultStatusDescription + '</p>';
+
+                $('#rs').html(html);
+            });
+        });
+    </script>
+}

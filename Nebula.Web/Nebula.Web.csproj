@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B4E6783-233C-4B89-B329-1991D7ED272C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nebula.Web</RootNamespace>
+    <AssemblyName>Nebula.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoAuthorWorkPartsController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoAuthorWorksController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoEssaysController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoGrammarSubTagsController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoQuestionController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoTextAnalisysController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoTextEditingsController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoVideoController.cs" />
+    <Compile Include="Controllers\Admin\AdminGetDataToWordFileController.cs" />
+    <Compile Include="Controllers\Admin\AdminAboutNebulaController.cs" />
+    <Compile Include="Controllers\Admin\AdminCompetitionsController.cs" />
+    <Compile Include="Controllers\Admin\AdminCuponsController.cs" />
+    <Compile Include="Controllers\Admin\AdminGetUserScoresController.cs" />
+    <Compile Include="Controllers\Admin\AdminGlobalController.cs" />
+    <Compile Include="Controllers\Admin\AdminCSModulesController.cs" />
+    <Compile Include="Controllers\Admin\AdminCSQuestionsController.cs" />
+    <Compile Include="Controllers\Admin\AdminCSTagsController.cs" />
+    <Compile Include="Controllers\Admin\AdminNewsController.cs" />
+    <Compile Include="Controllers\Admin\AdminPirobebiController.cs" />
+    <Compile Include="Controllers\Admin\AdminQuizSkeletonsController.cs" />
+    <Compile Include="Controllers\Admin\AdminSocialServiceController.cs" />
+    <Compile Include="Controllers\Admin\AdminSocialUsersController.cs" />
+    <Compile Include="Controllers\Admin\AdminTaggingHierarchiesController.cs" />
+    <Compile Include="Controllers\Admin\AdminTeachersController.cs" />
+    <Compile Include="Controllers\Admin\AdminTransactionsController.cs" />
+    <Compile Include="Controllers\Admin\AdminUsersController.cs" />
+    <Compile Include="Controllers\Admin\AdminVideosController.cs" />
+    <Compile Include="Controllers\Admin\AdminQuestionInfoesController.cs" />
+    <Compile Include="Controllers\Admin\AdminExplantationVideosController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoAuthorsController.cs" />
+    <Compile Include="Controllers\Admin\AdminGeoGrammarTagsController.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\CS\CSMainController.cs" />
+    <Compile Include="Controllers\CS\ExamController.cs" />
+    <Compile Include="Controllers\ExcellController.cs" />
+    <Compile Include="Controllers\CS\CSExercisesController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Geo\GeoExamController.cs" />
+    <Compile Include="Controllers\Geo\GeoExercisesController.cs" />
+    <Compile Include="Controllers\Geo\GeoMainController.cs" />
+    <Compile Include="Controllers\Geo\GeoVideoController.cs" />
+    <Compile Include="Controllers\Helper2Controller.cs" />
+    <Compile Include="Controllers\HelperController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyTeachersController.cs" />
+    <Compile Include="Controllers\NebulaLoginController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\NOVAPayController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PrivateBalanceController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\TestController\VideoJournalController.cs" />
+    <Compile Include="Controllers\UpdateSessionsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\CS\CSVideoController.cs" />
+    <Compile Include="Controllers\VideoStreamController.cs" />
+    <Compile Include="Filters\Authorize.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BusinessLogic\CuponManager.cs" />
+    <Compile Include="Models\BusinessLogic\NOVAPay.cs" />
+    <Compile Include="Models\BusinessLogic\QuizHelper.cs" />
+    <Compile Include="Models\BusinessLogic\TBCPay.cs" />
+    <Compile Include="Models\BusinessLogic\UserLicenseManager.cs" />
+    <Compile Include="Models\CustomException.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Repositories\UserRepository.cs" />
+    <Compile Include="Models\ViewModels\QuestionAnswerJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\QuestionTimeJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\QuizInfoJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\QuizResultViewModel.cs" />
+    <Compile Include="Models\ViewModels\ReviewQuestionsJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\ModulesPercentJson.cs" />
+    <Compile Include="Models\ViewModels\TagScoreAlgorithmJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\TaskWithMultipleQuestionViewModel.cs" />
+    <Compile Include="Models\ViewModels\QuizViewModel.cs" />
+    <Compile Include="Models\ViewModels\QuizResulByTagtViewModel.cs" />
+    <Compile Include="Models\ViewModels\UserTagScoresJsonHelper.cs" />
+    <Compile Include="Models\ViewModels\VideoPartExerciseViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\Enums.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="VideoHelper\VideoResult.cs" />
+    <Compile Include="VideoHelper\VideoStream.cs" />
+    <Compile Include="Web References\SocialService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2005-1.xml" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\assetsNew\css\about.css" />
+    <Content Include="Content\assetsNew\css\bootstrapgrid.css" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_caps_dejavu_2010.eot" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_caps_dejavu_2010.otf" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_caps_dejavu_2010.svg" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_caps_dejavu_2010.woff" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_caps_dejavu_2010.woff2" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.eot" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.otf" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.svg" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.ttf" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.woff" />
+    <Content Include="Content\assetsNew\css\bpg_excelsior_dejavu_2010.woff2" />
+    <Content Include="Content\assetsNew\css\buycourse.css" />
+    <Content Include="Content\assetsNew\css\chart.css" />
+    <Content Include="Content\assetsNew\css\congrats.css" />
+    <Content Include="Content\assetsNew\css\enter.css" />
+    <Content Include="Content\assetsNew\css\header.css" />
+    <Content Include="Content\assetsNew\css\main.css" />
+    <Content Include="Content\assetsNew\css\news.css" />
+    <Content Include="Content\assetsNew\css\nika-style.css" />
+    <Content Include="Content\assetsNew\css\packets.css" />
+    <Content Include="Content\assetsNew\css\payment.css" />
+    <Content Include="Content\assetsNew\css\redaqtireba.css" />
+    <Content Include="Content\assetsNew\css\sale.css" />
+    <Content Include="Content\assetsNew\css\secondpage.css" />
+    <Content Include="Content\assetsNew\css\social.css" />
+    <Content Include="Content\assetsNew\css\social.html" />
+    <Content Include="Content\assetsNew\css\test.css" />
+    <Content Include="Content\assetsNew\css\thirdpage.css" />
+    <Content Include="Content\assetsNew\css\videoJournal.css" />
+    <Content Include="Content\assetsNew\img\arrow-chart.svg" />
+    <Content Include="Content\assetsNew\img\arrow-down.png" />
+    <Content Include="Content\assetsNew\img\arrow-left.png" />
+    <Content Include="Content\assetsNew\img\arrow-more.png" />
+    <Content Include="Content\assetsNew\img\arrow.png" />
+    <Content Include="Content\assetsNew\img\background-chart.png" />
+    <Content Include="Content\assetsNew\img\background.png" />
+    <Content Include="Content\assetsNew\img\bankofgeorgia.png" />
+    <Content Include="Content\assetsNew\img\beardman.png" />
+    <Content Include="Content\assetsNew\img\chart-point.svg" />
+    <Content Include="Content\assetsNew\img\chart.png" />
+    <Content Include="Content\assetsNew\img\check.png" />
+    <Content Include="Content\assetsNew\img\circle-label.png" />
+    <Content Include="Content\assetsNew\img\circlee.png" />
+    <Content Include="Content\assetsNew\img\circlex.png" />
+    <Content Include="Content\assetsNew\img\exam.svg" />
+    <Content Include="Content\assetsNew\img\exercises.svg" />
+    <Content Include="Content\assetsNew\img\fb-about.svg" />
+    <Content Include="Content\assetsNew\img\fb-comments.png" />
+    <Content Include="Content\assetsNew\img\fb-logoo.png" />
+    <Content Include="Content\assetsNew\img\fb.png" />
+    <Content Include="Content\assetsNew\img\fb.svg" />
+    <Content Include="Content\assetsNew\img\footer.png" />
+    <Content Include="Content\assetsNew\img\forest.png" />
+    <Content Include="Content\assetsNew\img\G+.svg" />
+    <Content Include="Content\assetsNew\img\gamocdis-simulacia.svg" />
+    <Content Include="Content\assetsNew\img\glasswoman.png" />
+    <Content Include="Content\assetsNew\img\googlePlus-logo.png" />
+    <Content Include="Content\assetsNew\img\Google.svg" />
+    <Content Include="Content\assetsNew\img\googlePlus.png" />
+    <Content Include="Content\assetsNew\img\green-mark.png" />
+    <Content Include="Content\assetsNew\img\images\1482209881_10.svg" />
+    <Content Include="Content\assetsNew\img\images\5a_03.png" />
+    <Content Include="Content\assetsNew\img\images\play-video.png" />
+    <Content Include="Content\assetsNew\img\images\visa.png" />
+    <Content Include="Content\assetsNew\img\iscorrect.png" />
+    <Content Include="Content\assetsNew\img\isnotcorrect.png" />
+    <Content Include="Content\assetsNew\img\Layer-1-copy-2.png" />
+    <Content Include="Content\assetsNew\img\Layer-14.png" />
+    <Content Include="Content\assetsNew\img\Layer-2.png" />
+    <Content Include="Content\assetsNew\img\leavingstone.png" />
+    <Content Include="Content\assetsNew\img\link.png" />
+    <Content Include="Content\assetsNew\img\lock.png" />
+    <Content Include="Content\assetsNew\img\logout.png" />
+    <Content Include="Content\assetsNew\img\man.png" />
+    <Content Include="Content\assetsNew\img\nebul-logo.svg" />
+    <Content Include="Content\assetsNew\img\nebula-logo.png" />
+    <Content Include="Content\assetsNew\img\nebula.svg" />
+    <Content Include="Content\assetsNew\img\nebullogo.png" />
+    <Content Include="Content\assetsNew\img\offer-label.png" />
+    <Content Include="Content\assetsNew\img\paybox.png" />
+    <Content Include="Content\assetsNew\img\play-video.png" />
+    <Content Include="Content\assetsNew\img\savarjishoebi.svg" />
+    <Content Include="Content\assetsNew\img\save.png" />
+    <Content Include="Content\assetsNew\img\send.png" />
+    <Content Include="Content\assetsNew\img\skiparrow.png" />
+    <Content Include="Content\assetsNew\img\slider.png" />
+    <Content Include="Content\assetsNew\img\smileman.png" />
+    <Content Include="Content\assetsNew\img\smileman1.png" />
+    <Content Include="Content\assetsNew\img\star.png" />
+    <Content Include="Content\assetsNew\img\star.svg" />
+    <Content Include="Content\assetsNew\img\star1.png" />
+    <Content Include="Content\assetsNew\img\star1.svg" />
+    <Content Include="Content\assetsNew\img\sunrise.png" />
+    <Content Include="Content\assetsNew\img\sunset.png" />
+    <Content Include="Content\assetsNew\img\test.svg" />
+    <Content Include="Content\assetsNew\img\text.png" />
+    <Content Include="Content\assetsNew\img\timer-logo.png" />
+    <Content Include="Content\assetsNew\img\true.png" />
+    <Content Include="Content\assetsNew\img\twiter.png" />
+    <Content Include="Content\assetsNew\img\video-logo.png" />
+    <Content Include="Content\assetsNew\img\video-logo.svg" />
+    <Content Include="Content\assetsNew\img\videobackground.png" />
+    <Content Include="Content\assetsNew\img\visa.png" />
+    <Content Include="Content\assetsNew\img\woman.png" />
+    <Content Include="Content\assetsNew\img\wrong.png" />
+    <Content Include="Content\assetsNew\img\x.png" />
+    <Content Include="Content\assetsNew\js\chart.js" />
+    <Content Include="Content\assetsNew\js\my.js" />
+    <Content Include="Content\assets\docs.js" />
+    <Content Include="Content\assets\docs.svg" />
+    <Content Include="Content\assets\plyr.css" />
+    <Content Include="Content\assets\plyr.js" />
+    <Content Include="Content\assets\sprite.svg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\fonts\BPG Web\BPGWEB001.svg" />
+    <Content Include="Content\fonts\bpg-web-001-caps\bpg-web-001-caps.svg" />
+    <Content Include="Content\fonts\gotham-bold\gothambold.svg" />
+    <Content Include="Content\img\clossePng.png" />
+    <Content Include="Content\img\coverBeg.jpg" />
+    <Content Include="Content\img\false.png" />
+    <Content Include="Content\img\flags%402x.png" />
+    <Content Include="Content\img\flags.png" />
+    <Content Include="Content\img\formul.jpg" />
+    <Content Include="Content\img\loadingIcon.GIF" />
+    <Content Include="Content\img\nebula_favicon.png" />
+    <Content Include="Content\img\New Text Document.txt" />
+    <Content Include="Content\img\paybox-icon.png" />
+    <Content Include="Content\img\svg\a.svg" />
+    <Content Include="Content\img\svg\apple.svg" />
+    <Content Include="Content\img\svg\back.svg" />
+    <Content Include="Content\img\svg\block.svg" />
+    <Content Include="Content\img\svg\book.svg" />
+    <Content Include="Content\img\svg\book2.svg" />
+    <Content Include="Content\img\svg\clock.svg" />
+    <Content Include="Content\img\svg\closse.svg" />
+    <Content Include="Content\img\svg\down.svg" />
+    <Content Include="Content\img\svg\glass.svg" />
+    <Content Include="Content\img\svg\left.svg" />
+    <Content Include="Content\img\svg\play.svg" />
+    <Content Include="Content\img\svg\right-white.svg" />
+    <Content Include="Content\img\svg\right.svg" />
+    <Content Include="Content\img\svg\tv.svg" />
+    <Content Include="Content\img\true.png" />
+    <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\img\visa-icon.png" />
+    <Content Include="Content\img\webcover.png" />
+    <Content Include="Content\img\XE.png" />
+    <Content Include="Content\intlTelInput.css" />
+    <Content Include="Content\jquery-confirm.min.css" />
+    <Content Include="Content\loader.css" />
+    <Content Include="Content\nika-new-style.css" />
+    <Content Include="Content\nika-style.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\Responsive-Youtube-Vimeo-Video-Lightbox-Plugin-YouTubePopUp\index.html" />
+    <Content Include="Content\Responsive-Youtube-Vimeo-Video-Lightbox-Plugin-YouTubePopUp\YouTubePopUp.css" />
+    <Content Include="Content\Responsive-Youtube-Vimeo-Video-Lightbox-Plugin-YouTubePopUp\YouTubePopUp.jquery.js" />
+    <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Content\teacher.css" />
+    <Content Include="Content\video-js.min.css" />
+    <Content Include="Content\videojs.markers.min.css" />
+    <Content Include="Content\videojsmarkers.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Js\admin.js" />
+    <Content Include="Js\admin\cs-question.js" />
+    <Content Include="Js\cart.js" />
+    <Content Include="Js\common\exercise-common.js" />
+    <Content Include="Js\common\exercise-navigation-common.js" />
+    <Content Include="Js\common\utils.js" />
+    <Content Include="Js\cs\exercise.js" />
+    <Content Include="Js\cs\video.js" />
+    <Content Include="Js\exam.js" />
+    <Content Include="Js\exercise.js" />
+    <Content Include="Js\forms.js" />
+    <Content Include="Js\geo\exam-copy.js" />
+    <Content Include="Js\geo\exam.js" />
+    <Content Include="Js\geo\literature-exercise.js" />
+    <Content Include="Js\geo\video-grammar.js" />
+    <Content Include="Js\geo\video-literature.js" />
+    <Content Include="Js\geo\grammar-exercise.js" />
+    <Content Include="Js\global.js" />
+    <Content Include="Js\payment.js" />
+    <Content Include="Js\result.js" />
+    <Content Include="Js\rows.js" />
+    <Content Include="Js\temo.js" />
+    <Content Include="Js\video-page.js" />
+    <Content Include="Js\old.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\BPG Web\BPGWEB001.eot" />
+    <Content Include="Content\fonts\BPG Web\BPGWEB001.ttf" />
+    <Content Include="Content\fonts\BPG Web\BPGWEB001.woff" />
+    <Content Include="Content\fonts\BPG Web\BPGWEB001.woff2" />
+    <Content Include="Content\fonts\bpg-web-001-caps\bpg-web-001-caps.eot" />
+    <Content Include="Content\fonts\bpg-web-001-caps\bpg-web-001-caps.ttf" />
+    <Content Include="Content\fonts\bpg-web-001-caps\bpg-web-001-caps.woff" />
+    <Content Include="Content\fonts\bpg-web-001-caps\bpg-web-001-caps.woff2" />
+    <Content Include="Content\fonts\gotham-bold\gothambold.eot" />
+    <Content Include="Content\fonts\gotham-bold\gothambold.ttf" />
+    <Content Include="Content\fonts\gotham-bold\gothambold.woff" />
+    <Content Include="Content\fonts\gotham-bold\gothambold.woff2" />
+    <Content Include="Content\payed-videos\Web.config" />
+    <Content Include="Content\font-awsome.min.css" />
+    <Content Include="Content\Responsive-Youtube-Vimeo-Video-Lightbox-Plugin-YouTubePopUp\README.md" />
+    <None Include="Properties\PublishProfiles\aaa.pubxml" />
+    <None Include="Properties\PublishProfiles\aaaaaa.pubxml" />
+    <None Include="Properties\PublishProfiles\asd.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\canvas.js" />
+    <Content Include="Scripts\canvasjs.min.js" />
+    <Content Include="Scripts\circles.min.js" />
+    <Content Include="Scripts\crossroads.min.js" />
+    <Content Include="Scripts\defaultCountryIp.js" />
+    <Content Include="Scripts\geoLang.js" />
+    <Content Include="Scripts\hasher.js" />
+    <Content Include="Scripts\hasher.min.js" />
+    <Content Include="Scripts\intlTelInput.min.js" />
+    <Content Include="Scripts\isValidNumber.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-confirm.min.js" />
+    <Content Include="Scripts\jquery.confirm.min.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-postbox.js" />
+    <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\mathjax.js" />
+    <Content Include="Scripts\mathjax.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\signals.min.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Scripts\video.min.js" />
+    <Content Include="Scripts\videojs-markers.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\AdminGetDataToWordFile\Index.cshtml" />
+    <Content Include="Views\AdminPirobebi\Manage.cshtml" />
+    <Content Include="Views\Shared\Admin\CSQuestion.cshtml" />
+    <Content Include="Views\AdminGeoQuestion\Index.cshtml" />
+    <Content Include="Views\AdminGeoAuthors\Create.cshtml" />
+    <Content Include="Views\AdminGeoAuthors\Delete.cshtml" />
+    <Content Include="Views\AdminGeoAuthors\Edit.cshtml" />
+    <Content Include="Views\AdminGeoAuthors\Index.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorks\Create.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorks\Delete.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorks\Edit.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorks\Index.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorkParts\Create.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorkParts\Delete.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorkParts\Details.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorkParts\Edit.cshtml" />
+    <Content Include="Views\AdminGeoAuthorWorkParts\Index.cshtml" />
+    <Content Include="Views\AdminCSQuestions\Manage.cshtml" />
+    <Content Include="Views\AdminGeoQuestion\Manage.cshtml" />
+    <Content Include="Views\Shared\Admin\GeoQuestion.cshtml" />
+    <Content Include="Views\AdminPirobebi\ManageQuestion.cshtml" />
+    <Content Include="Views\AdminGeoGrammarTags\Create.cshtml" />
+    <Content Include="Views\AdminGeoGrammarTags\Delete.cshtml" />
+    <Content Include="Views\AdminGeoGrammarTags\Edit.cshtml" />
+    <Content Include="Views\AdminGeoGrammarTags\Index.cshtml" />
+    <Content Include="Views\AdminGeoGrammarSubTags\Create.cshtml" />
+    <Content Include="Views\AdminGeoGrammarSubTags\Delete.cshtml" />
+    <Content Include="Views\AdminGeoGrammarSubTags\Edit.cshtml" />
+    <Content Include="Views\AdminGeoGrammarSubTags\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\GeoVideo\Index.cshtml" />
+    <Content Include="Views\CSVideo\Index.cshtml" />
+    <Content Include="Views\AdminGeoVideo\Index.cshtml" />
+    <Content Include="Views\AdminGeoVideo\Work.cshtml" />
+    <Content Include="Views\Shared\Admin\GeoVideo.cshtml" />
+    <Content Include="Views\AdminGeoVideo\Manage.cshtml" />
+    <Content Include="Views\GeoExercises\Grammar.cshtml" />
+    <Content Include="Views\GeoExercises\Literature.cshtml" />
+    <Content Include="Views\CSMain\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\CSExercises\Index.cshtml" />
+    <Content Include="Views\GeoMain\Index.cshtml" />
+    <Content Include="Views\GeoVideo\Literature.cshtml" />
+    <Content Include="Views\GeoVideo\Grammar.cshtml" />
+    <Content Include="Views\Payment\NewIndex.cshtml" />
+    <Content Include="Views\AdminGeoEssays\Create.cshtml" />
+    <Content Include="Views\AdminGeoEssays\Delete.cshtml" />
+    <Content Include="Views\AdminGeoEssays\Details.cshtml" />
+    <Content Include="Views\AdminGeoEssays\Edit.cshtml" />
+    <Content Include="Views\AdminGeoEssays\Index.cshtml" />
+    <Content Include="Views\AdminGeoTextEditings\Create.cshtml" />
+    <Content Include="Views\AdminGeoTextEditings\Delete.cshtml" />
+    <Content Include="Views\AdminGeoTextEditings\Details.cshtml" />
+    <Content Include="Views\AdminGeoTextEditings\Edit.cshtml" />
+    <Content Include="Views\AdminGeoTextEditings\Index.cshtml" />
+    <Content Include="Views\AdminGeoTextAnalisys\Index.cshtml" />
+    <Content Include="Views\AdminGeoTextAnalisys\Manage.cshtml" />
+    <Content Include="Views\AdminGeoTextAnalisys\ManageQuestion.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Exam\Index.cshtml" />
+    <Content Include="Views\GeoExam\Index.cshtml" />
+    <Content Include="Views\AdminNews\Create.cshtml" />
+    <Content Include="Views\AdminNews\Delete.cshtml" />
+    <Content Include="Views\AdminNews\Details.cshtml" />
+    <Content Include="Views\AdminNews\Edit.cshtml" />
+    <Content Include="Views\AdminNews\Index.cshtml" />
+    <Content Include="Views\GeoExam\indexcopy.cshtml" />
+    <Content Include="Views\GeoExam\Stats.cshtml" />
+    <Content Include="Views\Payment\OldIndex.cshtml" />
+    <Content Include="Views\Home\BuyBtn.cshtml" />
+    <Content Include="Views\PrivateBalance\Index.cshtml" />
+    <Content Include="Views\PrivateBalance\Congrats.cshtml" />
+    <Content Include="Views\Account\RegSuccess.cshtml" />
+    <None Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Web References\SocialService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\AdminSocialService\Index.cshtml" />
+    <Content Include="Web References\SocialService\FamilyScoreCheckByRangesResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\FamilyScoreExtendedInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\FamilyScoreFullInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\FamilyScoreInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PeronsUnderPovertyResultEntity1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PeronUnderPovertyResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PersonScoreBasicInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PersonScoreCheckByRangeResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PersonScoreInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PrivateNumbersScoresExtResultEntity1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SocialService\PrivateNumbersScoresResultEntity1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_RegisterFormPartial.cshtml" />
+    <Content Include="Views\Shared\_ExerciseCommonPartial.cshtml" />
+    <Content Include="Views\Shared\_ExerciseCommonNavigationPartial.cshtml" />
+    <Content Include="Views\Shared\_MainPageHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_BurgerMenu.cshtml" />
+    <Content Include="Views\Shared\_ExerciseMoveNavigation.cshtml" />
+    <Content Include="Views\User\Panel.cshtml" />
+    <Content Include="Views\Shared\_ExerciseTaskMoveNavigation.cshtml" />
+    <Content Include="Views\User\OldSettings.cshtml" />
+    <Content Include="Views\Shared\_SocialProgramRegisteredPartial.cshtml" />
+    <Content Include="Views\Shared\_SocialProgramNotRegisteredPartial.cshtml" />
+    <Content Include="Views\VideoJournal\Index.cshtml" />
+    <None Include="Web References\SocialService\ssaservice.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout5.cshtml" />
+    <Content Include="Views\Home\About5.cshtml" />
+    <Content Include="Views\Home\Index5.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\videojsmakers.js" />
+    <Content Include="Views\AdminVideos\Create.cshtml" />
+    <Content Include="Views\AdminVideos\Edit.cshtml" />
+    <Content Include="Views\AdminVideos\Index.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\AdminCSQuestions\Index.cshtml" />
+    <Content Include="Views\AdminQuizSkeletons\Create.cshtml" />
+    <Content Include="Views\AdminQuizSkeletons\Delete.cshtml" />
+    <Content Include="Views\AdminQuizSkeletons\Edit.cshtml" />
+    <Content Include="Views\AdminQuizSkeletons\Index.cshtml" />
+    <Content Include="Views\Exam\OldIndex.cshtml" />
+    <Content Include="Views\Shared\_AdminLoginPartial.cshtml" />
+    <Content Include="Views\Shared\_RegisterFormPartial5.cshtml" />
+    <Content Include="Views\CSMain\Index5.cshtml" />
+    <Content Include="Views\Exercise\Index.cshtml" />
+    <Content Include="Views\AdminCSTags\Create.cshtml" />
+    <Content Include="Views\AdminCSTags\Delete.cshtml" />
+    <Content Include="Views\AdminCSTags\Details.cshtml" />
+    <Content Include="Views\AdminCSTags\Edit.cshtml" />
+    <Content Include="Views\AdminCSTags\Index.cshtml" />
+    <Content Include="Views\AdminCSModules\Create.cshtml" />
+    <Content Include="Views\AdminCSModules\Delete.cshtml" />
+    <Content Include="Views\AdminCSModules\Details.cshtml" />
+    <Content Include="Views\AdminCSModules\Edit.cshtml" />
+    <Content Include="Views\AdminCSModules\Index.cshtml" />
+    <Content Include="Views\AdminPirobebi\Index.cshtml" />
+    <Content Include="Views\AdminVideos\EditVideoPart.cshtml" />
+    <Content Include="Views\AdminVideos\EditVideoPartQuestion.cshtml" />
+    <Content Include="Views\Shared\_AddImagesPartial.cshtml" />
+    <Content Include="Views\User\Settings.cshtml" />
+    <Content Include="Views\Shared\_TableHelper.cshtml" />
+    <Content Include="Views\NebulaLogin\Index.cshtml" />
+    <Content Include="Views\NebulaLogin\Login.cshtml" />
+    <Content Include="Views\Exam\Result5.cshtml" />
+    <Content Include="Views\User\Panel5.cshtml" />
+    <Content Include="Views\AdminQuestionInfoes\Create.cshtml" />
+    <Content Include="Views\AdminQuestionInfoes\Delete.cshtml" />
+    <Content Include="Views\AdminQuestionInfoes\Details.cshtml" />
+    <Content Include="Views\AdminQuestionInfoes\Edit.cshtml" />
+    <Content Include="Views\AdminQuestionInfoes\Index.cshtml" />
+    <Content Include="Views\Shared\_QuestionTemplatePartial.cshtml" />
+    <Content Include="Views\AdminVideos\VideoTypes.cshtml" />
+    <Content Include="Views\Ajax\UserScores.cshtml" />
+    <Content Include="Views\Ajax\AllExams.cshtml" />
+    <Content Include="Views\User\AllExams.cshtml" />
+    <Content Include="Views\Helper\LinqToXml.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Ajax\Notifications.cshtml" />
+    <Content Include="Views\User\Notifications.cshtml" />
+    <Content Include="Views\AdminTaggingHierarchies\Create.cshtml" />
+    <Content Include="Views\AdminTaggingHierarchies\Delete.cshtml" />
+    <Content Include="Views\AdminTaggingHierarchies\Details.cshtml" />
+    <Content Include="Views\AdminTaggingHierarchies\Edit.cshtml" />
+    <Content Include="Views\AdminTaggingHierarchies\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Payment\Ok.cshtml" />
+    <Content Include="Views\Payment\Fail.cshtml" />
+    <Content Include="Views\Ajax\GetCurrentUser.cshtml" />
+    <Content Include="Views\Home\ParseUtf.cshtml" />
+    <Content Include="Views\Manage\SocialInfo.cshtml" />
+    <Content Include="Views\Home\AllQuestions.cshtml" />
+    <Content Include="Views\AdminAboutNebula\Create.cshtml" />
+    <Content Include="Views\AdminAboutNebula\Delete.cshtml" />
+    <Content Include="Views\AdminAboutNebula\Details.cshtml" />
+    <Content Include="Views\AdminAboutNebula\Edit.cshtml" />
+    <Content Include="Views\AdminAboutNebula\Index.cshtml" />
+    <Content Include="Views\AdminTransactions\TBCTransactions.cshtml" />
+    <Content Include="Views\AdminTransactions\NovaTransactions.cshtml" />
+    <Content Include="Views\AdminUsers\Index.cshtml" />
+    <Content Include="Views\Home\SocialProgram.cshtml" />
+    <Content Include="Views\Teacher\Login.cshtml" />
+    <Content Include="Views\Shared\_TeacherLayout.cshtml" />
+    <Content Include="Views\Shared\_TeacherLoginPartial.cshtml" />
+    <Content Include="Views\Teacher\MyStudents.cshtml" />
+    <Content Include="Views\Home\GenerateRandomQuestions.cshtml" />
+    <Content Include="Views\AdminGetUserScores\Index.cshtml" />
+    <Content Include="Views\MyTeachers\Index.cshtml" />
+    <Content Include="Views\AdminTeachers\Index.cshtml" />
+    <Content Include="Views\User\AdminUserPanel.cshtml" />
+    <Content Include="Views\AdminCupons\Create.cshtml" />
+    <Content Include="Views\AdminCupons\Index.cshtml" />
+    <Content Include="Views\AdminCupons\Edit.cshtml" />
+    <Content Include="Views\Home\VideoStreaming.cshtml" />
+    <Content Include="Views\AdminGetUserScores\SendEmailToUser.cshtml" />
+    <Content Include="Views\Home\Tree.cshtml" />
+    <Content Include="Views\AdminGetUserScores\UserScorePercentsByTag.cshtml" />
+    <Content Include="Views\AdminExplantationVideos\Create.cshtml" />
+    <Content Include="Views\AdminExplantationVideos\Delete.cshtml" />
+    <Content Include="Views\AdminExplantationVideos\Edit.cshtml" />
+    <Content Include="Views\AdminExplantationVideos\Index.cshtml" />
+    <Content Include="Views\AdminGetUserScores\UserScorePercnetsByQuestionTag.cshtml" />
+    <Content Include="Views\AdminCompetitions\Create.cshtml" />
+    <Content Include="Views\AdminCompetitions\Delete.cshtml" />
+    <Content Include="Views\AdminCompetitions\Edit.cshtml" />
+    <Content Include="Views\AdminCompetitions\Index.cshtml" />
+    <Content Include="Views\AdminSocialUsers\Index.cshtml" />
+    <Content Include="Views\Home\Social.cshtml" />
+    <None Include="Web References\SocialService\ssaservice.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\explentation-videos\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\user-files\" />
+    <Folder Include="Content\Videos\" />
+    <Folder Include="obj\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://172.17.8.125:3030/SSASocialServices/ssaservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SocialService\</RelPath>
+      <UpdateFromURL>http://172.17.8.125:3030/SSASocialServices/ssaservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ExamsTraining_SocialService_SSAService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nebula.Domain\Nebula.Domain.csproj">
+      <Project>{acb949c5-9a78-4b1d-8319-18aa86b70d5a}</Project>
+      <Name>Nebula.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nebula.Services\Nebula.Services.csproj">
+      <Project>{fc79e930-53d2-403e-bd23-831d1f0f2994}</Project>
+      <Name>Nebula.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>43970</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:43970/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

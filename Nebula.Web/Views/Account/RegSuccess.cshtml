@@ -1,0 +1,70 @@
+﻿ 
+
+@*@model Nebula.Domain.Entities.User*@
+
+@{
+    ViewBag.Title = "RegSuccess";
+}
+
+@section Styles{
+    <link href="~/Content/assetsNew/css/congrats.css" rel="stylesheet" />
+}
+
+<div class="black-div">
+    <a href="@Url.Action("Index", "Home")">
+        <div class="arrow-back"></div>
+        <div class="text-back">უკან</div>
+    </a>
+    <div class="text-course-name">რეგისტრაცია დასრულებულია</div>
+</div>
+
+<div class="background-under-news">
+
+</div>
+
+<div class="congrats-main">
+    <div class="green-congrats"></div>
+    <div class="greeting-text">შენ წარმატებით გაიარე რეგისტრაცია! @*საჩუქრად თითოეულ საგანში 40 სავარჯიშო გადმოგეცა,*@ შებრძანდი და შეიმეცნე! </div>
+    <div class="container-items">
+        <div class="program" @*style="display : @(Model.HasGeoLicense ? "block;" : "none;")"*@>
+            <div class="background">
+                <div class="text-program">ქართული ენა და ლიტერატურა</div>
+            </div>
+            <a data-val="@Url.Action("Index", "GeoMain")" data-original-title="" title="">
+                <button class="ufaso-versia-div auth-require-page-click">
+                    <div class="text-ufaso-kursebi">შესვლა</div>
+                </button>
+            </a>
+        </div>
+        <div class="program" @*style="display : @(Model.HasLicense ? "block;" : "none;")"*@>
+            <div class="background">
+                <div class="text-program">ზოგადი უნარები</div>
+            </div>
+            <a data-val="@Url.Action("Index", "CSMain")" data-original-title="" title="">
+                <button class="ufaso-versia-div auth-require-page-click">
+                    <div class="text-ufaso-kursebi">შესვლა</div>
+                </button>
+            </a>
+        </div>
+        <div class="program" @*style="display : @(Model.HasEngLicense ? "block;" : "none;")"*@>
+            <div class="background">
+                <div class="text-program">ინგლისურის საგამოცდო კურსი</div>
+            </div>
+            <a data-val="@Url.Action("Index", "GeoMain")" data-original-title="" title="">
+                <button class="ufaso-versia-div auth-require-page-click">
+                    <div class="text-ufaso-kursebi">შესვლა</div>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="container-attantion">
+        <div class="circle-image"></div>
+        <div class="circle-text">ყურადღება!</div>
+    </div>
+    <div class="text-offer">თუ გსურს,ჩვენს მტელ ნაშრომზე მიგიწვდებოდეს ხელი, შეივსე პირადი ბალანსი და შეიძინე სრული კურსები.</div>
+    <a class="buy-course1"  data-val="@Url.Action("Index", "PrivateBalance")">
+        <button class="ufaso-versia-div auth-require-page-click" style="width:280px;margin-left: 50%;transform: translateX(-47%);margin-top:35px;">
+            <div class="text-ufaso-kursebi">პირადი ბალანსი</div>
+        </button>
+    </a>
+</div>

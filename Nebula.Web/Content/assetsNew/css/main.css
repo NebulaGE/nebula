@@ -1,0 +1,1281 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration:none;
+}
+
+
+.container-main-slider {
+    min-height: 920px;
+    width: 100%;
+    background-color: #f7f7f7;
+    position: relative;
+    padding-bottom:40px;
+    overflow:hidden;
+}
+.container-slider {
+    min-height: 820px;
+    width: 79.7%;
+    position: relative;
+    margin: auto;
+    padding-top: 30px;
+}
+.slider {
+    height: 350px;
+    width: 100%;
+}
+.image-slider {
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    z-index: 1;
+    background-image: url("../img/slider.png");
+}
+.text-nebula-div {
+    height: 30px;
+    width: 115px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    position: absolute;
+    z-index: 2;
+    margin-top: 75px;
+    margin-left: 8.4%;
+    border: none;
+    cursor: pointer;
+}
+.text-nebula {
+    font-size: 14px;
+    color: white;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 2px;
+    /* border: none; */
+}
+.text-exam {
+    font-size: 26px;
+    color: white;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    position: absolute;
+    width: 375px;
+    z-index: 2;
+    margin-left: 8.4%;
+    margin-top: 130px;
+}
+.unarebi-div {
+    height: 210px;
+    width: 580px;
+    background-color: white;
+    float: right;
+    position: relative;
+    z-index: 2;
+    margin-right: 9.8%;
+    margin-top: 60px;
+    border-radius: 3px;
+}
+.text-zogadi-unarebi {
+    font-size: 18px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    margin-top: 23px;
+}
+.border-unarebi {
+    border: solid 1px;
+    color: #f0eff3;
+    margin-top: 22px;
+}
+.text-kursebi {
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+    text-align: center;
+    padding-top: 22px;
+    color: #909090;
+    -webkit-font-smoothing: antialiased;
+    width: 94%;
+    margin: auto;
+    line-height: 22px;
+}
+.ufaso-kursebi-div {
+    width: 230px;
+    height: 40px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    margin-top: 18px;
+    margin-left: 50px;
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.text-ufaso-kursebi {
+    font-size: 13px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+    padding-top: 13px;
+}
+.text-ufaso-kursebi1 {
+    font-size: 13px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+}
+.kursis-shedzena-div {
+    width: 230px;
+    height: 40px;
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -o-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -moz-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: linear-gradient(-90deg, #b158ff, #5ab2ff);
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top:10px;
+}
+.message-div {
+    min-height: 90px;
+    width: 100%;
+    margin-top: 30px;
+    background-color: white;
+}
+.circle-div {
+    height: 20px;
+    width: 20px;
+    border: solid 1px;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 38px;
+    margin-left: 20px;
+    color: gray;
+    display: inline-block;
+}
+.circle-inner-image {
+    margin-top: 44px;
+    margin-left: 27px;
+}
+.text-social {
+    font-size: 14px;
+    font-family: "bpg_excelsior_dejavu_2010";
+
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 18px;
+    width: 75%;
+    /* margin-top: 9px; */
+    padding: 29px 0;
+    line-height: 20px;
+    color: #909090;
+    -webkit-font-smoothing: antialiased;
+}
+.circle-div-fill {
+    float: right;
+    vertical-align: middle;
+    margin-right: 46px;
+    margin-top: 35px;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: -webkit-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -o-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: -moz-linear-gradient(-90deg, #b158ff, #5ab2ff);
+    background: linear-gradient(-90deg, #b158ff, #5ab2ff);
+    cursor:pointer;
+}
+
+.text-ganacxadi{
+    font-size: 13px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+}
+.container-programs {
+    width: 100%;
+    min-height: 430px;
+    display: flex;
+    justify-content: space-between;
+}
+.program {
+    width: 23.65%;
+    /* height: 380px; */
+    background-color: white;
+    position: relative;
+    vertical-align: top;
+    margin-top: 30px;
+    border-radius: 2px;
+    padding-bottom: 25px;
+}
+.program1 {
+    width: 23.2%;
+    height: 380px;
+    position: relative;
+    /* display: inline-block; */
+    /* margin-left: 1.5%; */
+    vertical-align: top;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 2px;
+}
+.program1-child {
+    height: 320px;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+.circle1 {
+    width: 38px;
+    height: 38px;
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    border-radius: 19px;
+    position: relative;
+    display: inline-block;
+    background: white;
+    -moz-box-shadow: 0px 0px 35px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 35px -5px rgba(0, 0, 0, 0.2);
+}
+.arrow-right {
+    background-image: url("../img/star1.svg");
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    margin: auto;
+    margin-top: 11px;
+}
+.text-what-is-nebula {
+    font-size: 20px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 7px;
+    padding-left: 14px;
+}
+.video-left {
+    width: 298px;
+    height: 166px;
+    /* background-image: url(../img/Layer-14.png); */
+    margin-top: 34px;
+}
+.view-more-text {
+    font-family: "bpg_excelsior_dejavu_2010";
+    margin-top: 33px;
+    font-size: 13.5px;
+    color: #909090;
+    -webkit-font-smoothing: antialiased;
+    font-family: "bpg_excelsior_dejavu_2010";
+    margin-top: 46px;
+    line-height: 22px;
+}
+.circle-play-video {
+    width: 60px;
+    height: 60px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    background: white;
+    position: absolute;
+    margin-top: 45px;
+    left: 50%;
+    transform: translate(-50%);
+    display:none;
+}
+.arrow-play-video {
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 19px solid #8a68ff;
+    margin-left: 25px;
+    margin-top: 17px;
+}
+.background {
+    height: 120px;
+    background-image: url("../img/background.png");
+}
+.text-program {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    padding-top: 34px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    width: 76%;
+    margin: auto;
+    -webkit-font-smoothing: antialiased;
+    line-height:33px;
+}
+.text-program1 {
+    font-size: 15px;
+    color: #909090;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 30px;
+    padding-left: 12%;
+    font-family: "bpg_excelsior_dejavu_2010";
+    width: 83%;
+    line-height:22px;
+}
+.ufaso-versia-div {
+    width: 78%;
+    height: 45px;
+    bottom: 30px;
+    /* margin-top: 22px; */
+    background: #c7b1fb;
+    background: -webkit-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -o-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: -moz-linear-gradient(-90deg, #8538ff, #8c7aff);
+    background: linear-gradient(-90deg, #8538ff, #8c7aff);
+    /* margin: auto; */
+    border-radius: 4px;
+    border: none;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    position: absolute;
+    -moz-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55)
+    left: 50%;
+    cursor: pointer;
+}
+.text-ufaso-versia {
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    padding-top: 16px;
+}
+.container-main-users {
+    min-height: 1030px;
+    width: 100%;
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 59px -25px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+.container-users-left {
+    height: 1030px;
+    width: 50%;
+    /* -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3); */
+    
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 37px -24px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    z-index: 5;
+    overflow: hidden;
+    position: absolute;
+    background-color: white;
+}
+
+.container-user-blocks {
+    width: 68.35%;
+    min-height: 700px;
+    margin-left: 20.1%;
+    margin-top: 145px;
+}
+.user-pre-blocks {
+    min-height: 190px;
+    width: 100%;
+    background-color: white;
+    margin-top: 64px;
+    -webkit-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 59px -9px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+
+
+.sunset-div{
+    height: 120px;
+    width: 100%;
+    background-image: url("../img/sunset.png");
+    background-position: -44px -108px;
+}
+
+.rounded-button{
+    width: 240px;
+    height: 40px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 50px;
+    border: 1px solid #dcb5a4;
+    border-radius: 20px;
+}
+
+.text-sunset{
+    margin-top: 13px;
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    color: white;
+}
+
+.forest-div{
+    height: 120px;
+    width: 100%;
+    background-image: url("../img/forest.png");
+    background-position: -227px -476px;
+}
+
+
+.text-forest{
+    margin-top: 13px;
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    color: black;
+}
+.rounded-button2{
+    width: 240px;
+    height: 40px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 50px;
+    border: 1px solid #a4aba8;
+    border-radius: 20px;
+}
+
+
+.rounded-button:hover{
+    background-color: white;
+    border:none;
+    outline:none;
+    
+}
+
+.rounded-button:hover .text-sunset{
+    color:black !important;
+}
+
+
+.rounded-button2:hover{
+    background-color: white;
+    border:none;
+    outline:none;
+    
+}
+
+.rounded-button2:hover .text-sunset{
+    color:black !important;
+}
+
+
+.sunrise-div{
+    height: 120px;
+    width: 100%;
+    background-image: url("../img/sunrise.png");
+    background-position: -272px -196px;
+}
+
+
+
+.training-test{
+    min-height: 60px;
+    width: 68.35%;
+    position: absolute;
+    margin-top: 10px;
+    -webkit-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    -moz-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    cursor:pointer;
+}
+
+.text-training-test{
+    font-size: 18px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    text-align: center;
+    margin-top: 21px;
+}
+
+
+.container-users-right {
+    width: 50%;
+    height: 1030px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 50%;
+}
+
+.container-right-news {
+    width: 86%;
+    min-height: 700px;
+    margin-left: 7.5%;
+    margin-top: 145px;
+    font-size: 0;
+}
+
+/* news conts */
+
+.news-right-cont{
+    width: 38.5%;
+    /* font-size: 0; */
+    min-height: 245px;
+    margin-top: 24px;
+    background-color: white;
+    border:1px solid #e2e2e2;
+    display: inline-block;
+    margin-top: 67px;
+    margin-left: 17px;
+    margin-right: 17px;
+}
+
+.news-right-cont-child{
+    width: 93%;
+    height: 156px;
+    border-bottom: 1px solid;
+    border-color:#e8e8e8;
+    margin-left: 7%;
+    padding-top: 28px;
+}
+
+.news-button1{
+    width:115px;
+    height: 25px;
+    position: relative;
+    background-color: #8960ff;
+    border-radius: 2px;
+    display: inline-block;
+}
+.date-cont1{
+    min-width: 165px;
+    position: relative;
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 21px;
+}
+
+
+.image-for-news{
+    width: 115px;
+    height: 65px;
+    background-image: url("../img/Layer-2.png");
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.text-for-news-long{
+    font-size: 23px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    margin-top: 27px;
+    line-height: 29px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.text-for-news-short{
+    font-size: 24px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    margin-top: 26px;
+    line-height: 29px;
+    vertical-align: top;
+    display: inline-block;
+    width: 63%;
+    margin-left: 22px;
+}
+
+.view-more-div{
+    height: 20px;
+    width: 87.7%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.view-more{
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: #999999;
+    display: inline-block;
+}
+
+.image-for-view-more{
+    width: 8px;
+    height: 15px;
+    background-image: url("../img/arrow-more.png");
+    position: relative;
+    display: inline-block;
+        vertical-align: top;
+    margin-top: 2px;
+    float: right;
+}
+.news-text{
+    font-size: 15px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: white;
+    text-align: center;
+    margin-top: 4px;
+}
+.date-cont1{
+    min-width: 124px;
+    position: relative;
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 3%;
+}
+
+
+.logo-date-name{
+    width: 14px;
+    height: 14px;
+    background-image: url("../img/timer-logo.png");
+    display: inline-block;
+    margin-top: 1px;
+}
+
+.text-date{
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: #acacac;
+    display: inline-block;
+    margin-left: 7px;
+    /* margin-top: -6px; */
+    vertical-align: top;
+    /* margin-top: 22px; */
+}
+
+/* */
+
+.other-news{
+    min-height: 60px;
+    width: 82%;
+    /* position: absolute; */
+    margin-top: 10px;
+    -webkit-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    -moz-box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    box-shadow: 0px 12px 81px -20px rgba(143,95,253,0.55);
+    margin-top: 76px;
+    margin-left: 15px;
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+.other-news-text{
+    font-size: 14px;
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    color: #999999;
+    text-align: center;
+    padding-top:23px;
+}
+
+.arrow-purple{
+    width: 8px;
+    height: 15px;
+    background-image: url("../img/arrow-purple.png");
+    position: absolute;
+    margin-top: -16px;
+    margin-left: 92%;
+}
+
+
+
+footer {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+.container-footer {
+    width: 65%;
+    height: 160px;
+    /* margin: auto; */
+    /* margin-top: 120px; */
+    /* position: absolute; */
+    
+    left: 9%;
+    display: inline-block;
+    position: relative;
+    padding-top: 104px;
+}
+.footer-background {
+    background-image: url("../img/footer.png");
+    width: 100%;
+    height: 312px;
+    position: absolute;
+    background-position: -16px 0px;
+    margin-top: 28px;
+}
+.nebul-logo {
+    width: 56px;
+    height: 40px;
+    background-image: url("../img/nebul-logo.svg");
+    margin-left: 5%;
+    margin-top: 0px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 43px;
+}
+.solid-border {
+    height: 110px;
+    border-left: 1px solid;
+    color: #3549a0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.container-footer ul {
+    list-style-type: none;
+    height: 120px;
+    width: 150px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 33px;
+}
+.container-logos li {
+    font-size: 15px;
+    font-family: "bpg_excelsior_dejavu_2010";
+}
+.fb-logoo {
+    width: 8px;
+    height: 19px;
+    background-image: url("../img/fb.png");
+    margin-top: -7px;
+    margin-left: -13px;
+}
+.twitter-logoo {
+    width: 19px;
+    height: 15px;
+    background-image: url("../img/twiter.png");
+    margin-top: 16px;
+    margin-left: -13px;
+}
+.google-logoo {
+    width: 23px;
+    height: 15px;
+    background-image: url("../img/googlePlus.png");
+    margin-top: 16px;
+    margin-left: -13px;
+}
+.text-logos {
+    margin-left: 28px;
+    margin-top: 21px;
+    color: white;
+    font-family: "bpg_excelsior_dejavu_2010";
+}
+.text-logos1 {
+    margin-left: -15px;
+    margin-top: 6px;
+    color: white;
+    line-height: 29px;
+    font-family: "bpg_excelsior_dejavu_2010";
+}
+.container-logos {
+    width: 85px;
+    position: relative;
+    display: inline-block;
+    margin-left: 6%;
+    vertical-align: top;
+    margin-top: 166px;
+}
+.leavingstone-logo {
+    width: 83px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    /* float: right; */
+    
+    background-image: url("../img/leavingstone.png");
+    /* margin-top: 58px; */
+    /* margin-right: 3.5%; */
+    /* padding-top: 44px; */
+    /* margin-left: 6%; */
+}
+.bankofgeorgia-logo {
+    width: 178px;
+    height: 37px;
+    display: inline-block;
+    position: relative;
+    /* float: right; */
+    
+    background-image: url("../img/bankofgeorgia.png");
+    /* margin-top: 58px; */
+    display:none;
+    
+    margin-left: 10%;
+}
+
+.ganacxadi{
+
+}
+@font-face {
+    font-family: "bpg_excelsior_dejavu_2010";
+    src: url("bpg_excelsior_dejavu_2010.eot");
+    src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("bpg_excelsior_dejavu_2010.woff") format("woff"), url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: "bpg_excelsior_caps_dejavu_2010";
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+    src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+
+
+@media(max-width: 1800px){
+    .text-program1{
+        font-size:14px;
+    }
+}
+
+@media(max-width: 1674px) {
+    .text-social {
+        margin-top: 10px;
+    }
+    .container-authorithation {
+        width: 310px;
+    }
+    .user-ccircles {
+        display: none;
+    }
+}
+
+@media(max-width: 1650px) {
+    .container-slider{
+        width:90%;
+    }
+    .container-right-news{
+        width:99%;
+    }
+    .ufaso-versia-div{
+        bottom:20px;
+    }
+}
+
+@media(max-width: 1550px){
+    .news-button1 {
+    width: 100px;
+}
+.news-text {
+    font-size: 13px;
+    margin-top: 6px;
+}
+.date-cont1 {
+    min-width: 104px;
+    margin-top: 4px;
+    margin-left: 6%;
+}
+.text-date {
+    font-size: 12px;
+    margin-top: 2px;
+}
+.text-for-news-long {
+    font-size: 20px;
+    margin-top: 27px;
+    line-height: 29px;
+}
+
+.container-user-blocks{
+        margin: auto;
+    margin-top: 145px;
+    width:84.8%;
+}
+
+.training-test{
+    width:84.8%;
+}
+}
+
+
+@media(max-width: 1500px) {
+    .unarebi-div {
+        margin-right: 1%;
+    }
+    .header-items ul {
+        left: 40%;
+    }
+
+    .text-logo {
+        font-size: 15px;
+    }
+    .text-logo1 {
+        font-size: 13px;
+    }
+    .container-authorithation {
+        width: 310px;
+        margin-left: 53.5%;
+    }
+}
+
+
+@media(max-width: 1450px) {
+    .container-slider{
+        width:96%;
+    }
+    .container-right-news{
+        width:99%;
+        margin-left:1%;
+    }
+    .news-right-cont{
+        width:44.5%;
+    }
+    .other-news{
+        width:95.4%;
+    }
+}
+
+@media(max-width:1350px){
+    .news-right-cont {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+    .other-news {
+    width: 91.4%;
+}
+
+    .view-more-text{
+        font-size:12px;
+        margin-left:3%;
+    }
+    .video-left{
+        width:98.5%;
+    }
+    .circle1{
+        margin-left:2%;
+    }
+    .program{
+        width:24.5%;
+    }
+    .text-program1{
+        font-size:14px;
+    }
+}
+
+
+/*
+    @media(max-width: 1230px) {
+    .container-users-left{
+    height: 880px;
+    width: 100%;
+    position: relative;
+    }
+
+    .container-user-blocks{
+    width: 67.35%;
+    margin: auto;
+    margin-top: 96px;
+    }
+    .user-pre-blocks{
+        width: 100%;
+    }
+    .training-test{
+        width: 67.35%;
+    }
+    .container-users-right{
+    width: 100%;
+    height: 890px;
+    position: relative;
+    margin-left: 0;
+    }
+    .container-right-news{
+    width: 81%;
+    margin: auto;
+    margin-top: 90px;
+    }
+    .news-right-cont{
+        width: 44%;
+    }
+
+}
+*/
+@media(max-width: 1250px) {
+
+    .container-slider {
+        width: 99%;
+    }
+
+    .container-logos {
+        margin: auto;
+        display: block;
+    }
+
+    .container-footer {
+        display: block;
+        left: 0%;
+        padding-top: 75px;
+        margin: auto;
+    }
+
+    .bankofgeorgia-logo {
+        margin-left: 15%;
+        margin-top: 8px;
+    }
+
+    .container-footer ul {
+        width: 120px;
+    }
+
+    .program{
+        width: 47.5%;
+        min-height: 362px;
+        display: inline-block;
+        margin-right: 2%;
+
+    }
+    .container-programs{
+        width: 100%;
+        min-height: 430px;
+        display: block;
+        justify-content: initial;
+        margin-left: 16px;
+    }
+
+}
+    @media(max-width: 1050px) {
+        /*  .program {
+            width: 325px;
+        }
+        .program1 {
+            width: 325px;
+        } */
+
+        .border-unarebi {
+            display: none;
+        }
+
+        .text-kursebi {
+            display: none;
+        }
+
+        .unarebi-div {
+            width: 370px;
+        }
+
+        .ufaso-kursebi-div {
+            margin-left: 0px;
+            display: block;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 35px;
+        }
+
+        .kursis-shedzena-div {
+            margin-left: 0px;
+            display: block;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 20px;
+        }
+
+        .header-items ul {
+            left: 40%;
+        }
+
+        .container-footer {
+            width: 630px;
+        }
+    }
+        @media(max-width: 1000px) {
+            .container-user-blocks{
+                width:66.8%;
+            }
+
+            .training-test{
+                width:66.8%;
+            }
+            .text-social{
+                width:65%;
+                font-size:13px;
+            }
+            .container-users-left {
+                width: 100%;
+            }
+
+            .user-pre-blocks {
+                width: 100%;
+            }
+
+            .user-circles {
+                display: none;
+            }
+
+            .circle-star {
+                display: none;
+            }
+        }
+
+        @media(max-width: 870px) {
+            .header-items ul {
+                width: 49%;
+                left: 26%;
+            }
+
+            .text-nebula-div {
+                margin-left: 4%;
+            }
+
+            .text-exam {
+                margin-left: 4%;
+            }
+        }
+
+            @media(max-width: 760px) {
+                .user-pre-blocks {
+                }
+
+                .text-social {
+                    width: 67%;
+                }
+
+                .text-exam {
+                    width: 23%;
+                    font-size: 22px;
+                }
+
+                .unarebi-div {
+                    background-color: transparent;
+                    width: 232px;
+                }
+
+                .program{
+                    width:100%;
+                    
+                }
+                .container-programs{
+                    margin-left:0px;
+                }
+
+                .circle-div{
+                    display:none;
+                }
+                .ganacxadi{
+                    display: block;
+                    margin-top: 1px;
+                    padding-bottom:20px;
+                }
+                .circle-div-fill{
+                    display:block;
+                    float:none;
+                    margin-top:0px;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                   
+                }
+                .circle-inner-image{
+                    display:none;
+                }
+                .text-social {
+                    width: 94%;
+                    /* margin: auto; */
+                    text-align: center;
+                }
+            }
+
+            @media(max-width: 670px) {
+                .container-user-blocks {
+                    width: 99.35%;
+                }
+
+                .training-test {
+                    width: 99.35%;
+                }
+
+                .container-footer ul{
+                    width:64px;
+                    font-size:12px;
+                }
+                .container-footer{
+                    width:320px;
+                }
+                .solid-border{
+                    display:none;
+                }
+                .nebul-logo{
+                    display:none;
+                }
+            }
+
+            @media(max-width: 530px) {
+
+                .text-zogadi-unarebi {
+                    display: none;
+                }
+
+                .unarebi-div {
+                    background-color: transparent;
+                    margin-top: 120px;
+                    float: left;
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+
+                .text-nebula-div {
+                    display:none;
+                    margin-left: 50%;
+                    transform: translate(-50%);
+                }
+
+                .text-exam {
+                    width: 67%;
+                    font-size: 19px;
+                    text-align: center;
+                    left: 50%;
+                    transform: translate(-50%);
+                    margin-top:70px;
+                }
+
+                .message-div {
+                    margin-top: 50px;
+                }
+            }
+
+            @media(max-width: 430px) {
+                .rounded-button{
+                    float:left;
+                    margin-left:18%;
+                }
+                .rounded-button2{
+                    float:left;
+                    margin-left:18%;
+                }
+                .text-training-test{
+                    font-size:12px;
+                }
+
+                .text-cont {
+                    width: 54%;
+                }
+
+                .user-logos {
+                    margin-left: 25px;
+                }
+
+                .user-logos1 {
+                    margin-left: 25px;
+                }
+
+                .user-logos2 {
+                    margin-left: 25px;
+                }
+            } 
+
+
+/* @media(max-width: 1350px){
+    .news-right-cont{
+        width: 240px;
+    }
+} */

@@ -1,0 +1,186 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Nebula.Domain.Entities.GeoQuestion>
+ 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int i = 1;
+    byte l = 0;
+    byte x = 0;
+}
+
+@functions{
+    string numLetterHelper(byte k)
+    {
+        switch (k)
+        {
+            case 0:
+                return "ა)";
+
+
+            case 1:
+                return "ბ)";
+
+
+            case 2:
+                return "გ)";
+
+            case 3:
+                return "დ)";
+
+            case 4:
+                return "ე)";
+
+        }
+        return "";
+    }
+}
+
+@if (ViewBag.Id == 1)
+{
+    <h2>ლიტერატურის კითხვები</h2>
+}
+else
+{
+    <h2>გრამატიკის კითხვები</h2>
+}
+
+<h2>@ViewBag.Count</h2>
+
+<p>
+    @Html.ActionLink("ახლის დამატება", "Manage", new { questionCategoryId = ViewBag.Id })
+</p>
+
+<table class="table">
+    <tr>
+        <th>კითხვა</th>
+        @if (ViewBag.Id == 1)
+        {
+            <th>ავტორი</th>
+            <th>ნაწარმოები</th>
+        }
+        else
+        {
+            <th>თეგი</th>
+            <th>ქვეთეგი</th>
+        }
+        <th>კითხვის ტიპი</th>
+
+        @*<th>საგამოცდო კითხვა</th>
+        <th>სავარჯიშო კითხვა</th>
+        <th>პოსტ ვიდეო კითხვა</th>
+        <th>პრე ვიდეო კითხვა</th>*@
+        <th>სწორი პასუხი</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <button class="show-content btn btn-default">კთხვის ნახვა</button>
+                <div class="quest" style="display: none;">
+                    <h4>კითხვა:</h4>
+                    @Html.Raw(item.Text)
+                    <hr/>
+                    <h4>პასუხები</h4>
+
+                    @foreach (var answer in item.Answers)
+                    {
+                        <div>
+                            @if (answer.IsCorrect)
+                            {
+                                <b>
+                                    <span style="float: left; margin-right: 10px;">@{
+                                                                                       var ltr = numLetterHelper(l);
+                                <text>@ltr</text>}</span>
+                                    @Html.Raw(answer.Text)
+                                </b>
+                                {
+                                    x = l;
+                                }
+                            }
+                            else
+                            {
+                                <span style="float: left; margin-right: 10px;">@{
+                                                                                   var ltr = numLetterHelper(l);
+                                <text>@ltr</text>}</span>
+                                @Html.Raw(answer.Text)
+                            }
+                        </div>
+                        {
+                            i++;
+                            l++;
+                        }
+                    }
+                </div>
+            </td>
+            @if (ViewBag.Id == 1)
+            {
+                <td>
+                    @(item.GetAuthorName())
+                </td>
+                <td>
+                    @(item.GeoAuthorWorkPart != null ? item.GeoAuthorWorkPart.AuthorWork.Title : null)
+                </td>
+            }
+            else 
+            {
+                <td>
+                    
+                    @(item.GeoGrammarSubTag != null ? item.GeoGrammarSubTag.GeoGrammarTag.TagName: "")
+                </td>
+                <td>
+                    @(item.GeoGrammarSubTag != null ? item.GeoGrammarSubTag.TagName : "")
+                
+                </td>
+            }
+            <td>
+                @if (item.QuestionType == Nebula.Domain.Entities.GeoQuestionType.ExamQuestion)
+                {
+                    <span>საგამოცდო</span>
+                }
+                else if (item.QuestionType == Nebula.Domain.Entities.GeoQuestionType.ExerciseQuestion)
+                {
+                    <span>სავარჯიშო</span>
+                }
+                else if (item.QuestionType == Nebula.Domain.Entities.GeoQuestionType.CatQuestion)
+                {
+                    <span>კატის</span>}
+                else if (item.QuestionType == Nebula.Domain.Entities.GeoQuestionType.PostQuestion)
+                {
+                    <span>პოსტ ვიდეო</span>}
+                else if (item.QuestionType == Nebula.Domain.Entities.GeoQuestionType.PreQuestion)
+                {
+                    <span>პრე ვიდეო</span>}
+            </td>
+
+            <td><span>@{string ffs = numLetterHelper(x);<text>@ffs</text>}</span></td>
+
+            <td>
+                @Html.ActionLink("რედაქტირება", "Manage", new {id = item.Id, questionCategoryId = ViewBag.Id}) |
+                <form action="@Url.Action("Delete", "AdminGeoQuestion")" method="post" style="display: inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id"/>
+                    <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath"/>
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')"/>
+                </form>
+            </td>
+        </tr>
+        {
+            i = 1;
+            l = 0;
+            x = 0;
+        }
+    }
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action(
+    "Index",
+    new
+    {
+        page,
+        id = ViewBag.Id, 
+    }))

@@ -1,0 +1,36 @@
+﻿@model IOrderedEnumerable<Nebula.Domain.Entities.Notification>
+@{
+
+}
+<div class="container for-mr ForScrollMarg">
+    <h1 class="all-mesg-all">ყველა შეტყობინება</h1>
+    <!-- paragraps area -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="useroabenelsparagraps" style="margin: 0 auto;">
+             
+                @foreach (var notification in Model)
+                {
+                    <div class="user-par transition">
+                        <div class="forClickAn transitionForClickRotate">
+                            <p>
+                              @Html.Raw(notification.Text)
+                            </p>
+                        </div>
+                        <span class="colapsee">
+                            <span class="transitionForClickRotate whit-dw"></span>
+                        </span>
+                    </div>
+                }
+             
+              
+            </div>
+        </div>
+    </div>
+
+</div>
+@section scripts{
+<script>
+    collapseClick();
+</script>
+}

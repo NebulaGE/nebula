@@ -1,0 +1,57 @@
+﻿@model Nebula.Domain.ViewModels.Web.SocialViewModel
+
+<link href="~/Content/assetsNew/css/social.css" rel="stylesheet" />
+
+
+@*<div class="container for-mr ForScrollMarg">
+    <div class="mainPack">
+        <div class="defaultCont">
+            <form id="social-form"> 
+                <div class="rows">
+                    <input class="inp geoKeyboard" type="text" placeholder="სახელი" value="@Model.FirstName" id="social-firstname" name="FirstName" />
+                    <input class="inp geoKeyboard" type="text" placeholder="გვარი" value="@Model.LastName" id="social-lastname" name="LastName" />
+                </div>
+                <div class="rows">
+                    <input class="inp" type="text" placeholder="ტელეფონის ნომერი" value="@Model.PhoneNumber" id="social-phone"  name="PhoneNumber" />
+                    <input class="inp" type="text" placeholder="პირადი ნომერი" value="@Model.IdentificationNumber" id="social-identity" name="IdentificationNumber" />
+                </div>
+                <div class="rows forLft">
+                    <div class="fileUpload btn btn-primary">
+                        <span>ატვირთვა</span>
+                        <input type="file" class="upload"  name="UserFile" id="social-file"/>
+                    </div>
+                    <span class="text">პირადობის დამადასტურებელი დოკუმენტის ასლი(სურათი ან pdf)</span>
+                </div>
+                <div class="rows">
+                    <textarea class="txtra geoKeyboard" placeholder="რის საფუძველზე ითხოვთ დაფინანსებას" id="social-text" name="SocialText">@Model.SocialText</textarea>
+            </div>
+            <div class="rows forLft">
+                <div class="checkBox">
+                    <input class="checa" type="checkbox"   id="social-checkbox"/>
+                    <span class="text">
+                  თანახმა ვარ მოითხოვოთ და მიიღოთ სსიპ - სოცალური მომსახურების სააგენტოსაგან ინფორმაცია “სოციალურად დაუცველი ოჯახების მონაცემთა ერთიან ბაზაში” ჩემი ოჯახის რეგისტრაციისა და სარეიტინგო ქულის შესახებ ან მიაწოდოთ საქართველოს განსახლებისა და  ლტოლვილთა სამინსტროს შესაბამისი პირადი ინფორმაცია თქვენ მიერ განხორციელებული პროგრამით გათვალისწინებული შეღავათებით სარგებლობის მიზნებისთვის. შეღავათებით სარგებლობის მიზნებისთვის.
+                    </span>
+                </div>
+                <div class="rows" align="center">
+                    <button class="submit" style="margin-top: 45px;" id="social-submit">განცხადების შევსება</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>*@
+
+<form method="post" action="@Url.Action(ViewBag.Action, "Home")" id="social-form"  enctype = "multipart/form-data", name = "imgSave">
+    <div style="text-align: center;">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+    <div class="main-social">
+        <div class="social-ganacxadi">
+            <a href="@Url.Action("Index")">
+                <div class="text-back">უკან</div>
+            </a>
+            <div class="text-ganacxadi">სოციალური განაცხადი</div>
+        </div>
+        @(User.Identity.IsAuthenticated ? Html.Partial("_SocialProgramRegisteredPartial", Model.User) : Html.Partial("_SocialProgramNotRegisteredPartial", Model.Social))
+    </div>
+</form>
+
+<input type="hidden" value="@ViewBag.Succes" id="socSucces"/>

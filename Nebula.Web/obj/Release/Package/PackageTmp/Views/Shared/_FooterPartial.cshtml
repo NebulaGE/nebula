@@ -1,0 +1,24 @@
+﻿@model int
+ 
+<div class="course-buy-offer">
+    <div class="course-offer-div">
+        <div class="circle-offer">
+            <div id="offer-label"></div>
+        </div>
+        <div id="text-offer">შეთავაზება</div>
+        <div id="border"></div>
+        <div id="text-full-course">შეიძინეთ ნებულას სრული კურსი და მიიღეთ წვდომა ნებისმიერ ვიდეოზე!</div>
+        <a class="course-buy-gel auth-require-page-click" data-val="@Url.Action("Index", "Payment")"> 
+                @if (Model == 1)
+                {
+                    <div id="price-gel">200₾</div>
+                }
+                else
+                {
+                    <div id="price-gel">300₾</div>
+                } 
+            <div id="border-gel"></div>
+            <div id="course-buy" >კურსის შეძენა</div>
+        </a>
+    </div>
+</div>

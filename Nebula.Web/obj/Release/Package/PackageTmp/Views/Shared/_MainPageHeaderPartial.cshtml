@@ -1,0 +1,22 @@
+﻿@model int 
+
+<div class="top-div">
+    <div class="buy-course-nebula">
+   @Html.Action("BuyBtn", "Home", new { id = Model })
+    </div>
+    <div class="select-course-div">
+        <a href="@Url.Action("Index", "CSMain")">
+            <div class="items">
+                <div class="text-items">ზოგადი უნარები</div>
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "GeoMain")" >
+            <div class="items" >
+                <div class="text-items">ქართული</div>
+            </div>
+        </a>
+        <div class="items">
+            <div class="notactive">ინგლისური</div>
+        </div>
+    </div>
+</div>

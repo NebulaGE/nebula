@@ -1,0 +1,46 @@
+﻿@model  Nebula.Domain.ViewModels.Admin.Geo.GeoVideoTypeViewModel
+@{
+    ViewBag.Title = "Work";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Works</h2>
+
+<ul class="main-menu">
+    @if (ViewBag.CategoryId == 1)
+    {
+        foreach (var item in Model.Work)
+        {
+            <li class="sub-menu">
+                <a href="">@item.Title</a>
+                <ul>
+                    @foreach (var sub in item.GeoAuthorWorkParts)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", new { id=ViewBag.CategoryId,workid = sub.Id })"> @sub.PartName</a>
+                        </li>
+                    }
+                </ul>
+                <hr />
+            </li>
+        }
+    }
+    else
+    {
+        foreach (var item in Model.Tag)
+        {
+            <li class="sub-menu">
+                <a href="">@item.TagName</a>
+                <ul>
+                    @foreach (var sub in item.GeoGrammarSubTags)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", new { id=ViewBag.CategoryId,workid = sub.Id })"> @sub.TagName</a>
+                        </li>
+                    }
+                </ul>
+                <hr />
+            </li>
+        }
+    }
+</ul>   

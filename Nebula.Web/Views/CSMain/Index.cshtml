@@ -1,0 +1,182 @@
+﻿@using Nebula.Domain.ViewModels.Web.CS
+@model CSMainPageViewModel
+
+<link href="~/Content/assetsNew/css/buycourse.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "CS Main Page";
+}
+
+<div class="main-div-buy-courses">
+    @Html.Partial("_MainPageHeaderPartial",2)
+    <div class="main-div-courses">
+        <div class="video-lessons-buy">
+            <div class="user-logos-video">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 46.4 36.8" style="fill: #8962ff" xml:space="preserve">
+                <g>
+                <path d="M29.2,17.7l-8.8-5.6c-0.2-0.2-0.6-0.2-0.8,0c-0.3,0.1-0.4,0.4-0.4,0.7V24c0,0.3,0.2,0.6,0.4,0.7c0.1,0.1,0.3,0.1,0.4,0.1
+                                c0.1,0,0.3,0,0.4-0.1l8.8-5.6c0.2-0.1,0.4-0.4,0.4-0.7C29.6,18.1,29.5,17.9,29.2,17.7L29.2,17.7z M20.8,22.5v-8.3l6.5,4.1
+                                L20.8,22.5z M20.8,22.5" />
+                <path d="M45.6,0H0.8C0.4,0,0,0.4,0,0.8V36c0,0.4,0.4,0.8,0.8,0.8h44.8c0.4,0,0.8-0.4,0.8-0.8V0.8C46.4,0.4,46,0,45.6,0L45.6,0z
+                                 M8,17.6H1.6v-7.2H8V17.6z M1.6,19.2H8v7.2H1.6V19.2z M9.6,27.2V1.6h27.2v33.6H9.6V27.2z M44.8,17.6h-6.4v-7.2h6.4V17.6z
+                                 M38.4,19.2h6.4v7.2h-6.4V19.2z M44.8,1.6v7.2h-6.4V1.6H44.8z M1.6,1.6H8v7.2H1.6V1.6z M1.6,35.2V28H8v7.2H1.6z M44.8,35.2h-6.4V28
+                                h6.4V35.2z M44.8,35.2" />
+                        </g>
+                        </svg>
+            </div>
+            <div class="text-logo"><b>ვიდეო გაკვეთილები</b></div>
+            <div class="text-logo1">ყველაფერი, რაც უნარების გამოცდის ჩასაბარებლადაა საჭირო.</div>
+            <div class="video-blocks">
+                <a href="@Url.Action("Index", "CSVideo", new {tagId = Model.MathVideosTagId})"></a>
+                <div class="circle1">
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="text-for-blocks">მათემატიკური</div>
+            </div>
+
+            <div class="video-blocks">
+                <a href="@Url.Action("Index", "CSVideo", new {tagId = Model.VerbalVideosTagId})"></a>
+                <div class="circle1">
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="text-for-blocks">ვერბალური</div>
+            </div>
+        </div>
+
+        <div class="video-lessons-buy">
+            <div class="user-logos-trainings">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 34.4 47.9" style="fill: #8962ff" xml:space="preserve">
+                <g>
+                <path d="M31.2,0H0v43.2h3.2v4.7l3.2-2.1l3.2,2.1v-4.7h21.6c1.8,0,3.2-1.4,3.2-3.2V3.2C34.4,1.4,33,0,31.2,0L31.2,0z M1.6,1.6H24v12
+                                    H1.6V1.6z M24,28H1.6V15.2H24V28z M8,44.9l-1.6-1.1l-1.6,1.1v-1.7H8V44.9z M9.6,41.6h-8v-12H24v12H9.6z M25.6,41.6v-40H28v40H25.6z
+                                     M29.6,15.2h3.2V28h-3.2V15.2z M32.8,40c0,0.9-0.7,1.6-1.6,1.6h-1.6v-12h3.2V40z M29.6,13.6v-12h1.6c0.9,0,1.6,0.7,1.6,1.6v10.4
+                                    H29.6z M29.6,13.6" />
+                            </g>
+                            </svg>
+            </div>
+            <div class="text-logo"><b>სავარჯიშოები</b></div>
+            <div class="text-logo1">ყველაფერი, რაც უნარების გამოცდის ჩასაბარებლადაა საჭირო.</div>
+            <div class="video-blocks">
+                <a href="@(Url.Content("~")+"CSExercises/Index?type="+Model.MathType+"#"+ Model.MathExercisesModuleId)"></a>
+                <div class="circle1">
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="text-for-blocks">მათემატიკური</div>
+            </div>
+            <div class="video-blocks">
+                <a href="@(Url.Content("~")+"CSExercises/Index?type="+Model.VerbalType+"#"+ Model.VerbalExercisesModuleId)"></a>
+                <div class="circle1">
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="text-for-blocks">ვერბალური</div>
+            </div>
+        </div>
+        <div class="video-lessons-buy" style="border-right:none">
+            <div class="user-logos-exam">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 288 376" style="fill: #8962ff" xml:space="preserve">
+                <g>
+                <path d="M286.7,297.7c0.1-0.1,0.2-0.2,0.3-0.4c0,0,0-0.1,0.1-0.1c0.1-0.1,0.2-0.3,0.2-0.4c0,0,0-0.1,0-0.1c0.1-0.1,0.2-0.3,0.2-0.5
+                                    c0,0,0,0,0-0.1c0.1-0.2,0.1-0.3,0.2-0.5c0,0,0,0,0-0.1c0.1-0.2,0.1-0.3,0.1-0.5c0,0,0-0.1,0-0.1c0-0.1,0.1-0.3,0.1-0.4
+                                    c0-0.2,0-0.4,0-0.6V6c0-3.3-2.7-6-6-6H6C2.7,0,0,2.7,0,6v364c0,3.3,2.7,6,6,6h200c0.2,0,0.4,0,0.6,0c0.1,0,0.3,0,0.4-0.1
+                                    c0,0,0.1,0,0.1,0c0.2,0,0.3-0.1,0.5-0.1c0,0,0,0,0.1,0c0.2,0,0.3-0.1,0.5-0.2c0,0,0,0,0.1,0c0.2-0.1,0.3-0.1,0.4-0.2
+                                    c0,0,0.1,0,0.1,0c0.1-0.1,0.3-0.1,0.4-0.2c0,0,0.1,0,0.1-0.1c0.1-0.1,0.2-0.2,0.3-0.3c0,0,0.1-0.1,0.1-0.1c0.1-0.1,0.3-0.2,0.4-0.4
+                                    c0,0,0,0,0,0l76-76c0,0,0,0,0,0c0.1-0.1,0.2-0.3,0.4-0.4C286.7,297.8,286.7,297.7,286.7,297.7L286.7,297.7z M12,12h264v276h-70
+                                    c-3.3,0-6,2.7-6,6v70H12V12z M267.5,300L212,355.5V300H267.5z M267.5,300" />
+                <path d="M119,76h115c3.3,0,6-2.7,6-6s-2.7-6-6-6H119c-3.3,0-6,2.7-6,6S115.7,76,119,76L119,76z M119,76" />
+                <path d="M65.8,90.2c1.2,1.2,2.7,1.8,4.2,1.8s3.1-0.6,4.2-1.8l32-32c2.3-2.3,2.3-6.1,0-8.5c-2.3-2.3-6.1-2.3-8.5,0L70,77.5l-7.8-7.8
+                                    c-2.3-2.3-6.1-2.3-8.5,0c-2.3,2.3-2.3,6.1,0,8.5L65.8,90.2z M65.8,90.2" />
+                <path d="M104,126c0,3.3,2.7,6,6,6h124c3.3,0,6-2.7,6-6s-2.7-6-6-6H110C106.7,120,104,122.7,104,126L104,126z M104,126" />
+                <path d="M86,104H54c-3.3,0-6,2.7-6,6v32c0,3.3,2.7,6,6,6h32c3.3,0,6-2.7,6-6v-32C92,106.7,89.3,104,86,104L86,104z M80,136H60v-20
+                                    h20V136z M80,136" />
+                <path d="M234,176H110c-3.3,0-6,2.7-6,6s2.7,6,6,6h124c3.3,0,6-2.7,6-6S237.3,176,234,176L234,176z M234,176" />
+                <path d="M86,160H54c-3.3,0-6,2.7-6,6v32c0,3.3,2.7,6,6,6h32c3.3,0,6-2.7,6-6v-32C92,162.7,89.3,160,86,160L86,160z M80,192H60v-20
+                                    h20V192z M80,192" />
+                <path d="M234,232H110c-3.3,0-6,2.7-6,6c0,3.3,2.7,6,6,6h124c3.3,0,6-2.7,6-6C240,234.7,237.3,232,234,232L234,232z M234,232" />
+                <path d="M86,216H54c-3.3,0-6,2.7-6,6v32c0,3.3,2.7,6,6,6h32c3.3,0,6-2.7,6-6v-32C92,218.7,89.3,216,86,216L86,216z M80,248H60v-20
+                                    h20V248z M80,248" />
+                <path d="M182,288h-72c-3.3,0-6,2.7-6,6c0,3.3,2.7,6,6,6h72c3.3,0,6-2.7,6-6C188,290.7,185.3,288,182,288L182,288z M182,288" />
+                <path d="M86,272H54c-3.3,0-6,2.7-6,6v32c0,3.3,2.7,6,6,6h32c3.3,0,6-2.7,6-6v-32C92,274.7,89.3,272,86,272L86,272z M80,304H60v-20
+                                    h20V304z M80,304" />
+                            </g>
+                            </svg>
+            </div>
+            <div class="text-logo"><b>გამოცდების სიმულაცია</b></div>
+            <div class="text-logo1">ყველაფერი, რაც უნარების გამოცდის ჩასაბარებლადაა საჭირო.</div>
+
+                @switch (Model.QuizStatus)
+                {
+                    case CSQuizStatus.Start:
+                        <div class="video-blocks">
+                            <a href="@Url.Action("Index", "Exam")"></a>
+                            <div class="circle1">
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="text-for-blocks">გამოცდის დაწყება</div>
+                        </div>
+                        break;
+                    case CSQuizStatus.Locked:
+                        <div class="video-blocks" style="cursor:not-allowed;">
+                           @*<a href="@Url.Action("Index", "Exam")"></a>*@
+                            <div class="circle1">
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="text-for-blocks">დარჩენილია @Model.LeftDays  დღე</div>
+                        </div>
+                        break;
+                    case CSQuizStatus.NeedLicense:
+                        <div class="video-blocks">
+                            <a class="auth-require-page-click"  data-val="@Url.Action("Index", "Payment")"></a>
+                            <div class="circle1">
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="text-for-blocks">პაკეტის შეძენა</div>
+                        </div>
+                        break;
+                    case CSQuizStatus.Continue:
+                        <div class="video-blocks">
+                            <a href="@Url.Action("Index", "Exam")"></a>
+                            <div class="circle1">
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="text-for-blocks">გაგრძელება</div>
+                            </div>
+                            break;
+                         }
+            
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="video-blocks">
+                    @if (Model.PrevQuizId != null)
+                    {
+                        <a href="@Url.Action("Result", "Exam", new {quizId = Model.PrevQuizId})"></a>
+                    }
+                    <div class="circle1">
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="text-for-blocks">წინა გამოცდა</div>
+                </div>
+
+                <div class="video-blocks">
+                    <a href="@Url.Action("Panel", "User")"></a>
+                    <div class="circle1">
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="text-for-blocks">ანალიტიკა</div>
+                </div>
+            }
+        </div>
+    </div> 
+    @if (Model.QuizStatus == CSQuizStatus.NeedLicense) {
+        <div class="message-div">
+            <div class="circle-div"></div>
+            <img class="circle-inner-image" src="~/Content/assetsNew/img/text.png" />
+            <div class="text-social">თქვენ ამჟამად სარგებლობთ პროგრამის უფასო ვერსიით, სრული ვერსიით სარგებლობისთვის გთხოვთ შეიძინოთ კურსი.</div>
+            <a class="buy-course1"  data-val="@Url.Action("Index", "Payment")">
+                <div class="text-buy-course  auth-require-page-click">კურსის შეძენა</div>
+            </a>
+        </div>
+    }
+</div>
+

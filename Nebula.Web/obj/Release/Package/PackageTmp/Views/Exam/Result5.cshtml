@@ -1,0 +1,444 @@
+﻿@{
+
+}
+<div class="result cs-loading" style="display:none;" id="quiz-result">
+    <div class="container ForScrollMarg">
+        @*<button id="show-review" class="btn btn-success">Review</button>
+    <button id="show-times" class="btn btn-success">თითოეულ კითხვაზე დახარჯული დრო</button>*@
+
+            @*<button id="show-algorithm" class="btn btn-success">ალგორითმი</button>*@
+
+        <!-- first hedaer row -->
+        <div class="row">
+            <div class="col-sm-12" data-bind="visible: errorsVisible()">
+                <div class="messageForRowsPage" data-bind="foreach : errors">
+
+                    <p class="MessageParagrap">
+                        <span class="danger"></span>
+
+                        <span class="text" data-bind="text : $data"></span>
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="statisticsPerson">
+
+                    <a data-original-title="" title="" data-bind="attr : { href : returnUrl}">
+                        <div class="social">
+                            <div class="back">
+                                <span class="arrowBackForName"></span>
+                            </div>
+                        </div>
+                        <span data-bind="text : fullName"></span>
+                    </a>
+                    <p class="test">ტესტი <span data-bind="text: quizIndex()+'. '+ activeText()"></span></p>
+                    <p class="data" data-bind="text: startDate"></p>
+                </div>
+    
+            </div>
+
+            <div class="col-sm-8">
+                <div class="statisticsButBar">
+                    <button class="all-V-M" data-buttonid=".all-bl" data-bind="click: getAllResult, css : { active : choosenTag() == 3 }">სრული ანალიზი</button>
+                    <button class="verbal" data-buttonid=".verbal-bl" data-bind="click: getVerbalResult, css : { active : choosenTag() == 1 }">ვერბალური</button>
+                    <button class="math" data-buttonid=".math-bl" data-bind="click: getMathResult, css : { active : choosenTag() == 2 }">მათემატიკური</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="fr-mr" style="margin-top:30px;">
+        <!-- all -->
+        <div class="all-bl" data-bind="visible: choosenTag() == 3">
+
+            <div class=" container" style="text-align: center;">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row forAllSml">
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="fullcircle">
+                                        <span class="fullCircleSp" data-bind="text : gameResult() && (gameResult().verbalGeneralResult.correctAnswerCount + gameResult().mathGeneralResult.correctAnswerCount) "></span>
+                                    </div>
+                                    <span class="FullGreenNumeratic">ქულა</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle red">
+                                        <span class="borderCircle red" data-bind="text : gameResult() && (gameResult().verbalGeneralResult.incorrectAnswerCount +  gameResult().mathGeneralResult.incorrectAnswerCount)"> </span>
+                                    </div>
+                                    <span class="NotFullRed red">შეცდომა</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle gray">
+                                        <span class="borderCircle gray" data-bind="text : gameResult() && (gameResult().mathGeneralResult.notMovedAnswersCount + gameResult().verbalGeneralResult.notMovedAnswersCount)"></span>
+                                    </div>
+                                    <span class="NotFullRed">ცარიელი</span>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="timeArea">
+                            <div class="TimeAndIcon">
+                                <span class="titleIcon"></span>
+                                <span class="time" data-bind="text : gameResult() && gameResult().wholeTime"></span>
+                            </div>
+                            <button class="TestShowBut show-review">ტესტის ნახვა</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- all -->
+        <!-- verbal -->
+        <div class="verbal-bl" data-bind="visible: choosenTag() == 1">
+            <div class="container" style="text-align: center;">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row forAllSml">
+
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="fullcircle">
+                                        <span class="fullCircleSp" data-bind="text : gameResult() && gameResult().verbalGeneralResult.correctAnswerCount "></span>
+                                    </div>
+                                    <span class="FullGreenNumeratic">ქულა</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle red">
+                                        <span class="borderCircle red" data-bind="text : gameResult() && gameResult().verbalGeneralResult.incorrectAnswerCount"> </span>
+                                    </div>
+                                    <span class="NotFullRed red">შეცდომა</span>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle gray">
+                                        <span class="borderCircle gray" data-bind="text : gameResult() && gameResult().verbalGeneralResult.notMovedAnswersCount"></span>
+                                    </div>
+                                    <span class="NotFullRed">ცარიელი</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="timeArea">
+                            <div class="TimeAndIcon">
+                                <span class="titleIcon"></span>
+                                <span class="time" data-bind="text : gameResult() &&  gameResult().verbalQuizTime"></span>
+                            </div>
+                            <button class="TestShowBut show-review">ტესტის ნახვა</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- verbal -->
+        <!-- math -->
+
+        <div class="math-bl" data-bind="visible: choosenTag() == 2">
+
+            <div class="container" style="text-align: center;">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row forAllSml">
+
+
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="fullcircle">
+                                        <span class="fullCircleSp" data-bind="text : gameResult() && gameResult().mathGeneralResult.correctAnswerCount "></span>
+                                    </div>
+                                    <span class="FullGreenNumeratic">ქულა</span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle red">
+                                        <span class="borderCircle red" data-bind="text : gameResult() && gameResult().mathGeneralResult.incorrectAnswerCount"> </span>
+                                    </div>
+                                    <span class="NotFullRed red">შეცდომა</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="circelBar">
+                                    <div class="circle gray">
+                                        <span class="borderCircle gray" data-bind="text : gameResult() && gameResult().mathGeneralResult.notMovedAnswersCount"></span>
+                                    </div>
+                                    <span class="NotFullRed">ცარიელი</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="timeArea">
+                            <div class="TimeAndIcon">
+                                <span class="titleIcon"></span>
+                                <span class="time" data-bind="text : gameResult() &&  gameResult().mathQuizTime"></span>
+                            </div>
+                            <button class="TestShowBut show-review">ტესტის ნახვა</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- math -->
+
+
+
+    </div>
+
+
+
+
+    <div class="container" data-bind="visible: choosenTag() == 3">
+        <h2 class="moreinfo">დეტალური ინფორმაცია</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row" data-bind="foreach : gameResult() && gameResult().verbalResultByTagName">
+
+                    <div class="col-sm-3 text-center">
+                        <div class="meter">
+                            <span class="background-by-progress" data-bind="style :{height: Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) + '%'}, attr : { 'data-progress' : Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) }"></span>
+                        </div>
+                        <p>
+
+                            <span class="textt" data-bind="text : tagName"></span>
+                        </p>
+                        <p class="numeratic" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row" data-bind="foreach : gameResult() && gameResult().mathResultByTagName">
+                    <div class="col-sm-3 text-center">
+                        <div class="meter">
+                            <span class="background-by-progress" data-bind="style :{height: Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) + '%'}, attr : { 'data-progress' : Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) }"></span>
+                        </div>
+                        <p>
+
+                            <span class="textt" data-bind="text : tagName"></span>
+                        </p>
+                        <p class="numeratic" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" data-bind="visible: choosenTag() == 1">
+        <h2 class="moreinfo">დეტალური ინფორმაცია</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row" data-bind="foreach : gameResult() && gameResult().verbalResultByTagName">
+                    <div class="col-sm-3 text-center">
+                        <div class="meter">
+                            <span class="background-by-progress" data-bind="style :{height:   Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) + '%'}, attr : { 'data-progress' : Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) }"></span>
+                        </div>
+                        <p>
+
+                            <span class="textt" data-bind="text : tagName"></span>
+                        </p>
+                        <p class="numeratic" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" data-bind="visible: choosenTag() == 2">
+        <h2 class="moreinfo">დეტალური ინფორმაცია</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row" data-bind="foreach : gameResult() && gameResult().mathResultByTagName">
+                    <div class="col-sm-3 text-center">
+                        <div class="meter">
+                            <span class="background-by-progress" data-bind="style :{height: Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) + '%'}, attr : { 'data-progress' : Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100) }"></span>
+                        </div>
+                        <p>
+
+                            <span class="textt" data-bind="text : tagName"></span>
+                        </p>
+                        <p class="numeratic" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div id="quiz-time" data-bind="foreach: quizTimes" style="display:none;">
+        <p data-bind="text : Num+ ') დახარჯული დრო: '+Second + ' წმ'"></p>
+    </div>*@
+
+    <div id="quiz-algorithm" style="display:none;">
+        @*<h3>შეწონილი ქულები</h3>
+        <div data-bind="foreach: shewoniliTagScores">
+            <div>
+                <b><span data-bind="text : tagName"></span></b>
+                <span> | შეწონილი პროცენტი :</span>
+                <b><span data-bind="text :avarage"></span></b>
+                <span> </span>
+                <span data-bind="text : '(+'+positiveScores+' -'+negativeScores+')'"></span>
+            </div>
+        </div>
+
+        <h3>ჯამური ქულები</h3>
+
+        <div data-bind="foreach: sumTagScores">
+            <div>
+                <b><span data-bind="text : tagName"></span></b>
+                <span> | ჯამური პროცენტი :</span>
+                <b><span data-bind="text :avarage"></span></b>
+                <span> </span>
+                <span data-bind="text : '(+'+positiveScores+' -'+negativeScores+')'"></span>
+            </div>
+        </div>*@
+    </div>
+</div>
+<div class="quiz" id="quiz-review" style="display:none;">
+    <div class="container">
+        <!-- test heaad panel -->
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="#"><span class="arrow-back" id="show-result"></span></a>
+                <span class="test">ტესტი </span>
+                @*<span class="verbal" data-bind="text : quizTypeText">ვერბალური</span>*@
+            </div>
+            <div class="col-sm-8">
+                <span class="tesTexts">პასუხები გაცემულია <span data-bind="text: userAnswersCount() + '/' + questionCount()"></span></span>
+
+
+
+
+            </div>
+        </div>
+        <!-- / test heaad panel -->
+
+
+
+        <div class="row">
+            <div class="col-sm-4 shadow-pnl">
+                <div class="fullHeight" data-bind="foreach: questionsByTag" id="left-navigation">
+                    <div class="testLeftNav">
+
+                        <div class="testLeftNavHeader">
+                            <h3 data-bind="text: tagName"></h3>
+                        </div>
+                        <div class="testsAswers" style="cursor:pointer;">
+
+
+
+
+
+
+                            <ol>
+                                <!-- ko if: hasMultipleQuestions -->
+                                <li data-bind="click : $root.getPiroba.bind($data, {pirobaIndex : $index()}),  css : { active : pirobaIndexer == $root.activeIndex() }"><a class="navigation-piroba">პირობა</a></li>
+                                <!-- /ko -->
+                                <!-- ko foreach: questions -->
+                                <li data-bind="click : $root.getQuestionByNum.bind($data, {index : index, questionId : id}),  css : { active : index == $root.activeIndex() }">
+
+                                    <a class="three-dot" data-bind="html : num + '. '+plainText" href=" #"></a><span data-bind="css :{ true : isCorrect(), false : !isCorrect() && answerI() != -1 }"></span>
+                                </li>
+                                <!-- /ko -->
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-8" id="math-jax-area">
+                <div class="QuizTest">
+                    <div class="QuizAnswers">
+                        <div class="piroba-nav" style="display:none;">
+                            <div class="quizAsk">
+                                <h3 data-bind="text: activePiroba() &&  activePiroba().tagName"></h3>
+                                <div data-bind="html : activePiroba() &&  activePiroba().piroba" class="active-question"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="question-nav">
+                            <div class="quizAsk">
+                                <span class="headerSp" data-bind="text : activeIndex() + startIndex() + '.' "></span>
+                                <div data-bind="html : activeQuestion() &&  activeQuestion().QuestionText" class="active-question"></div>
+                            </div>
+
+                            <div data-bind="foreach:  activeQuestion() && activeQuestion().answers" style="margin-top:20px;">
+
+
+                                <p style="cursor:pointer;">
+
+                                    <span class="quizCats" data-bind="html: L, css : { green : isCorrect, red : !isCorrect &&  index == $root.activeAnswer()}"></span>
+                                    <span data-bind="html:answerString" class="ans-span"></span>
+                                </p>
+
+                            </div>
+                            <button id="GoPrevQuiz" data-bind="click: getPrevQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasPreviousQuestion">წინა</button>
+                            <button id="GoNexQuiz" data-bind="click: getNextQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasNextQuestion ">შემდეგი</button>
+                            <button data-bind="visible : activeQuestion() && activeQuestion().hasMultipleQuestions, click : showPirobaPop" style="background: #00ace0;">პირობის ნახვა</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <div class="quisp" style="display:none;">
+        <div class="quizpp">
+            <div class="clossepop"></div>
+            <div class="quzArea">
+                <p class="ffs" data-bind="html : activeQuestion() && activeQuestion().multipleQuestionsText">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="result-id" value="@ViewBag.QuizId" />
+<input type="hidden" id="return-url" value="@ViewBag.ReturnUrl" />
+@section scripts{
+
+    <script src="~/Js/result.js?v=8"></script>
+}
+
+

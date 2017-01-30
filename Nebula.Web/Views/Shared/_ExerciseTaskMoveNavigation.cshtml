@@ -1,0 +1,24 @@
+﻿<div class="progress-div-child">
+    @*<div class="progress-numbers1">19/40</div>
+        <progress value="78" max="100" class="progress"></progress>*@
+    <div class="previous-button" data-bind="click : letTaskPrev() ?  getTaskPrevQuestion : null, 
+         style : {'cursor' : letTaskPrev() ? 'pointer' : 'not-allowed' }">
+        <div class="text-previuos-next">წინა</div>
+    </div>
+    <div class="next-button" data-bind="click : letTaskNext() ?  getTaskNextQuestion : null,
+          style : {'cursor' : letTaskNext() ? 'pointer' : 'not-allowed' }">
+        <div class="text-previuos-next">შემდეგი</div>
+    </div>
+    <div class="next-button" style="cursor:pointer;"
+          data-bind="click : showTaskFunc" >
+        <div class="text-previuos-next">პირობის ნახვა</div>
+    </div>
+
+    <div class="next-button" data-bind="click : $root.getNewSetOffQuestions, 
+             style : {'display' : finishedTask() ? 'block' : 'none'}">
+        <div class="text-previuos-next" >ახალი პირობა</div>
+    </div>
+
+    @*<div class="skip" data-bind="click :  skipQuestion , visible : hasNextQuestion() && !letActiveQuestion() ">გამოტოვება</div>
+        <div class="skip-arrow"></div>*@
+</div>

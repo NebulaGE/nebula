@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "NewIndex";
+  
+}
+
+<link href="~/Content/assetsNew/css/test.css" rel="stylesheet" />
+
+
+<div class="main-div" id="math-jax-area">
+<div class="black-div">
+    <a href="@Url.Action("Index","CSMain")">
+        <div class="arrow-back"></div></a>
+        <div class="text-back" data-bind="text: 'ტესტი ' + quizIndex()"></div>
+        <div class="text-course-name" data-bind="text : quizTypeText">ვერბალური</div>
+        <div class="progress-numbers"><span data-bind="text: userAnswersCount"></span>/40</div>
+        <span class="clock">
+            <span class="timer"></span>
+        </span>
+        <div class="end" data-bind="click : confirmGameOver">დასრულება</div>
+</div>
+<div class="main-background">
+    <div class="burger-menu-video">
+        <div class="burger-line-top-video"></div>
+        <div class="burger-line-middle-video"></div>
+        <div class="burger-line-bottom-video"></div>
+    </div>
+    <div class="test-main-div1" data-bind="foreach: questionsByTag">
+        <div class="video-blocks-unarebi">
+            <div class="text-for-blocks-unarebi" data-bind="text : tagName"></div>
+        </div>
+        <!-- ko if: hasMultipleQuestions -->
+      
+        <div class="video-pre-blocks-unarebi" data-bind="click : $root.getPiroba.bind($data, {pirobaIndex : $index()}),  
+             css : { active : pirobaIndexer == $root.activeIndex() }">
+   
+            <div class="text-for-pre-blocks-unarebi1">ტექსტი</div>
+   
+        </div>
+        <!-- /ko -->
+        <!-- ko foreach: questions -->
+ 
+        <div class="video-pre-blocks-unarebi" data-bind="click : 
+             $root.getQuestionByNum.bind($data, {index : index, questionId : id}),  css : { active : index == $root.activeIndex() }">
+            <div class="text-pre-video-length-unarebi" data-bind="text : num + '.'"></div>
+            <div class="text-for-pre-blocks-unarebi three-dot" data-bind="html :plainText"></div>
+            <div class="pre-circle-went-unarebi"><div class="numbers-right-went-unarebi" data-bind="text: answerL"></div></div>
+        </div>
+        <!-- /ko -->
+
+
+    </div>
+    <div class="question-main-div">
+        <div class="question-div"  data-bind="visible : !showPiroba()">
+            <div class="text-question-div">
+                <div class="text-question1" data-bind="html : activeQuestion() &&  activeQuestion().QuestionText">მეწყერი : სტიქიური მოვლენა</div>
+            </div>
+        </div>
+        <div class="answers-div" data-bind="foreach:  activeQuestion() && activeQuestion().answers, visible : !showPiroba()">
+            <div class="answer-div" data-bind="click : $root.setAnswer.bind($data, {answerId : id, quizId : $root.quizId(), questionId : $root.activeQuestion().id, index : index})">
+                <div class="variants" data-bind="css : { 'variants-selected' :  index == $root.activeAnswer() }">
+                    <div class="variant-char-gray" data-bind="html: L, css : {'variant-char-gray' : index != $root.activeAnswer(), 'variant-char-white' : index == $root.activeAnswer(), }"></div>
+                </div>
+                <div class="text-answer1" data-bind="html:answerString"> </div>
+            </div>
+ 
+        </div>
+        <div class="text-question-div1 piroba-nav" data-bind="style : {display : showPiroba() ? 'block' : 'none'}">
+            <div class="text-question2" data-bind="html : activePiroba() &&  activePiroba().piroba">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="progress-main-div">
+    <div class="progress-div-child" style="margin-top: 22px; margin-right: 15%;" data-bind="visible : !showPiroba()">
+     
+        <button class="next-button1" data-bind="click: getNextQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasNextQuestion ">
+            <div class="text-previuos-next2" >შემდეგი</div>
+        </button>
+        <button class="previous-button1" data-bind="click: getPrevQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasPreviousQuestion">
+            <div class="text-previuos-next2" >წინა</div>
+        </button>
+        <button class="view-text"  data-bind="visible : activeQuestion() && activeQuestion().hasMultipleQuestions, 
+                click : $root.getPirobaFromQuestion.bind($data, {pirobaId : activeQuestion() && activeQuestion().pirobaId})">
+            <div class="text-previuos-next1">პირობის ნახვა</div>
+        </button>
+   
+    </div>
+    
+    <div class="progress-div-child1" data-bind="foreach : activePiroba() && activePiroba().questions, style : {'display' : showPiroba()? 'block' : 'none' }" >
+        <a href="javascript;" data-bind="text : num, click : $root.getQuestionByNum.bind($data, {index : index, questionId : id})">01</a>
+    
+    </div>
+
+</div>
+    <div class="fb-main-div"></div>
+
+</div>
+
+@section scripts{
+    <script src="~/Js/exam.js?v=9"></script>
+}

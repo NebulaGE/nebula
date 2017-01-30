@@ -1,0 +1,94 @@
+﻿@model Nebula.Domain.Entities.Cupon
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>კუპონის გენერაცია</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">პროცენტი</label>
+
+            <div class="col-md-10">
+                <input type="number" min="1" max="100"  class="form-control" name="Percent" required />
+          
+                @Html.ValidationMessageFor(model => model.Percent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">კუპონის კატეგორია : </label>
+            <div style="margin-left: 12px; margin-top: 5px;">
+                <span style="margin: 5px;">
+
+                    <input type="radio" name="Type" value="@Nebula.Domain.Entities.CouponType.Geo" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CouponType.Geo ? "checked" : "") />
+
+                    ქართული
+                </span>
+
+                <span style="margin: 5px;">
+
+                    <input type="radio" name="Type" value="@Nebula.Domain.Entities.CouponType.Cs" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CouponType.Cs ? "checked" : "") />
+
+                    უნარები
+                </span>
+                <span style="margin: 5px;">
+
+                    <input type="radio" name="Type" value="@Nebula.Domain.Entities.CouponType.Eng" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CouponType.Eng ? "checked" : "") />
+
+                    ინგლისური
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">ვადა</label>
+            <div class="col-md-10">
+                <input type="date" name="ExpireDate" class="form-control" required />
+              
+                @Html.ValidationMessageFor(model => model.ExpireDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">გააქტიურების შემდეგ საათი</label>
+            <div class="col-md-10">
+                <input type="number"   min="1" class="form-control" name="ExpireTime"  />
+   
+                @Html.ValidationMessageFor(model => model.ExpireTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">რაოდენობა</label>
+            <div class="col-md-10">
+                <input type="number" min="1" class="form-control" name="Count"  required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შექმნა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("უკან დაბრუნება", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

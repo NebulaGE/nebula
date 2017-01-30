@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFamilyScoreByPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFamilyScoreByPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFamilyScoreByPIDResult" type="tns:FamilyScoreInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FamilyScoreInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FamilyScore" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegalScoreDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Persons" type="tns:ArrayOfPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPersonScoreByPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonScoreByPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonScoreByPIDResult" type="tns:PersonScoreInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersonScoreInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyDistrictCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyDistrict" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FamilyScore" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegalScoreDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPersonScoreBasisInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonScoreBasisInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonScoreBasisInfoResult" type="tns:PersonScoreBasicInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersonScoreBasicInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FamilyScore" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFamilyScoreExtendedInfoByPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFamilyScoreExtendedInfoByPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFamilyScoreExtendedInfoByPIDResult" type="tns:FamilyScoreExtendedInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FamilyScoreExtendedInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:FamilyScoreInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FamilyAddress" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorisedPersonPrivateNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorisedPersonFullName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FamilyPhones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" nillable="true" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetFamilyScoreFullInfoByPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFamilyScoreFullInfoByPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFamilyScoreFullInfoByPIDResult" type="tns:FamilyScoreFullInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FamilyScoreFullInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorisedPersonPrivateNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorisedPersonFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyPhones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeklarationFillingDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegalScoreDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Persons" type="tns:ArrayOfPerson" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastBankTransfers" type="tns:ArrayOfBankTransfer" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousScores" type="tns:ArrayOfFamilyScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankTransfer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankTransfer" nillable="true" type="tns:BankTransfer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankTransfer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFamilyScore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FamilyScore" nillable="true" type="tns:FamilyScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FamilyScore">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeklarationFillingDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegalScoreDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckFamilyScoresByScoreRanges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ranges" type="tns:ArrayOfScoreRange" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScoreRange">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScoreRange" nillable="true" type="tns:ScoreRange" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScoreRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MinValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxValue" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckFamilyScoresByScoreRangesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckFamilyScoresByScoreRangesResult" type="tns:FamilyScoreCheckByRangesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FamilyScoreCheckByRangesResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person" type="tns:Person" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScoreRangesResult" type="tns:ArrayOfScoreRangeResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScoreRangeResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScoreRangeResult" nillable="true" type="tns:ScoreRangeResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScoreRangeResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MinValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInRange" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetScoresByPrivateNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetScoresByPrivateNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScoresByPrivateNumbersResult" type="tns:PrivateNumbersScoresResultEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PrivateNumbersScoresResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumbersScores" type="tns:ArrayOfPrivateNumberScoreResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrivateNumberScoreResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrivateNumberScoreResultEntity" nillable="true" type="tns:PrivateNumberScoreResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrivateNumberScoreResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetScoresByPrivateNumbersExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScoresByPrivateNumbersExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScoresByPrivateNumbersExtResult" type="tns:PrivateNumbersScoresExtResultEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PrivateNumbersScoresExtResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumbersScores" type="tns:ArrayOfPrivateNumberScoreExtResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrivateNumberScoreExtResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrivateNumberScoreExtResultEntity" nillable="true" type="tns:PrivateNumberScoreExtResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrivateNumberScoreExtResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPersonsUnderPoverty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPersonsUnderPovertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPersonsUnderPovertyResult" type="tns:PeronsUnderPovertyResultEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PeronsUnderPovertyResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeronsUnderPoverty" type="tns:ArrayOfPeronUnderPovertyResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPeronUnderPovertyResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PeronUnderPovertyResultEntity" nillable="true" type="tns:PeronUnderPovertyResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PeronUnderPovertyResultEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnderPoverty" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPersonUnderPoverty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPersonUnderPovertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPersonUnderPovertyResult" type="tns:PeronUnderPovertyResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PeronUnderPovertyResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeronsUnderPoverty" type="tns:PeronUnderPovertyResultEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPersonScoreByScoreRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="privateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender_ID_DEA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correlationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPersonScoreByScoreRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPersonScoreByScoreRangeResult" type="tns:PersonScoreCheckByRangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersonScoreCheckByRangeResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="tns:ResultStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInRange" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreByPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreByPID" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreByPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreByPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonScoreByPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonScoreByPID" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonScoreByPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonScoreByPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonScoreBasisInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonScoreBasisInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonScoreBasisInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonScoreBasisInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreExtendedInfoByPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreExtendedInfoByPID" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreExtendedInfoByPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreExtendedInfoByPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreFullInfoByPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreFullInfoByPID" />
+  </wsdl:message>
+  <wsdl:message name="GetFamilyScoreFullInfoByPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFamilyScoreFullInfoByPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFamilyScoresByScoreRangesSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFamilyScoresByScoreRanges" />
+  </wsdl:message>
+  <wsdl:message name="CheckFamilyScoresByScoreRangesSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFamilyScoresByScoreRangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresByPrivateNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScoresByPrivateNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresByPrivateNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScoresByPrivateNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresByPrivateNumbersExtSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScoresByPrivateNumbersExt" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresByPrivateNumbersExtSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScoresByPrivateNumbersExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonsUnderPovertySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPersonsUnderPoverty" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonsUnderPovertySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPersonsUnderPovertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonUnderPovertySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPersonUnderPoverty" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonUnderPovertySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPersonUnderPovertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonScoreByScoreRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPersonScoreByScoreRange" />
+  </wsdl:message>
+  <wsdl:message name="CheckPersonScoreByScoreRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPersonScoreByScoreRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SSAServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreByPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის ქულა და წევრები ოჯახის რომელიმე წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი)</wsdl:documentation>
+      <wsdl:input message="tns:GetFamilyScoreByPIDSoapIn" />
+      <wsdl:output message="tns:GetFamilyScoreByPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreByPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის ქულა ოჯახის წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი)</wsdl:documentation>
+      <wsdl:input message="tns:GetPersonScoreByPIDSoapIn" />
+      <wsdl:output message="tns:GetPersonScoreByPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreBasisInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">მხოლოდ ოჯახის ქულა და მისამართი ოჯახის წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი)</wsdl:documentation>
+      <wsdl:input message="tns:GetPersonScoreBasisInfoSoapIn" />
+      <wsdl:output message="tns:GetPersonScoreBasisInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreExtendedInfoByPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის გაფართოებული ინფორმაცია და წევრები ოჯახის რომელიმე წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი)</wsdl:documentation>
+      <wsdl:input message="tns:GetFamilyScoreExtendedInfoByPIDSoapIn" />
+      <wsdl:output message="tns:GetFamilyScoreExtendedInfoByPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreFullInfoByPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის სრული ინფორმაცია რომელიმე წევრის პირადი ნომრით (ამონაწერი)</wsdl:documentation>
+      <wsdl:input message="tns:GetFamilyScoreFullInfoByPIDSoapIn" />
+      <wsdl:output message="tns:GetFamilyScoreFullInfoByPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFamilyScoresByScoreRanges">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის ქულის არსებობა მოცემულ დიაპაზონში ოჯახში შემავალი 
+                                    წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი)</wsdl:documentation>
+      <wsdl:input message="tns:CheckFamilyScoresByScoreRangesSoapIn" />
+      <wsdl:output message="tns:CheckFamilyScoresByScoreRangesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PID მასივს ეწერება გვერდით სარეიტინგო ქულა</wsdl:documentation>
+      <wsdl:input message="tns:GetScoresByPrivateNumbersSoapIn" />
+      <wsdl:output message="tns:GetScoresByPrivateNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbersExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PID მასივს ეწერება გვერდით სარეიტინგო ქულა და მისამართი</wsdl:documentation>
+      <wsdl:input message="tns:GetScoresByPrivateNumbersExtSoapIn" />
+      <wsdl:output message="tns:GetScoresByPrivateNumbersExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonsUnderPoverty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PID მასივს ეწერება გვერდით არის თუ არა სიღარიბის ზღვარს ქვემოთ</wsdl:documentation>
+      <wsdl:input message="tns:CheckPersonsUnderPovertySoapIn" />
+      <wsdl:output message="tns:CheckPersonsUnderPovertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonUnderPoverty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">პირად ნომერს ეწერება ეწერება გვერდით არის თუ არა სიღარიბის ზღვარს ქვემოთ</wsdl:documentation>
+      <wsdl:input message="tns:CheckPersonUnderPovertySoapIn" />
+      <wsdl:output message="tns:CheckPersonUnderPovertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonScoreByScoreRange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ოჯახის ქულის არსებობა მოცემულ დიაპაზონში ოჯახში შემავალი 
+                                    წევრის პირადი ნომრით (დამოკიდებულია რეგიონი/რაიონი, ქულების დიაპაზონზე)</wsdl:documentation>
+      <wsdl:input message="tns:CheckPersonScoreByScoreRangeSoapIn" />
+      <wsdl:output message="tns:CheckPersonScoreByScoreRangeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SSAServiceSoap" type="tns:SSAServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreByPID">
+      <soap:operation soapAction="http://tempuri.org/GetFamilyScoreByPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreByPID">
+      <soap:operation soapAction="http://tempuri.org/GetPersonScoreByPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreBasisInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPersonScoreBasisInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreExtendedInfoByPID">
+      <soap:operation soapAction="http://tempuri.org/GetFamilyScoreExtendedInfoByPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreFullInfoByPID">
+      <soap:operation soapAction="http://tempuri.org/GetFamilyScoreFullInfoByPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFamilyScoresByScoreRanges">
+      <soap:operation soapAction="http://tempuri.org/CheckFamilyScoresByScoreRanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbers">
+      <soap:operation soapAction="http://tempuri.org/GetScoresByPrivateNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbersExt">
+      <soap:operation soapAction="http://tempuri.org/GetScoresByPrivateNumbersExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonsUnderPoverty">
+      <soap:operation soapAction="http://tempuri.org/CheckPersonsUnderPoverty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonUnderPoverty">
+      <soap:operation soapAction="http://tempuri.org/CheckPersonUnderPoverty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonScoreByScoreRange">
+      <soap:operation soapAction="http://tempuri.org/CheckPersonScoreByScoreRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SSAServiceSoap12" type="tns:SSAServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreByPID">
+      <soap12:operation soapAction="http://tempuri.org/GetFamilyScoreByPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreByPID">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonScoreByPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonScoreBasisInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonScoreBasisInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreExtendedInfoByPID">
+      <soap12:operation soapAction="http://tempuri.org/GetFamilyScoreExtendedInfoByPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyScoreFullInfoByPID">
+      <soap12:operation soapAction="http://tempuri.org/GetFamilyScoreFullInfoByPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFamilyScoresByScoreRanges">
+      <soap12:operation soapAction="http://tempuri.org/CheckFamilyScoresByScoreRanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbers">
+      <soap12:operation soapAction="http://tempuri.org/GetScoresByPrivateNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresByPrivateNumbersExt">
+      <soap12:operation soapAction="http://tempuri.org/GetScoresByPrivateNumbersExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonsUnderPoverty">
+      <soap12:operation soapAction="http://tempuri.org/CheckPersonsUnderPoverty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonUnderPoverty">
+      <soap12:operation soapAction="http://tempuri.org/CheckPersonUnderPoverty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPersonScoreByScoreRange">
+      <soap12:operation soapAction="http://tempuri.org/CheckPersonScoreByScoreRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SSAService">
+    <wsdl:port name="SSAServiceSoap" binding="tns:SSAServiceSoap">
+      <soap:address location="http://172.17.8.125:3030/SSASocialServices/ssaservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SSAServiceSoap12" binding="tns:SSAServiceSoap12">
+      <soap12:address location="http://172.17.8.125:3030/SSASocialServices/ssaservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

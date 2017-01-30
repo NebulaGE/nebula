@@ -1,0 +1,18 @@
+﻿ .default {
+        width: 20px;
+    height: 20px;
+    margin-left: 9px;
+    position: relative;
+    display: inline-block;
+    background: white;
+    border-radius:50%;
+}
+
+  .default-active {
+    border-color: #6b77e3;
+}
+
+  .variants-selected{
+     background-color: #6b77e3 !important;
+         border: none !important;
+  }

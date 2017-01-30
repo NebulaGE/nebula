@@ -1,0 +1,101 @@
+﻿@model Nebula.Domain.Entities.Video
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Video</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2">სავარჯიშოებია? </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsExerciseType, new { htmlAttributes = new { @class = "cs-checkbox "} })
+  
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">თეგი</label>
+            <div class="col-md-10">
+                @Html.DropDownList("tagId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CSTag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">დასახელება</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   
+        
+
+        <div class="form-group">
+            <label class="control-label col-md-2">რიგი</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Numeration, new { htmlAttributes = new { @class = "form-control",  required = true} })
+                @Html.ValidationMessageFor(model => model.Numeration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label class="control-label col-md-2">ალტერნატიული ლინკი</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AlterneteLink, new { htmlAttributes = new { @class = "form-control", required = true } })
+                @Html.ValidationMessageFor(model => model.AlterneteLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      
+
+        <div class="form-group" id="upload-video">
+            <label class="control-label col-md-2">ატვირთე ვიდეო</label>
+            <div class="col-md-2">
+                <span class="btn btn-default btn-file">
+                    <input type="file" name="VideoFile">
+                </span>
+            </div>
+        </div>
+
+       
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შექმნა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+   <script>
+       $('#IsExerciseType').change(function () {
+
+           if ($('#IsExerciseType').is(':checked')) {
+               $('#upload-video').hide();
+           } else {
+               $('#upload-video').show();
+           }
+
+       });
+    </script>
+}

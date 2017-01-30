@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nebulaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CSQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionString" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CorrectAnswerId" Type="int" Nullable="false" />
+    <Property Name="ExamTagId" Type="int" />
+    <Property Name="TaskWithMultipleQuestionId" Type="int" />
+    <Property Name="VideoId" Type="int" />
+    <Property Name="VideoPartId" Type="int" />
+    <Property Name="IsExamQuestion" Type="bit" Nullable="false" />
+    <Property Name="IsExerciseQuestion" Type="bit" Nullable="false" />
+    <Property Name="AnswersCaption" Type="nvarchar(max)" />
+    <Property Name="IsWordAnalog" Type="bit" Nullable="false" />
+    <Property Name="Num" Type="int" />
+    <Property Name="QuestionInfoId" Type="int" />
+    <Property Name="IsVideoQuestion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskWithMultipleQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskText" Type="nvarchar(max)" />
+    <Property Name="TagId" Type="int" />
+    <Property Name="IsExamPiroba" Type="bit" Nullable="false" />
+    <Property Name="IsExercisePiroba" Type="bit" Nullable="false" />
+    <Property Name="QuestionInfoId" Type="int" />
+    <Property Name="Num" Type="int" />
+    <Property Name="IsVideoPiroba" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+    <End Role="TaskWithMultipleQuestions" Type="Self.TaskWithMultipleQuestions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CSQuestions" Type="Self.CSQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskWithMultipleQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CSQuestions">
+        <PropertyRef Name="TaskWithMultipleQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nebulaModelStoreContainer">
+    <EntitySet Name="CSQuestions" EntityType="Self.CSQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskWithMultipleQuestions" EntityType="Self.TaskWithMultipleQuestions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId" Association="Self.FK_dbo_CSQuestions_dbo_TaskWithMultipleQuestions_TaskWithMultipleQuestionId">
+      <End Role="TaskWithMultipleQuestions" EntitySet="TaskWithMultipleQuestions" />
+      <End Role="CSQuestions" EntitySet="CSQuestions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

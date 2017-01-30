@@ -1,0 +1,23 @@
+﻿@model IEnumerable<string>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LinqToXml</title>
+</head>
+<body>
+    <div> 
+        @foreach (var item in Model)
+        {
+            @Html.Raw(item)
+            <hr />
+            <br />
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿@model Nebula.Domain.ViewModels.Admin.Geo.GeoVideoViewModel
+
+<form method="post" action="@Url.Action("Save", "AdminGeoVideo")">
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.AuthorWorkPartId)
+        @Html.HiddenFor(a => a.TagId)
+        @Html.HiddenFor(a => a.Category)
+
+        @if (Model.Category == 1)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">ნამუშევარი</label>
+                <div class="col-md-10">
+                    @Html.DisplayTextFor(a => a.WorkTitle)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ნაწილი</label>
+                <div class="col-md-10">
+                    @Html.DisplayTextFor(a => a.PartName)
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">ნამუშევარი</label>
+                <div class="col-md-10">
+                    @Html.DisplayFor(a => a.TagName)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ნაწილი</label>
+                <div class="col-md-10">
+                    @Html.DisplayFor(a => a.SubTagName)
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">სახელი</label>
+            <div class="col-md-10" >
+                @Html.TextBoxFor(a => a.Title, new { @class = "form-control text-box single-line" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">ბმული</label>
+            <div class="col-md-10" >
+                @Html.TextAreaFor(a => a.FileLink )
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>

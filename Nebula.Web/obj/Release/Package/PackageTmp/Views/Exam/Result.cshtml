@@ -1,0 +1,358 @@
+﻿<link href="~/Content/assetsNew/css/chart.css" rel="stylesheet" />
+<link href="~/Content/assetsNew/css/bootstrapgrid.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<link href="~/Content/assetsNew/css/chart.css" rel="stylesheet" />
+<link href="~/Content/assetsNew/css/test.css" rel="stylesheet" />
+
+<input type="hidden" id="result-id" value="@ViewBag.QuizId" />
+<input type="hidden" id="return-url" value="@ViewBag.ReturnUrl" />
+
+<div class="main-page-chart" id="quiz-result">
+    <div class="chart-background-inner">
+        <div class="chart-user-div">
+            @*<img src="assets/img/chart.png" class="chart-circle-user">*@
+            <div class="email-username-div">
+                <div class="chart-username" data-bind="text : fullName">Davit Ghlonti</div>
+
+            </div>
+            @*<div class="chart-news-div">
+                <div class="chart-circle-news">
+                    <div class="number-news">4</div>
+
+                </div>
+                <div class="chart-new-message">ახალი შეტყობინება</div>
+            </div>*@
+        </div>
+    </div>
+    <div class="main-chart-inner-div">
+        <div class="top-div-chart">
+            <div class="date-back-div">
+                @*<img src="assets/img/arrow-chart.png">*@
+                <div class="name-chart-black" data-bind="text : fullName">David Ghlonti</div>
+                <div class="name-cont-chart">
+                    <div class="logo-date-name"></div>
+                    <div class="text-name-chart-inner" data-bind="text: startDate"></div>
+                </div>
+            </div>
+            <div class="select-course-div-chart">
+                <div class="items-chart">
+                    <div class="active-circle-chart">
+                        <div class="point-chart"></div>
+                    </div>
+                    <div class="text-items-chart-active" style="cursor:pointer;" data-bind="click: getAllResult, css : { 'text-items-chart-active'  : choosenTag() == 3 , 'text-items-chart-passive' :choosenTag() != 3 }">სრული ანალიზი</div>
+                </div>
+                <div class="items-chart">
+                    <div class="active-circle-chart" style="display: none">
+                        <div class="point-chart"></div>
+                    </div>
+                    <div class="text-items-chart-passive" style="cursor:pointer;" data-bind="click: getVerbalResult, css : { 'text-items-chart-active' : choosenTag() == 1, 'text-items-chart-passive' :choosenTag() != 1 }">ვერბალური</div>
+                </div>
+                <div class="items-chart">
+                    <div class="active-circle-chart" style="display: none">
+                        <div class="point-chart"></div>
+                    </div>
+                    <div class="text-items-chart-passive" style="cursor:pointer;" data-bind="click: getMathResult, css : { 'text-items-chart-active' : choosenTag() == 2, 'text-items-chart-passive' :choosenTag() != 2 }">მათემატიკური</div>
+                </div>
+            </div>
+        </div>
+        <div class="correct-wrong-chart">
+            <div class="correct-wrong-chart-child">
+                
+
+                <!-- all -->
+                <div data-bind="visible: choosenTag() == 3">
+                    <div class="test-numeration" style="margin-top: 0px">
+                        <div class="number-for-test" data-bind="text: quizIndex()"></div>
+                        <div class="text-test">ტესტი</div>
+                    </div>
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && (gameResult().verbalGeneralResult.correctAnswerCount + gameResult().mathGeneralResult.correctAnswerCount) "></div>
+                    </div>
+                    <div class="text-correct-inner">სწორი</div>
+                    <div class="number-wrong-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && (gameResult().verbalGeneralResult.incorrectAnswerCount +  gameResult().mathGeneralResult.incorrectAnswerCount)"></div>
+                    </div>
+                    <div class="text-correct-inner">შეცდომა</div>
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && (gameResult().mathGeneralResult.notMovedAnswersCount + gameResult().verbalGeneralResult.notMovedAnswersCount)"></div>
+                    </div>
+                    <div class="text-correct-inner">ცარიელი</div>
+                </div>
+                <!-- all -->
+
+                <!-- verbal -->
+                <div data-bind="visible: choosenTag() == 1">
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().verbalGeneralResult.correctAnswerCount"></div>
+                    </div>
+                    <div class="text-correct-inner">სწორი</div>
+                    <div class="number-wrong-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().verbalGeneralResult.incorrectAnswerCount"></div>
+                    </div>
+                    <div class="text-correct-inner">შეცდომა</div>
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().verbalGeneralResult.notMovedAnswersCount"></div>
+                    </div>
+                    <div class="text-correct-inner">ცარიელი</div>
+                </div>
+                <!-- verbal -->
+
+                <!-- math -->
+                <div data-bind="visible: choosenTag() == 2">
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().mathGeneralResult.correctAnswerCount "></div>
+                    </div>
+                    <div class="text-correct-inner">სწორი</div>
+                    <div class="number-wrong-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().mathGeneralResult.incorrectAnswerCount"></div>
+                    </div>
+                    <div class="text-correct-inner">შეცდომა</div>
+                    <div class="number-correct-answers-circle-inner">
+                        <div class="correct-inner" data-bind="text : gameResult() && gameResult().mathGeneralResult.notMovedAnswersCount"></div>
+                    </div>
+                    <div class="text-correct-inner">ცარიელი</div>
+                </div>
+                <!-- math -->
+
+            </div>
+
+
+
+
+            <div class="view-test-div">
+                <div class="border-right1"></div>
+                <div class="logo-date-test"></div>
+                <div class="text-ended-inner">დასრულებულია <span data-bind="text : gameResult() && gameResult().wholeTime"></span></div>
+                <button class="view-test-button TestShowBut show-review">
+                    <div class="view-test-text">ტესტის ნახვა</div>
+                </button>
+            </div>
+        </div>
+        <div class="top-div-chart">
+            <div class="buy-course-nebula-chart">
+                <div class="text-name-chart">დეტალური ინფორმაცია</div>
+            </div>
+        </div>
+
+        <div class="stats-analitics-div" data-bind="visible: choosenTag() == 3">
+            <!--ko foreach: gameResult() && gameResult().verbalResultByTagName -->
+      
+            <div class="progress-divs-parent">
+                <progress value="59" max="100" class="progress-divs" data-bind="attr : { value :  Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100)}"></progress>
+                <div class="info-stats">
+                    <div class="textt" data-bind="text : tagName">ანალოგიები</div>
+                    <div class="text-numbers" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)">7/12</div>
+                </div>
+            </div>
+            <!--/ko-->
+            <!--ko  foreach : gameResult() && gameResult().mathResultByTagName -->
+       
+            <div class="progress-divs-parent">
+                <progress value="50" max="100" class="progress-divs" data-bind="attr : { value :  Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100)}"></progress>
+                <div class="info-stats">
+                    <div class="textt" data-bind="text : tagName"></div>
+                    <div class="text-numbers" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)">4/8</div>
+                </div>
+            </div>
+            <!--/ko-->
+
+        </div>
+        
+    <div class="stats-analitics-div" data-bind="visible: choosenTag() == 1">
+        <!--ko foreach: gameResult() && gameResult().verbalResultByTagName -->
+
+        <div class="progress-divs-parent">
+            <progress value="59" max="100" class="progress-divs" data-bind="attr : { value :  Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100)}"></progress>
+            <div class="info-stats">
+                <div class="textt" data-bind="text : tagName">ანალოგიები</div>
+                <div class="text-numbers" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)">7/12</div>
+            </div>
+        </div>
+        <!--/ko-->
+  
+
+    </div>
+        
+        <div class="stats-analitics-div" data-bind="visible: choosenTag() == 2">
+     
+            <!--ko  foreach : gameResult() && gameResult().mathResultByTagName -->
+
+            <div class="progress-divs-parent">
+                <progress value="50" max="100" class="progress-divs" data-bind="attr : { value :  Math.floor((correctAnswerCount/(incorrectAnswerCount + correctAnswerCount)) * 100)}"></progress>
+                <div class="info-stats">
+                    <div class="textt" data-bind="text : tagName"></div>
+                    <div class="text-numbers" data-bind="text : correctAnswerCount + '/' + (incorrectAnswerCount + correctAnswerCount)">4/8</div>
+                </div>
+            </div>
+            <!--/ko-->
+
+        </div>
+
+
+    @*<div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-blocks-chart">
+                        <div class="circle-filled-chart"></div>
+                        <div class="arrow-right-chart"></div>
+                        <div class="text-for-blocks-chart">ნატურალური რიცხვები</div>
+                        <div class="progress-numbers-chart">19/40</div>
+                        <progress value="78" max="100" class="progress-chart"></progress>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+</div>
+
+<div class="quiz" id="quiz-review" style="display:none;">
+    <div class="main-div">
+        <div class="black-div">
+            <a href="#" id="show-result">
+                <div class="arrow-back" id="show-result" ></div>
+            </a>
+       
+            <div class="text-course-name" >ზოგადი უნარები</div>
+            <div class="progress-numbers"><span data-bind="text: userAnswersCount() + '/' + questionCount()"></span></div>
+
+      
+        </div>
+        <div class="main-background">
+            <div class="burger-menu-video">
+                <div class="burger-line-top-video"></div>
+                <div class="burger-line-middle-video"></div>
+                <div class="burger-line-bottom-video"></div>
+            </div>
+            <div class="test-main-div1" data-bind="foreach: questionsByTag">
+                <div class="video-blocks-unarebi">
+                    <div class="text-for-blocks-unarebi" data-bind="text : tagName"></div>
+                </div>
+                <!-- ko if: hasMultipleQuestions -->
+
+                <div class="video-pre-blocks-unarebi" data-bind="click : $root.getPiroba.bind($data, {pirobaIndex : $index()}),
+             css : { active : pirobaIndexer == $root.activeIndex() }">
+
+                    <div class="text-for-pre-blocks-unarebi">ტექსტი</div>
+
+                </div>
+                <!-- /ko -->
+                <!-- ko foreach: questions -->
+
+                <div class="video-pre-blocks-unarebi" data-bind="click : $root.getQuestionByNum.bind($data, {index : index, questionId : id}),  css : { active : index == $root.activeIndex() }">
+                    <div class="text-pre-video-length-unarebi" data-bind="text : num + '.'"></div>
+                    <div class="text-for-pre-blocks-unarebi three-dot" data-bind="html :plainText"></div>
+                    <div class="pre-circle-went-unarebi"><div class="numbers-right-went-unarebi" data-bind="text: answerL" ></div></div>
+                </div>
+                <!-- /ko -->
+
+
+            </div>
+            <div class="question-main-div">
+                <div class="question-div  question-nav" >
+                    <div class="text-question-div">
+                        <div class="text-question1" data-bind="html : activeQuestion() &&  activeQuestion().QuestionText">მეწყერი : სტიქიური მოვლენა</div>
+                    </div>
+                </div>
+                <div class="answers-div  question-nav" data-bind="foreach:  activeQuestion() && activeQuestion().answers">
+                    <div class="answer-div">
+                        <div class="variants" data-bind="css : { 'mistake'  :  !isCorrect &&  index == $root.activeAnswer(), 'correct' : isCorrect}">
+                            <div class="" data-bind="html: L, css : { 'variant-char-white'  : isCorrect ,  'variant-char-white'  :  !isCorrect &&  index == $root.activeAnswer(), 
+    'variant-char-gray' : !isCorrect && index != $root.activeAnswer() } "></div>
+                        </div>
+                        <div class="text-answer1" data-bind="html:answerString"> </div>
+                    </div>
+
+                </div>
+                <div class="text-question-div1 piroba-nav" >
+                    <div class="text-question2" data-bind="html : activePiroba() &&  activePiroba().piroba">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="progress-main-div">
+            <div class="progress-div-child">
+
+                <button class="next-button1" data-bind="click: getNextQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasNextQuestion ">
+                    <div class="text-previuos-next2" >შემდეგი</div>
+                </button>
+                <button class="previous-button1" data-bind="click: getPrevQuestion.bind($data, {index : activeIndex(), questionId : activeQuestion() && activeQuestion().id}), visible: hasPreviousQuestion">
+                    <div class="text-previuos-next2" >წინა</div>
+                </button>
+            
+
+            </div>
+            @*<div class="progress-div-child1" data-bind="style : {display : showPiroba() ? 'block' : 'none'}, foreach : activePiroba() && activePiroba().questions">
+                <span style="cursor:pointer;" data-bind="text : num, click : $root.getQuestionByNum.bind($data, {index : index, questionId : id})">01</span>
+            </div>*@
+        </div>
+    </div>
+    
+
+    <div class="quisp" style="display:none;">
+        <div class="quizpp">
+            <div class="clossepop"></div>
+            <div class="quzArea">
+                <p class="ffs" data-bind="html : activeQuestion() && activeQuestion().multipleQuestionsText">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script src="~/Js/result.js?v=8"></script>
+}
+

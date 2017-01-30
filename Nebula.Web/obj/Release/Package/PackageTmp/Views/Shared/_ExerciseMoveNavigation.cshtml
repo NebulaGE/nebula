@@ -1,0 +1,43 @@
+﻿@*<div class="progress-div-child">  *@
+@*<div class="progress-numbers">19/40</div>
+    <progress value="78" max="100" class="progress"></progress>*@
+<div class="previous-button" data-bind="style : { 'cursor' : !letPrevious() ? 'not-allowed' : 'pointer'  },
+             click :letPrevious() ? getPreQuestion : null">
+    <div class="text-previuos-next">წინა</div>
+</div>
+<div class="next-button" data-bind="style : { 'cursor' : !letNext() ? 'not-allowed' : 'pointer' },
+                 click : letNext() ? getNextQuestion : null, visible : hasNextQuestion() && !letActiveQuestion() && !quetionsResourceLimited()">
+    <div class="text-previuos-next">შემდეგი</div>
+</div>
+<div class="next-button" data-bind="click : getCurrentQuestion, visible : letActiveQuestion ">
+    <div class="text-previuos-next">მიმდინარე</div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="next-button" data-bind="click : $root.getNewSetOffQuestions,
+             visible : !hasNextQuestion() && !quetionsResourceLimited() && !$root.videoType">
+        <div class="text-previuos-next">ახალი კითხვები</div>
+    </div>
+}
+else
+{
+    <div class="next-button" data-bind="click : $root.getNewSetOffQuestions,
+             visible : !hasNextQuestion() && !quetionsResourceLimited() && !$root.videoType">
+        <div class="text-previuos-next">თავიდან დაწყება</div>
+    </div>
+}
+
+<!-- ko if : !$root.videoType -->
+<div class="next-button" data-bind="click : $root.resetQuestions, visible :  !hasNextQuestion() &&  quetionsResourceLimited()">
+    <div class="text-previuos-next">თავიდან დაწყება</div>
+</div>
+<!-- /ko -->
+<!-- ko if : $root.videoType -->
+<div class="next-button" data-bind="click : $root.resetQuestions, visible :  !hasNextQuestion()">
+    <div class="text-previuos-next">თავიდან დაწყება</div>
+</div>
+<!-- /ko -->
+@*<div class="skip" data-bind="click :  skipQuestion , visible : hasNextQuestion() && !letActiveQuestion() ">გამოტოვება</div>
+    <div class="skip-arrow"></div>*@
+@*</div>*@

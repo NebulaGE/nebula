@@ -1,0 +1,55 @@
+﻿@model  Nebula.Domain.ViewModels.Web.SocialProgramViewModel
+
+<div class="social-ganacxadis-forma" style="height: 660px;">
+    <div class="social-inputs" style="height: 550px;">
+        <div class="social-inputs-left" style="height: 400px;"> 
+            
+            @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { placeholder = "სახელი", id = "social-firstname" } })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            
+            @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { placeholder = "გვარი", id = "social-lastname" } })
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            
+            @Html.EditorFor(m=>m.Email, new { htmlAttributes = new { placeholder = "ელ.ფოსტა"  } })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(m=>m.Password,new { htmlAttributes = new { placeholder = "პაროლი" } }) 
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(m => m.ConfirmPassword, new { htmlAttributes = new { placeholder = "გაიმეორეთ პაროლი"  } }) 
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            
+            @Html.EditorFor(m => m.IdentificationNumber, new { htmlAttributes = new { placeholder = "პირადი ნომერი", id = "social-identity", maxlength = "11", @class = "only-numbers" } })
+            @Html.ValidationMessageFor(m => m.IdentificationNumber, "", new { @class = "text-danger" }) 
+        </div>
+
+        <div class="social-inputs-right" style="height: 400px;">
+            @*<input type="text" name="PhoneNumber" class="only-numbers" maxlength="9" placeholder="ტელეფონის ნომერი" style="margin-top:16px !important">*@
+            @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { placeholder = "ტელეფონის ნომერი", id = "social-phone", maxlength = "9", @class = "only-numbers", style = "margin-top:16px !important" } })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+
+            <textarea class="reason-input" placeholder="რის საფუძვლეზე ითხოვთ სრული კურსის დაფინანსებას?" id="social-text" name="SocialText">@Model.SocialText</textarea>
+            @Html.ValidationMessageFor(m => m.SocialText, "", new { @class = "text-danger" })
+
+            <div class="agree-rules-div">
+                <input class="checkbox" checked="" type="checkbox" id="social-checkbox" autocomplete="off">
+                <div class="agree-text">ვეთანხმები ნებულას <a href="/Home/About#wesebi da pirobebi" data-original-title="" title="">წესებს</a></div>
+            </div>
+        </div>
+
+        <div class="agree-rules-div" style="margin-top: 20px;">
+            <div class="text-piradoba">ატვირთე პირადობის დამადასტურებელი დოკუმენტის ასლი(სურათი ან pdf)</div>
+            <div class="buy-course1">
+                <input type="file" style="display: none" name="UserFile" id="social-file" />
+                <div class="text-buy-course" id="uploadId">ატვირთვა</div>
+            </div>
+        </div>
+        <button class="enter-button" id="social-submit" type="submit">
+            <div class="circle-filled-star">
+                <div class="circle-star-enter"></div>
+            </div>
+            <div class="text-enter">დადასტურება</div>
+            <img src="/Content/img/loadingIcon.gif" class="btn-loader" style="top: 49px;">
+        </button>
+    </div>
+</div>

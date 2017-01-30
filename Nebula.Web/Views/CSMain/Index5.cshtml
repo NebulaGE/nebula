@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "All";
+}
+
+<div class="container cs-loading" style="display:none; padding-bottom:85px;"  >
+    <div class="col-sm-12" data-bind="visible: !hasLicense()">
+        <div class="messageForRowsPage">
+            <p class="MessageParagrap">
+                <span class="danger"></span>
+                <span class="text">თქვენ ამჟამად სარგებლობთ პროგრამის უფასო ვერსიით, სრული ვერსიით სარგებლობისთვის გთხოვთ შეიძინოთ კურსი</span>
+                <a href="@Url.Action("Index", "Payment")" ><button class="buy">კურსის ყიდვა</button></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="videoTut">
+            <div class="headText trasition">
+                <span class="tv"></span>
+                <h2 class="for-hd-clr-transition">ვიდეო გაკვეთილები</h2>
+            </div>
+            <div class="videoTutArea">
+                <h2> ყველაფერი, რაც უნარების გამოცდის წარმატებით ჩასაბარებლადაა საჭირო.</h2>
+
+               <a data-bind="css : { 'auth-require-page-click' :  mathVideo() != null}, attr: { 'data-val' : mathVideo() } "  >
+                    <div class="fullBut">
+                        <span class="icon"></span>
+                        <button data-bind="css : {'disable-btn' : mathVideo() == null }">
+                            <span class="text">მათემატიკური</span>
+                        </button>
+                    </div>              
+                </a>
+
+                <a data-bind="css : { 'auth-require-page-click' :  verbalVideo() != null}, attr: { 'data-val' : verbalVideo() } ">
+                    <div class="fullBut">
+                        <span class="icon"></span>
+                        <button data-bind="css : {'disable-btn' : verbalVideo() == null }">
+                            <span class="text">ვერბალური</span>
+                        </button>
+                    </div>             
+                </a>     
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="examBookSec transition">
+            <div class="headText">
+                <span class="examsBook"></span>
+                <h2 class="for-hd-clr-transition">სავარჯიშოები</h2>
+            </div>
+            <div class="exBookAr">
+                <h2> პრაქტიკა წყვეტს ყველაფერს! საუკეთესო გარემო თქვენს ტესტებზე სავარჯიშოდ.</h2>
+                <a data-bind="css : { 'auth-require-page-click' :  mathExercise() != null}, attr: { 'data-val' : mathExercise() }">
+                    <div class="fullBut">
+                        <span class="icon"></span>
+                        <button data-bind="css : {'disable-btn' : mathExercise() == null }">
+                            <span class="text">მათემატიკური</span>
+                        </button>
+                    </div> 
+                </a>
+                <a data-bind="css : { 'auth-require-page-click' :  verbalExercise() != null}, attr: { 'data-val' : verbalExercise() }" >
+                    <div class="fullBut">
+                        <span class="icon"></span>
+                        <button data-bind="css : {'disable-btn' : verbalExercise() == null }">
+                            <span class="text">ვერბალური</span>
+                        </button>
+                    </div> 
+                </a> 
+            </div> 
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="testSimulate transition">
+            <div class="headText transition">
+                <span class="exeamsBook"></span>
+                <h2 class="for-hd-clr-transition">გამოცდის სიმულაცია</h2>
+            </div>
+            <div class="simTestAr">
+                <h2> ცოდნის პროგრამული ანალიზი თქვენი ტესტების შედეგების საფუძველზე.</h2>
+                <a data-bind="css : { 'auth-require-page-click' :  lastQuiz() != null }, attr: { 'data-val' : lastQuiz() }" >
+                    <div class="fullBut">
+                        <span class="backk"></span>
+                        <button data-bind="css : { 'disable-btn' : lastQuiz() == null }">წინა გამოცდა</button>
+                    </div>               
+                </a>
+                <a data-bind="css : { 'auth-require-page-click' :  (currentQuiz() != null && leftDays() <= 0 && currentQuizText() != 'გამოცდის დაწყება') || locked()},
+                       attr: { 'data-val' : currentQuiz() }, click : currentQuizText() == 'გამოცდის დაწყება' ? showPopup() : null ">
+                    <div class="fullBut">
+                        <span class="pansil"></span>
+                        <button data-bind="text: currentQuizText, css : {'disable-btn' : (currentQuiz() == null || leftDays() > 0) && !locked()}"></button>
+                    </div>
+                </a>
+                <a data-bind="css : { 'auth-require-page-click' :  analitic() != null }, attr: { 'data-val' : analitic() }" >
+                    <div class="fullBut">
+                        <span class="statistic"></span>
+                        <button class="blue" data-bind="css : {'disable-btn' : analitic() == null }">ანალიტიკა</button>
+                    </div>           
+                </a>
+            </div>   
+        </div>
+    </div> 
+</div><!-- container -->
+
+<div class="exam_popup" style="display: none;">
+    <div class="rel"></div>
+    <div class="fulpage">
+        <div class="pdfcls"></div>
+        <div class="fullpgArea">
+            <p style="text-align:center; font-size:20px;"><b>ყურადღებით!</b></p> 
+            <p>
+                ჩვენი საგამოცდო გარემო აგებულია რეალური პირობების მიხედვით, რათა ალგორითმმა ზუსტი დასკვნები გამოიტანოს თქვენს შესაძლებლობებზე. აქედან გამომდინარე, გამოცდის დაპაუზებას და სხვა დროს გაგრძელებას ვერ შეძლებთ.
+            </p>
+            <p>
+                სიმულაციაში შესვლამდე დარწმუნდით, რომ გაქვთ 3 თავისუფალი საათი და კომფორტული პირობები.
+            </p>
+            <p>გახსოვდეთ, რომ ნებულას ხელოვნური ინტელექტი თქვენი პასუხების მიხედვით მსჯელობს. იყავით გულწრფელები გამოცდის წერისას, რათა თქვენზე მორგებული კურსი შევადგინოთ და არა - თქვენს მეგობრებზე.</p>
+            <button data-bind="css : { 'auth-require-page-click' :  (currentQuiz() != null && leftDays() <= 0) || locked()},
+                               attr: { 'data-val' : currentQuiz() }, text : currentQuizText() ">           
+            </button> 
+        </div> 
+    </div>
+</div>
+@Html.Partial("~/Views/Ajax/UserScores.cshtml")
+
+@section scripts{
+<script src="~/Js/rows.js?v=7"></script>
+}

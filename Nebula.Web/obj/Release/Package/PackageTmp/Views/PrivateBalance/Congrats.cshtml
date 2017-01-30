@@ -1,0 +1,59 @@
+﻿@model Nebula.Domain.Entities.User
+
+@{
+    ViewBag.Title = "Congrats";
+}
+
+@section Styles{
+    <link href="~/Content/assetsNew/css/congrats.css" rel="stylesheet"/>
+}
+
+<div class="black-div">
+    <a href="@Url.Action("Index", "Home")">
+        <div class="arrow-back"></div>
+        <div class="text-back">უკან</div>
+    </a>
+    <div class="text-course-name">თქვენი გადახდილია!</div>
+</div>
+
+<div class="background-under-news">
+
+</div>
+
+<div class="congrats-main">
+    <div class="green-congrats"></div>
+    <div class="greeting-text">კეთილი იყოს შენი მობრძანება ჩვენს კოსმო-ეკიპაჟზე! გვიხარია, რომ შემოგვიერთდი. ბარემ აქ ხარ, ხომ არ დავიწყოთ? </div>
+    <div class="container-items"> 
+        <div class="program" style="display : @(Model.HasGeoLicense ? "block;" : "none;")">
+                <div class="background">
+                    <div class="text-program">ქართული ენა და ლიტერატურა</div>
+                </div>
+                <a href="/GeoMain" data-original-title="" title="">
+                    <button class="ufaso-versia-div">
+                        <div class="text-ufaso-kursebi">შესვლა</div>
+                    </button>
+                </a>
+        </div>              
+        <div class="program" style="display : @(Model.HasLicense ? "block;" : "none;")">
+                <div class="background">
+                    <div class="text-program">ზოგადი უნარები</div>
+                </div>
+                <a href="/CSMain" data-original-title="" title="">
+                    <button class="ufaso-versia-div">
+                        <div class="text-ufaso-kursebi">შესვლა</div>
+                    </button>
+                </a>
+            </div> 
+        <div class="program" style="display : @(Model.HasEngLicense ? "block;" : "none;")"> 
+            <div class="background">
+                <div class="text-program">ინგლისურის საგამოცდო კურსი</div>
+            </div>
+            <a href="/GeoMain" data-original-title="" title="">
+                <button class="ufaso-versia-div">
+                    <div class="text-ufaso-kursebi">შესვლა</div>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+

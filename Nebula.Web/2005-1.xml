@@ -1,0 +1,1238 @@
+<test>
+<exam> 2015-1 </exam>
+<modules>
+<module>
+<module_name> ანალოგიები </module_name>
+<questions>
+<question>
+<question_number> 1 </question_number>
+<question_text> ცხვარი : ბატკანი </question_text>
+<answers>
+<answer>
+<answer_text> ჭუკი : წიწილა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ძაღლი : ნაგაზი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> რემა : კვიცი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ვეფხვი : ბოკვერი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 2 </question_number>
+<question_text> გათამამდა : მორცხვი </question_text>
+<answers>
+<answer>
+<answer_text> გაისარჯა : მშრომელი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გამოაშკარავდა : ცრუ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> განაწყენდა : გულნატკენი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გამოცოცხლდა : ზანტი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 3 </question_number>
+<question_text> ლექსი : კრებული </question_text>
+<answers>
+<answer>
+<answer_text> გირჩა : ნაძვი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ჯეჯილი : ყანა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყვავილი : თაიგული </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ატამი : ბაღი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 4 </question_number>
+<question_text> კერძი : მომზადება </question_text>
+<answers>
+<answer>
+<answer_text> ინფორმაცია : გავრცელება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ზღაპარი : შეთხზვა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ტრადიცია : შენარჩუნება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ლხინი : გამასპინძლება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 5 </question_number>
+<question_text> ხე : ტყე </question_text>
+<answers>
+<answer>
+<answer_text> უჯრა : მაგიდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> წიგნი : ბიბლიოთეკა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ხორბალი : წისქვილი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ეკალი : ვარდი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 6 </question_number>
+<question_text> მხატვარი : ფუნჯი </question_text>
+<answers>
+<answer>
+<answer_text> მზარეული : თეფში </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მწერალი : წიგნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> დურგალი : ჩაქუჩი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> მეპურე : თონე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 7 </question_number>
+<question_text> სახელმწიფო : საზღვარი </question_text>
+<answers>
+<answer>
+<answer_text> ოკეანე : ნაპირი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> კონსტიტუცია : ჰიმნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> დედამიწა : ცა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გლობუსი : რუკა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 8 </question_number>
+<question_text> ქაღალდი : დაქუცმაცება </question_text>
+<answers>
+<answer>
+<answer_text> ლითონი : გადნობა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> შეშა : გაპობა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბრინჯი : დაბნევა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მინა : დამსხვრევა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> წინადადების შევსება </module_name>
+<questions>
+<question>
+<question_number> 9 </question_number>
+<question_text> უფროსკლასელებმა გამრავლების ცხრილი _____ , მიუხედავად ამისა ანგარიშის დროს ხანდახან _____ . </question_text>
+<answers>
+<answer>
+<answer_text> ცუდად არ იციან \ შეცდომას არ უშვებენ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ცუდად იციან \ შეცდომას უშვებენ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კარგად იციან \ შეცდომას არ უშვებენ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კარგად იციან \ შეცდომას უშვებენ </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 10 </question_number>
+<question_text> სადღეისოდ ეგვიპტური დამწერლობა _____ . სამაგიეროდ, მაიას ტომის დამწერლობა _____ , ვინაიდან მისი  _____ ყველა ცდა _____ . </question_text>
+<answers>
+<answer>
+<answer_text> გაშიფრულია / სრულად არის ამოკითხული / შესწავლის / წარუმატებელი აღმოჩნდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> სრულად არის შესწავლილი / გამოცანად რჩება / გაშიფვრის / მარცხით დამთავრდა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ჯერ კიდევ არ არის შესწავლილი / გაუშიფრავია / ამოკითხვის / წარმატებით დასრულდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გაუშიფრავია / გამოუცნობია / წაკითხვის / ნაყოფიერი აღმოჩნდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 11 </question_number>
+<question_text> იმ დროს გაზეთები სულ უფრო _____ , ვინაიდან _____ შინაარსის სტატიებს აქვეყნებდნენ. </question_text>
+<answers>
+<answer>
+<answer_text> მეტად განსხვავდებოდნენ ურთიერთისგან / ანალოგიური </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნაკლებად განსხვავდებოდნენ ერთმანეთისგან / ერთმანეთის საპირისპირო </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მეტად ემსგავსებოდნენ ერთმანეთს / სტანდარტული </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ემსგავსებოდნენ ურთიერთს / ერთმანეთისაგან განსხვავებული </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 12 </question_number>
+<question_text> ავტორი _____ , ამა თუ იმ შეხედულებისათვის _____ , რათა მკითხველი _____ , ავტორი ამ ჰოპოთეზის მომხრეა, თუ მისი _____ . </question_text>
+<answers>
+<answer>
+<answer_text> ცდილობდა / უპირატესობა არ მიენიჭებინა / ვერ მიმხვდარიყო / მოწინააღმდეგე </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> მიზნად არ ისახავდა / უპირატესობა მიენიჭებინა / გარკვეულიყო / მიმდევარი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> არ ცდილობდა / უპირატესობა მიენიჭებინა / ვერ მიმხვდარიყო / გულშემატკივარი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მიზნად ისახავდა / უპირატესობა არ მიენიჭებინა / დარწმუნებულიყო  / უარმყოფელი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 13 </question_number>
+<question_text> მუდამ უნდა გვახსოვდეს, რომ  _____  ჩვენი სათქმელის მიტანა ხალხთან _____ და, უფრო მეტად კი,  _____ , რადგან კითხვის დროს გლეხსა და მუშას უცხო სიტყვათა ლექსიკონი არ უჭირავს ხელში, და მგონი, ინტელიგენტიც _____ ამ წიგნში. </question_text>
+<answers>
+<answer>
+<answer_text> შეუძლებელია / დამახინჯებული სინტაქსით / ადვილად გასაგები ლექსიკით / არ იხედება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> შესაძლებელია /გამართული სინტაქსით / ჭარბად დატვირთული უცხო სიტყვებით / იშვიათად იხედება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> შეუძლებელია / დამახინჯებული სინტაქსით / ჭარბად დატვირთული უცხო სიტყვებით / იშვიათად იხედება </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> შესაძლებელია / გამართული სინტაქსით / ადვილად გასაგები ლექსიკით / ხშირად იხედება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> ლოგიკა </module_name>
+<questions>
+<question>
+<question_number> 14 </question_number>
+<question_text> ცნობილი ზღაპრის _ "სამი გოჭის" გმირების _ ნაფნაფის, ნიფნიფისა და ნუფნუფის სახლები მწკრივშია განლაგებული. ერთ-ერთს აქვს ჩალის სახლი, მეორეს _ წნელის, მესამეს კი – აგურის. ნუფნუფის სახლი შუაში დგას. მის მარცხნივ დგას აგურის სახლი, ხოლო ნაფნაფის სახლი წნელისაა. რა მასალისაა ნუფნუფის სახლი? </question_text>
+<answers>
+<answer>
+<answer_text> წნელის ან აგურის </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> წნელის </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ჩალის </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> აგურის </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 15 </question_number>
+<question_text> ანამ გადაწყვიტა, არდადეგებზე წაეკითხა ორი წიგნი (ეს წიგნები მას უკვე შერჩეული ჰქონდა) და ერთხელ მაინც წასულიყო თეატრში ან კონცერტზე. ქვემოთ ჩამოთვლილთაგან რომელ შემთხვევაში არ შეასრულა მან თავისი გადაწყვეტილება? </question_text>
+<answers>
+<answer>
+<answer_text> იყო სიმფონიურ კონცერტზე და წაიკითხა ორივე წიგნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> იყო თოჯინების თეატრში და წაიკითხა ორივე წიგნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> იყო თეატრშიც და კონცერტზეც, მაგრამ ვერ წაიკითხა ორივე წიგნი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> იყო თეატრშიც, კონცერტზეც და წაიკითხა ორივე წიგნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 16 </question_number>
+<question_text> A ქალაქში მცხოვრებ მუსიკის მოყვარულთა საშუალო ასაკის დასადგენად ამ ქალაქის ერთ-ერთ მუსიკალურ მაღაზიაში აუდიოკასეტების მყიდველებს აკვირდებოდნენ. აღმოჩნდა, რომ მაღაზიაში ძირითადად შემოდიოდნენ ახალგაზრდა ქალბატონები ბავშვებთან ერთად. შესაბამისად, დამკვირვებლებმა ივარაუდეს, რომ: A ქალაქში მუსიკას ძირითადად ახალგაზრდა ქალბატონები უსმენენ. ქვემოთ ჩამოთვლილთაგან რომელი ფაქტი აყენებს ეჭვქვეშ ამ ვარაუდს? </question_text>
+<answers>
+<answer>
+<answer_text> A ქალაქში მცხოვრებ ახალგაზრდა ქალბატონებს ძირითადად მუსიკალური განათლება აქვთ მიღებული </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> A ქალაქში ბევრი სხვა მუსიკალური მაღაზიაც არის, ეს მაღაზია კი  საბავშვო ბაღის გვერდით მდებარეობს </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> A ქალაქში კიდევ რამდენიმე მუსიკალური მაღაზიაა, მაგრამ ისინი გამოკვლევის დროს დროებით დაკეტილი იყო </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> A ქალაქში მცხოვრები ახალგაზრდა ქალბატონები განსაკუთრებულ მნიშვნელობას ანიჭებენ შვილების მუსიკალურ აღზრდას </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 17 </question_number>
+<question_text> დავუშვათ, რომ: •  არც ერთი ძუნწი არ არის ქველმოქმედი •  ზოგიერთი ძუნწი ძალიან მდიდარია ქვემოთ ჩამოთვლილთაგან რომელი გამომდინარეობს ამ დებულებებიდან აუცილებლად? </question_text>
+<answers>
+<answer>
+<answer_text> არც ერთი ძალიან მდიდარი არ არის ქველმოქმედი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ზოგიერთი ძალიან მდიდარი არ არის ქველმოქმედი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ზოგიერთი ძალიან მდიდარი არ არის ძუნწი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყველა ქველმოქმედი არის მდიდარი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 18 </question_number>
+<question_text> ნინი, თათა, ლევანი და რეზო მეგობრები არიან. თითოეულმა მათგანმა ვარსკვლავი დაუხატა დანარჩენი სამიდან ერთ-ერთს. ცნობილია, რომ: •  რეზომ  ვარსკვლავი დაუხატა ნინის •  ლევანს ორი ვარსკვლავი დაუხატეს ქვემოთ ჩამოთვლილთაგან რომელი შემთხვევა არ შეიძლებოდა მომხდარიყო? </question_text>
+<answers>
+<answer>
+<answer_text> თათამ ვარსკვლავი დაუხატა ლევანს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნინიმ ვარსკვლავი დაუხატა ლევანს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნინიმ ვარსკვლავი დაუხატა თათას </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ლევანმა ვარსკვლავი დაუხატა რეზოს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> წაკითხული ტექსტის გააზრება </module_name>
+<module_text> ანტიკურ სამყაროში ორი "იბერია" იყო ცნობილი: ერთი დასავლეთისა _ პირენეის 
+ნახევარკუნძულზე,  ხოლო  მეორე  _  კავკასიისა,  დღევანდელ  აღმოსავლეთ  საქართველოს 
+მიწა-წყალზე.  ამ  უკანასკნელის  მოხსენიებისას  ბერძენი  მწერლები  დაუმატებდნენ  ხოლმე: 
+"აღმოსავლეთ  იბერია",  "იბერთა  აღმოსავლელი  ტომი",  "აზიის  იბერნი"  და  ამით 
+განასხვავებდნენ მათ ბასკების, იმავე ესპანეთის იბერთაგან, რომელთა მიმართ იტყოდნენ: 
+"ევროპელი იბერნი",  "დასავლეთის იბერია".  
+
+II  საუკუნის  ბერძენი  მწერალი  აპიანე  წერს:  "იბერებს,  რომლებიც  აზიაში  არიან, 
+ზოგი  ევროპელი  იბერების  წინაპრებად  მიიჩნევს,  ზოგი  _  ევროპელთა  მოახალშენეებად, 
+სხვები კი მხოლოდ თანამოსახელეებად, რადგან მათ არც ზნე აქვთ არაფრით მსგავსი და 
+არც ენა".  
+
+საინტერესოა, რომ აზრი ესპანეთის იბერებთან ქართველთა ნათესაობის შესახებ შუა 
+საუკუნეებში  ქართველთა  შორისაც  იყო  გავრცელებული.  ჯერ  კიდევ  X  საუკუნის 
+დასასრულს  იოანე  მთაწმინდელი  (ათონელი)  აპირებდა  თავის  მოწაფეებთან  ერთად 
+ესპანეთში  გამგზავრებას,  რომ  გასცნობოდა "დასავლეთის  ქართველთა  ცხოვრებას".  X-XI 
+საუკუნეებში ბერძნულიდან ქართულ ენაზე თარგმნილ თხზულებებში კი ხშირად გვხდება 
+გამოთქმა _ "ესპანეთის ქართველნი".  
+
+არსებობს  აზრი  ქართველური  და  ბასკური  ენების  შესაძლო  გენეტიკური  კავშირის 
+(ნათესაობის)  შესახებ.  მაგრამ  ეს  გენეტიკური  კავშირი,  რომელიც  ენებს  შორის 
+არსებული  რეგულარული  ფონეტიკური  შესატყვისობების  საფუძველზე  უნდა  დადგინდეს, 
+ჯერ  დამტკიცებული  არაა.  ასეთი  კავშირი,  თუკი  ის  მართლაც  არსებობდა,  ძალიან 
+შორეულ  ხანაში  უნდა  ვივარაუდოთ.  ძალზე  საეჭვოა,  რომ  დღეს  ლინგვისტურმა 
+მეცნიერებამ,  თუნდაც  არქეოლოგიური  მონაცემების  გათვალისწინებით,  შეძლოს  ისეთი 
+ფუძეენის  რეკონსტრუქცია,  რომლისგანაც  უნდა  წარმოქმნილიყო  ქართული  და  ბასკური 
+ენები.  
+
+ძველქართულ  საისტორიო  მწერლობაში  სახელწოდებანი  "იბერია"  და  "იბერნი"  არ 
+გვხვდება.  მათ  ნაცვლად  იხმარება  "ქართლი".  ტერმინები  "იბერია"  და  "იბერები"  კი 
+მხოლოდ  ბერძნულ-რომაულსა  და  ბიზანტიურ  წყაროებში  დასტურდება.  ამ 
+სახელწოდების  ("იბერია")  ეტიმოლოგია*  ნათელი  არ  არის  და  მის  შესახებ  აზრთა 
+სხვადასხვაობაა.  
+
+ერთ-ერთი მოსაზრების თანახმად, სიტყვა "იბერია" მოდის სემიტური ძირიდან "ყბრ", 
+"ჰბრ",  რაც  ნიშნავს  "იმიერს",  "მთის  გადაღმა  მხარეს"  თუ  "მთის  იქით  მცხოვრებს". 
+კოლხეთში  შემოსული  ძველი  ბერძენისა  თუ  რომაელისთვის  ქართლი,  მართლაც,  მთის 
+გადაღმა  მხარეა.  ასე  რომ,  სემიტური  ძირიდან  მომდინარე  ბერძნულ-რომაულ  სახელს  _ 
+"იბერიას"  და  მის  ქართულ  შესატყვისს  _  "ქართლს"  (თავდაპირველად  "ქართლი"  ერქვა 
+დღევანდელი  მცხეთის  პირდაპირ  მდ.  მტკვრის  მარჯვენა  ნაპირზე  მდებარე  ბორცვს) 
+უფრო პოლიტიკური ან გეოგრაფიული მნიშვნელობა უნდა ჰქონოდა, ვიდრე ეთნიკური. 
+ 
+*  ეტიმოლოგია  _  (აქ)  სიტყვის  წარმომავლობა,  შედგენილობა  და  თავდაპირველი 
+მნიშვნელობა </module_text>
+<questions>
+<question>
+<question_number> 19 </question_number>
+<question_text> რას უწოდებდნენ ძველი ბერძენი მწერლები პირენეის ნახევარკუნძულზე მცხოვრებთ? </question_text>
+<answers>
+<answer>
+<answer_text> აზიის იბერებს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> დასავლეთის იბერებს </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> აღმოსავლეთის იბერებს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კავკასიის იბერებს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 20 </question_number>
+<question_text> ქვემოთ ჩამოთვლილთაგან რომელ მოსაზრებას არ შეიცავს ძველი ბერძენი მწერლის _ აპიანეს ცნობა კავკასიის იბერთა შესახებ? </question_text>
+<answers>
+<answer>
+<answer_text> აზიის იბერნი ევროპელი იბერების წინაპრები არიან </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> პირენეის იბერნი აღმოსავლეთის იბერთა წინაპრები არიან </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> აღმოსავლეთისა და დასავლეთის იბერებს მხოლოდ სახელი აქვთ საერთო, ენა და თვისებები კი _ სხვადასხვა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კავკასიის იბერები ესპანეთის იბერთა მოახალშენეები არიან </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 21 </question_number>
+<question_text> რომელი  ფაქტი  მიგვანიშნებს  იმას,  რომ  შუა  საუკუნეების  ქართველნი ინტერესდებოდნენ დასავლეთისა და აღმოსავლეთის იბერთა ნათესაობის საკითხით? </question_text>
+<answers>
+<answer>
+<answer_text> ქართულიდან ბერძნულად ნათარგმნ თხზულებებში ხშირად გვხვდება გამოთქმა _ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ძველ ქართველ მოღვაწეებს სურდათ ესპანეთში გამგზავრება  "დასავლეთის ქართველთა ცხოვრების" გასაცნობად </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბერძნულიდან ქართულ ენაზე ითარგმნებოდა "ესპანეთის ქართველთა" თხზულებები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> აპიანეს სურდა პირენეის ნახევარკუნძულზე გამგზავრება "დასავლეთის ქართველთა "ესპანეთის ქართველნი" ცხოვრების" გასაცნობად </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 22 </question_number>
+<question_text> რომელი წინადადება გამოხატავს ამომწურავად მეოთხე აბზაცის ძირითად აზრს? </question_text>
+<answers>
+<answer>
+<answer_text> ქართველურ და ბასკურ ენებს შორის გენეტიკური კავშირი რეგულარული ფონეტიკური შესატყვისობების საფუძველზე არ დასტურდება, შესაბამისად, ყურადღებით უნდა შევისწავლოთ არქეოლოგიური მონაცემები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ქართველური და ბასკური ენების შესაძლო გენეტიკური კავშირის შესახებ არქეოლოგიური მონაცემები არასაკმარისია ამ კავშირის დასადასტურებლად, საჭიროა ენათა ფონეტიკური შესატყვისობის კვლევა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> თანამედროვე ქართველური და ბასკური ენების არც უკვე განხორციელებული კვლევა და არც კვლევის სამომავლო პერსპექტივები არ გვაძლევს მათ შორის გენეტიკური კავშირის დადასტურების იმედს </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ქართველური და ბასკური ენების გენეტიკური კავშირის დადასტურება შესაძლებელია თანამედროვე ენათმეცნიერული და არქეოლოგიური კვლევების შედეგების შეჯერების საფუძველზე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 23 </question_number>
+<question_text> "იბერიის" სემიტური ეტიმოლოგია ასეთი ვარაუდის საფუძველს გვაძლევს: </question_text>
+<answers>
+<answer>
+<answer_text> "იბერიის" სემიტური მნიშვნელობა ემთხვევა მისი ქართული შესატყვისის _ "ქართლის"_ ეტიმოლოგიას </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> "იბერია" საქართველოსა და ესპანეთში ეთნოსის სახელწოდებაა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> თავდაპირველად "იბერია" გეოგრაფიული ან პოლიტიკური მნიშვნელობის სახელი იყო </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> მტკვართან მდებარე ბორცვის სახელი "ქართლი" გენეტიკურად უკავშირდება სემიტურ "იბერიას" </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 24 </question_number>
+<question_text> რომელი დებულებაა მართებული ტექსტის მიხედვით? </question_text>
+<answers>
+<answer>
+<answer_text> შესაძლოა კავკასიისა და ესპანეთის იბერები ბერძნებს ენათესავებოდნენ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კვლევის შედეგად დადგინდა, რომ იბერები სემიტური წარმომავლობის ხალხია, ერთი შტო ესპანეთში დასახლებულა, მეორე _ ქართლში </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კვლევის შედეგად დადგინდა ესპანეთის იბერებისა და აღმოსავლეთ საქართველოს მცხოვრებთა ეთნიკური წარმომავლობა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> შეიძლება ვისაუბროთ ესპანეთისა და კავკასიის იბერთა არა ეთნიკურ, არამედ მხოლოდ სახელწოდების საერთო წარმომავლობაზე </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 25 </question_number>
+<question_text> რა არის მოცემული ტექსტის ძირითადი მიზანი? </question_text>
+<answers>
+<answer>
+<answer_text> დასავლეთისა და აღმოსავლეთის იბერთა შორის შესაძლო ნათესაობის საკითხის მიმოხილვა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ქართველური და ბასკური ენების შესაძლო გენეტიკური კავშირის დადგენა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბერძენ მწერალთა მოსაზრებების გაცნობა დასავლეთისა და აღმოსავლეთის იბერთა ნათესაობის შესახებ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ძველქართული საისტორიო მწერლობის მიხედვით ტერმინების _ "იბერია" და "ქართლი" _ ეტიმოლოგიის შესწავლა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> ანალოგიები </module_name>
+<questions>
+<question>
+<question_number> 26 </question_number>
+<question_text> ნიავი : გრიგალი </question_text>
+<answers>
+<answer>
+<answer_text> ღამე : წყვდიადი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ელვა : ქუხილი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნაკადული : ნიაღვარი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> გვალვა : წარღვნა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 27 </question_number>
+<question_text> კლავიში : როიალი </question_text>
+<answers>
+<answer>
+<answer_text> ასფალტი : გზა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ლაყუჩი : თევზი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ღილი : ტანსაცმელი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბოლქვი : მცენარე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 28 </question_number>
+<question_text> დარდი : გაქარვება </question_text>
+<answers>
+<answer>
+<answer_text> ღირსება : შელახვა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნდობა : დამსახურება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ღალატი : პატიება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> შეცდომა : გამოსწორება </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 29 </question_number>
+<question_text> რეჟისორი : თეატრის სცენა </question_text>
+<answers>
+<answer>
+<answer_text> მსაჯი : რინგი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მწვრთნელი : ფეხბურთის მოედანი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ჯამბაზი : ცირკის არენა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მაყურებელი : დარბაზი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 30 </question_number>
+<question_text> ომი : ზავი </question_text>
+<answers>
+<answer>
+<answer_text> მუშაობა : შვებულება </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნათება : ბინდი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> სიძულვილი : სიყვარული </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კამათი : განხეთქილება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 31 </question_number>
+<question_text> აბრეშუმი :  ქსოვილი </question_text>
+<answers>
+<answer>
+<answer_text> საზრდო : საკვები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყდა : წიგნი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ლუდი : სასმელი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ტახტი : საწოლი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 32 </question_number>
+<question_text> ხნავს : ხნული </question_text>
+<answers>
+<answer>
+<answer_text> რწყავს : სარწყავი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ტეხს : ნატეხი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> რგავს : ნერგი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ტივტივებს : ტივი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 33 </question_number>
+<question_text> ჭრელი : მხედველობა </question_text>
+<answers>
+<answer>
+<answer_text> გამართული : მეტყველება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მხიარული : გრძნობა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მახვილი : სმენა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> სურნელოვანი : ყნოსვა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> წინადადების შევსება </module_name>
+<questions>
+<question>
+<question_number> 34 </question_number>
+<question_text> _____  ,  ვისი  აზრითაც,  შავ  ზღვაში  თევზის  რაოდენობის  შემცირება  მხოლოდ აქტიური  თევზჭერის  დამღუპველ  ზეგავლენას  _____  .  შავ  ზღვაში  გარემოს დაბინძურების  შედეგად  _____  იმ  თევზების  რიცხვიც,  რომლებიც  თევზჭერის  ობიექტს არ წარმოადგენს. </question_text>
+<answers>
+<answer>
+<answer_text> სწორად მსჯელობს ის / მოწმობს / მცირდება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ცდება ის / არ მოწმობს / იზრდება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> სწორად მსჯელობს ის / არ მოწმობს / იზრდება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ცდება ის / მოწმობს / მცირდება </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 35 </question_number>
+<question_text> ხშირად ვცდილობთ, _____  ჩვენთვის ნაცნობი მეთოდებით გავუმკლავდეთ. ეს მეთოდები _____ , რადგან _____ განსხვავდება _____ . </question_text>
+<answers>
+<answer>
+<answer_text> სირთულეებს / უმეტესად წარუმატებელია / რეალობა არ / იმისგან, რაც ჩვენთვის უკვე ნაცნობია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გაურკვეველ სიტუაციებს / ძირითადად წარმატებულია / სინამდვილე / იმისგან, რასაც ჩვენ მოველით </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ახალ სიტუაციებს / ზოგჯერ წარუმატებელია / არსებული რეალობა / წარსულისაგან </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> რთულ ამოცანებს / ძირითადად წარმატებულია / ყოველი ახალი ამოცანა / წინა ამოცანისგან </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 36 </question_number>
+<question_text> გელათის  მხატვრობა  საოცრად  ჰგავს  იტალიური  რენესანსის  პირველ  ნაწარმოებებს, მაგრამ ყოველი მსგავსება _____ . არსებობს იდეათა და ფორმათა _____ , რომელსაც კულტურულ  გარემოებათა  ანალოგია  ბადებს.  _____  ,  რომ  საქართველოში აღმაშენებლისა  და  თამარის  ეპოქაში  თავი  იჩინა  ზოგიერთმა  ესთეტიკურმა მიმართულებამ, რომელიც _____ . </question_text>
+<answers>
+<answer>
+<answer_text> გავლენით როდი აიხსნება / სხვაობა / ამითაა განპირობებული / სრულად მხოლოდ იტალიაში გამოვლინდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მხოლოდ გავლენით აიხსნება / პარალელიზმი / თუმცა უცნაურია / მრავალმხრივ გამოვლინდა საქართველოში </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გავლენით როდი აიხსნება / პარალელიზმი / ამით აიხსნება ის / სრულად მხოლოდ იტალიაში გამოვლინდა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> მხოლოდ გავლენით აიხსნება / სხვაობა / ამიტომ გასაკვირი არაა / მრავალმხრივ გამოვლინდა საქართველოში </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 37 </question_number>
+<question_text> უცნაურია, მაგრამ კოგნიტური დისონანსის თეორიის თანახმად, ფსიქოლოგიური ექსპერიმენტის მონაწილისათვის რაიმე მოვლენისადმი _____ შესაძლებელია ______ , და არა ამ თანხის _____ . </question_text>
+<answers>
+<answer>
+<answer_text> დადებითი განწყობის შექმნა / მისთვის გადახდილი გასამრჯელოს შემცირებით / გაზრდით </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> დადებითი განწყობის შეცვლა / გაწეული შრომის ანაზღაურების გაზრდით / აშკარა მატებით </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> უარყოფითი განწყობის შეცვლა / გაწეული შრომის ანაზღაურების განახევრებით / შემცირებით </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> უარყოფითი განწყობის შექმნა / მისთვის გადახდილი გასამრჯელოს გაორმაგებით / გაზრდით </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> ლოგიკა </module_name>
+<questions>
+<question>
+<question_number> 38 </question_number>
+<question_text> საბავშვო ბაღში სამი სტუდენტი-პრაქტიკანტი აკვირდებოდა ერთი და იმავე ბავშვის ქცევას და აკეთებდა ჩანაწერებს. ნიკას ჩანაწერი:   "ის ჯერ თამაშობდა მანქანით, შემდეგ მატარებლით. ისაუზმა, დალია ვაშლის წვენი, მერე დახატა სახლი". ლიას ჩანაწერი:   "ბავშვმა ითამაშა ასაწყობი სათამაშოთი, შემდეგ გაერთო საბავშვო კომპიუტერით, შეჭამა ხაჭაპური, დალია წვენი, პლასტელინით რაღაცას ძერწავდა". თამუნას ჩანაწერი: "იგი ჯერ გაერთო დასაქოქი მანქანით, შემდეგ გააგორ-გამოაგორა მატარებელი. საუზმის დროს შეჭამა ვაშლის ღვეზელი, რომელსაც დააყოლა რძე. დიდხანს ხატავდა". გაითვალისწინეთ, რომ: •  ერთ-ერთმა პრაქტიკანტმა მხოლოდ ერთი ფაქტი აღნიშნა სწორად, ყველა სხვა ფაქტი შეცდომით ჩაინიშნა; •  ერთმა _ ყველაფერი ზუსტად ასახა; •  ერთმა კი _ მხოლოდ ერთი ფაქტი ჩაინიშნა შეცდომით. ამ პრაქტიკანტებიდან რომელმა დაუშვა მხოლოდ ერთი უზუსტობა? </question_text>
+<answers>
+<answer>
+<answer_text> ლიამ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> თამუნამ </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ნიკამ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ამის დადგენა შეუძლებელია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 39 </question_number>
+<question_text> ვიცით, რომ არსებობენ გაწვრთნილი ძაღლები და, ამასთანავე, მოცემულია: •  ყველა გაწვრთნილ ძაღლს აქვს ცისფერი თვალები •  ყველა გაწვრთნილი ძაღლი არის ცნობისმოყვარე თუ ეს დებულებები ჭეშმარიტია, მაშინ შემდეგი ოთხი დებულებიდან რომელია აუცილებლად მცდარი? </question_text>
+<answers>
+<answer>
+<answer_text> ზოგიერთი ცისფერთვალება არსება არის ცნობისმოყვარე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ზოგიერთ ცნობისმოყვარე არსებას აქვს ცისფერი თვალები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> არც ერთი ცისფერთვალება არსება არ არის ცნობისმოყვარე </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყველა, ვისაც ცისფერი თვალები აქვს, არის ცნობისმოყვარე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 40 </question_number>
+<question_text> კვლევის მონაწილეებს დასამახსოვრებლად აძლევდნენ ორი სახის მასალას: ჯერ სიტყვებს და შემდეგ _ წინადადებებს. შედეგებმა აჩვენა, რომ მონაწილეთა უფრო დიდი ნაწილი წინადადებებს უკეთ იმახსოვრებდა,  ვიდრე სიტყვებს. ამის საფუძველზე ივარაუდეს, რომ: საზოგადოდ, წინადადებების დამახსოვრება უფრო ადვილია, ვიდრე სიტყვების. ქვემოთ ჩამოთვლილთაგან რომელი ფაქტი აყენებს ეჭვქვეშ ამ ვარაუდს? </question_text>
+<answers>
+<answer>
+<answer_text> კვლევის მონაწილეებს დასამახსოვრებლად აძლევდნენ 20 სიტყვას და მხოლოდ 4 წინადადებას </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> კვლევის მონაწილეებს  დასამახსოვრებლად აძლევდნენ 20 სიტყვასა და 20 წინადადებას </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კვლევის მონაწილეებს სიტყვების დასამახსოვრებლად მათი მრავალჯერ გამეორების უფლება ჰქონდათ, წინადადებების დასამახსოვრებლად კი _ არა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> კვლევის მონაწილეებს როგორც სიტყვების, ისე წინადადებების ხუთ-ხუთჯერ გამეორების უფლება ჰქონდათ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 41 </question_number>
+<question_text> დავუშვათ, რომ: •  ყველა ადამიანი, რომელიც ამ ქალაქში ცხოვრობს, მხიარულია •  ყველა მხიარული ადამიანი ახალგაზრდაა ქვემოთ ჩამოთვლილთაგან რომელი გამომდინარეობს ამ დებულებებიდან აუცილებლად? </question_text>
+<answers>
+<answer>
+<answer_text> ყველა ახალგაზრდა ადამიანი მხიარულია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყველა მხიარული ადამიანი ამ ქალაქში ცხოვრობს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ყველა ახალგაზრდა ადამიანი ამ ქალაქში ცხოვრობს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ამ ქალაქში მცხოვრები ყველა ადამიანი ახალგაზრდაა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+<module>
+<module_name> წაკითხული ტექსტის გააზრება </module_name>
+<module_text> ბავშვის  ფსიქოლოგიის,  როგორც  მეცნიერების  ამოცანას  ადამიანის  ცხოვრების  იმ 
+პერიოდის შესწავლა წარმოადგენს, როდესაც არსებითად ის ჯერ კიდევ მოკლებულია ე.წ. 
+შეგნებული  ცხოვრების  უნარს  და  მისი  ქცევა  ჯერ  კიდევ  უშუალო  მოთხოვნილებებით 
+განისაზღვრება.  ეს  კი  საკმაო  ხანს  გრძელდება:  ჯერ  6-7  წლამდე,  ე.ი.  სკოლაში 
+შესვლამდე  და  შემდეგ  სკოლაში,  სადაც  ბავშვი  განვითარების  რთულ  საფეხურებს 
+გაივლის. 
+ 
+მოზრდილი  ადამიანი,  ბავშვისაგან  განსხვავებით,  როგორც  კი  იგრძნობს  რაიმე 
+მოთხოვნილებას,  იმწამსვე,  უშუალოდ  როდი  ცდილობს  მის  დაკმაყოფილებას.  მას  უკვე 
+საგანგებო  უნარი  აქვს  გამომუშავებული,  თავი  შეიკავოს  და  ამა  თუ  იმ  ქცევას  მას 
+შემდეგ მიმართოს, რაც გადაწყვეტს, თუ რა ქცევა იქნება მისთვის ხელსაყრელი. სწორედ 
+ეს არის შეგნებული ცხოვრების უნარი. 
+ 
+რა  მეთოდებს  მივმართავთ  იმისთვის,  რომ  ბავშვის  განვითარების  საფეხურები 
+შევისწავლოთ? ბავშვის ფსიქოლოგიის მთავარ მეთოდს დაკვირვება წარმოადგენს. მეცნიერება 
+ორგვარ  დაკვირვებას  განასხვავებს:  დაკვირვებას  ბუნებრივ  პირობებში  და  დაკვირვებას 
+ხელოვნურ პირობებში. როდესაც დაკვირვების საგნად რაიმე მოვლენაა დასახული, რომელიც 
+მკვლევარის  მონაწილეობის  გარეშე  ჩნდება  და  იცვლება,  მაშინ  დაკვირვების  პირველ 
+სახესთან  გვაქვს  საქმე.  მაგრამ  როდესაც  მკვლევარი  თვითონ  ქმნის  ან  ცვლის  პირობებს, 
+რომელშიც  ესა  თუ  ის  მოვლენა  ჩნდება  და  ვითარდება,  ჩვენს  წინაშე  ხელოვნური 
+დაკვირვება  _  ცდა,  იგივე  ექსპერიმენტი  დგას  (პირველს  მარტივად  დაკვირვებას  უწოდებენ, 
+ხოლო მეორეს _ ცდას ან ექსპერიმენტს). 
+ცნობილი მკვლევარი უილიამ შტერნი აღნიშნავდა: "ზოგიერთი მნიშვნელოვანი შედეგის 
+ 
+მიუხედავად, ძნელია ვიფიქროთ, რომ ექსპერიმენტი ადრეული ბავშვობის ხანის შესასწავლად 
+ოდესმე ისეთსავე მნიშვნელობას მოიპოვებს, როგორიც მას სასკოლო ასაკის ბავშვობისათვის 
+აქვს..."    ამას,  შტერნის  აზრით,  რამდენიმე  მიზეზი  განაპირობებს:  ადრეულ  ასაკში  ბავშვის 
+სწრაფი  დაღლილობა,  ინტერესის  სისუსტე;  ასევე,  ექსპერიმენტატორსა  და  მცირეწლოვან 
+ბავშვს შორის ურთიერთგაგებისა და მჭიდრო კონტაქტის დამყარების სიძნელე... შესაბამისად, 
+ადრეულ  ასაკში  ბავშვის  ქცევის  შესასწავლად  უპირატესობა  ენიჭება  ბუნებრივ  პირობებში 
+დაკვირვებას.  კერძოდ  კი,  წარსულში  და  დღესაც,  განსაკუთრებით  დიდი  მნიშვნელობა  ე.წ. 
+დღიურის  წარმოების  მეთოდს  აქვს.  ბავშვის  პირველი  მკვლევარნი,  მათ  შორის,  ვილჰელმ 
+პრაიერი _ ფუძემდებელი მეცნიერების ამ დარგისა, თავიანთ გამოკვლევებში განსაკუთრებით 
+დღიურის მასალას ეყრდნობიან. 
+ 
+ხშირად  ხდება,  რომ  დამკვირვებელი  იმას  კი  არ  ადევნებს  ინტერესით  თვალყურს, 
+რაც  ბავშვისათვის  ჩვეულებრივ,  დამახასიათებელ  მოვლენას  წარმოადგენს,  არამედ 
+პირიქით,  მეტი  ხალისით  სწორედ  არაჩვეულებრივსა  და  იშვიათ  შემთხვევებს  აღნიშნავს, 
+ე.ი.  იმას,  რაც  უფროსი  ასაკისათვის  უფროა  დამახასიათებელი.  რა  თქმა  უნდა,  ასეთი 
+მასალა  შეიძლება  საინტერესო  იყოს  თავისი  იშვიათობის  მხრივ  რომელიმე  კონკრეტული 
+ბავშვის ინდივიდუალურ თავისებურებათა შესასწავლად, მაგრამ იმის გასაგებად, თუ რას 
+წარმოადგენს  ბავშვობის  ხანის  მოცემული  პერიოდი  საზოგადოდ,  ის  მკვლევარს 
+დახმარებას თითქმის ვერ გაუწევს. 
+ 
+ამრიგად,  ბავშვის  ფსიქოლოგიის  მიზანს  ყველაზე  უფრო  ის  მასალა  შეესაბამება, 
+რომელიც  ამ  ასაკისათვის  დამახასიათებელი,  ჩვეულებრივი  გარემოების,  ე.ი.  ასაკობრივი 
+სიტუაციის  პირობებში  გვხვდება.  მაშასადამე,  ბავშვის  ფსიქოლოგიის,  როგორც  მეცნიე-
+რების,  მთავარ  მეთოდს  სწორედ  ასაკობრივი  სიტუაციის  პირობებში  დაკვირვება 
+წარმოადგენს. </module_text>
+<questions>
+<question>
+<question_number> 42 </question_number>
+<question_text> ჩამოთვლილთაგან  რომელი  ასახავს  მართებულად  ტექსტის  პირველი  და  მეორე აბზაცების ძირითად აზრს, დანიშნულებას? </question_text>
+<answers>
+<answer>
+<answer_text> პირველ აბზაცში აღნიშნულია სკოლამდელი ასაკის ბავშვის ქცევის თავისებურება, მეორეში კი დახასიათებულია სკოლის მოსწავლის ქცევა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> პირველ აბზაცში აღნიშნულია, რომ ბავშვი განვითარების რთულ საფეხურებს გაივლის, მეორეში კი აღწერილია ბავშვის ფსიქოლოგიის, როგორც მეცნიერების მთავარი მეთოდი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> პირველ აბზაცში აღნიშნულია ბავშვის ქცევის ძირითადი თავისებურება, მეორეში კი აღწერილია ბავშვის მიერ შეგნებული ცხოვრების უნარის თანდათანობით გამომუშავება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> პირველ აბზაცში აღნიშნულია ბავშვის ქცევის ძირითადი თავისებურება, მეორეში კი აღწერილია მოზრდილ ადამიანთა ერთ-ერთი არსებითი მახასიათებელი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 43 </question_number>
+<question_text> რა არის "შეგნებული ცხოვრების უნარი" (უპასუხეთ მეორე აბზაცის მიხედვით)? ესაა ადამიანის უნარი: </question_text>
+<answers>
+<answer>
+<answer_text> წინასწარ განჭვრიტოს ქცევის დადებითი და უარყოფითი შედეგები და განახორციელოს მისთვის ხელსაყრელი ქცევა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> იგრძნოს მოთხოვნილება და უშუალოდ, მაშინვე დაიკმაყოფილოს იგი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> თავი შეიკავოს მისთვის ხელსაყრელი ქცევის განხორციელებისგან </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> წინასწარ იგრძნოს, თუ რა დადებითი და უარყოფითი მხარეები აქვს ამა თუ იმ მოთხოვნილებას </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 44 </question_number>
+<question_text> რა  განსხვავებაა  ბუნებრივსა  და  ხელოვნურ  პირობებში  წარმოებულ  დაკვირვებათა შორის? </question_text>
+<answers>
+<answer>
+<answer_text> ბუნებრივ პირობებში დაკვირვება შედარებით ხანმოკლეა და მარტივად განსახორციელებელი, ხელოვნურ პირობებში დაკვირვება კი უფრო ხანგრძლივი და რთულია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბუნებრივ  პირობებში  დაკვირვების  მასალა  მკვლევარისთვის  გაცილებით  სანდო  და მნიშვნელოვანია, ვიდრე ხელოვნურ პირობებში წარმოებული დაკვირვების მასალა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბუნებრივ პირობებში წარმოებული დაკვირვების მასალა მეცნიერულ კვლევას ნაკლებად ეხმარება, ხელოვნურ პირობებში დაკვირვების მასალა კი გაცილებით სანდო და მნიშვნელოვანია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბუნებრივ პირობებში მკვლევარი პასიურად ადევნებს თვალყურს მოვლენებს, ხელოვნური დაკვირვების დროს კი თვითონ განაპირობებს შესასწავლი მოვლენის აღმოცენებას და განვითარებას </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 45 </question_number>
+<question_text> ჩამოთვლილთაგან  რომელი  ასახავს  მართებულად  და  ამომწურავად  შტერნის    მიერ ექსპერიმენტის როლის შესახებ  გამოთქმულ აზრს? </question_text>
+<answers>
+<answer>
+<answer_text> ექსპერიმენტი  ადრეული  ბავშვობის  ხანის  შესასწავლად  გამოუსადეგარი  მეთოდია, რადგან ამ მეთოდით კვლევას შედეგი არასოდეს მოჰყოლია </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> სკოლამდელი  ასაკის  ბავშვობის  შესასწავლად  ექსპერიმენტი  ძალიან  მნიშვნელოვანია, რადგან 6-7 წლის ბავშვთან ექსპერიმენტატორი კონტაქტს ადვილად ამყარებს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ადრეული ბავშვობის შესასწავლად ექსპერიმენტი ისეთივე მნიშვნელობის მქონეა, როგორიც ის სასკოლო ასაკის ბავშვობისთვისაა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ექსპერიმენტი ალბათ ყოველთვის გაცილებით მნიშვნელოვანი იქნება  სასკოლო ასაკის ბავშვობის საკვლევად, ვიდრე _ ადრეული ბავშვობის შესასწავლად </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 46 </question_number>
+<question_text> უმცროსი  ასაკის  ბავშვთან  ექსპერიმენტის  განხორციელებისას  მკვლევარს  სირთულეს არ  უქმნის: </question_text>
+<answers>
+<answer>
+<answer_text> მცირეწლოვანი ბავშვისათვის დამახასიათებელი ინტერესის სისუსტე </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მცირეწლოვანი ბავშვის ინდივიდუალური თავისებურებანი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ამ ასაკობრივ პერიოდში ბავშვის სწრაფი დაღლა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ამ ასაკობრივ პერიოდში ბავშვთან კონტაქტის დამყარების თავისებურება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 47 </question_number>
+<question_text> ტექსტის მიხედვით, დღიურის წარმოების მეთოდი არის: </question_text>
+<answers>
+<answer>
+<answer_text> ბუნებრივი დაკვირვების მეთოდის კონკრეტული სახე </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> ექსპერიმენტული კვლევის აუცილებელი კომპონენტი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ექსპერიმენტის შედეგების აღნუსხვის ერთ-ერთი საშუალება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბუნებრივი დაკვირვების დანერგვამდე არსებული მეთოდი </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 48 </question_number>
+<question_text> როგორი  მასალა  გაგვიწევს  დახმარებას  ბავშვის  ინდივიდუალურ  თავისებურებათა შესასწავლად? </question_text>
+<answers>
+<answer>
+<answer_text> მხოლოდ ის მასალა, რომელიც ასაკობრივი სიტუაციის პირობებში დაკვირვებით შეგროვდა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> მხოლოდ ისეთი მასალა, რომელსაც მკვლევარი ცდის, ექსპერიმენტის შედეგად მოიპოვებს </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> დაკვირვების მასალა, რომელიც ბავშვის ქცევის განსაკუთრებულ, იშვიათ შემთხვევებს აღწერს </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> დაკვირვების მასალა, რომელიც ადასტურებს, რომ ბავშვი უშუალოდ ცდილობს თავისი მოთხოვნილების დაკმაყოფილებას </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 49 </question_number>
+<question_text> რა არის ბავშვის ფსიქოლოგიის, როგორც მეცნიერების მთავარი ამოცანა? </question_text>
+<answers>
+<answer>
+<answer_text> ბავშვობის ხანისთვის დამახასიათებელი, ასაკობრივი სიტუაციის პირობებში გამოვლენილი ქცევის შესწავლა </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> იმ  ასაკობრივი  პერიოდის  კვლევა,  როცა  შეგნებული  ცხოვრების  უნარი  საკმაოდაა განვითარებული </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ადრეული  ბავშვობის  ხანის  შესასწავლად  ცდის,  ექსპერიმენტის  მეთოდის  შედეგიანად გამოყენება </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> ბავშვობის ხანის ამა თუ იმ პერიოდში გამოვლენილი განსაკუთრებული, იშვიათი ქცევის შემთხვევათა შესწავლა </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+<question>
+<question_number> 50 </question_number>
+<question_text> რას ისახავს ძირითად მიზნად ეს ტექსტი? </question_text>
+<answers>
+<answer>
+<answer_text> გაგვაცნოს ბავშვისა და მოზრდილი ადამიანის ქცევათა განმასხვავებელი ნიშნები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გაგვაცნოს ბავშვის ფსიქოლოგიის ცნობილ მკვლევართა ძირითადი მოსაზრებები </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+<answer>
+<answer_text> გაგვაცნოს ბავშვის ფსიქოლოგიის, როგორც მეცნიერების კვლევის საგანი და ძირითადი მეთოდი </answer_text>
+<answer_correct> 1 </answer_correct>
+</answer>
+<answer>
+<answer_text> გაგვაცნოს სამეცნიერო თვალსაზრისი ბუნებრივსა და ხელოვნურ პირობებში დაკვირვების მეთოდთა შესახებ </answer_text>
+<answer_correct> 0 </answer_correct>
+</answer>
+</answers>
+</question>
+</questions>
+</module>
+</modules>
+</test>

@@ -1,0 +1,110 @@
+﻿@using Nebula.Web.Utils
+@model Nebula.Domain.ViewModels.Admin.Geo.GeoFictionTextViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section scripts{
+    <script>
+        CKEDITOR.replace('ck-editor-fiction-text');
+      
+    </script>
+}
+<form method="post" action="@Url.Action("Save", "AdminGeoTextAnalisys")" id="cs-fictionText-form">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(a => a.Id) 
+        @Html.HiddenFor(a => a.ThemeType)
+         
+        <div class="form-group">
+            <label class="control-label col-md-2">სათაური</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>         
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">ტექსტი</label>
+            <div class="col-md-7">
+                <textarea name="Text" class="c-editor" id="ck-editor-fiction-text" style="max-width:280px;" required>@Html.Raw(Model.Text)</textarea>
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">პირველი მითითება</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PointOne, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PointOne, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">მეორე მითითება</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PointTwo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PointTwo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">მესამე მითითება</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PointThree, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PointThree, "", new { @class = "text-danger" })
+            </div>
+        </div>
+         
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+ <hr />
+<h3>არსებული კითხვები</h3>
+<table class="table" style="margin-top:30px;">
+    <tr> 
+        <th>
+            კითხვა
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Questions)
+    {
+    
+        <tr> 
+            <td>@Html.Raw(item.Text)</td> 
+            <td>
+
+                @Html.ActionLink("რედაქტირება", "ManageQuestion", new {categoryId = item.CategoryId, fictionId = item.GeoFictionTextId, questionId = item.Id}) |
+                <form action="@Url.Action("Delete", "AdminGeoQuestion")" method="post" style="display: inline;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id"/>
+                    <input type="hidden" name="returnUrl" value="@(Request.Url.AbsolutePath + "?categoryId="+ (int)Model.ThemeType)"/>
+                    <input type="submit" value="წაშლა" class="btn btn-link" onclick="return confirm('დარწმუნებული ხარ?')"/>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+@if (Model.Id != 0)
+{
+    <h3>კითხვის დამატება</h3>
+    @Html.Partial("Admin/GeoQuestion", Model.QuestionCreateViewModel, new ViewDataDictionary())
+}

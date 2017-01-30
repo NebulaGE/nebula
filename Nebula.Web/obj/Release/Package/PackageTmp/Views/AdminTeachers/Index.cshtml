@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.Teacher>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 style="margin-top: 40px; margin-bottom: 25px;float: left;display: inline;">სულ <b>@Model.Count()</b></h2>
+
+<div style="clear:both;">
+    @foreach (var teacher in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>მასწავლებელი: </h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>სახელი გვარი</th>
+                        <th>მობილური</th>
+                        <th>პირადი ნომერი</th>
+                        <th>ელ.ფოსტა</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @teacher.FirstName  @teacher.LastName
+                        </td>
+                        <td>
+                            @teacher.PhoneNumber
+                        </td>
+                        <td>
+                            @teacher.IdentificationNumber
+                        </td>
+                        <td>
+                            @teacher.Email
+
+                        </td>
+                    </tr>
+                </table>
+                <h3>მოსწავლეები: </h3>
+                @foreach (var user in teacher.Students.Select(m => m.Student))
+                {
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th></th>
+                            <th>სახელი გვარი</th>
+                            <th>username</th>
+                            <th>მობილური</th>
+                            <th>პირადი ნომერი</th>
+                            <th>ელ.ფოსტა</th>
+
+
+                            <th>facebook link</th>
+                            <th>რეგისტრაციის თარიღი</th>
+                            <th>ბოლოს აქტიური</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if (!string.IsNullOrEmpty(user.FacebookId))
+                                {
+                                    <a href="https://www.facebook.com/@user.FacebookId" target="_blank">
+                                        <img src="https://graph.facebook.com/@user.FacebookId/picture?width=90&amp;height=90" />
+                                    </a>
+                                }
+                            </td>
+
+                            <td>@user.FirstName  @user.LastName</td>
+                            <td>@user.ExternalUserName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.IdentificationNumber</td>
+                            <td>
+                                @if (!user.Email.StartsWith("defaultFb"))
+                                {
+                                    <span>@user.Email</span>
+                                }
+                            </td>
+
+                            <td>
+                                @if (!string.IsNullOrEmpty(user.FacebookId))
+                                {
+                                    <a href="https://www.facebook.com/@user.FacebookId" target="_blank">
+                                        https://www.facebook.com/@user.FacebookId
+                                    </a>
+                                }
+
+                            </td>
+                            <td>@user.RegisterDate</td>
+                            <td>@user.LastLogin</td>
+
+
+
+
+                        </tr>
+                    </table>
+                }
+            </div>
+
+        </div>
+    }
+</div>

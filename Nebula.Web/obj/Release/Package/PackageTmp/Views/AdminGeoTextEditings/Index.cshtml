@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Nebula.Domain.Entities.GeoTextEditing>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style> 
+.three-dot{
+    display:inline-block;
+    width:180px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+} 
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncorrectText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorrectText)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <span class="three-dot">@Html.Raw(item.IncorrectText)</span>
+        </td>
+        <td>
+            <span class="three-dot">@Html.Raw(item.CorrectText)</span>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

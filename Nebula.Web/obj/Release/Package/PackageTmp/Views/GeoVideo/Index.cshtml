@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Styles{
+    <link href="~/Content/assetsNew/css/secondpage.css" rel="stylesheet" />
+    <link href="~/Content/assetsNew/css/nika-style.css" rel="stylesheet" />
+}
+
+<body>
+    <div class="main-div">
+        <div class="black-div">
+            <div class="arrow-back"></div>
+            <div class="text-back">უკან</div>
+            <div class="text-course-name">გრამატიკა</div>
+        </div>
+
+        <div class="course-div">
+            <!-- ko foreach : navTags -->
+            <div class="video-blocks">
+                <div class="text-video-number" data-bind="text : subTags.length"></div>
+                <div class="cont-circle">
+                    <div class="c100 p78 small">
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-right"></div>
+                <div class="text-for-blocks" data-bind="text : name"></div>
+            </div>
+            <!-- ko foreach : subTags -->
+            @if (ViewBag.CatId == 1)
+            {
+                <div class="video-pre-blocks" data-bind="click : $root.getSubTagDataById.bind($data, { subTagId : id })">
+                    <div class="text-pre-video-length">2:32</div>
+                    <div class="text-for-pre-blocks" data-bind="text : name"></div>
+                    <div class="pre-circle-went">
+                        <div class="numbers-right-went" data-bind="text : $index() + 1"></div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="video-pre-blocks" data-bind="click : $root.getAuthorWorkDataById.bind($data, { subTagId : id })">
+                    <div class="text-pre-video-length">2:32</div>
+                    <div class="text-for-pre-blocks" data-bind="text : name"></div>
+                    <div class="pre-circle-went">
+                        <div class="numbers-right-went" data-bind="text : $index() + 1"></div>
+                    </div>
+                </div>
+            }
+            <!-- /ko -->
+            <!-- /ko -->
+            @*<div class="video-pre-blocks">
+                    <div class="text-pre-video-length">2:32</div>
+                    <div class="text-for-pre-blocks">უდიდესი საერთო გამყოფი</div>
+                    <div class="pre-circle-next"><div class="numbers-right-next">02</div></div>
+                </div>
+                <div class="video-pre-blocks">
+                    <div class="text-pre-video-length">2:32</div>
+                    <div class="text-for-pre-blocks">ნატურალური რიცხვები</div>
+                    <div class="pre-circle-next"><div class="numbers-right-next">03</div></div>
+                </div>
+                <div class="video-pre-blocks">
+                    <div class="text-pre-video-length">2:32</div>
+                    <div class="text-for-pre-blocks">ნატურალური რიცხვები</div>
+                    <div class="pre-circle-next"><div class="numbers-right-next">04</div></div>
+                </div>
+                <div class="video-blocks">
+                    <div class="text-video-number">8</div>
+                    <div class="circle-div"><div class="lock-icon"></div></div>
+                    <div class="text-for-blocks">ნატურალური რიცხვები</div>
+                </div>*@
+        </div>
+
+        <div class="main-background">
+
+            <div class="number-div">
+                <div class="number-div-long">
+                    <div class="number-divs">
+                        @if (ViewBag.CatId == 1)
+                        {
+
+                            <div data-bind="css : { 'active-number' :  isVideoSelected(),  'passive-number'  : !isVideoSelected() }">
+                                <div class="numbers" data-bind="click : selectVideo">1</div>
+                            </div>
+                            <div data-bind="css : { 'passive-number' :  isVideoSelected(), 'active-number' : !isVideoSelected() }">
+                                <div class="numbers" data-bind="click : selectPostQuestions">2</div>
+                            </div>
+
+                        }
+                        else
+                        {
+                        <!-- ko foreach : workParts -->
+                            <div data-bind="css : { 'active-number' :  $root.isPreSelected(),  'passive-number'  : !$root.isPreSelected() }">
+                                <div class="numbers" data-bind="click : $root.selectPre, text : ($index() + 1 + $index() + $index()) "></div>
+                            </div>
+                            <div data-bind="css : { 'active-number' :  $root.isVideoSelected(),  'passive-number'  : !$root.isVideoSelected() }">
+                                <div class="numbers" data-bind="click : $root.selectVideo, text : ($index() + 2 + $index() + $index())"></div>
+                            </div>
+                            <div data-bind="css : { 'active-number' :  $root.isPostSelected(),  'passive-number'  : !$root.isPostSelected() }">
+                                <div class="numbers" data-bind="click : $root.selectPost, text : ($index() + 3 + $index() + $index()) "></div>
+                            </div>
+                         <!-- /ko -->
+                        }
+                    </div> 
+                </div>
+                <div class="next-videos">
+                    <div class="arrow"></div>
+                </div>
+            </div>
+
+            @if (ViewBag.CatId == 1)
+            {
+                <div class="cont-video-numbers" data-bind="style : { display : isVideoSelected() ? 'block' : 'none' }">
+                    <div class="video-player-div">
+                        <div data-bind="html : video() &&  video().link">
+
+                        </div>
+                        @*<video class="video" controls="">
+                                <source src="assets/video/Metallica.mp4">
+                            </video>*@
+                    </div>
+                    <div class="text-under-video" data-bind="text : video() && video().name">
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- ko foreach : workParts -->
+                <div class="cont-video-numbers" data-bind="style : { display : $root.isVideoSelected() ? 'block' : 'none' }">
+                    <div class="video-player-div">
+                        <div data-bind="html : $data.video.link">
+
+                        </div>
+                        @*<video class="video" controls="">
+                                <source src="assets/video/Metallica.mp4">
+                            </video>*@
+                    </div>
+                    <div class="text-under-video" data-bind="text : $data.video.name">
+                    </div>
+                </div>
+                 <!-- /ko -->
+            }
+
+            @if (ViewBag.CatId == 1)
+            {
+                <div class="question-main-div" data-bind="style : { display : isVideoSelected() ? 'none' : 'block' }, with : exercisePostQuestionsViewModel">
+                    @Html.Partial("_ExerciseCommonPartial")
+                </div>
+            }
+            else
+            {
+                <!-- ko foreach : workParts -->
+                <div class="question-main-div" data-bind="style : { display : $root.isPreSelected() ? 'block' : 'none' },
+      with : $data.preQuestionModel">
+                    @Html.Partial("_ExerciseCommonPartial")
+                </div>
+                <div class="question-main-div" data-bind="style : { display : $root.isPostSelected() ? 'block' : 'none' },
+                    with : $data.postQuestionModel">
+                    @Html.Partial("_ExerciseCommonPartial")
+                </div>
+                <!-- /ko -->
+            }
+        </div>
+
+        <div class="save-link-div" data-bind="style : { display : isVideoSelected() ? 'block' : 'none' }">
+            <div class="nebula-link">
+                <div class="link-icon"></div>
+                <a class="text-link" href="facebook.com">facebook.com/davit.ghlonti/profile</a>
+            </div>
+            <button id="save">
+                <div class="save-icon"></div>
+                <div id="text-save">შენახვა</div>
+            </button>
+            <button id="mistake">
+                <div class="mistake-icon"></div>
+                <div id="text-mistake">შეცდომაა?</div>
+            </button>
+        </div>
+
+        <div class="progress-main-div" data-bind="style : { display : isVideoSelected() ? 'none' : 'block' }">
+            <div class="progress-div-child">
+                <div class="progress-numbers">19/40</div>
+                <progress value="78" max="100" class="progress"></progress>
+                <div class="previous-button">
+                    <div class="text-previuos-next">წინა</div>
+                </div>
+                <div class="next-button">
+                    <div class="text-previuos-next">შემდეგი</div>
+                </div>
+                <div class="skip">გამოტოვება</div>
+                <div class="skip-arrow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fb-main-div">
+    </div>
+
+    @Html.Partial("_FooterPartial",2)
+
+    <input type="hidden" id="hCatId" value="@ViewBag.CatId" />
+    @section scripts{
+        <script src="~/Js/common/exercise-common.js"></script>
+        <script src="~/Js/geo/video.js"></script>
+    }
+
+</body>

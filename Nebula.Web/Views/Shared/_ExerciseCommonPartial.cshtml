@@ -1,0 +1,96 @@
+﻿@model int
+
+
+
+@*<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>*@
+
+
+@* needs to bind from parent *@
+<div class="question-div">
+    <div class="correct-answers">
+        @*<div class="iscorrect-div">
+                <div data-bind="foreach : progressBar">
+                    <div style="cursor:pointer;" data-bind="css : className,
+                          click : $parent.getQuestionByIndex.bind($data, {index : $index()})"></div>
+                </div>
+            </div>*@
+        @if (Model != 3)
+        {
+            <div class="exercise-question"> @Html.Partial("_ExerciseMoveNavigation")</div>
+        }
+        else
+        {
+            <div data-bind="visible : activeQuestion() && activeQuestion().type() == 1" class="exercise-question">
+                @Html.Partial("_ExerciseMoveNavigation")
+            </div>
+
+            <div data-bind="visible : activeQuestion() && activeQuestion().type() == 2">
+                <div class="progress-div-child">
+                    @*<div class="progress-numbers1">19/40</div>
+                        <progress value="78" max="100" class="progress"></progress>*@
+                    <div class="previous-button" data-bind="click : letTaskPrev() ?  getTaskPrevQuestion : null,
+         style : {'cursor' : letTaskPrev() ? 'pointer' : 'not-allowed' }">
+                        <div class="text-previuos-next">წინა</div>
+                    </div>
+                    <div class="next-button" data-bind="click : letTaskNext() ?  getTaskNextQuestion : null,
+          style : {'cursor' : letTaskNext() ? 'pointer' : 'not-allowed', 'display' : !finishedTask() ? 'inline-block' : 'none'}">
+                        <div class="text-previuos-next">შემდეგი</div>
+                    </div>
+                    <div class="next-button" style="cursor: pointer;"
+                         data-bind="click : showTaskFunc">
+                        <div class="text-previuos-next">პირობის ნახვა</div>
+                    </div>
+
+                    <div class="next-button" data-bind="click : $root.getNewSetOffQuestions, style : {'display' : finishedTask() ? 'inline-block' : 'none'}">
+                        <div class="text-previuos-next">ახალი პირობა</div>
+                    </div>
+                    @*<div class="skip" data-bind="click :  skipQuestion , visible : hasNextQuestion() && !letActiveQuestion() ">გამოტოვება</div>
+                        <div class="skip-arrow"></div>*@
+                </div>
+            </div>
+        }
+
+        @if (Model != 1)
+        {
+            <div class="bla-1" style="cursor:not-allowed !important;" data-bind="style : { display :!letNext() ? 'block' : 'none' }">
+                <div class="play-video-buttons" style="cursor:not-allowed;"></div>
+            </div>
+            <a class="bla-1" id="ExpVideo" data-bind="style : { display :letNext() ? 'block' : 'none' }">
+                <div class="play-video-buttons" data-bind="css : { active : letNext()}"></div>
+            </a>
+        }
+        else
+        {
+            <div class="number-correct-answers">
+                <div class="wrong-answers"></div>
+                <div class="number-true-wrong-answers" data-bind="text : incorrectAnswersCount"></div>
+            </div>
+                <div class="number-correct-answers">
+                    <div class="true-answers"></div>
+                    <div class="number-true-wrong-answers" data-bind="text : correctAnswersCount"></div>
+                </div>
+        }
+    </div>
+    <div class="text-question-div">
+        <div class="text-question" data-bind="html : activeQuestion() && activeQuestion().text ">
+        </div>
+    </div>
+</div>
+<!-- ko with : activeQuestion -->
+<div class="answers-div" data-bind="foreach : answers">
+    <div class="answer-div" data-bind="click : $parent.hasAnswered() ? null  : $parents[1].setAnswer.bind($data, {questionId : $parent.id, answerId : id})">
+        <div data-bind="click : $parent.hasAnswered() ? null  : $parents[1].setAnswer.bind($data, {questionId : $parent.id, answerId : id}),
+                                    style : { 'cursor' : $parent.hasAnswered() ? 'not-allowed' : 'pointer' }, css : className">
+
+            <div data-bind="text : utils.getLetterByIndex($index()) , css : answerClassName"></div>
+        </div>
+
+        <div class="text-answer" data-bind="html: text">
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<div class="progress-div">
+</div>
+
+

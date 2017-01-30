@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nebulaModelStoreContainer" CdmEntityContainer="nebulaEntities">
+    <EntitySetMapping Name="TaskWithMultipleQuestions">
+      <EntityTypeMapping TypeName="nebulaModel.TaskWithMultipleQuestion">
+        <MappingFragment StoreEntitySet="TaskWithMultipleQuestions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TaskText" ColumnName="TaskText" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="IsExamPiroba" ColumnName="IsExamPiroba" />
+          <ScalarProperty Name="IsExercisePiroba" ColumnName="IsExercisePiroba" />
+          <ScalarProperty Name="QuestionInfoId" ColumnName="QuestionInfoId" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="IsVideoPiroba" ColumnName="IsVideoPiroba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CSQuestions">
+      <EntityTypeMapping TypeName="nebulaModel.CSQuestion">
+        <MappingFragment StoreEntitySet="CSQuestions">
+          <ScalarProperty Name="IsVideoQuestion" ColumnName="IsVideoQuestion" />
+          <ScalarProperty Name="QuestionInfoId" ColumnName="QuestionInfoId" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="IsWordAnalog" ColumnName="IsWordAnalog" />
+          <ScalarProperty Name="AnswersCaption" ColumnName="AnswersCaption" />
+          <ScalarProperty Name="IsExerciseQuestion" ColumnName="IsExerciseQuestion" />
+          <ScalarProperty Name="IsExamQuestion" ColumnName="IsExamQuestion" />
+          <ScalarProperty Name="VideoPartId" ColumnName="VideoPartId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="TaskWithMultipleQuestionId" ColumnName="TaskWithMultipleQuestionId" />
+          <ScalarProperty Name="ExamTagId" ColumnName="ExamTagId" />
+          <ScalarProperty Name="CorrectAnswerId" ColumnName="CorrectAnswerId" />
+          <ScalarProperty Name="QuestionString" ColumnName="QuestionString" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

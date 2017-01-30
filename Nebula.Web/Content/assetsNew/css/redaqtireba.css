@@ -1,0 +1,297 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "bpg_excelsior_dejavu_2010";
+	src: url("bpg_excelsior_dejavu_2010.eot");
+	src: url("bpg_excelsior_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("bpg_excelsior_dejavu_2010.woff") format("woff"), url("bpg_excelsior_dejavu_2010.ttf") format("truetype"), url("bpg_excelsior_dejavu_2010.svg#bpg_excelsior_dejavu_2010") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+	font-family: "bpg_excelsior_caps_dejavu_2010";
+	src: url("./bpg_excelsior_caps_dejavu_2010.eot");
+	src: url("./bpg_excelsior_caps_dejavu_2010.eot?#iefix") format("embedded-opentype"), url("./bpg_excelsior_caps_dejavu_2010.woff") format("woff"), url("./bpg_excelsior_caps_dejavu_2010.ttf") format("truetype"), url("./bpg_excelsior_caps_dejavu_2010.svg#bpg_excelsior_caps_dejavu_2010") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+	font-family: 'Lari';
+	src: url('lari/Lari.eot');
+	src: url('lari/Lari.eot?#iefix') format('embedded-opentype'),
+	url('lari/Lari.woff2') format('woff2'),
+	url('lari/Lari.woff') format('woff'),
+	url('lari/Lari.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	background-color: #f7f7f7;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0
+}
+
+.cont {
+	width: 80%;
+	margin: 2.5rem auto;
+	font-size: 1rem;
+}
+
+.cont.cont-parent {
+	font-size: 0;
+}
+
+.cont-half {
+	display: inline-block;
+	width: 49%;
+	margin-left: 2%;
+	font-size: 1rem;
+}
+
+.cont-half:first-child {
+	margin-left: 0;
+}
+
+.cont:not(.cont-parent),
+.cont-half:not(.cont-parent) {
+	background: #ffffff;
+	padding: 2rem 1.75rem;
+	vertical-align: top;
+
+	-webkit-box-shadow: 0 0 35px rgba(0, 0, 0, .07);
+	-moz-box-shadow: 0 0 35px rgba(0, 0, 0, .07);
+	box-shadow: 0 0 35px rgba(0, 0, 0, .07);
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	text-align: center;
+}
+
+.profile_edit .profile_edit_header {
+	margin-top: -2.5rem;
+	height: 5rem;
+
+	font-size: .875rem;
+	color: #525252;
+
+	position: relative;
+}
+
+.profile_edit .profile_edit_header .back_link {
+	color: #ababab;
+	text-decoration: none;
+
+	position: absolute;
+	left: 1.75rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+
+	font-family: "bpg_excelsior_dejavu_2010", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.arrow-left {
+	display: inline-block;
+	background: transparent url(../img/redaqtireba-arrow-left.png) no-repeat center center;
+	width: 8px;
+	height: 15px;
+	margin-right: 1rem;
+	vertical-align: middle;
+}
+
+.profile_edit .profile_edit_header h2 {
+	font-size: .875rem;
+	font-family: "bpg_excelsior_caps_dejavu_2010", sans-serif;
+	text-align: center;
+	color: #525252;
+
+	margin: 0;
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.title {
+	text-align: center;
+	font-size: 1.5rem;
+	font-family: "bpg_excelsior_caps_dejavu_2010", sans-serif;
+	color: #4e4e4e;
+	margin: 3.9375rem 1rem 3.125rem;
+}
+
+.inputs input {
+	border: 0;
+	background: #f7f7f7;
+	display: block;
+	font-size: .875rem;
+	font-family: "bpg_excelsior_dejavu_2010", sans-serif;
+
+	padding: 1.125rem 1.375rem;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	color: #ababab;
+}
+
+.inputs input,
+.inputs label.input,
+.inputs button {
+	width: 22.5rem;
+	height: 3.125rem;
+	display: block;
+	margin: 1rem auto;
+	border: 0;
+
+	/* Demo */
+	outline: 0;
+}
+
+.inputs label.input > input {
+	margin: 0 auto;
+}
+
+.inputs label.phone_number {
+	position: relative;
+}
+
+.inputs label.phone_number input {
+	padding-left: 6.8125rem;
+	/* Not Done! */
+}
+
+.inputs label.phone_number:before {
+	content: '995';
+	display: inline-block;
+	font-family: "bpg_excelsior_dejavu_2010", sans-serif;
+	font-size: .875rem;
+	height: 1.375rem;
+	line-height: 1.375rem;
+	color: #ababab;
+	padding: 0 .75rem 0 2rem;
+	border-right: 1px solid #dfdfdf;
+
+	position: absolute;
+	top: 50%;
+	left: 1.375rem;
+
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+
+	cursor: text;
+
+	background: transparent url(../img/number-icon-geo.jpg) no-repeat left center;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.inputs button {
+	background-color: #ffffff;
+	color: #ababab;
+	font-family: "bpg_excelsior_caps_dejavu_2010", sans-serif;
+	font-size: .875rem;
+	text-align: center;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-box-shadow: 0 0 18px rgba(0, 0, 0, .08);
+	-moz-box-shadow: 0 0 18px rgba(0, 0, 0, .08);
+	box-shadow: 0 0 18px rgba(0, 0, 0, .08);
+
+	cursor: pointer;
+}
+
+.inputs .button-with-star {
+	background: url(../img/button-star.png) no-repeat .8125rem center;
+}
+
+.profile_edit .cont .cont-half {
+	padding-bottom: 6.25rem;
+	height: 700px;
+}
+
+@media screen and (max-width: 1100px) {
+	.cont-half {
+		width: 100%;
+		margin: 0;
+	}
+
+	.cont-half:not(:first-child) {
+		margin-top: 2.5rem;
+	}
+
+	.profile_edit .cont .cont-half {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.cont {
+		width: 90%;
+	}
+
+	@media (max-width: 500px) {
+		.inputs input,
+		.inputs label.input,
+		.inputs button {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.cont {
+		width: 100%;
+
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		border-radius: 0 !important;
+	}
+}

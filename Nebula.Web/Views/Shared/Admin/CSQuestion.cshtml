@@ -1,0 +1,187 @@
+﻿@using Nebula.Web.Utils
+@model Nebula.Domain.ViewModels.Admin.CS.CSQuestionViewModel
+
+<form method="post" action="@Url.Action(Model.Action, Model.Controller)" id="cs-question-form">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<h1>@Model.Id</h1>*@
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ConditionId)
+        @Html.HiddenFor(model => model.VideoId)
+        @Html.HiddenFor(model => model.CategoryId)
+        @Html.HiddenFor(model => model.VideoPartId)
+
+        @if (Model.ConditionId != null)
+        {
+            @Html.HiddenFor(model => model.ModuleId)
+            @Html.HiddenFor(model => model.InfoId)
+            @Html.HiddenFor(model => model.Type)
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვა</label>
+            <div class="col-md-7">
+
+                @if (Model.CategoryId == 2 && Model.ConditionId == null)
+                {
+                    <button class="btn btn-default" type="button" id="raodenobrivi-shedareba" style="margin-bottom: 10px;">რაოდენობრივი შედარება</button>
+                }
+                else if (Model.CategoryId == 1 && Model.ConditionId == null)
+                {
+                    <button class="btn btn-default" type="button" id="analog-with-word" style="margin-bottom: 10px;">ანალოგები სიტყვით</button>
+                }
+                <textarea name="Text" class="c-editor" id="ck-editor" style="max-width: 280px;" required>@Html.Raw(Model.Text)</textarea>
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2">
+            </label>
+            @if (Model.CategoryId == 2 && Model.ConditionId == null)
+            {
+                <button data-bind="click: generateRaodenobriviAnswers" class="btn btn-default" type="button">რაოდენობრივი პასუხების გენერაცია</button>
+                <button data-bind="click : generateMonacemtaAnswers" class="btn btn-default" type="button">მონაცემთა საკმარისობის პასუხების გენერაცია</button>
+            }
+
+        </div>
+
+        <div class="answers" data-bind="foreach : answers">
+            <div class="form-group">
+                <label class="control-label col-md-2" data-bind="text : 'პასუხი ' + $root.numHelper($index())">  </label>
+                <div class="col-md-7">
+
+                    <input type="hidden" data-bind="attr : {value : Id, name :'Answers[' + $index()+'].Id'}" />
+
+                    <span class="X" data-bind="click : $root.removeAnswer.bind($data, {index : $index()})">X</span>
+                    <textarea data-bind="attr : {name :'Answers[' + $index()+'].Text',
+                                  id : 'Answers[' + $index()+'].Text' }, html : Text" style="max-width: 280px;" required></textarea>
+                    <span style="">
+                        <label style="margin-top: 5px;">სწორია?</label>
+
+                        <input type="radio"
+                               class="answer-radio"
+                               data-bind="attr : {name :'Answers[' + $index()+'].IsCorrect', value : true}, css : { 'ans-checked'  : IsCorrect}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="add-answer" data-bind="click : addAnswer" type="button" value="პასუხის დამატება" class="btn btn-green" />
+            </div>
+        </div>
+
+        @if (Model.ConditionId == null)
+            {
+            <div class="form-group">
+                <label class="control-label col-md-2">კითხვის ტიპი : </label>
+                <div style="margin-left: 12px; margin-top: 5px;">
+
+
+                    <span style="margin: 5px;">
+
+                        <input type="radio" name="Type" value="@Nebula.Domain.Entities.CSQuestionType.ExamQuestion" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CSQuestionType.ExamQuestion ? "checked" : "") />
+
+                        საგამოცდო
+                    </span>
+
+                    <span style="margin: 5px;">
+
+                        <input type="radio" name="Type" value="@Nebula.Domain.Entities.CSQuestionType.ExerciseQuestion" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CSQuestionType.ExerciseQuestion ? "checked" : "") />
+
+                        სავარჯიშო
+                    </span>
+                    <span style="margin: 5px;">
+
+                        <input type="radio" name="Type" value="@Nebula.Domain.Entities.CSQuestionType.VideQuestion" class="question-checkbox" required @(Model.Type == Nebula.Domain.Entities.CSQuestionType.VideQuestion ? "checked" : "") />
+
+                        ვიდეო
+                    </span>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                    <label class="control-label col-md-2">სტუმრის კითხვა</label>
+                    @Html.CheckBoxFor(model => model.IsFreeQuestion)
+                    @*<input type="checkbox" value="@Model.IsFreeQuestion" name="IsFreeQuestion" class="question-checkbox" @(Model.IsFreeQuestion ? "checked" : "")/>*@
+            </div>
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">ბმული</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(a => a.VideoExplanationLink)
+            </div>
+        </div>
+
+        @if (Model.ConditionId == null)
+            {
+            <div class="form-group">
+                <label class="control-label col-md-2">აირჩიე მოდული : </label>
+                <div style="margin-left:12px; margin-top:5px;">
+                    @foreach (var module in Model.Modules)
+                    {
+                        <span style="margin:5px;">
+                            <input id="ModuleId" name="ModuleId" type="radio" value="@module.Id"
+                                   class="question-checkbox" @(Model.ModuleId == module.Id ? "checked" : "") />@module.Name
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">აირჩიე თეგი: </label>
+            <div style="margin-left: 12px; margin-top: 5px;">
+                @for (int i = 0; i < Model.Tags.Count; i++)
+                {
+                    <span style="margin-left: 5px;"> 
+                        <input type="checkbox" value="@Model.Tags[i].Id" name="TagIds[@i]"
+                               class="question-checkbox" @(Model.TagIds.Any(m => m == Model.Tags[i].Id) ? "checked" : "") />
+                        <input type="hidden" name="TagIds[@i]" value="-1" /><label for="@Model.Tags[i].Name">@Model.Tags[i].Name</label>
+                    </span>
+                }
+            </div>
+        </div>
+        @if (Model.ConditionId == null)
+            {
+            <div class="form-group">
+                <label class="control-label col-md-2">აირჩიე წელი ვარიანტი : </label>
+                <div class="col-md-10">
+                    <select name="InfoId" class="form-control">
+                        @foreach (var info in Model.Infos)
+                        {
+                            <option @(info.Id == Model.InfoId ? "selected" : "" ) value="@info.Id">@info.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">კითხვის რიგითი ნომერი : </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QueueNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="შენახვა" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div style="display:none;" id="json-data"
+     data-answers-json="@Model.Answers.ToJson()">
+</div>
+
+

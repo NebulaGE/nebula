@@ -1,0 +1,62 @@
+﻿
+@model IEnumerable<Nebula.Domain.Entities.CSQuestion>
+
+@{
+    Layout = null;
+    int i = 1;
+    byte l = 0;
+   
+}
+@functions{
+    string numLetterHelper(byte k)
+    {
+        switch (k)
+        {
+            case 0:
+                return "ა)";
+
+
+            case 1:
+                return "ბ)";
+
+
+            case 2:
+                return "გ)";
+
+            case 3:
+                return "დ)";
+
+            case 4:
+                return "ე)";
+
+        }
+        return "";
+    }
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    @foreach (var question in Model)
+    {
+        <div id="question-nav " class="well">
+
+            <div class="quizAsk">
+
+                <div class="active-question"><span style="float:left; margin-right:10px;">@i</span>  @Html.Raw(question.QuestionText)</div>
+            </div>
+
+            <div style="margin-top:20px;" class="answers-cont">
+                @foreach (var answer in question.Answers)
+                {
+                    <p style="cursor:pointer;" class="ms-point">
+                      <span style="float:left; margin-right:10px;">@{string ltr = numLetterHelper(l);<text>@ltr</text>}</span>  <span class="ans-span">@Html.Raw(answer.AnswerString)</span>
+                      <span>@answer.IsCorrect</span>
+                    </p>
+                    { l++; }
+                }
+            </div> 
+        </div>
+        { i++; l = 0; }
+    }
+
+</div>
